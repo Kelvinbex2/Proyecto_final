@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c54nqhq0tijc2"]
+[gd_scene load_steps=4 format=3 uid="uid://c54nqhq0tijc2"]
 
 [ext_resource type="Script" uid="uid://dlsx2ep1lpxv0" path="res://scene/ui/script_ui/option_menu.gd" id="1_4dpvv"]
+[ext_resource type="PackedScene" uid="uid://bobpnselo58tr" path="res://scene/ui/option_menu/setting_con.tscn" id="2_svr8g"]
 
 [sub_resource type="SystemFont" id="SystemFont_acprh"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="option_menu" type="Control"]
 layout_mode = 3
@@ -40,7 +42,11 @@ text = "options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="setting_con" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_svr8g")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="btnExit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 8
 text = "Exit"

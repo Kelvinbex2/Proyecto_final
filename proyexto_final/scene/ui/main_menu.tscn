@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwh3033ckl8vu" path="res://Assets/Background ui/3accf5e5-66bc-41f1-836b-129ba7e7d74a.png" id="1_s6uko"]
 [ext_resource type="Script" uid="uid://tytb7ldqf4rw" path="res://scene/ui/script_ui/main_menu.gd" id="1_vww0c"]
-[ext_resource type="PackedScene" uid="uid://c54nqhq0tijc2" path="res://scene/ui/option_menu.tscn" id="3_k75cp"]
+[ext_resource type="PackedScene" uid="uid://c54nqhq0tijc2" path="res://scene/ui/option_menu/option_menu.tscn" id="3_k75cp"]
 
 [sub_resource type="SystemFont" id="SystemFont_s6uko"]
 font_names = PackedStringArray("Impact")
