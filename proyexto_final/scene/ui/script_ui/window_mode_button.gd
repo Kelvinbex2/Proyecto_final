@@ -1,6 +1,6 @@
 extends Control
 
-const WINDOW_MODE_ARRAY : Array[String] = [
+const WINDOW_MODE_SELECT : Array[String] = [
 	"Full-Screen",
 	"Window Mode",
 	"Borderless Window",
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func add_window_mode_item()-> void:
-	for mode in WINDOW_MODE_ARRAY:
+	for mode in WINDOW_MODE_SELECT:
 		option_button.add_item(mode)
 		
 		

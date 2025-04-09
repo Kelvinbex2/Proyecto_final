@@ -47,6 +47,8 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="btnExit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Exit"

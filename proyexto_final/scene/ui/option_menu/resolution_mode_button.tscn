@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cej3al7s4tact"]
+[gd_scene load_steps=4 format=3 uid="uid://cej3al7s4tact"]
 
 [ext_resource type="PackedScene" uid="uid://3t1oiw5ghmpx" path="res://scene/ui/option_menu/option_display.tscn" id="1_8m5au"]
+[ext_resource type="Script" uid="uid://63s0of8rj3va" path="res://scene/ui/script_ui/resolution_mode_button.gd" id="2_f5use"]
+
+[sub_resource type="GDScript" id="GDScript_8m5au"]
+script/source = "extends Label
+"
 
 [node name="resolution_mode_button" instance=ExtResource("1_8m5au")]
+script = ExtResource("2_f5use")
+
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 180
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Resolution"
+script = SubResource("GDScript_8m5au")
