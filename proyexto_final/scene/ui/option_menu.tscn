@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c54nqhq0tijc2"]
+
+[ext_resource type="Script" uid="uid://dlsx2ep1lpxv0" path="res://scene/ui/script_ui/option_menu.gd" id="1_4dpvv"]
+
+[sub_resource type="SystemFont" id="SystemFont_acprh"]
+font_names = PackedStringArray("Impact")
+
+[node name="option_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dpvv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="lblTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_acprh")
+theme_override_font_sizes/font_size = 32
+text = "options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnExit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Exit"

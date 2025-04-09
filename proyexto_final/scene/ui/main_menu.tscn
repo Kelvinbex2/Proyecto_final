@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn1c6r5p67ba6"]
+
+[ext_resource type="Texture2D" uid="uid://dwh3033ckl8vu" path="res://Assets/Background ui/3accf5e5-66bc-41f1-836b-129ba7e7d74a.png" id="1_s6uko"]
+[ext_resource type="Script" uid="uid://tytb7ldqf4rw" path="res://scene/ui/script_ui/main_menu.gd" id="1_vww0c"]
+[ext_resource type="PackedScene" uid="uid://c54nqhq0tijc2" path="res://scene/ui/option_menu.tscn" id="3_k75cp"]
+
+[sub_resource type="SystemFont" id="SystemFont_s6uko"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_vww0c"]
+font_names = PackedStringArray("Impact")
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vww0c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s6uko")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="vboxTitle" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="seperator" type="Control" parent="MarginContainer/vboxTitle"]
+layout_mode = 2
+
+[node name="lblTitle" type="Label" parent="MarginContainer/vboxTitle"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_s6uko")
+theme_override_font_sizes/font_size = 70
+text = "Game title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hboxButton" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/hboxButton"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="btnStart" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vww0c")
+theme_override_font_sizes/font_size = 30
+text = "Start Game
+"
+
+[node name="btnOpcion" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vww0c")
+theme_override_font_sizes/font_size = 30
+text = "Options
+"
+
+[node name="btnExit" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_vww0c")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="option_menu" parent="." instance=ExtResource("3_k75cp")]
+visible = false
+layout_mode = 1
