@@ -6,5 +6,8 @@
 [node name="window_mode_button" instance=ExtResource("1_5yx8f")]
 script = ExtResource("2_js3pq")
 
+[node name="HBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 180
+
 [node name="Label" parent="HBoxContainer" index="0"]
-text = "Window Mode"
+text = "Mode"

@@ -68,12 +68,12 @@ text = "123456"
 layout_mode = 2
 text = "123456"
 
-[node name="Graphics" type="TabBar" parent="TabContainer"]
+[node name="Screen" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Screen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,13 +85,13 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Screen/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Screen/MarginContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="window_mode_button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_yowwx")]
+[node name="window_mode_button" parent="TabContainer/Screen/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_yowwx")]
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
