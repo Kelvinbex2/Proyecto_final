@@ -1,4 +1,4 @@
-class_name option_menu
+class_name OptionMenu
 extends Control
 @onready var btn_exit: Button = $MarginContainer/VBoxContainer/btnExit
 

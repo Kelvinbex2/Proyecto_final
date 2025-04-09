@@ -1,10 +1,10 @@
-class_name main_menu
+class_name MainMenu
 extends Control
 @onready var btn_start: Button = $MarginContainer/hboxButton/VBoxContainer/btnStart
 @onready var btn_exit: Button = $MarginContainer/hboxButton/VBoxContainer/btnExit
 @onready var btn_opcion: Button = $MarginContainer/hboxButton/VBoxContainer/btnOpcion
 #@onready var start_game : PackedScene = preload()
-@onready var option_menus: option_menu = $option_menu
+@onready var option_menus: OptionMenu = $option_menu
 @onready var margin_container: MarginContainer = $MarginContainer
 
 
