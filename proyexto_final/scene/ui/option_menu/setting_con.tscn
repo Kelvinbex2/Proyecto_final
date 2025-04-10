@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bobpnselo58tr"]
+[gd_scene load_steps=6 format=3 uid="uid://bobpnselo58tr"]
 
 [ext_resource type="PackedScene" uid="uid://b43rw8w8u0q2p" path="res://scene/ui/option_menu/hot_key_button.tscn" id="1_0apct"]
+[ext_resource type="PackedScene" uid="uid://c0mk3mih3kxp4" path="res://scene/ui/option_menu/music_control.tscn" id="1_aft5m"]
 [ext_resource type="PackedScene" uid="uid://ctcf50c4nna16" path="res://scene/ui/option_menu/window_mode_button.tscn" id="1_yowwx"]
 [ext_resource type="PackedScene" uid="uid://cej3al7s4tact" path="res://scene/ui/option_menu/resolution_mode_button.tscn" id="2_8320r"]
 
@@ -44,30 +45,24 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sounds/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sounds/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sounds/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Sounds/MarginContainer/VBoxContainer"]
+[node name="Music_control" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
-text = "123456"
 
-[node name="Label2" type="Label" parent="TabContainer/Sounds/MarginContainer/VBoxContainer"]
+[node name="Music_control2" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
-text = "123456"
+bus_name = "Music"
 
-[node name="Label3" type="Label" parent="TabContainer/Sounds/MarginContainer/VBoxContainer"]
+[node name="Music_control3" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
-text = "123456"
-
-[node name="Label4" type="Label" parent="TabContainer/Sounds/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "123456"
-
-[node name="Label5" type="Label" parent="TabContainer/Sounds/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "123456"
+bus_name = "Sfx"
 
 [node name="Screen" type="TabBar" parent="TabContainer"]
 visible = false
