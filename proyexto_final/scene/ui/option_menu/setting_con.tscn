@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bobpnselo58tr"]
+[gd_scene load_steps=9 format=3 uid="uid://bobpnselo58tr"]
 
 [ext_resource type="PackedScene" uid="uid://b43rw8w8u0q2p" path="res://scene/ui/option_menu/hot_key_button.tscn" id="1_0apct"]
+[ext_resource type="Script" uid="uid://dkg3vbo7ru2qu" path="res://scene/ui/script_ui/setting_con.gd" id="1_3mgi8"]
 [ext_resource type="PackedScene" uid="uid://c0mk3mih3kxp4" path="res://scene/ui/option_menu/music_control.tscn" id="1_aft5m"]
 [ext_resource type="PackedScene" uid="uid://ctcf50c4nna16" path="res://scene/ui/option_menu/window_mode_button.tscn" id="1_yowwx"]
+[ext_resource type="Texture2D" uid="uid://d3upi3vry6qcq" path="res://Assets/Background ui/menu.png" id="2_6p5xt"]
 [ext_resource type="PackedScene" uid="uid://cej3al7s4tact" path="res://scene/ui/option_menu/resolution_mode_button.tscn" id="2_8320r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h87q"]
+texture = ExtResource("2_6p5xt")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(149, 218, 722, 594)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ueeni"]
 
@@ -14,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3mgi8")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -26,6 +36,7 @@ offset_right = -100.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8h87q")
 tab_alignment = 1
 current_tab = 0
 
