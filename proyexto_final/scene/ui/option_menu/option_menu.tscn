@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c54nqhq0tijc2"]
+[gd_scene load_steps=6 format=3 uid="uid://c54nqhq0tijc2"]
 
 [ext_resource type="Script" uid="uid://dlsx2ep1lpxv0" path="res://scene/ui/script_ui/option_menu.gd" id="1_4dpvv"]
 [ext_resource type="PackedScene" uid="uid://bobpnselo58tr" path="res://scene/ui/option_menu/setting_con.tscn" id="2_svr8g"]
@@ -6,6 +6,30 @@
 [sub_resource type="SystemFont" id="SystemFont_acprh"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5mua"]
+bg_color = Color(0.509931, 0.387208, 0.227943, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.172549, 0.101961, 0.0392157, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svr8g"]
+bg_color = Color(0.734937, 0.605778, 0.417692, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.145098, 0.0745098, 0.0392157, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="option_menu" type="Control"]
 layout_mode = 3
@@ -51,4 +75,6 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_y5mua")
+theme_override_styles/normal = SubResource("StyleBoxFlat_svr8g")
 text = "Exit"
