@@ -57,7 +57,7 @@ theme_override_constants/shadow_offset_y = 9
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = SubResource("SystemFont_s6uko")
 theme_override_font_sizes/font_size = 70
-text = "Game title"
+text = "Campesino Místico"
 horizontal_alignment = 1
 vertical_alignment = 1
 
