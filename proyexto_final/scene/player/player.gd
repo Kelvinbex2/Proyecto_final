@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var gravity_scale = 2
+@export var gravity_scale = 3
 @export var friction = 1500
 @export var speed = 500
-@export var acceleration = 600
-@export var jump_force = -700
-@export var air_acceleration = 2000
-@export var air_friction = 700
+@export var acceleration = 400
+@export var jump_force = -500
+@export var air_acceleration = 1000
+@export var air_friction = 400
 @onready var ani_player: AnimatedSprite2D = $AnimatedSprite2D
 
 func apply_gravity(delta):
