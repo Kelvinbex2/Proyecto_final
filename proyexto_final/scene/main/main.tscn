@@ -9,7 +9,7 @@
 [node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="Level" parent="LevelContainer" instance=ExtResource("1_am8c5")]
-position = Vector2(1, 565)
+position = Vector2(2, 565)
 
 [node name="EntityContainer" type="Node2D" parent="."]
 
