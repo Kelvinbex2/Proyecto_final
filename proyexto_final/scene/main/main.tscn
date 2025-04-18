@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=5 format=3 uid="uid://d034brqfcwh7y"]
 
 [ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/level.tscn" id="1_am8c5"]
 [ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="2_0imob"]
 [ext_resource type="PackedScene" uid="uid://flfrmhgwysvg" path="res://scene/background/back_ground.tscn" id="3_6vuhr"]
+[ext_resource type="PackedScene" uid="uid://6yhw0wflplh8" path="res://scene/colectables/base_coin.tscn" id="3_a0c6e"]
 
 [node name="main" type="Node2D"]
+
+[node name="Manager" type="Node" parent="."]
 
 [node name="LevelContainer" type="Node2D" parent="."]
 
@@ -14,6 +17,9 @@ position = Vector2(2, 565)
 [node name="EntityContainer" type="Node2D" parent="."]
 
 [node name="player" parent="EntityContainer" instance=ExtResource("2_0imob")]
-position = Vector2(24, 512)
+position = Vector2(23, 508)
+
+[node name="BaseCoin" parent="EntityContainer" instance=ExtResource("3_a0c6e")]
+position = Vector2(191, 562)
 
 [node name="BackGround" parent="." instance=ExtResource("3_6vuhr")]

@@ -370,7 +370,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfhxk"]
 radius = 14.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cm2cf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
