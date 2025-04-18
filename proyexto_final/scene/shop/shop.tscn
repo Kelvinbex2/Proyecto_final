@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsr71jw17ytmp"]
+[gd_scene load_steps=9 format=3 uid="uid://bsr71jw17ytmp"]
 
 [ext_resource type="Texture2D" uid="uid://b8rxl38drdi7k" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/shop_anim.png" id="1_jdi50"]
 
@@ -52,8 +52,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_jdi50"]
-
 [node name="Shop" type="CharacterBody2D"]
 
 [node name="shop_ani" type="AnimatedSprite2D" parent="."]
@@ -63,4 +61,3 @@ autoplay = "shop"
 frame_progress = 0.197917
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_jdi50")
