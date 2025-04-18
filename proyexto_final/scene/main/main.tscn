@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=6 format=3 uid="uid://d034brqfcwh7y"]
 
 [ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/level.tscn" id="1_am8c5"]
+[ext_resource type="PackedScene" uid="uid://bj0jiug3ni3t2" path="res://scene/colectables/collectable.tscn" id="1_qtsyf"]
 [ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="2_0imob"]
 [ext_resource type="PackedScene" uid="uid://flfrmhgwysvg" path="res://scene/background/back_ground.tscn" id="3_6vuhr"]
 [ext_resource type="PackedScene" uid="uid://6yhw0wflplh8" path="res://scene/colectables/base_coin.tscn" id="3_a0c6e"]
@@ -8,6 +9,8 @@
 [node name="main" type="Node2D"]
 
 [node name="Manager" type="Node" parent="."]
+
+[node name="Collectable" parent="Manager" instance=ExtResource("1_qtsyf")]
 
 [node name="LevelContainer" type="Node2D" parent="."]
 
