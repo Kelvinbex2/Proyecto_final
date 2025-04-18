@@ -7,3 +7,4 @@ func _ready() -> void:
 	
 func on_collectable_collected(value : int) -> void:
 	current_coins_collected +=value
+	SignalBus.emit_on_coin_counter_update(current_coins_collected)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=9 format=3 uid="uid://d034brqfcwh7y"]
 
 [ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/level.tscn" id="1_am8c5"]
 [ext_resource type="PackedScene" uid="uid://bj0jiug3ni3t2" path="res://scene/colectables/collectable.tscn" id="1_qtsyf"]
 [ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="2_0imob"]
+[ext_resource type="PackedScene" uid="uid://c4cg387427ck8" path="res://scene/ui/hud.tscn" id="2_b8g54"]
 [ext_resource type="PackedScene" uid="uid://flfrmhgwysvg" path="res://scene/background/back_ground.tscn" id="3_6vuhr"]
 [ext_resource type="PackedScene" uid="uid://6yhw0wflplh8" path="res://scene/colectables/base_coin.tscn" id="3_a0c6e"]
+[ext_resource type="PackedScene" uid="uid://bt4lq5flfyceo" path="res://scene/camera/player_camera.tscn" id="3_onf7c"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="5_siuy0"]
 
 [node name="main" type="Node2D"]
@@ -12,6 +14,16 @@
 [node name="Manager" type="Node" parent="."]
 
 [node name="Collectable" parent="Manager" instance=ExtResource("1_qtsyf")]
+
+[node name="UiContainer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UiContainer" instance=ExtResource("2_b8g54")]
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="PlayerCamera" parent="Camera" instance=ExtResource("3_onf7c")]
+camera_move_speed = 0.785
+camera_offset = Vector2(20, -40)
 
 [node name="LevelContainer" type="Node2D" parent="."]
 

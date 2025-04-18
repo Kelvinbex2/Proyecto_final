@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
@@ -9,7 +10,7 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	pass
+	SignalBus.emit_on_player_ready(self)
 
 func _physics_process(delta: float) -> void:
 	gravity_handler.apply_gravity(self,delta)

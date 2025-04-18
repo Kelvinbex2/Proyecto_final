@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dspv53ufjllhe"]
+
+[ext_resource type="Script" uid="uid://bpfjmv5ldbbrj" path="res://scene/ui/script_ui/coin_counter.gd" id="1_i0gne"]
+
+[node name="CoinCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0gne")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 79.0
+offset_bottom = 23.0
+
+[node name="coinText" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Coins:"
+
+[node name="coinCounter" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "9999999"
