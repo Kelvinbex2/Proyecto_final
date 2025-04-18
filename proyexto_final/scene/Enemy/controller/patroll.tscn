@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchkc0pxfwk8t"]
+
+[ext_resource type="PackedScene" uid="uid://cih4sd1qg4lkq" path="res://scene/Enemy/base_enemy.tscn" id="1_biyi6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_biyi6"]
+radius = 18.9737
+
+[node name="Patroll" instance=ExtResource("1_biyi6")]
+position = Vector2(0, -7)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_biyi6")
