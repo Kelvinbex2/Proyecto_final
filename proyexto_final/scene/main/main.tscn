@@ -27,6 +27,6 @@ position = Vector2(23, 508)
 position = Vector2(191, 562)
 
 [node name="Patroll" parent="EntityContainer" instance=ExtResource("5_siuy0")]
-position = Vector2(82, 563)
+position = Vector2(220, 568)
 
 [node name="BackGround" parent="." instance=ExtResource("3_6vuhr")]
