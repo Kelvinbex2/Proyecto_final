@@ -1,58 +1,58 @@
 extends CharacterBody2D
 
-@export var gravity_scale = 3
-@export var friction = 4000
-@export var speed = 500
-@export var acceleration = 400
-@export var jump_force = -1000
-@export var air_acceleration = 1000
-@export var air_friction = 4000
+@export_category("Player Variables")
+@export var move_speed = 5000
+@export var jump_speed = 300
 @onready var ani_player: AnimatedSprite2D = $AnimatedSprite2D
 
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity+=get_gravity() * delta * gravity_scale
+@export_category("World variables")
+@export var gravity = 600
 
-func handle_acceleration(input_axis, delta):
-	if not is_on_floor(): return
-	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, speed*input_axis, acceleration*delta)
-
-func apply_friction(input_axis, delta):
-	if input_axis==0 and is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, friction*delta)
-		
-
-func handle_jump():
-	if is_on_floor():
-		if Input.is_action_pressed("jump_up"):
-			velocity.y = jump_force
-		
-func handle_air_acceleration(input_axis, delta):
-	if is_on_floor(): return
-	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, speed*input_axis, air_acceleration *delta)
-
-
-func update_animation(input_axis):
-	if input_axis !=0:
-		
-		ani_player.speed_scale = velocity.length()/100
-		ani_player.flip_h = (input_axis<0)
-		ani_player.play("run")
-	elif not is_on_floor():
-		ani_player.play("jump")
-	else:
-		ani_player.speed_scale=1
-		ani_player.play("idle")
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
-	var input_axis = Input.get_axis("move_left","move_right")
 	apply_gravity(delta)
-	handle_acceleration(input_axis, delta)
-	apply_friction(input_axis, delta)
+	handle_movement(delta)
 	handle_jump()
-	handle_air_acceleration(input_axis, delta)
-	update_animation(input_axis)
 	move_and_slide()
-	
+
+	handle_flip()
+	handle_animation()
+
+func apply_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+func handle_movement_input() -> float:
+	return Input.get_axis("move_left", "move_right")
+
+func handle_jump_input() -> bool:
+	return Input.is_action_just_pressed("jump_up")
+
+func handle_movement(delta: float) -> void:
+	velocity.x = 0
+	var input_axis = handle_movement_input()
+
+	if input_axis < 0:
+		velocity.x = -move_speed * delta
+	elif input_axis > 0:
+		velocity.x = move_speed * delta
+
+func handle_jump() -> void:
+	if handle_jump_input() and is_on_floor():
+		velocity.y = -jump_speed
+
+func handle_flip() -> void:
+	if velocity.x < 0:
+		ani_player.flip_h = true
+	elif velocity.x > 0:
+		ani_player.flip_h = false
+
+func handle_animation() -> void:
+	if not is_on_floor():
+		ani_player.play("jump")
+	elif velocity.x != 0:
+		ani_player.play("run")
+	else:
+		ani_player.play("idle")
