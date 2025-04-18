@@ -29,4 +29,10 @@ position = Vector2(191, 562)
 [node name="Patroll" parent="EntityContainer" instance=ExtResource("5_siuy0")]
 position = Vector2(220, 568)
 
+[node name="Patroll2" parent="EntityContainer" instance=ExtResource("5_siuy0")]
+position = Vector2(687, 504)
+
+[node name="Patroll3" parent="EntityContainer" instance=ExtResource("5_siuy0")]
+position = Vector2(1414, 292)
+
 [node name="BackGround" parent="." instance=ExtResource("3_6vuhr")]
