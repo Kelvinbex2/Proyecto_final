@@ -1,7 +1,11 @@
-[gd_scene load_steps=53 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=57 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
+[ext_resource type="PackedScene" uid="uid://v6a5r0ju2x1e" path="res://scene/handlers/player/input_handler.tscn" id="3_6smn3"]
+[ext_resource type="PackedScene" uid="uid://ubr1r7ragr7w" path="res://scene/handlers/movement_handler.tscn" id="4_5lop3"]
+[ext_resource type="PackedScene" uid="uid://dgr24t65s3vet" path="res://scene/handlers/jump_handler.tscn" id="5_ajqqa"]
+[ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="6_rkmeh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -385,3 +389,12 @@ shape = SubResource("CapsuleShape2D_hfhxk")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(254, -78)
 zoom = Vector2(2, 2)
+
+[node name="InputHandler" parent="." instance=ExtResource("3_6smn3")]
+
+[node name="MovementHandler" parent="." instance=ExtResource("4_5lop3")]
+move_speed = 5900
+
+[node name="JumpHandler" parent="." instance=ExtResource("5_ajqqa")]
+
+[node name="FlipHandler" parent="." instance=ExtResource("6_rkmeh")]

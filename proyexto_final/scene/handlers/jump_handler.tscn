@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgr24t65s3vet"]
+
+[ext_resource type="Script" uid="uid://clqi7h4m0i0ec" path="res://scene/handlers/jump_handler.gd" id="1_04gf0"]
+
+[node name="JumpHandler" type="Node2D"]
+script = ExtResource("1_04gf0")
