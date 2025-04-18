@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buxejbbf4pwo3"]
+
+[ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="1_va841"]
+
+[node name="GravityHandler" type="Node2D"]
+script = ExtResource("1_va841")

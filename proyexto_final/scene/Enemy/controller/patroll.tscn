@@ -1,16 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dchkc0pxfwk8t"]
+[gd_scene load_steps=6 format=3 uid="uid://dchkc0pxfwk8t"]
 
 [ext_resource type="PackedScene" uid="uid://cih4sd1qg4lkq" path="res://scene/Enemy/base_enemy.tscn" id="1_biyi6"]
+[ext_resource type="PackedScene" uid="uid://ubr1r7ragr7w" path="res://scene/handlers/movement_handler.tscn" id="2_o0nt8"]
+[ext_resource type="Script" uid="uid://v78bqlbcbhl6" path="res://scene/Enemy/controller/patroll.gd" id="2_tf7cn"]
+[ext_resource type="PackedScene" uid="uid://c5sm8vvd8i46" path="res://scene/handlers/enemy/ai_handler.tscn" id="3_0lnhn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_biyi6"]
-radius = 18.9737
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7cn"]
+size = Vector2(40, 28)
 
 [node name="Patroll" instance=ExtResource("1_biyi6")]
-position = Vector2(0, -7)
+position = Vector2(4, -3)
+script = ExtResource("2_tf7cn")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(21, -11)
+frame_progress = 0.524396
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1, 2)
-shape = SubResource("CircleShape2D_biyi6")
+position = Vector2(21, -9)
+shape = SubResource("RectangleShape2D_tf7cn")
+
+[node name="AIHandler" parent="." index="2" node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement") instance=ExtResource("3_0lnhn")]
+left_cast = NodePath("../LeftCast")
+right_cast = NodePath("../RightCast")
+left_wall_cast = NodePath("../LeftWallCast")
+right_wall_cast = NodePath("../RightWallCast")
+movement = NodePath("../MovementHandler")
+
+[node name="MovementHandler" parent="." index="3" instance=ExtResource("2_o0nt8")]
+move_speed = 4000
+
+[node name="RightCast" type="RayCast2D" parent="." index="6"]
+position = Vector2(47, -3)
+target_position = Vector2(0, 20)
+
+[node name="RightWallCast" type="RayCast2D" parent="." index="7"]
+position = Vector2(47, -3)
+target_position = Vector2(8, 0)
+
+[node name="LeftCast" type="RayCast2D" parent="." index="8"]
+position = Vector2(-4, -4)
+target_position = Vector2(0, 20)
+
+[node name="LeftWallCast" type="RayCast2D" parent="." index="9"]
+position = Vector2(-4, -6)
+target_position = Vector2(-8, 1)

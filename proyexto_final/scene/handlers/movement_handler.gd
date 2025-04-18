@@ -3,12 +3,12 @@ extends Node2D
 
 @export var move_speed : int = 0
 
-func handle_movement(body : CharacterBody2D, input_direc : float, delta :float) -> void:
+func handle_movement(body : CharacterBody2D, input_direc : Vector2, delta :float) -> void:
 	handle_decelartion(body,delta)
-	if input_direc < 0 :
+	if input_direc.x < 0 :
 		body.velocity.x = -move_speed * delta
 		
-	if input_direc > 0:
+	if input_direc.x > 0:
 		body.velocity.x = +move_speed * delta
 
 
