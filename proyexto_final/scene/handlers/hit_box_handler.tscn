@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd3teekf53c7k"]
+
+[ext_resource type="Script" uid="uid://uec286kw6mfw" path="res://scene/handlers/hit_box_handler.gd" id="1_pky3f"]
+
+[node name="HitBoxHandler" type="Area2D"]
+script = ExtResource("1_pky3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="InvulTimer" type="Timer" parent="."]
+one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=60 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgr24t65s3vet" path="res://scene/handlers/jump_handler.tscn" id="5_ajqqa"]
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="6_rkmeh"]
 [ext_resource type="PackedScene" uid="uid://buxejbbf4pwo3" path="res://scene/handlers/gravity_handler.tscn" id="7_732fb"]
+[ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="8_hfhxk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -373,9 +374,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfhxk"]
-radius = 14.0
+radius = 11.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pisg7"]
+radius = 12.0
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_cm2cf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -397,3 +403,14 @@ move_speed = 5900
 [node name="FlipHandler" parent="." instance=ExtResource("6_rkmeh")]
 
 [node name="GravityHandler" parent="." instance=ExtResource("7_732fb")]
+
+[node name="HitBoxHandler" parent="." instance=ExtResource("8_hfhxk")]
+collision_layer = 2
+collision_mask = 0
+time = 1
+
+[node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
+position = Vector2(-2, 12)
+shape = SubResource("CircleShape2D_pisg7")
+
+[editable path="HitBoxHandler"]
