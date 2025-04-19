@@ -52,12 +52,12 @@ target_position = Vector2(0, 20)
 position = Vector2(-2, -6)
 target_position = Vector2(-8, 1)
 
-[node name="HurtBox2" parent="." index="11" instance=ExtResource("5_indo5")]
+[node name="HurtBox" parent="." index="10" instance=ExtResource("5_indo5")]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="HurtBox2" index="0"]
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(22, -7)
 shape = SubResource("CircleShape2D_indo5")
 
-[editable path="HurtBox2"]
+[editable path="HurtBox"]
