@@ -8,12 +8,13 @@ extends Node2D
 
 var current_health =0
 
-func set_max_health(value : int) -> void:
-	if value !=0:
-		max_health = value
-		current_health = max_health
-		return
+func _ready() -> void:
+	set_max_health()
+
+func set_max_health() -> void:
 	current_health = max_health
+	if type == "Player":
+		SignalBus.emit_on_collectable_collected(max_health)
 	
 
 func damage(val : int ) -> void:
@@ -24,8 +25,10 @@ func damage(val : int ) -> void:
 		"Enemy":
 			current_health -=val
 			
-	current_health -=val
-	
 	if current_health <=0:
 		current_health =0
 		death_handler.death()
+		
+	
+func handle_healing(value:int) -> void:
+		current_health +=value

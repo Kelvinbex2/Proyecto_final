@@ -22,4 +22,4 @@ text = "Coins:"
 
 [node name="coinCounter" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "9999999"
+text = "0"

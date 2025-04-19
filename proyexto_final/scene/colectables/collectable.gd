@@ -1,7 +1,7 @@
 class_name Collectable
 extends Node
 
-var current_coins_collected : int = 5
+var current_coins_collected : int = 0
 
 func _ready() -> void:
 	SignalBus.on_collectable_collected.connect(on_collectable_collected)
