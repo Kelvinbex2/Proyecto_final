@@ -34,7 +34,8 @@ right_wall_cast = NodePath("../RightWallCast")
 movement = NodePath("../MovementHandler")
 
 [node name="MovementHandler" parent="." index="3" instance=ExtResource("2_o0nt8")]
-move_speed = 4000
+move_speed = 85.0
+acceleration = 6.0
 
 [node name="RightCast" type="RayCast2D" parent="." index="6"]
 position = Vector2(42, -3)
