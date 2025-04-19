@@ -5,7 +5,7 @@ extends Control
 
 func _ready() -> void:
 	SignalBus.on_coin_counter_update.connect(set_coin_counter)
-	coin_counter.text=str(0)
+	coin_counter.text=str(5)
 
 
 func set_coin_counter(value : int) -> void:

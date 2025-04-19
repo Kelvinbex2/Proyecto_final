@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=62 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="6_rkmeh"]
 [ext_resource type="PackedScene" uid="uid://buxejbbf4pwo3" path="res://scene/handlers/gravity_handler.tscn" id="7_732fb"]
 [ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="8_hfhxk"]
+[ext_resource type="PackedScene" uid="uid://ubk5kajx1t3m" path="res://scene/handlers/health_handler.tscn" id="9_oypl4"]
+[ext_resource type="PackedScene" uid="uid://bc7lla4vmayqf" path="res://scene/handlers/death_handler.tscn" id="10_qjg4s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -404,13 +406,20 @@ move_speed = 5900
 
 [node name="GravityHandler" parent="." instance=ExtResource("7_732fb")]
 
-[node name="HitBoxHandler" parent="." instance=ExtResource("8_hfhxk")]
+[node name="HitBoxHandler" parent="." node_paths=PackedStringArray("health_handler") instance=ExtResource("8_hfhxk")]
 collision_layer = 2
 collision_mask = 0
 time = 1
+health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
 position = Vector2(-2, 12)
 shape = SubResource("CircleShape2D_pisg7")
+
+[node name="HealthHandler" parent="." node_paths=PackedStringArray("death_handler") instance=ExtResource("9_oypl4")]
+death_handler = NodePath("../DeathHandler")
+
+[node name="DeathHandler" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("10_qjg4s")]
+parent = NodePath("..")
 
 [editable path="HitBoxHandler"]

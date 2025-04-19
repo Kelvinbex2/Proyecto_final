@@ -7,12 +7,16 @@ extends CharacterBody2D
 @onready var jump_handler: JumpHandler = $JumpHandler
 @onready var flip_handler: FlipHandler = $FlipHandler
 @onready var gravity_handler: GravityHandler = $GravityHandler
+@export var collectable : Collectable = null
+@onready var health_handler: HealthHandler = $HealthHandler
 
 
 func _ready() -> void:
 	SignalBus.emit_on_player_ready(self)
 
 func _physics_process(delta: float) -> void:
+	health_handler.set_max_health(collectable.current_coins_collected)
+	
 	gravity_handler.apply_gravity(self,delta)
 	movement_handler.handle_movement(self,input_handler.handle_movement_input(),delta)
 	jump_handler.handle_jump(self,input_handler.handle_jump_input())

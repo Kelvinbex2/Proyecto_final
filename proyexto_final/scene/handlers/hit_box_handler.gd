@@ -4,6 +4,7 @@ extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var invul_timer: Timer = $InvulTimer
 @export var time  =0
+@export var health_handler : HealthHandler = null
 signal  on_hit
 
 func _ready() -> void:
@@ -13,7 +14,8 @@ func _ready() -> void:
 func on_area_hit() -> void:
 	apply_hit()
 	print("hit")
-	SignalBus.emit_on_hit(1)
+	health_handler.damage(1)
+	
 	
 func in_invuln_timer_timeout() -> void:
 	collision_shape_2d.disabled = false
