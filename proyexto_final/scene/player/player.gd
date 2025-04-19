@@ -23,10 +23,12 @@ func _physics_process(delta: float) -> void:
 	flip_handler.handle_flip(self)
 	handle_animation()
 
+
+
 func handle_animation() -> void:
 	if not is_on_floor():
 		animatedSprite2D.play("jump")
-	elif velocity.x != 0:
-		animatedSprite2D.play("run")
-	else:
+	elif abs(velocity.x) < 1:
 		animatedSprite2D.play("idle")
+	else:
+		animatedSprite2D.play("run")
