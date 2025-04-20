@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 func handle_state_machine_signals() -> void:
 	player_idle_state.enter_walk_sate.connect(player_state.change_state.bind(player_walk_state))
 	player_walk_state.enter_idle_sate.connect(player_state.change_state.bind(player_idle_state))
-
+	
 func handle_animation() -> void:
 	if not is_on_floor():
 		animatedSprite2D.play("jump")
