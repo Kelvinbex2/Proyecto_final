@@ -25,9 +25,7 @@ func _ready() -> void:
 	SignalBus.emit_on_player_ready(self)
 
 func _physics_process(delta: float) -> void:
-	
 	gravity_handler.apply_gravity(self,delta)
-	jump_handler.handle_jump(self,input_handler.handle_jump_input())
 	move_and_slide()
 
 	flip_handler.handle_flip(self)
@@ -39,6 +37,7 @@ func handle_state_machine_signals() -> void:
 	player_idle_state.enter_jump_state.connect(player_state.change_state.bind(player_jump_state))
 	player_walk_state.enter_idle_sate.connect(player_state.change_state.bind(player_idle_state))
 	player_walk_state.enter_jump_state.connect(player_state.change_state.bind(player_jump_state))
+	player_walk_state.enter_fall_state.connect(player_state.change_state.bind(player_fall_state))
 	player_jump_state.enter_fall_state.connect(player_state.change_state.bind(player_fall_state))
 	player_fall_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
 	
