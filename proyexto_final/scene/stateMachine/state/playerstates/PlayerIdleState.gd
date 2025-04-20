@@ -3,6 +3,7 @@ extends BasePlayerState
 
 signal  enter_walk_sate
 signal  enter_jump_state
+
 func _ready() -> void:
 	set_physics_process(false)
 	

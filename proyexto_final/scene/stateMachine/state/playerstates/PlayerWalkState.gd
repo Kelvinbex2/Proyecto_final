@@ -3,6 +3,7 @@ extends BasePlayerState
 
 signal enter_idle_sate
 signal enter_jump_state
+signal enter_fall_state
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -23,3 +24,6 @@ func _physics_process(delta: float) -> void:
 		
 	if player.input_handler.handle_jump_input()==true:
 		enter_jump_state.emit()
+
+	if player.velocity.y > 0:
+		enter_fall_state.emit()

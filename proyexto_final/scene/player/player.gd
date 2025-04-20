@@ -15,6 +15,8 @@ extends CharacterBody2D
 @onready var player_state: PlayerState = $PlayerState
 @onready var player_idle_state: PlayerIdleState = $PlayerState/PlayerIdleState
 @onready var player_walk_state: PlayerWalkState = $PlayerState/PlayerWalkState
+@onready var player_jump_state: PlayerJumpState = $PlayerState/PlayerJumpState
+@onready var player_fall_state: PlayerFallState = $PlayerState/PlayerFallState
 
 #endregion
 
@@ -34,7 +36,12 @@ func _physics_process(delta: float) -> void:
 
 func handle_state_machine_signals() -> void:
 	player_idle_state.enter_walk_sate.connect(player_state.change_state.bind(player_walk_state))
+	player_idle_state.enter_jump_state.connect(player_state.change_state.bind(player_jump_state))
 	player_walk_state.enter_idle_sate.connect(player_state.change_state.bind(player_idle_state))
+	player_walk_state.enter_jump_state.connect(player_state.change_state.bind(player_jump_state))
+	player_jump_state.enter_fall_state.connect(player_state.change_state.bind(player_fall_state))
+	player_fall_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
+	
 	
 func handle_animation() -> void:
 	if not is_on_floor():
