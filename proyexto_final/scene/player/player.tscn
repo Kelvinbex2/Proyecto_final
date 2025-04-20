@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=67 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://ubk5kajx1t3m" path="res://scene/handlers/health_handler.tscn" id="9_oypl4"]
 [ext_resource type="PackedScene" uid="uid://bc7lla4vmayqf" path="res://scene/handlers/death_handler.tscn" id="10_qjg4s"]
 [ext_resource type="PackedScene" uid="uid://d1gcs6gso0smg" path="res://scene/handlers/player/collection_handler.tscn" id="11_qjg4s"]
+[ext_resource type="Script" uid="uid://csvig35fxhp1r" path="res://scene/stateMachine/PlayerState.gd" id="12_f5r2w"]
+[ext_resource type="Script" uid="uid://oqdb0sa0xd6y" path="res://scene/stateMachine/state/playerstates/PlayerIdleState.gd" id="13_oen5c"]
+[ext_resource type="Script" uid="uid://10t7tq608adr" path="res://scene/stateMachine/state/playerstates/PlayerWalkState.gd" id="14_5g408"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -398,44 +401,60 @@ autoplay = "idle"
 position = Vector2(-2, 12)
 shape = SubResource("CapsuleShape2D_hfhxk")
 
-[node name="InputHandler" parent="." instance=ExtResource("3_6smn3")]
+[node name="HandlerContainer" type="Node2D" parent="."]
 
-[node name="MovementHandler" parent="." instance=ExtResource("4_5lop3")]
+[node name="InputHandler" parent="HandlerContainer" instance=ExtResource("3_6smn3")]
+
+[node name="MovementHandler" parent="HandlerContainer" instance=ExtResource("4_5lop3")]
 move_speed = 100.0
 acceleration = 14.0
 decceleration = 8.0
 
-[node name="JumpHandler" parent="." instance=ExtResource("5_ajqqa")]
+[node name="JumpHandler" parent="HandlerContainer" instance=ExtResource("5_ajqqa")]
 
-[node name="FlipHandler" parent="." instance=ExtResource("6_rkmeh")]
+[node name="FlipHandler" parent="HandlerContainer" instance=ExtResource("6_rkmeh")]
 
-[node name="GravityHandler" parent="." instance=ExtResource("7_732fb")]
+[node name="GravityHandler" parent="HandlerContainer" instance=ExtResource("7_732fb")]
 
-[node name="HitBoxHandler" parent="." node_paths=PackedStringArray("health_handler") instance=ExtResource("8_hfhxk")]
+[node name="HitBoxHandler" parent="HandlerContainer" node_paths=PackedStringArray("health_handler") instance=ExtResource("8_hfhxk")]
 collision_layer = 2
 collision_mask = 0
 time = 1
 health_handler = NodePath("../HealthHandler")
 
-[node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
+[node name="CollisionShape2D" parent="HandlerContainer/HitBoxHandler" index="0"]
 position = Vector2(-2, 12)
 shape = SubResource("CircleShape2D_pisg7")
 
-[node name="HealthHandler" parent="." node_paths=PackedStringArray("death_handler") instance=ExtResource("9_oypl4")]
+[node name="HealthHandler" parent="HandlerContainer" node_paths=PackedStringArray("death_handler") instance=ExtResource("9_oypl4")]
 max_health = 5
 death_handler = NodePath("../DeathHandler")
 
-[node name="DeathHandler" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("10_qjg4s")]
-parent = NodePath("..")
+[node name="DeathHandler" parent="HandlerContainer" node_paths=PackedStringArray("parent") instance=ExtResource("10_qjg4s")]
+parent = NodePath("../..")
 
-[node name="CollectionHandler" parent="." node_paths=PackedStringArray("health_handler") instance=ExtResource("11_qjg4s")]
+[node name="CollectionHandler" parent="HandlerContainer" node_paths=PackedStringArray("health_handler") instance=ExtResource("11_qjg4s")]
 collision_layer = 0
 collision_mask = 8
 health_handler = NodePath("../HealthHandler")
 
-[node name="CollisionShape2D" parent="CollectionHandler" index="0"]
+[node name="CollisionShape2D" parent="HandlerContainer/CollectionHandler" index="0"]
 position = Vector2(-2, 12)
 shape = SubResource("CircleShape2D_1wtbu")
 
-[editable path="HitBoxHandler"]
-[editable path="CollectionHandler"]
+[node name="PlayerState" type="Node" parent="." node_paths=PackedStringArray("player", "current_state")]
+script = ExtResource("12_f5r2w")
+player = NodePath("..")
+current_state = NodePath("PlayerIdleState")
+metadata/_custom_type_script = "uid://csvig35fxhp1r"
+
+[node name="PlayerIdleState" type="Node" parent="PlayerState"]
+script = ExtResource("13_oen5c")
+metadata/_custom_type_script = "uid://oqdb0sa0xd6y"
+
+[node name="PlayerWalkState" type="Node" parent="PlayerState"]
+script = ExtResource("14_5g408")
+metadata/_custom_type_script = "uid://10t7tq608adr"
+
+[editable path="HandlerContainer/HitBoxHandler"]
+[editable path="HandlerContainer/CollectionHandler"]

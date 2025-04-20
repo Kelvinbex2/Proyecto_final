@@ -2,21 +2,29 @@ class_name Player
 extends CharacterBody2D
 
 @onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
-@onready var input_handler: InputHandler = $InputHandler
-@onready var movement_handler: MovementHandler = $MovementHandler
-@onready var jump_handler: JumpHandler = $JumpHandler
-@onready var flip_handler: FlipHandler = $FlipHandler
-@onready var gravity_handler: GravityHandler = $GravityHandler
-@export var collectable : Collectable = null
-@onready var health_handler: HealthHandler = $HealthHandler
+#region Handlers Region
 
+@onready var input_handler: InputHandler = $HandlerContainer/InputHandler
+@onready var movement_handler: MovementHandler = $HandlerContainer/MovementHandler
+@onready var jump_handler: JumpHandler = $HandlerContainer/JumpHandler
+@onready var flip_handler: FlipHandler = $HandlerContainer/FlipHandler
+@onready var gravity_handler: GravityHandler = $HandlerContainer/GravityHandler
+#endregion
+#region StateMachine Region
+
+@onready var player_state: PlayerState = $PlayerState
+@onready var player_idle_state: PlayerIdleState = $PlayerState/PlayerIdleState
+@onready var player_walk_state: PlayerWalkState = $PlayerState/PlayerWalkState
+
+#endregion
 
 func _ready() -> void:
+	handle_state_machine_signals()
 	SignalBus.emit_on_player_ready(self)
 
 func _physics_process(delta: float) -> void:
+	
 	gravity_handler.apply_gravity(self,delta)
-	movement_handler.handle_movement(self,input_handler.handle_movement_input(),delta)
 	jump_handler.handle_jump(self,input_handler.handle_jump_input())
 	move_and_slide()
 
@@ -24,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	handle_animation()
 
 
+func handle_state_machine_signals() -> void:
+	player_idle_state.enter_walk_sate.connect(player_state.change_state.bind(player_walk_state))
+	player_walk_state.enter_idle_sate.connect(player_state.change_state.bind(player_idle_state))
 
 func handle_animation() -> void:
 	if not is_on_floor():
