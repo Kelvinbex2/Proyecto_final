@@ -8,6 +8,7 @@ func _ready() -> void:
 	
 func enter_state() ->void:
 	set_physics_process(true)
+	player.animatedSprite2D.play("fall")
 	
 	
 

@@ -9,7 +9,8 @@ func _ready() -> void:
 func enter_state() ->void:
 	set_physics_process(true)
 	player.jump_handler.handle_jump(player,true)
-	
+	player.movement_handler.handle_movement(player,player.input_handler.handle_movement_input(),0)
+	player.animatedSprite2D.play("jump")
 
 func exit_state() ->void:
 	set_physics_process(false)
@@ -17,6 +18,8 @@ func exit_state() ->void:
 
 func _physics_process(delta: float) -> void:
 	player.jump_handler.handle_jump(player,true)
+	player.movement_handler.handle_movement(player,player.input_handler.handle_movement_input(),delta)
+
 	
 	if player.velocity.y >  0:
 		enter_fall_state.emit()

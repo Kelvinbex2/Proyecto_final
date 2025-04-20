@@ -11,7 +11,7 @@ func _ready() -> void:
 func enter_state() ->void:
 	set_physics_process(true)
 	player.movement_handler.handle_movement(player,player.input_handler.handle_movement_input(),0)
-
+	player.animatedSprite2D.play("run")
 func exit_state() ->void:
 	set_physics_process(false)
 

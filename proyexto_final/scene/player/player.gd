@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
+@export var animatedSprite2D: AnimatedSprite2D = null
 #region Handlers Region
 
 @onready var input_handler: InputHandler = $HandlerContainer/InputHandler
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	flip_handler.handle_flip(self)
-	handle_animation()
+	
 
 
 func handle_state_machine_signals() -> void:
@@ -42,10 +42,3 @@ func handle_state_machine_signals() -> void:
 	player_fall_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
 	
 	
-func handle_animation() -> void:
-	if not is_on_floor():
-		animatedSprite2D.play("jump")
-	elif abs(velocity.x) < 1:
-		animatedSprite2D.play("idle")
-	else:
-		animatedSprite2D.play("run")
