@@ -13,15 +13,12 @@ func _ready() -> void:
 
 func on_area_hit() -> void:
 	apply_hit()
-	print("hit")
 	health_handler.damage(1)
 	
 	
 func in_invuln_timer_timeout() -> void:
 	collision_shape_2d.disabled = false
-	print("fin")
 	
 func apply_hit() -> void:
 	collision_shape_2d.set_deferred("disabled",true)
-	print("Started")
 	invul_timer.start(time)
