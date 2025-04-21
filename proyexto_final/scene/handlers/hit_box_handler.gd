@@ -3,7 +3,7 @@ extends Area2D
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var invul_timer: Timer = $InvulTimer
-@export var time  =0
+@export var time  =0.0
 @export var health_handler : HealthHandler = null
 signal  on_hit
 

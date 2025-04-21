@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://dchkc0pxfwk8t"]
+[gd_scene load_steps=12 format=3 uid="uid://dchkc0pxfwk8t"]
 
 [ext_resource type="PackedScene" uid="uid://cih4sd1qg4lkq" path="res://scene/Enemy/base_enemy.tscn" id="1_biyi6"]
 [ext_resource type="PackedScene" uid="uid://ubr1r7ragr7w" path="res://scene/handlers/movement_handler.tscn" id="2_o0nt8"]
 [ext_resource type="Script" uid="uid://v78bqlbcbhl6" path="res://scene/Enemy/controller/patroll.gd" id="2_tf7cn"]
 [ext_resource type="PackedScene" uid="uid://c5sm8vvd8i46" path="res://scene/handlers/enemy/ai_handler.tscn" id="3_0lnhn"]
+[ext_resource type="PackedScene" uid="uid://ubk5kajx1t3m" path="res://scene/handlers/health_handler.tscn" id="4_t8jwi"]
+[ext_resource type="PackedScene" uid="uid://bc7lla4vmayqf" path="res://scene/handlers/death_handler.tscn" id="5_a8n1f"]
 [ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="5_indo5"]
+[ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="6_aca1g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tf7cn"]
-radius = 12.2577
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_indo5"]
 radius = 16.1555
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8jwi"]
+radius = 18.6011
 
 [node name="Patroll" instance=ExtResource("1_biyi6")]
 position = Vector2(4, -3)
@@ -23,7 +28,7 @@ frame_progress = 0.524396
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(21, -10.5)
+position = Vector2(22, -7)
 shape = SubResource("CircleShape2D_tf7cn")
 
 [node name="AIHandler" parent="." index="2" node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement") instance=ExtResource("3_0lnhn")]
@@ -33,27 +38,35 @@ left_wall_cast = NodePath("../LeftWallCast")
 right_wall_cast = NodePath("../RightWallCast")
 movement = NodePath("../MovementHandler")
 
-[node name="MovementHandler" parent="." index="3" instance=ExtResource("2_o0nt8")]
+[node name="HealthHandler" parent="." index="3" node_paths=PackedStringArray("death_handler") instance=ExtResource("4_t8jwi")]
+max_health = 3
+death_handler = NodePath("../DeathHandler")
+type = "Enemy"
+
+[node name="DeathHandler" parent="." index="4" node_paths=PackedStringArray("parent") instance=ExtResource("5_a8n1f")]
+parent = NodePath("..")
+
+[node name="MovementHandler" parent="." index="5" instance=ExtResource("2_o0nt8")]
 move_speed = 85.0
 acceleration = 6.0
 
-[node name="RightCast" type="RayCast2D" parent="." index="6"]
+[node name="RightCast" type="RayCast2D" parent="." index="8"]
 position = Vector2(42, -3)
 target_position = Vector2(0, 20)
 
-[node name="RightWallCast" type="RayCast2D" parent="." index="7"]
+[node name="RightWallCast" type="RayCast2D" parent="." index="9"]
 position = Vector2(43, -3)
 target_position = Vector2(8, 0)
 
-[node name="LeftCast" type="RayCast2D" parent="." index="8"]
+[node name="LeftCast" type="RayCast2D" parent="." index="10"]
 position = Vector2(-1, -3)
 target_position = Vector2(0, 20)
 
-[node name="LeftWallCast" type="RayCast2D" parent="." index="9"]
+[node name="LeftWallCast" type="RayCast2D" parent="." index="11"]
 position = Vector2(-2, -6)
 target_position = Vector2(-8, 1)
 
-[node name="HurtBox" parent="." index="10" instance=ExtResource("5_indo5")]
+[node name="HurtBox" parent="." index="12" instance=ExtResource("5_indo5")]
 collision_layer = 4
 collision_mask = 2
 
@@ -61,4 +74,15 @@ collision_mask = 2
 position = Vector2(22, -7)
 shape = SubResource("CircleShape2D_indo5")
 
+[node name="HitBoxHandler" parent="." index="13" node_paths=PackedStringArray("health_handler") instance=ExtResource("6_aca1g")]
+collision_layer = 4
+collision_mask = 0
+time = 0.2
+health_handler = NodePath("../HealthHandler")
+
+[node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
+position = Vector2(23, -8)
+shape = SubResource("CircleShape2D_t8jwi")
+
 [editable path="HurtBox"]
+[editable path="HitBoxHandler"]
