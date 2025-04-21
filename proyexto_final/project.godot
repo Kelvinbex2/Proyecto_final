@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 SignalBus="*res://autoLoads/SignalBus.gd"
 NodeExtensions="*res://autoLoads/NodeExtensions.gd"
 
+[display]
+
+window/size/mode=2
+
 [global_group]
 
 Player=""
