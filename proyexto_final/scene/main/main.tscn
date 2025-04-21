@@ -11,32 +11,33 @@
 
 [node name="main" type="Node2D"]
 
-[node name="Manager" type="Node" parent="."]
+[node name="Manager" type="Node" parent="." groups=["manager"]]
 
 [node name="Collectable" parent="Manager" instance=ExtResource("1_qtsyf")]
 
-[node name="UiContainer" type="CanvasLayer" parent="."]
+[node name="UiContainer" type="CanvasLayer" parent="." groups=["ui_container"]]
 
 [node name="Hud" parent="UiContainer" instance=ExtResource("2_b8g54")]
 
-[node name="Camera" type="Node" parent="."]
+[node name="Camera" type="Node" parent="." groups=["camera_container"]]
 
 [node name="PlayerCamera" parent="Camera" instance=ExtResource("3_onf7c")]
 camera_move_speed = 0.785
 camera_offset = Vector2(20, -80)
 
-[node name="LevelContainer" type="Node2D" parent="."]
+[node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
 
 [node name="Level" parent="LevelContainer" instance=ExtResource("1_am8c5")]
 position = Vector2(2, 565)
 
-[node name="EntityContainer" type="Node2D" parent="."]
+[node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
 
 [node name="player" parent="EntityContainer" instance=ExtResource("2_0imob")]
 position = Vector2(23, 508)
 
 [node name="BaseCoin" parent="EntityContainer" instance=ExtResource("3_a0c6e")]
 position = Vector2(191, 562)
+collision_mask = 7
 
 [node name="Patroll" parent="EntityContainer" instance=ExtResource("5_siuy0")]
 position = Vector2(220, 568)

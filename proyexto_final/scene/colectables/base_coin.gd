@@ -1,3 +1,3 @@
-extends Area2D
+extends RigidBody2D
 
 var value : int = 1

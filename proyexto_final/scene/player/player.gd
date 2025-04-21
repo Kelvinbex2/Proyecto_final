@@ -25,6 +25,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	handle_state_machine_signals()
 	SignalBus.emit_on_player_ready(self)
+	
 
 func _physics_process(delta: float) -> void:
 	gravity_handler.apply_gravity(self,delta)
