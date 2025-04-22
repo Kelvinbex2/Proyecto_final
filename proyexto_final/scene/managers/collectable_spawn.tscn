@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgnh1he3p86xf"]
+
+[ext_resource type="Script" uid="uid://b2lews10hoola" path="res://scene/managers/collectable_spawn.gd" id="1_e6vr6"]
+[ext_resource type="PackedScene" uid="uid://6yhw0wflplh8" path="res://scene/colectables/base_coin.tscn" id="2_7e34b"]
+
+[node name="Collectable_spawn" type="Node"]
+script = ExtResource("1_e6vr6")
+coin_scene = ExtResource("2_7e34b")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

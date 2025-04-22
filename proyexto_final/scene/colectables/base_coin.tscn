@@ -1,7 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://6yhw0wflplh8"]
+[gd_scene load_steps=12 format=3 uid="uid://6yhw0wflplh8"]
 
 [ext_resource type="Script" uid="uid://dvf3aoh6a2rq2" path="res://scene/colectables/base_coin.gd" id="1_635nk"]
 [ext_resource type="Texture2D" uid="uid://b1qdpbbhuljjy" path="res://Assets/collectable/Coin_Gems/MonedaD.png" id="1_p2k7y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_635nk"]
+rough = true
+bounce = 0.4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_635nk"]
 atlas = ExtResource("1_p2k7y")
@@ -54,8 +58,11 @@ radius = 9.0
 
 [node name="BaseCoin" type="RigidBody2D" groups=["collectable"]]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_635nk")
 lock_rotation = true
+angular_velocity = 0.000349066
+angular_damp = 0.8
 script = ExtResource("1_635nk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://we5224hq7e46"]
+
+[ext_resource type="Script" uid="uid://60satop45pvc" path="res://scene/managers/entity_spawn.gd" id="1_lheo5"]
+
+[node name="EntitySpawn" type="Node"]
+script = ExtResource("1_lheo5")
+
+[node name="PlayerSpawnTimer" type="Timer" parent="."]

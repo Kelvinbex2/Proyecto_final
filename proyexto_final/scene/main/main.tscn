@@ -1,14 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=6 format=3 uid="uid://d034brqfcwh7y"]
 
-[ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/level.tscn" id="1_am8c5"]
+[ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/Baselevel.tscn" id="1_am8c5"]
 [ext_resource type="PackedScene" uid="uid://bj0jiug3ni3t2" path="res://scene/colectables/collectable.tscn" id="1_qtsyf"]
-[ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="2_0imob"]
 [ext_resource type="PackedScene" uid="uid://c4cg387427ck8" path="res://scene/ui/hud.tscn" id="2_b8g54"]
 [ext_resource type="PackedScene" uid="uid://diahugbfgdq30" path="res://scene/managers/game_state.tscn" id="2_si3g0"]
-[ext_resource type="PackedScene" uid="uid://flfrmhgwysvg" path="res://scene/background/back_ground.tscn" id="3_6vuhr"]
-[ext_resource type="PackedScene" uid="uid://6yhw0wflplh8" path="res://scene/colectables/base_coin.tscn" id="3_a0c6e"]
 [ext_resource type="PackedScene" uid="uid://bt4lq5flfyceo" path="res://scene/camera/player_camera.tscn" id="3_onf7c"]
-[ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="5_siuy0"]
 
 [node name="main" type="Node2D"]
 
@@ -26,30 +22,12 @@ process_mode = 3
 [node name="Camera" type="Node" parent="." groups=["camera_container"]]
 
 [node name="PlayerCamera" parent="Camera" instance=ExtResource("3_onf7c")]
+position = Vector2(-25, -188)
 camera_move_speed = 0.785
 camera_offset = Vector2(20, -80)
 
 [node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
 
-[node name="Level" parent="LevelContainer" instance=ExtResource("1_am8c5")]
-position = Vector2(2, 565)
+[node name="BaseLevel" parent="LevelContainer" instance=ExtResource("1_am8c5")]
 
 [node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
-
-[node name="player" parent="EntityContainer" instance=ExtResource("2_0imob")]
-position = Vector2(23, 508)
-
-[node name="BaseCoin" parent="EntityContainer" instance=ExtResource("3_a0c6e")]
-position = Vector2(191, 562)
-collision_mask = 7
-
-[node name="Patroll" parent="EntityContainer" instance=ExtResource("5_siuy0")]
-position = Vector2(220, 568)
-
-[node name="Patroll2" parent="EntityContainer" instance=ExtResource("5_siuy0")]
-position = Vector2(687, 504)
-
-[node name="Patroll3" parent="EntityContainer" instance=ExtResource("5_siuy0")]
-position = Vector2(1414, 292)
-
-[node name="BackGround" parent="." instance=ExtResource("3_6vuhr")]
