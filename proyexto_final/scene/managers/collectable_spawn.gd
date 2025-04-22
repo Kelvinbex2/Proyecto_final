@@ -19,8 +19,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func get_random_time() -> float:
-	return randf_range(timer_max,timer_max)
+
 
 
 func handle_collectable_spawn()-> void:
@@ -35,7 +34,7 @@ func handle_collectable_spawn()-> void:
 	entity_container.add_child(new_coin)
 	new_coin.position = chosen_spawn.position
 	
-	spawn_timer.start(get_random_time())
+	spawn_timer.start(NodeExtensions.get_random_time(timer_min,timer_max))
 	
 	
 	

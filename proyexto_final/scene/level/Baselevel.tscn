@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=25 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="PackedScene" uid="uid://bsr71jw17ytmp" path="res://scene/shop/shop.tscn" id="2_hm7p5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cgnh1he3p86xf" path="res://scene/managers/collectable_spawn.tscn" id="15_iv3h3"]
 [ext_resource type="PackedScene" uid="uid://we5224hq7e46" path="res://scene/managers/entity_spawn.tscn" id="16_vv3gj"]
 [ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="17_52qnv"]
+[ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="18_j1l4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1559,9 +1560,24 @@ position = Vector2(957, 512)
 [node name="Marker2D2" type="Marker2D" parent="Collectable_spawn"]
 position = Vector2(412, 327)
 
-[node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point") instance=ExtResource("16_vv3gj")]
+[node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point", "enemy_spawn_points") instance=ExtResource("16_vv3gj")]
 player_spawn_point = NodePath("PlayerSpawn")
 player_packed_scene = ExtResource("17_52qnv")
+enemy_timer_min = 2.0
+enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), NodePath("EnemySpawnPoinContainer/Marker2D2"), NodePath("EnemySpawnPoinContainer/Marker2D3")]
+enemy_packed_scene = ExtResource("18_j1l4i")
+max_enemies_alive = 5
+
+[node name="Marker2D" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
+position = Vector2(648, -63)
+
+[node name="Marker2D2" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="1"]
+position = Vector2(1295, -221)
+
+[node name="Marker2D3" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="2"]
+position = Vector2(1816, -276)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(0, -66)
+position = Vector2(-19, -97)
+
+[editable path="EntitySpawn"]

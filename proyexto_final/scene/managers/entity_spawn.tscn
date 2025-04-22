@@ -5,4 +5,8 @@
 [node name="EntitySpawn" type="Node"]
 script = ExtResource("1_lheo5")
 
-[node name="PlayerSpawnTimer" type="Timer" parent="."]
+[node name="EntitySpawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="EnemySpawnPoinContainer" type="Node" parent="."]

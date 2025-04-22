@@ -46,6 +46,7 @@ type = "Enemy"
 
 [node name="DeathHandler" parent="." index="4" node_paths=PackedStringArray("parent") instance=ExtResource("5_a8n1f")]
 parent = NodePath("..")
+type = "Enemy"
 
 [node name="MovementHandler" parent="." index="5" instance=ExtResource("2_o0nt8")]
 move_speed = 85.0

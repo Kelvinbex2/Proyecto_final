@@ -21,3 +21,6 @@ func get_camera_container() -> Node:
 	
 func get_ui_container() -> Node:
 	return get_tree().get_first_node_in_group(UI_CONTAINER)
+
+func get_random_time(timer_min : float,timer_max:float) -> float:
+	return randf_range(timer_min,timer_max)
