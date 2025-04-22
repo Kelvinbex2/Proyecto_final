@@ -13,18 +13,18 @@ func add_coin(val: int) ->void:
 	
 
 func drop_coin() -> void:
-	var entity_container = NodeExtensions.get_entity_container()
-	var new_coin = droppable.instantiate()
-	var parent_position : Vector2 = get_parent().position
-	
 	if current_coin <= 0:
 		return
-
+	var entity_container = NodeExtensions.get_entity_container()
 	if entity_container == null:
 		return
+		
+	var new_coin = droppable.instantiate()
+	var parent : Node2D = get_parent()
+	var parent_pos = parent.position
 	
 	entity_container.call_deferred("add_child", new_coin)
-	new_coin.position = parent_position
+	new_coin.position = parent_pos
 
 	
 	

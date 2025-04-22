@@ -1564,18 +1564,18 @@ position = Vector2(412, 327)
 player_spawn_point = NodePath("PlayerSpawn")
 player_packed_scene = ExtResource("17_52qnv")
 enemy_timer_min = 2.0
-enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), NodePath("EnemySpawnPoinContainer/Marker2D2"), NodePath("EnemySpawnPoinContainer/Marker2D3")]
+enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Patrol"), NodePath("EnemySpawnPoinContainer/Patrol2"), NodePath("EnemySpawnPoinContainer/Patrol3")]
 enemy_packed_scene = ExtResource("18_j1l4i")
-max_enemies_alive = 5
+max_enemies_alive = 10
 
-[node name="Marker2D" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
-position = Vector2(648, -63)
+[node name="Patrol" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
+position = Vector2(648, -83)
 
-[node name="Marker2D2" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="1"]
-position = Vector2(1295, -221)
+[node name="Patrol2" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="1"]
+position = Vector2(1293, -236)
 
-[node name="Marker2D3" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="2"]
-position = Vector2(1816, -276)
+[node name="Patrol3" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="2"]
+position = Vector2(1815, -302)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
 position = Vector2(-19, -97)
