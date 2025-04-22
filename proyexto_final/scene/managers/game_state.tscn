@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://diahugbfgdq30"]
+
+[ext_resource type="Script" uid="uid://cb5mbtmew45k7" path="res://scene/managers/game_state.gd" id="1_w0inr"]
+[ext_resource type="PackedScene" uid="uid://cb7nsw23g4g48" path="res://scene/ui/upgrade_menu/upgrade_menu.tscn" id="2_cx23v"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_w0inr")
+upgrade_menu = ExtResource("2_cx23v")
+
+[node name="StateTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true

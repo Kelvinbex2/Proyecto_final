@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb7nsw23g4g48"]
+[gd_scene load_steps=3 format=3 uid="uid://cb7nsw23g4g48"]
 
+[ext_resource type="Script" uid="uid://ccwt1ab7nuglb" path="res://scene/ui/upgrade_menu/upgrade_menu.gd" id="1_gsfoh"]
 [ext_resource type="PackedScene" uid="uid://cyve4ulxke7v5" path="res://scene/ui/upgrade_menu/upgrade_opt.tscn" id="1_y6u7p"]
 
 [node name="UpgradeMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gsfoh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
