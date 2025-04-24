@@ -8,16 +8,16 @@
 
 [node name="main" type="Node2D"]
 
+[node name="UiContainer" type="CanvasLayer" parent="." groups=["ui_container"]]
+
+[node name="Hud" parent="UiContainer" instance=ExtResource("2_b8g54")]
+
 [node name="Manager" type="Node" parent="." groups=["manager"]]
 
 [node name="Collectable" parent="Manager" instance=ExtResource("1_qtsyf")]
 
 [node name="GameState" parent="Manager" instance=ExtResource("2_si3g0")]
 process_mode = 3
-
-[node name="UiContainer" type="CanvasLayer" parent="." groups=["ui_container"]]
-
-[node name="Hud" parent="UiContainer" instance=ExtResource("2_b8g54")]
 
 [node name="Camera" type="Node" parent="." groups=["camera_container"]]
 

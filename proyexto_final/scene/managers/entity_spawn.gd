@@ -27,6 +27,7 @@ var enemy_count =0
 func _ready() -> void:
 	SignalBus.on_enemy_death.connect(on_enemy_death)
 	entity_spawn_timer.timeout.connect(enemy_spawn)
+	SignalBus.on_player_entered_dead_zone.connect(on_player_respawn)
 	
 	
 func _process(delta: float) -> void:
@@ -48,6 +49,9 @@ func spawn_player()->void:
 	
 	player_spawned = true
 
+
+func on_player_respawn() -> void:
+	player_spawned = false
 
 func enemy_spawn() -> void:
 	if enemy_count >= max_enemies_alive:

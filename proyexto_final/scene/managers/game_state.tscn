@@ -8,5 +8,5 @@ script = ExtResource("1_w0inr")
 upgrade_menu = ExtResource("2_cx23v")
 
 [node name="StateTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+wait_time = 30.0
+autostart = true

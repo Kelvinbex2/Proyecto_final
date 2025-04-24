@@ -14,6 +14,7 @@ var current_stae = ActiveState
 
 func _ready() -> void:
 	state_timer.timeout.connect(on_active_state_end)
+	SignalBus.emit_on_game_state_manager_ready(self)
 
 
 func _process(delta: float) -> void:

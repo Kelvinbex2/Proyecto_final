@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceg2wulql461n"]
+
+[ext_resource type="Script" uid="uid://bha8e4d2niwp0" path="res://scene/handlers/dead_zone.gd" id="1_jq075"]
+
+[node name="DeadZone" type="Area2D"]
+script = ExtResource("1_jq075")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

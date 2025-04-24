@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dspv53ufjllhe"]
+[gd_scene load_steps=9 format=3 uid="uid://dspv53ufjllhe"]
 
 [ext_resource type="Script" uid="uid://bpfjmv5ldbbrj" path="res://scene/ui/script_ui/coin_counter.gd" id="1_i0gne"]
 [ext_resource type="Texture2D" uid="uid://b1qdpbbhuljjy" path="res://Assets/collectable/Coin_Gems/MonedaD.png" id="2_qeey1"]
@@ -46,9 +46,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6j244"]
-radius = 8.0
-
 [node name="CoinCounter" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -59,30 +56,27 @@ grow_vertical = 2
 script = ExtResource("1_i0gne")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_right = 10.0
-offset_bottom = 23.0
+layout_mode = 1
+offset_right = 44.0
+offset_bottom = 28.0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 7
 theme_override_constants/margin_bottom = 3
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="MarginContainer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer"]
 position = Vector2(16, 14)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_pako5")
 animation = &"oro"
 autoplay = "oro"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/CharacterBody2D"]
-shape = SubResource("CircleShape2D_6j244")
-
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/margin_left = -3
 theme_override_constants/margin_top = -12
 
 [node name="coinCounter" type="Label" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "0"
