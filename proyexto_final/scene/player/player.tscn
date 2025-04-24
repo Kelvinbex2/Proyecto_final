@@ -390,8 +390,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfhxk"]
-radius = 9.0
-height = 18.0
+radius = 4.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pisg7"]
 radius = 12.0
@@ -399,7 +399,7 @@ radius = 12.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1wtbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc4n2"]
-size = Vector2(16, 12)
+size = Vector2(16, 9)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite2D") groups=["Player"]]
 collision_layer = 2
@@ -460,7 +460,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HandlerContainer/StompBoxHandler" index="0"]
-position = Vector2(-2, 24)
+position = Vector2(-2, 22.5)
 shape = SubResource("RectangleShape2D_sc4n2")
 disabled = true
 

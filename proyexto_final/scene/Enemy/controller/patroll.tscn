@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cai0ofpluksfu" path="res://scene/handlers/drop_handler.tscn" id="9_u1dy6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tf7cn"]
+radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_indo5"]
 radius = 16.1555
