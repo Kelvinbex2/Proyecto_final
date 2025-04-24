@@ -21,7 +21,7 @@ func drop_coin() -> void:
 		
 	var new_coin = droppable.instantiate()
 	var parent : Node2D = get_parent()
-	var parent_pos = parent.position
+	var parent_pos = parent.global_position
 	
 	entity_container.call_deferred("add_child", new_coin)
 	new_coin.position = parent_pos

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalStat="*res://autoLoads/GlobalStat.gd"
 SignalBus="*res://autoLoads/SignalBus.gd"
 NodeExtensions="*res://autoLoads/NodeExtensions.gd"
 

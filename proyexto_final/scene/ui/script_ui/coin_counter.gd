@@ -5,6 +5,7 @@ extends Control
 
 
 func _ready() -> void:
+	set_coin_counter(GlobalStat.get_current_coin())
 	SignalBus.on_coin_counter_update.connect(set_coin_counter)
 	
 

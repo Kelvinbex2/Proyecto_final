@@ -48,4 +48,6 @@ func on_active_state_end()->void:
 	
 
 func on_upgrade_state_end() -> void:
+	upgrade_menu_exits = false
 	current_stae = ActiveState
+	get_tree().reload_current_scene()

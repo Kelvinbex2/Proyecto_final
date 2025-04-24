@@ -13,7 +13,8 @@ func _ready() -> void:
 func set_max_health() -> void:
 	current_health = max_health
 	if type == "Player":
-		SignalBus.emit_on_collectable_collected(max_health)
+		max_health = GlobalStat.get_current_coin()
+		current_health = max_health
 
 func damage(val: int) -> void:
 	match type:
