@@ -1,6 +1,7 @@
 class_name CoinCounter_UI
 extends Control
-@onready var coin_counter: Label = $HBoxContainer/coinCounter
+
+@onready var coin_counter: Label = $MarginContainer/MarginContainer/coinCounter
 
 
 func _ready() -> void:

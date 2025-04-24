@@ -1,6 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://dspv53ufjllhe"]
+[gd_scene load_steps=10 format=3 uid="uid://dspv53ufjllhe"]
 
 [ext_resource type="Script" uid="uid://bpfjmv5ldbbrj" path="res://scene/ui/script_ui/coin_counter.gd" id="1_i0gne"]
+[ext_resource type="Texture2D" uid="uid://b1qdpbbhuljjy" path="res://Assets/collectable/Coin_Gems/MonedaD.png" id="2_qeey1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_635nk"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1wwj"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqdx"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd7r6"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytkcd"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pako5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_635nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1wwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd7r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytkcd")
+}],
+"loop": true,
+"name": &"oro",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6j244"]
+radius = 8.0
 
 [node name="CoinCounter" type="Control"]
 layout_mode = 3
@@ -11,15 +58,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i0gne")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 79.0
-offset_bottom = 23.0
-
-[node name="coinText" type="Label" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-text = "Coins:"
+offset_right = 10.0
+offset_bottom = 23.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 3
 
-[node name="coinCounter" type="Label" parent="HBoxContainer"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="MarginContainer"]
+position = Vector2(16, 14)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_pako5")
+animation = &"oro"
+autoplay = "oro"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/CharacterBody2D"]
+shape = SubResource("CircleShape2D_6j244")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -3
+theme_override_constants/margin_top = -12
+
+[node name="coinCounter" type="Label" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
 text = "0"
