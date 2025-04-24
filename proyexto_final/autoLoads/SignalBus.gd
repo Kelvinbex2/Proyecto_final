@@ -7,10 +7,14 @@ signal on_hit(val : int)
 signal  on_enemy_death
 signal on_game_state_manager_ready(GS:GameState)
 signal on_player_entered_dead_zone
+signal on_upgrade_purchased(upgrade:BaseUpgrade)
 
 func emit_on_player_entered_dead_zone() -> void:
 	on_player_entered_dead_zone.emit()
-	
+
+
+func emit_on_upgrade_purchased(upgrade:BaseUpgrade)->void:
+	on_upgrade_purchased.emit(upgrade)
 	
 func emit_on_game_state_manager_ready(GS:GameState) -> void:
 	on_game_state_manager_ready.emit(GS)

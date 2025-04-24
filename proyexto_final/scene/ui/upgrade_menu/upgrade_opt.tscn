@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyve4ulxke7v5"]
+[gd_scene load_steps=4 format=3 uid="uid://cyve4ulxke7v5"]
+
+[ext_resource type="Script" uid="uid://rb1gc3jvkv86" path="res://scene/ui/upgrade_menu/upgrade_opt.gd" id="1_64jod"]
+[ext_resource type="Resource" uid="uid://bvqaqonm4s6wh" path="res://scene/resources/upgrade_folder/upgrades/NullUpgrade.tres" id="2_jvdxg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3rpl"]
 
 [node name="UpgradeOpt" type="Control"]
-custom_minimum_size = Vector2(170, 220)
+custom_minimum_size = Vector2(164, 200)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,6 +15,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_64jod")
+base_null_upgrade = ExtResource("2_jvdxg")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -62,7 +67,7 @@ custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="DesLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(155, 125)
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
