@@ -36,6 +36,7 @@ func load_setting_date() -> void :
 		loaded_data = json.get_data()
 		
 		SettingSignalBus.emit_load_settings_data(loaded_data)
+		loaded_data ={}
 		
 		
 		

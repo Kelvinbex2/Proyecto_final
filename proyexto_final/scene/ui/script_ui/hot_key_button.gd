@@ -11,6 +11,11 @@ func _ready() -> void:
 	set_process_unhandled_key_input(false)
 	set_action_name()
 	set_text_for_key()
+	load_keybinds()
+	
+
+func load_keybinds() -> void:
+	_rebind_key(SettingDataContainer.get_keybind(action_name))
 	
 	
 
@@ -59,7 +64,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _rebind_key(event) -> void:
 	InputMap.action_erase_events(action_name)
 	InputMap.action_add_event(action_name,event)
-	
+	SettingDataContainer.set_keybind(action_name,event)
 	set_process_unhandled_input(false)
 	set_text_for_key()
 	set_action_name()

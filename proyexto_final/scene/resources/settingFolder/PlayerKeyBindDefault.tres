@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PlayerKeyBindResource" load_steps=5 format=3 uid="uid://5oayn2x6ja7t"]
+
+[ext_resource type="Script" uid="uid://b70uii5mx0p5c" path="res://scene/resources/settingFolder/PlayerKeyBindResource.gd" id="1_4q01a"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_4q01a"]
+device = -1
+keycode = 4194320
+
+[sub_resource type="InputEventKey" id="InputEventKey_41vdp"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_2wp12"]
+device = -1
+keycode = 4194321
+
+[resource]
+script = ExtResource("1_4q01a")
+DEFAULT_MOVE_LEFT_KEY = SubResource("InputEventKey_41vdp")
+DEFAULT_MOVE_RIGHT_KEY = SubResource("InputEventKey_2wp12")
+DEFAULT_JUMP_KEY = SubResource("InputEventKey_4q01a")
+metadata/_custom_type_script = "uid://b70uii5mx0p5c"
