@@ -5,9 +5,14 @@ signal on_resolution_selected(index : int)
 signal on_master_sound_set(float : int)
 signal on_music_sound_set(float : int)
 signal on_sfx_sound_set(float : int)
-
 signal set_settings_dictionary(setting: Dictionary)
+signal load_settings_data(Setting_dic: Dictionary)
 
+
+func emit_load_settings_data(Setting_dic: Dictionary)-> void:
+	load_settings_data.emit(Setting_dic)
+	
+	
 func emit_set_settings_dictionary(setting: Dictionary) -> void:
 	set_settings_dictionary.emit(setting)
 
