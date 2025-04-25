@@ -7,7 +7,7 @@ signal on_music_sound_set(float : int)
 signal on_sfx_sound_set(float : int)
 signal set_settings_dictionary(setting: Dictionary)
 signal load_settings_data(Setting_dic: Dictionary)
-
+signal request_reload_settings
 
 func emit_load_settings_data(Setting_dic: Dictionary)-> void:
 	load_settings_data.emit(Setting_dic)
@@ -34,3 +34,6 @@ func emit_on_music_sound_set(index : float) -> void:
 
 func emit_on_sfx_sound_set(index : float) -> void:
 	on_sfx_sound_set.emit(index)
+	
+func emit_request_reload_settings() -> void: 
+	request_reload_settings.emit()

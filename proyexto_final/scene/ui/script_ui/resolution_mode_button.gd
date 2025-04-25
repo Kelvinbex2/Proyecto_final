@@ -11,7 +11,12 @@ const RESOLU_DIC : Dictionary = {
 func _ready() -> void:
 	option_button.item_selected.connect(on_resolution_selected)
 	add_resolution_item()
-	load_data()
+	
+	if SettingDataContainer.loaded_data != {}:
+		load_data()
+	else:
+		SettingSignalBus.load_settings_data.connect(func(_data): load_data()) 
+
 
 func load_data()-> void:
 	on_resolution_selected(SettingDataContainer.get_resolution_index())

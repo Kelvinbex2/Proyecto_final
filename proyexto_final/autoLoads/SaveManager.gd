@@ -8,6 +8,7 @@ var settings_data_dic : Dictionary ={}
 
 func _ready() -> void:
 	SettingSignalBus.set_settings_dictionary.connect(on_Setting_save)
+	SettingSignalBus.request_reload_settings.connect(load_setting_date)
 	load_setting_date()
 	
 	

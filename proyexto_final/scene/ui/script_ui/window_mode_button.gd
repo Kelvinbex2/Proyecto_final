@@ -13,7 +13,11 @@ const WINDOW_MODE_SELECT : Array[String] = [
 func _ready() -> void:
 	add_window_mode_item()
 	option_button.item_selected.connect(on_window_mode_selected)
-	load_data()
+	
+	if SettingDataContainer.loaded_data != {}:
+		load_data()
+	else:
+		SettingSignalBus.load_settings_data.connect(func(_data): load_data()) 
 
 func  load_data() -> void:
 	on_window_mode_selected(SettingDataContainer.get_window_mode_index())

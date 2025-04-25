@@ -10,9 +10,14 @@ var index_bus : int = 0
 func _ready() -> void:
 	h_slider.value_changed.connect(on_val_changed)
 	get_bus_name_index()
-	load_data()
 	set_name_label()
 	set_slider_value()
+
+	if SettingDataContainer.loaded_data != {}:
+		load_data()
+	else:
+		SettingSignalBus.load_settings_data.connect(func(_data): load_data())
+
 	
 
 func load_data () -> void:
