@@ -5,6 +5,7 @@
 
 [node name="Collectable_spawn" type="Node"]
 script = ExtResource("1_e6vr6")
+timer_max = 3.0
 coin_scene = ExtResource("2_7e34b")
 
 [node name="SpawnTimer" type="Timer" parent="."]

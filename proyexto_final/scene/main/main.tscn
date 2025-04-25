@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=7 format=3 uid="uid://d034brqfcwh7y"]
 
 [ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/Baselevel.tscn" id="1_am8c5"]
 [ext_resource type="PackedScene" uid="uid://bj0jiug3ni3t2" path="res://scene/colectables/collectable.tscn" id="1_qtsyf"]
+[ext_resource type="PackedScene" uid="uid://flfrmhgwysvg" path="res://scene/background/back_ground.tscn" id="1_siuy0"]
 [ext_resource type="PackedScene" uid="uid://c4cg387427ck8" path="res://scene/ui/hud.tscn" id="2_b8g54"]
 [ext_resource type="PackedScene" uid="uid://diahugbfgdq30" path="res://scene/managers/game_state.tscn" id="2_si3g0"]
 [ext_resource type="PackedScene" uid="uid://bt4lq5flfyceo" path="res://scene/camera/player_camera.tscn" id="3_onf7c"]
@@ -23,11 +24,14 @@ process_mode = 3
 
 [node name="PlayerCamera" parent="Camera" instance=ExtResource("3_onf7c")]
 position = Vector2(-25, -188)
-camera_move_speed = 0.785
-camera_offset = Vector2(20, -80)
+zoom = Vector2(2, 1.668)
+camera_move_speed = 0.698
+camera_offset = Vector2(10, -80)
 
 [node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
 
 [node name="BaseLevel" parent="LevelContainer" instance=ExtResource("1_am8c5")]
 
 [node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
+
+[node name="BackGround" parent="." instance=ExtResource("1_siuy0")]
