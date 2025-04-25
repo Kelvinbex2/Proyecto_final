@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 GlobalStat="*res://autoLoads/GlobalStat.gd"
 SignalBus="*res://autoLoads/SignalBus.gd"
 NodeExtensions="*res://autoLoads/NodeExtensions.gd"
+SaveManager="*res://autoLoads/SaveManager.gd"
+SettingDataContainer="*res://autoLoads/SettingDataContainer.gd"
+SettingSignalBus="*res://autoLoads/SettingSignalBus.gd"
 
 [display]
 

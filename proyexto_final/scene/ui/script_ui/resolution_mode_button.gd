@@ -16,6 +16,7 @@ func add_resolution_item()-> void:
 	for resolution in RESOLU_DIC:
 		option_button.add_item(resolution)
 		
-func on_resolution_selected(index : int) -> void	:
+func on_resolution_selected(index : int) -> void:
+	SettingSignalBus.emit_on_resolution_selected(index)
 	DisplayServer.window_set_size(RESOLU_DIC.values()[index])
 	
