@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://blv3ldrsaicbn"]
+
+[ext_resource type="Texture2D" uid="uid://c5v7450g6byro" path="res://Assets/character/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_udd5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udd5x"]
+size = Vector2(69, 8)
+
+[sub_resource type="Animation" id="Animation_udd5x"]
+resource_name = "move_up"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 2.93333, 2.93343),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -164), Vector2(0, 0), Vector2(-2, -164), Vector2(-2, -164)]
+}
+
+[sub_resource type="Animation" id="Animation_g4cv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_davlh"]
+_data = {
+&"RESET": SubResource("Animation_g4cv8"),
+&"move_up": SubResource("Animation_udd5x")
+}
+
+[node name="Platform" type="Node2D"]
+
+[node name="Platform_up" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform_up"]
+texture = ExtResource("1_udd5x")
+region_enabled = true
+region_rect = Rect2(164, 168, 75, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_up"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_udd5x")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform_up"]
+libraries = {
+&"": SubResource("AnimationLibrary_davlh")
+}
+autoplay = "move_up"
