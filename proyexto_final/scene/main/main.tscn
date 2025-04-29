@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d034brqfcwh7y"]
+[gd_scene load_steps=8 format=3 uid="uid://d034brqfcwh7y"]
 
 [ext_resource type="PackedScene" uid="uid://dngowbw1vetdp" path="res://scene/level/Baselevel.tscn" id="1_am8c5"]
 [ext_resource type="PackedScene" uid="uid://bj0jiug3ni3t2" path="res://scene/colectables/collectable.tscn" id="1_qtsyf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4cg387427ck8" path="res://scene/ui/hud.tscn" id="2_b8g54"]
 [ext_resource type="PackedScene" uid="uid://diahugbfgdq30" path="res://scene/managers/game_state.tscn" id="2_si3g0"]
 [ext_resource type="PackedScene" uid="uid://bt4lq5flfyceo" path="res://scene/camera/player_camera.tscn" id="3_onf7c"]
+[ext_resource type="PackedScene" uid="uid://c5e53p0d4ukws" path="res://scene/pause/pause_menu.tscn" id="7_b8g54"]
 
 [node name="main" type="Node2D"]
 
@@ -33,5 +34,9 @@ camera_offset = Vector2(10, -80)
 [node name="BaseLevel" parent="LevelContainer" instance=ExtResource("1_am8c5")]
 
 [node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="EntityContainer"]
+
+[node name="PauseMenu" parent="EntityContainer/CanvasLayer" instance=ExtResource("7_b8g54")]
 
 [node name="BackGround" parent="." instance=ExtResource("1_siuy0")]
