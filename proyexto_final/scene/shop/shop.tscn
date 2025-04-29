@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsr71jw17ytmp"]
+[gd_scene load_steps=11 format=3 uid="uid://bsr71jw17ytmp"]
 
 [ext_resource type="Texture2D" uid="uid://b8rxl38drdi7k" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/shop_anim.png" id="1_jdi50"]
+[ext_resource type="Script" uid="uid://dm7xypi0wrq5t" path="res://scene/shop/shop.gd" id="1_pfgle"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfgle"]
 atlas = ExtResource("1_jdi50")
@@ -52,7 +53,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Shop" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdi50"]
+radius = 48.0937
+
+[node name="Shop" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_pfgle")
 
 [node name="shop_ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0ed41")
@@ -61,3 +67,5 @@ autoplay = "shop"
 frame_progress = 0.197917
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 16)
+shape = SubResource("CircleShape2D_jdi50")
