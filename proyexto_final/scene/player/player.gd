@@ -47,4 +47,10 @@ func handle_state_machine_signals() -> void:
 	player_stomp_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
 	player_stomp_state.enter_bounce_state.connect(player_state.change_state.bind(player_bounce_state))
 	player_bounce_state.enter_fall_state.connect(player_state.change_state.bind(player_fall_state))
+
+
+func play_death_animation() -> void:
+	animatedSprite2D.play("die")
+	await animatedSprite2D.animation_finished
 	
+	get_tree().reload_current_scene()
