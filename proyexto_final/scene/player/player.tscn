@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=75 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://co0w03uc38eis" path="res://scene/stateMachine/state/playerstates/PlayerStompState.gd" id="18_lrcci"]
 [ext_resource type="Script" uid="uid://kbr3j3hxcvwb" path="res://scene/stateMachine/state/playerstates/PlayerBounceState.gd" id="19_fspl2"]
 [ext_resource type="Script" uid="uid://bdkwy3g71vfs5" path="res://scene/stateMachine/state/playerstates/PlayerAttackState.gd" id="20_eeiom"]
+[ext_resource type="Script" uid="uid://cs7u7lw4u4o3t" path="res://scene/stateMachine/state/playerstates/PlayerDeathState.gd" id="21_gt2ev"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -499,6 +500,10 @@ metadata/_custom_type_script = "uid://kbr3j3hxcvwb"
 [node name="PlayerAttackState" type="Node" parent="PlayerState"]
 script = ExtResource("20_eeiom")
 metadata/_custom_type_script = "uid://bdkwy3g71vfs5"
+
+[node name="PlayerDeathState" type="Node" parent="PlayerState"]
+script = ExtResource("21_gt2ev")
+metadata/_custom_type_script = "uid://cs7u7lw4u4o3t"
 
 [editable path="HandlerContainer/HitBoxHandler"]
 [editable path="HandlerContainer/CollectionHandler"]

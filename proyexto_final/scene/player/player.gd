@@ -20,6 +20,7 @@ extends CharacterBody2D
 @onready var player_stomp_state: PlayerStompState = $PlayerState/PlayerStompState
 @onready var player_bounce_state: PlayerBounceState = $PlayerState/PlayerBounceState
 @onready var player_attack_state: PlayerAttackState = $PlayerState/PlayerAttackState
+@onready var player_death_state: PlayerDeathState = $PlayerState/PlayerDeathState
 
 #endregion
 
@@ -62,3 +63,6 @@ func play_death_animation() -> void:
 func _on_player_attack(attacking_player: Player) -> void:
 	if attacking_player == self:
 		hit_box_handler.apply_hit()
+		
+func change_state(new_state: BasePlayerState) -> void:
+	player_state.change_state(new_state)
