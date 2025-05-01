@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsr71jw17ytmp"]
+[gd_scene load_steps=12 format=3 uid="uid://bsr71jw17ytmp"]
 
 [ext_resource type="Texture2D" uid="uid://b8rxl38drdi7k" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/shop_anim.png" id="1_jdi50"]
 [ext_resource type="Script" uid="uid://dm7xypi0wrq5t" path="res://scene/shop/shop.gd" id="1_pfgle"]
+[ext_resource type="PackedScene" uid="uid://ccx4pk7xuust2" path="res://scene/Diaglog/dialogue_ui.tscn" id="2_mq6bq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfgle"]
 atlas = ExtResource("1_jdi50")
@@ -59,6 +60,7 @@ radius = 48.0937
 [node name="Shop" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_pfgle")
+dialogue_scene = ExtResource("2_mq6bq")
 
 [node name="shop_ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0ed41")
