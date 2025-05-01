@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://iijp16k7ij7k"]
+
+[resource]
+font_names = PackedStringArray("Impact")
