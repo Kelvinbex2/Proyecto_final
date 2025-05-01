@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://nkhqblhj6hmr" path="res://scene/handlers/flip_handler.gd" id="1_70r2y"]
 
 [node name="FlipHandler" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_70r2y")

@@ -1,7 +1,14 @@
 extends Control
 
+var player_ref: Player = null
+
 func _ready() -> void:
-	visible = false 
+	visible = false
+	SignalBus.on_player_ready.connect(_on_player_ready)
+
+func _on_player_ready(player: Player) -> void:
+	player_ref = player
+
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -12,11 +19,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pause() -> void:
 	get_tree().paused = true
-	visible = true  
+	visible = true
+	
+	if player_ref:
+		player_ref.freeze()
+
+
 
 func resume() -> void:
 	get_tree().paused = false
-	visible = false  
+	visible = false
+
+	if player_ref:
+		player_ref.unfreeze()
+ 
 
 func _on_btn_resum_pressed() -> void:
 	resume()

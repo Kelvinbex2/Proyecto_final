@@ -11,4 +11,6 @@ func handle_movement_input() -> Vector2:
 	return movement_direc
 
 func handle_jump_input() -> bool:
+	if get_tree().paused:
+		return false
 	return Input.is_action_just_pressed("jump_up")

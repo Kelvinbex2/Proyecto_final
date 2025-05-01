@@ -31,6 +31,10 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if get_tree().paused:
+		print("🚨 Player is running while paused!")
+		return
+		
 	gravity_handler.apply_gravity(self,delta)
 	move_and_slide()
 
@@ -66,3 +70,11 @@ func _on_player_attack(attacking_player: Player) -> void:
 		
 func change_state(new_state: BasePlayerState) -> void:
 	player_state.change_state(new_state)
+
+
+func freeze() -> void:
+	set_physics_process(false)
+	
+func unfreeze() -> void:
+	set_physics_process(true)
+	velocity = Vector2.ZERO  

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bgluubxxgicks" path="res://scene/handlers/movement_handler.gd" id="1_010xy"]
 
 [node name="MovementHandler" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_010xy")
