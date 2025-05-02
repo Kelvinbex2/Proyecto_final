@@ -68,6 +68,5 @@ func _rebind_key(event) -> void:
 	set_process_unhandled_input(false)
 	set_text_for_key()
 	set_action_name()
-	var new_data = SettingDataContainer.create_storage_dictionary()
-	SettingSignalBus.set_settings_dictionary.emit(new_data)
+	
 		
