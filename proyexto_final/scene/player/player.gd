@@ -60,14 +60,17 @@ func handle_state_machine_signals() -> void:
 
 
 func play_death_animation() -> void:
-	animatedSprite2D.play("die")
-	await animatedSprite2D.animation_finished
-	get_tree().reload_current_scene()
+	#animatedSprite2D.play("die")
+	#await animatedSprite2D.animation_finished
+	call_deferred("reload_scene")
 
 func _on_player_die() -> void:
 	play_death_animation()
 
-
+func reload_scene() -> void:
+	GlobalStat.reset_coins()
+	get_tree().reload_current_scene()
+	
 func _on_player_attack(attacking_player: Player) -> void:
 	if attacking_player == self:
 		hit_box_handler.apply_hit()
