@@ -1,8 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=26 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="PackedScene" uid="uid://bsr71jw17ytmp" path="res://scene/shop/shop.tscn" id="2_hm7p5"]
-[ext_resource type="PackedScene" uid="uid://ccx4pk7xuust2" path="res://scene/Diaglog/dialogue_ui.tscn" id="3_j1l4i"]
 [ext_resource type="Texture2D" uid="uid://b6pmc8opcwokr" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/rock_3.png" id="3_plauu"]
 [ext_resource type="Texture2D" uid="uid://qf1dhvd4yly" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/rock_1.png" id="4_dcgxc"]
 [ext_resource type="Texture2D" uid="uid://bhtcovekin2vm" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/rock_2.png" id="5_n6afj"]
@@ -1428,7 +1427,6 @@ offset_bottom = 40.0
 
 [node name="Shop" parent="shop" instance=ExtResource("2_hm7p5")]
 position = Vector2(387, 321)
-dialogue_scene = ExtResource("3_j1l4i")
 
 [node name="rock" type="Control" parent="."]
 layout_mode = 3

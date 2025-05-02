@@ -126,14 +126,25 @@ func on_keybinds_loaded(data: Dictionary) -> void:
 	var loaded_move_left = InputEventKey.new()
 	var loaded_move_right = InputEventKey.new()
 	var loaded_jump = InputEventKey.new()
-	
+
 	loaded_move_left.set_physical_keycode(int(data.move_left))
 	loaded_move_right.set_physical_keycode(int(data.move_right))
 	loaded_jump.set_physical_keycode(int(data.jump_up))
-	
+
 	keyBind_resource.move_left_key = loaded_move_left
 	keyBind_resource.move_right_key = loaded_move_right
 	keyBind_resource.jump_key = loaded_jump
+
+	# Apply to InputMap
+	InputMap.action_erase_events("move_left")
+	InputMap.action_add_event("move_left", loaded_move_left)
+
+	InputMap.action_erase_events("move_right")
+	InputMap.action_add_event("move_right", loaded_move_right)
+
+	InputMap.action_erase_events("jump_up")
+	InputMap.action_add_event("jump_up", loaded_jump)
+
 	
 	
 func on_setting_data_loaded(data:Dictionary) -> void:

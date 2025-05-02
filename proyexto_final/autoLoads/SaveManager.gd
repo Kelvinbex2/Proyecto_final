@@ -37,26 +37,3 @@ func load_setting_date() -> void :
 		
 		SettingSignalBus.emit_load_settings_data(loaded_data)
 		loaded_data ={}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
