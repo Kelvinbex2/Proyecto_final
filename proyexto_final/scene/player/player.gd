@@ -28,7 +28,8 @@ func _ready() -> void:
 	handle_state_machine_signals()
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
-	
+	SignalBus.on_player_die.connect(_on_player_die)
+
 
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
@@ -62,6 +63,9 @@ func play_death_animation() -> void:
 	animatedSprite2D.play("die")
 	await animatedSprite2D.animation_finished
 	get_tree().reload_current_scene()
+
+func _on_player_die() -> void:
+	play_death_animation()
 
 
 func _on_player_attack(attacking_player: Player) -> void:

@@ -9,7 +9,11 @@ signal on_game_state_manager_ready(GS:GameState)
 signal on_player_entered_dead_zone
 signal on_upgrade_purchased(upgrade:BaseUpgrade)
 signal on_player_attack(player: Player)
+signal on_player_die
 
+func emit_on_player_die()-> void:
+	on_player_die.emit()
+	
 func emit_on_player_attack(player: Player) -> void:
 	on_player_attack.emit(player)
 
