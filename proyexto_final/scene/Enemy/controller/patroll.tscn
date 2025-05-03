@@ -79,7 +79,7 @@ shape = SubResource("CircleShape2D_indo5")
 
 [node name="HitBoxHandler" parent="." index="13" node_paths=PackedStringArray("health_handler") instance=ExtResource("6_aca1g")]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 time = 0.2
 health_handler = NodePath("../HealthHandler")
 
