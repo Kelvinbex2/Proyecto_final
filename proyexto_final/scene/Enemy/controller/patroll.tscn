@@ -14,10 +14,10 @@
 radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_indo5"]
-radius = 16.1555
+radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t8jwi"]
-radius = 18.6011
+radius = 5.09902
 
 [node name="Patroll" instance=ExtResource("1_biyi6")]
 position = Vector2(4, -3)
@@ -69,7 +69,7 @@ target_position = Vector2(0, 20)
 position = Vector2(-2, -6)
 target_position = Vector2(-8, 1)
 
-[node name="HurtBox" parent="." index="12" instance=ExtResource("5_indo5")]
+[node name="HurtBox" parent="." index="12" groups=["Enemy"] instance=ExtResource("5_indo5")]
 collision_layer = 4
 collision_mask = 2
 
@@ -84,7 +84,7 @@ time = 0.2
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
-position = Vector2(23, -8)
+position = Vector2(4, -6)
 shape = SubResource("CircleShape2D_t8jwi")
 
 [node name="Drop_handler" parent="." index="14" instance=ExtResource("9_u1dy6")]

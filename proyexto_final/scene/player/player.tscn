@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=76 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -403,6 +403,9 @@ radius = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc4n2"]
 size = Vector2(16, 9)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt2ev"]
+radius = 7.07107
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite2D") groups=["Player"]]
 process_mode = 1
 collision_layer = 2
@@ -468,6 +471,14 @@ position = Vector2(-2, 22.5)
 shape = SubResource("RectangleShape2D_sc4n2")
 disabled = true
 
+[node name="BodyHurtBox" parent="HandlerContainer" instance=ExtResource("12_sc4n2")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HandlerContainer/BodyHurtBox" index="0"]
+position = Vector2(-5, 12)
+shape = SubResource("CircleShape2D_gt2ev")
+
 [node name="PlayerState" type="Node" parent="." node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("12_f5r2w")
 player = NodePath("..")
@@ -511,3 +522,4 @@ metadata/_custom_type_script = "uid://cs7u7lw4u4o3t"
 [editable path="HandlerContainer/HitBoxHandler"]
 [editable path="HandlerContainer/CollectionHandler"]
 [editable path="HandlerContainer/StompBoxHandler"]
+[editable path="HandlerContainer/BodyHurtBox"]

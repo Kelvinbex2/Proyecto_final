@@ -34,4 +34,4 @@ func on_attack_hit(area: Area2D) -> void:
 
 	var health = area.get_parent().get_node_or_null("HealthHandler")
 	if health:
-		health.damage(2)
+		health.damage(3)
