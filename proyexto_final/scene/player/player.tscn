@@ -237,7 +237,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -435,12 +435,13 @@ decceleration = 8.0
 
 [node name="HitBoxHandler" parent="HandlerContainer" node_paths=PackedStringArray("health_handler") instance=ExtResource("8_hfhxk")]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="HandlerContainer/HitBoxHandler" index="0"]
 position = Vector2(-2, 12)
 shape = SubResource("CircleShape2D_pisg7")
+disabled = true
 
 [node name="HealthHandler" parent="HandlerContainer" node_paths=PackedStringArray("death_handler") instance=ExtResource("9_oypl4")]
 max_health = 5
@@ -498,8 +499,9 @@ metadata/_custom_type_script = "uid://co0w03uc38eis"
 script = ExtResource("19_fspl2")
 metadata/_custom_type_script = "uid://kbr3j3hxcvwb"
 
-[node name="PlayerAttackState" type="Node" parent="PlayerState"]
+[node name="PlayerAttackState" type="Node" parent="PlayerState" node_paths=PackedStringArray("hit_box_handler")]
 script = ExtResource("20_eeiom")
+hit_box_handler = NodePath("../../HandlerContainer/HitBoxHandler")
 metadata/_custom_type_script = "uid://bdkwy3g71vfs5"
 
 [node name="PlayerDeathState" type="Node" parent="PlayerState"]

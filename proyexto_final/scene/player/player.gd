@@ -55,8 +55,9 @@ func handle_state_machine_signals() -> void:
 	player_stomp_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
 	player_stomp_state.enter_bounce_state.connect(player_state.change_state.bind(player_bounce_state))
 	player_bounce_state.enter_fall_state.connect(player_state.change_state.bind(player_fall_state))
-	#player_idle_state.enter_attack_state.connect(player_state.change_state.bind(player_attack_state))
-	#player_attack_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
+	player_idle_state.enter_attack_state.connect(player_state.change_state.bind(player_attack_state))
+	player_attack_state.enter_idle_state.connect(player_state.change_state.bind(player_idle_state))
+
 
 
 func play_death_animation() -> void:
