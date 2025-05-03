@@ -1548,7 +1548,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(205, 330)
+position = Vector2(519, 59)
 
 [node name="DeadZone4" parent="." instance=ExtResource("19_ac421")]
 position = Vector2(182, 2)
@@ -1582,6 +1582,24 @@ position = Vector2(1988, 581)
 
 [node name="Platform2" parent="." instance=ExtResource("17_j1l4i")]
 position = Vector2(1357, 312)
+
+[node name="effect" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="effect"]
+position = Vector2(-177, -147)
+amount = 2000
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(1200, 500)
+spread = 100.0
+initial_velocity_max = 25.0
+scale_amount_min = 0.0
+scale_amount_max = 2.5
+color = Color(0, 0.686275, 1, 1)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]

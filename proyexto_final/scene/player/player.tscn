@@ -423,19 +423,15 @@ shape = SubResource("CapsuleShape2D_hfhxk")
 [node name="InputHandler" parent="HandlerContainer" instance=ExtResource("3_6smn3")]
 
 [node name="MovementHandler" parent="HandlerContainer" instance=ExtResource("4_5lop3")]
-process_mode = 1
 move_speed = 100.0
 acceleration = 14.0
 decceleration = 8.0
 
 [node name="JumpHandler" parent="HandlerContainer" instance=ExtResource("5_ajqqa")]
-process_mode = 1
 
 [node name="FlipHandler" parent="HandlerContainer" instance=ExtResource("6_rkmeh")]
-process_mode = 1
 
 [node name="GravityHandler" parent="HandlerContainer" instance=ExtResource("7_732fb")]
-process_mode = 1
 
 [node name="HitBoxHandler" parent="HandlerContainer" node_paths=PackedStringArray("health_handler") instance=ExtResource("8_hfhxk")]
 collision_layer = 2
