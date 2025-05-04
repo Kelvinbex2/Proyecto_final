@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn1c6r5p67ba6"]
+[gd_scene load_steps=8 format=3 uid="uid://dn1c6r5p67ba6"]
 
 [ext_resource type="Texture2D" uid="uid://dwh3033ckl8vu" path="res://Assets/Background ui/3accf5e5-66bc-41f1-836b-129ba7e7d74a.png" id="1_s6uko"]
 [ext_resource type="Script" uid="uid://tytb7ldqf4rw" path="res://scene/ui/script_ui/main_menu.gd" id="1_vww0c"]
+[ext_resource type="StyleBox" uid="uid://rwp6i0hdqlu5" path="res://Assets/font/main_menu.tres" id="3_k3dtv"]
 [ext_resource type="PackedScene" uid="uid://c54nqhq0tijc2" path="res://scene/ui/option_menu/option_menu.tscn" id="3_k75cp"]
 [ext_resource type="AudioStream" uid="uid://ctp54s2t11pb5" path="res://Assets/audio/Ambient_Lingering_Action.wav" id="4_8wb42"]
 
@@ -73,24 +74,36 @@ alignment = 1
 [node name="btnStart" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.909804, 0.768627, 1)
 theme_override_fonts/font = SubResource("SystemFont_vww0c")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("3_k3dtv")
+theme_override_styles/pressed = ExtResource("3_k3dtv")
+theme_override_styles/normal = ExtResource("3_k3dtv")
 text = "Start Game
 "
 
 [node name="btnOpcion" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.909804, 0.768627, 1)
 theme_override_fonts/font = SubResource("SystemFont_vww0c")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("3_k3dtv")
+theme_override_styles/pressed = ExtResource("3_k3dtv")
+theme_override_styles/normal = ExtResource("3_k3dtv")
 text = "Options
 "
 
 [node name="btnExit" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.909804, 0.768627, 1)
 theme_override_fonts/font = SubResource("SystemFont_vww0c")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("3_k3dtv")
+theme_override_styles/pressed = ExtResource("3_k3dtv")
+theme_override_styles/normal = ExtResource("3_k3dtv")
 text = "Exit"
 
 [node name="option_menu" parent="." instance=ExtResource("3_k75cp")]
