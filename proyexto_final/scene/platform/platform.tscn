@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c5v7450g6byro" path="res://Assets/character/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_udd5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udd5x"]
-size = Vector2(69, 8)
+size = Vector2(69, 14)
 
 [sub_resource type="Animation" id="Animation_g4cv8"]
 length = 0.001
@@ -53,7 +53,7 @@ region_enabled = true
 region_rect = Rect2(164, 168, 75, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_up"]
-position = Vector2(-0.5, -3)
+position = Vector2(-0.5, -4)
 shape = SubResource("RectangleShape2D_udd5x")
 one_way_collision = true
 

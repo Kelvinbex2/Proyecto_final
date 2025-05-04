@@ -2382,4 +2382,4 @@ tile_set = SubResource("TileSet_pg08h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(675, 544)
 sprite_frames = SubResource("SpriteFrames_wmr0c")
-frame_progress = 0.627503
+frame_progress = 0.750364
