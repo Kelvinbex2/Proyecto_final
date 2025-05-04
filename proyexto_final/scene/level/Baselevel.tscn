@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=30 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://doqbigxv3mks7" path="res://scene/level/baselevel.gd" id="1_j1l4i"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://blv3ldrsaicbn" path="res://scene/platform/platform.tscn" id="17_j1l4i"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="18_j1l4i"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="19_ac421"]
+[ext_resource type="PackedScene" uid="uid://rt2ftdu2xa00" path="res://scene/Portal/portal.tscn" id="19_qqpwm"]
+[ext_resource type="PackedScene" uid="uid://iw1b0iq7i4uy" path="res://scene/level/final_level.tscn" id="20_qqpwm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1413,6 +1415,9 @@ size = Vector2(1556, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
 size = Vector2(584.125, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqpwm"]
+size = Vector2(83, 67)
+
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_j1l4i")
 
@@ -1514,6 +1519,7 @@ offset_bottom = 40.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(53, 0)
+tile_map_data = PackedByteArray("AADz//z/AAASABAAAAD0//z/AAATABAAAAD1//z/AAAUABAAAAD2//z/AAAVABAAAAD3//z/AAAWABAAAAD4//z/AAAXABAAAADz//3/AAATABEAAADz//7/AAATABIAAADz////AAATABMAAADz/wAAAAATABQAAAD0//3/AAAUABEAAAD0//7/AAAUABIAAAD0////AAAUABMAAAD0/wAAAAAUABQAAAD1//3/AAAVABEAAAD1//7/AAAVABIAAAD1////AAAVABMAAAD1/wAAAAAVABQAAAD2//3/AAAWABEAAAD2//7/AAAWABIAAAD2////AAAWABMAAAD2/wAAAAAWABQAAAD3//3/AAAXABEAAAD3//7/AAAXABIAAAD3////AAAXABMAAAD3/wAAAAAXABQAAAD4//3/AAAYABEAAAD4//7/AAAYABIAAAD4////AAAYABMAAAD4/wAAAAAYABQAAAD5/wAAAAAXAA8AAAD5////AAAXAA4AAAD5//7/AAAXAA0AAAD5//3/AAAXAA4AAAD5//z/AAAXAA0AAAA=")
 tile_set = SubResource("TileSet_v42v1")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
@@ -1606,7 +1612,18 @@ scale_amount_min = 0.0
 scale_amount_max = 2.5
 color = Color(0, 0.686275, 1, 1)
 
+[node name="Portal" parent="." instance=ExtResource("19_qqpwm")]
+position = Vector2(-132, -23)
+collision_layer = 2
+collision_mask = 2
+target_scene = ExtResource("20_qqpwm")
+
+[node name="CollisionShape2D" parent="Portal" index="0"]
+position = Vector2(14.5, 0.5)
+shape = SubResource("RectangleShape2D_qqpwm")
+
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
 [editable path="DeadZone5"]
 [editable path="DeadZone6"]
+[editable path="Portal"]

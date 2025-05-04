@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://rt2ftdu2xa00"]
+
+[ext_resource type="Script" uid="uid://gvpnxep6f3sg" path="res://scene/Portal/portal.gd" id="1_y0uwu"]
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_y0uwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 9)
