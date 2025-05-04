@@ -1,11 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccx4pk7xuust2"]
+[gd_scene load_steps=9 format=3 uid="uid://ccx4pk7xuust2"]
 
+[ext_resource type="Texture2D" uid="uid://d3upi3vry6qcq" path="res://Assets/Background ui/menu.png" id="1_shhdy"]
 [ext_resource type="SystemFont" uid="uid://bxu5bd0q3i46i" path="res://Assets/font/nom2.tres" id="2_shhdy"]
+[ext_resource type="Texture2D" uid="uid://cgrhxsifmkxnv" path="res://Assets/Background ui/MediavelFree.png/MediavelFree.png" id="3_6qfpv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qfpv"]
+texture = ExtResource("1_shhdy")
+region_rect = Rect2(160, 94, 706, 831)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s22fb"]
+texture = ExtResource("3_6qfpv")
+region_rect = Rect2(127, 17, 17, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6vv2"]
+texture = ExtResource("3_6qfpv")
+region_rect = Rect2(111, 16, 18, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t30ff"]
+texture = ExtResource("3_6qfpv")
+region_rect = Rect2(96, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v56f7"]
+texture = ExtResource("3_6qfpv")
+region_rect = Rect2(80, 32, 16, 16)
 
 [node name="DialogueUI" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(350, 230)
+custom_minimum_size = Vector2(250, 150)
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
@@ -16,6 +38,7 @@ offset_bottom = -19.44
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_6qfpv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -24,45 +47,53 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.5
-offset_top = -80.5
-offset_right = 154.5
-offset_bottom = 80.5
+offset_left = -125.0
+offset_top = -95.0
+offset_right = 125.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = -45
+theme_override_constants/separation = -85
 alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(150, 200)
-layout_mode = 2
-size_flags_vertical = 6
-
-[node name="qLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer"]
+[node name="qLabel" type="Label" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.972549, 0.917647, 0.752941, 1)
+theme_override_colors/font_shadow_color = Color(0.227451, 0.184314, 0.121569, 1)
+theme_override_colors/font_outline_color = Color(0.227451, 0.184314, 0.121569, 1)
+theme_override_constants/line_spacing = -3
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_shhdy")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 19
 text = "¿Quieres continuar por este camino?"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_constants/separation = 19
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="btnSi" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 process_mode = 3
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Si
+theme_override_styles/hover = SubResource("StyleBoxTexture_s22fb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s22fb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b6vv2")
+text = "
 "
 
 [node name="btnNo" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 process_mode = 3
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "No"
+theme_override_styles/hover = SubResource("StyleBoxTexture_t30ff")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t30ff")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v56f7")
