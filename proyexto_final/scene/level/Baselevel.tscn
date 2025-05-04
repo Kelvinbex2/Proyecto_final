@@ -1601,16 +1601,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="effect"]
-position = Vector2(-177, -147)
-amount = 2000
+position = Vector2(900, -147)
+amount = 9000
 lifetime = 2.0
 emission_shape = 3
 emission_rect_extents = Vector2(1200, 500)
-spread = 100.0
+spread = 105.88
 initial_velocity_max = 25.0
 scale_amount_min = 0.0
 scale_amount_max = 2.5
-color = Color(0, 0.686275, 1, 1)
+color = Color(0.619608, 0.768627, 0.847059, 1)
 
 [node name="Portal" parent="." instance=ExtResource("19_qqpwm")]
 position = Vector2(-132, -23)
