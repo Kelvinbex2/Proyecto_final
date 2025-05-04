@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5e53p0d4ukws"]
+[gd_scene load_steps=11 format=3 uid="uid://c5e53p0d4ukws"]
 
 [ext_resource type="Script" uid="uid://d3ft73jvs7l6x" path="res://scene/pause/pause_menu.gd" id="1_avy3h"]
 [ext_resource type="Shader" uid="uid://cr6s0pm5ln5a" path="res://scene/pause/gdshader.gdshader" id="1_fo2g5"]
+[ext_resource type="Texture2D" uid="uid://d3upi3vry6qcq" path="res://Assets/Background ui/menu.png" id="3_is3o6"]
+[ext_resource type="StyleBox" uid="uid://qvkgi50qb4c2" path="res://Assets/font/hove.tres" id="4_45db5"]
+[ext_resource type="StyleBox" uid="uid://rwp6i0hdqlu5" path="res://Assets/font/main_menu.tres" id="4_qok3e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_avy3h"]
 shader = ExtResource("1_fo2g5")
 shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qok3e"]
+texture = ExtResource("3_is3o6")
+region_rect = Rect2(274, 111, 476, 799)
 
 [sub_resource type="Animation" id="Animation_qok3e"]
 length = 0.001
@@ -52,6 +59,7 @@ offset_right = 125.0
 offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qok3e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -61,15 +69,24 @@ theme_override_constants/separation = 25
 
 [node name="btnResum" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover = ExtResource("4_45db5")
+theme_override_styles/pressed = ExtResource("4_45db5")
+theme_override_styles/normal = ExtResource("4_45db5")
 text = "Resume
 "
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover = ExtResource("4_45db5")
+theme_override_styles/pressed = ExtResource("4_qok3e")
+theme_override_styles/normal = ExtResource("4_qok3e")
 text = "Restart"
 
 [node name="Exit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/hover = ExtResource("4_45db5")
+theme_override_styles/pressed = ExtResource("4_qok3e")
+theme_override_styles/normal = ExtResource("4_qok3e")
 text = "Exit
 "
 
