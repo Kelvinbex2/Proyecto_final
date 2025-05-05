@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1rwho3akcmip"]
+
+[ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="1_5kp4e"]
+[ext_resource type="Script" uid="uid://dkp7fhhlefp4w" path="res://scene/colectables/contador.gd" id="1_622fn"]
+
+[node name="Contador" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_622fn")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 46.0
+offset_bottom = 43.0
+theme_override_constants/separation = -500
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="Diamante" parent="." instance=ExtResource("1_5kp4e")]
+position = Vector2(5, 14)

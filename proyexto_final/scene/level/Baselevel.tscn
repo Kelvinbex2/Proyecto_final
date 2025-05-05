@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=28 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://doqbigxv3mks7" path="res://scene/level/baselevel.gd" id="1_j1l4i"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://blv3ldrsaicbn" path="res://scene/platform/platform.tscn" id="17_j1l4i"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="18_j1l4i"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="19_ac421"]
+[ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="19_qqpwm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1606,6 +1607,9 @@ initial_velocity_max = 25.0
 scale_amount_min = 0.0
 scale_amount_max = 2.5
 color = Color(0.619608, 0.768627, 0.847059, 1)
+
+[node name="Diamante" parent="." instance=ExtResource("19_qqpwm")]
+position = Vector2(292, 378)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
