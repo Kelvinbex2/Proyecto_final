@@ -34,8 +34,6 @@ camera_offset = Vector2(10, -80)
 
 [node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
 
-[node name="Final_level" parent="LevelContainer" instance=ExtResource("5_b8g54")]
-
 [node name="EntityContainer" type="Node2D" parent="." groups=["entity_container"]]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="EntityContainer"]

@@ -25,5 +25,4 @@ theme_override_constants/separation = 688
 layout_mode = 2
 
 [node name="RoundTimerUi" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_iafo3")]
-visible = false
 layout_mode = 2
