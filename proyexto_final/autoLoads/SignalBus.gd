@@ -10,7 +10,12 @@ signal on_player_entered_dead_zone
 signal on_upgrade_purchased(upgrade:BaseUpgrade)
 signal on_player_attack(player: Player)
 signal on_player_die
+signal on_level_changed
 
+
+func emit_on_level_changed()-> void:
+	on_level_changed.emit()
+	
 func emit_on_player_die()-> void:
 	on_player_die.emit()
 	

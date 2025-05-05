@@ -1,10 +1,14 @@
-[gd_scene load_steps=48 format=4 uid="uid://iw1b0iq7i4uy"]
+[gd_scene load_steps=52 format=4 uid="uid://iw1b0iq7i4uy"]
 
 [ext_resource type="Texture2D" uid="uid://doqliou1cnxcu" path="res://Assets/character/Texture/TX Tileset Ground.png" id="1_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://c0kx8wj3w2sl6" path="res://Assets/character/Texture/TX Village Props.png" id="2_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://cb5x4lkuikxuy" path="res://Assets/character/Texture/TX FX Torch Flame.png" id="3_df1jo"]
 [ext_resource type="PackedScene" uid="uid://bt4lq5flfyceo" path="res://scene/camera/player_camera.tscn" id="5_iyjsa"]
+[ext_resource type="PackedScene" uid="uid://we5224hq7e46" path="res://scene/managers/entity_spawn.tscn" id="6_vacne"]
+[ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="7_m4ymn"]
+[ext_resource type="PackedScene" uid="uid://cgnh1he3p86xf" path="res://scene/managers/collectable_spawn.tscn" id="7_v38nc"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="7_vacne"]
+[ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="8_m4ymn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg08h"]
 texture = ExtResource("1_dgfb3")
@@ -2403,4 +2407,33 @@ collision_mask = 14
 position = Vector2(733.5, 695)
 shape = SubResource("RectangleShape2D_v38nc")
 
+[node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point", "enemy_spawn_points") instance=ExtResource("6_vacne")]
+player_spawn_point = NodePath("Player")
+player_packed_scene = ExtResource("7_m4ymn")
+enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), NodePath("EnemySpawnPoinContainer/Marker2D2")]
+enemy_packed_scene = ExtResource("8_m4ymn")
+max_enemies_alive = 8
+
+[node name="Marker2D" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
+position = Vector2(703, -61)
+
+[node name="Marker2D2" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="1"]
+position = Vector2(655, 83)
+
+[node name="Player" type="Marker2D" parent="EntitySpawn"]
+position = Vector2(45, -45)
+
+[node name="Collectable_spawn" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_v38nc")]
+timer_min = 2.0
+timer_max = 4.0
+spawn_point = [NodePath("Marker2D")]
+
+[node name="SpawnTimer" parent="Collectable_spawn" index="0"]
+wait_time = 5.962
+
+[node name="Marker2D" type="Marker2D" parent="Collectable_spawn"]
+position = Vector2(186, -62)
+
 [editable path="DeadZone"]
+[editable path="EntitySpawn"]
+[editable path="Collectable_spawn"]

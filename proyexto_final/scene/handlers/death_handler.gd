@@ -4,6 +4,8 @@ extends Node2D
 @export var parent : Node = null
 @export_enum("Player", "Enemy") var type : String = "Player"
 
+func _ready() -> void:
+	SignalBus.on_level_changed.connect(on_level_change)
 func death() -> void:
 	match type:
 		"Player":
@@ -27,3 +29,7 @@ func death() -> void:
 	#
 	parent.queue_free()
 	
+	
+
+func on_level_change() -> void:
+	get_parent().get_parent().queue_free()
