@@ -75,3 +75,4 @@ func on_upgrade_state_end() -> void:
 	upgrade_menu_exists = false
 	current_state = ActiveState
 	load_level()
+	##get_tree().reload_current_scene()

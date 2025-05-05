@@ -41,3 +41,5 @@ camera_offset = Vector2(10, -80)
 [node name="PauseMenu" parent="EntityContainer/CanvasLayer" instance=ExtResource("7_b8g54")]
 
 [node name="BackGround" parent="." instance=ExtResource("1_siuy0")]
+
+[editable path="Manager/GameState"]
