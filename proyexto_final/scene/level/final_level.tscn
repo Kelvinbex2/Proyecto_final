@@ -2390,9 +2390,10 @@ tile_set = SubResource("TileSet_pg08h")
 [node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point", "enemy_spawn_points") instance=ExtResource("6_vacne")]
 player_spawn_point = NodePath("Player")
 player_packed_scene = ExtResource("7_m4ymn")
+enemy_timer_min = 2.0
 enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), NodePath("EnemySpawnPoinContainer/Marker2D2")]
 enemy_packed_scene = ExtResource("8_m4ymn")
-max_enemies_alive = 8
+max_enemies_alive = 10
 
 [node name="Marker2D" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
 position = Vector2(703, -61)
@@ -2401,7 +2402,7 @@ position = Vector2(703, -61)
 position = Vector2(655, 83)
 
 [node name="Player" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(45, -70)
+position = Vector2(45, -25)
 
 [node name="Collectable_spawn" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("7_v38nc")]
 timer_min = 2.0

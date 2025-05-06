@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	SignalBus.on_level_changed.connect(on_level_change)
+	
 func death() -> void:
 	match type:
 		"Player":

@@ -70,6 +70,8 @@ func load_level() -> void:
 
 	if new_level != null:
 		level_container.add_child(new_level)
+		
+	
 
 func on_upgrade_state_end() -> void:
 	upgrade_menu_exists = false
