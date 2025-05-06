@@ -43,7 +43,9 @@ animations = [{
 radius = 5.0
 height = 10.0
 
-[node name="Diamante" type="Area2D"]
+[node name="Diamante" type="Area2D" groups=["Player"]]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_sq5mj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,3 +54,5 @@ animation = &"diamante"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v6lmg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

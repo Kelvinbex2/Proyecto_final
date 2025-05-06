@@ -24,6 +24,10 @@ extends CharacterBody2D
 
 #endregion
 
+
+
+var frutas :int =0
+
 func _ready() -> void:
 	handle_state_machine_signals()
 	SignalBus.on_player_attack.connect(_on_player_attack)
@@ -86,3 +90,7 @@ func freeze() -> void:
 func unfreeze() -> void:
 	set_physics_process(true)
 	velocity = Vector2.ZERO  
+	
+func add_frutas():
+	frutas += 1
+	get_tree().call_group("Contador", "actualizar", frutas)
