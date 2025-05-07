@@ -51,6 +51,8 @@ script = ExtResource("1_sq5mj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ifak8")
 animation = &"diamante"
+autoplay = "diamante"
+frame_progress = 0.907308
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v6lmg")
