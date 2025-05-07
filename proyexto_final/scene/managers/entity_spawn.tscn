@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://60satop45pvc" path="res://scene/managers/entity_spawn.gd" id="1_lheo5"]
 
-[node name="EntitySpawn" type="Node"]
+[node name="EntitySpawn" type="Node" groups=["entity_container"]]
 script = ExtResource("1_lheo5")
 
 [node name="EntitySpawnTimer" type="Timer" parent="."]

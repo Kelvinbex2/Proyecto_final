@@ -1414,7 +1414,7 @@ size = Vector2(1556, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
 size = Vector2(584.125, 27)
 
-[node name="BaseLevel" type="Node2D"]
+[node name="BaseLevel" type="Node2D" groups=["entity_container"]]
 script = ExtResource("1_ac421")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
