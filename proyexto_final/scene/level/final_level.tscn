@@ -2395,6 +2395,9 @@ enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), NodePath("En
 enemy_packed_scene = ExtResource("8_m4ymn")
 max_enemies_alive = 10
 
+[node name="EntitySpawnTimer" parent="EntitySpawn" index="0"]
+one_shot = false
+
 [node name="Marker2D" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
 position = Vector2(703, -61)
 

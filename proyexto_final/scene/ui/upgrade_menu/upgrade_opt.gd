@@ -10,6 +10,7 @@ extends Control
 
 
 var stored_upgrade : BaseUpgrade = null
+signal  on_upgrade_selected
 
 func _ready() -> void:
 	button.button_down.connect(on_upgrade_purchased)
@@ -31,5 +32,6 @@ func set_upgrade_option(upgrade: BaseUpgrade) -> void:
 		
 
 func on_upgrade_purchased() -> void:
+	on_upgrade_selected.emit()
 	SignalBus.emit_on_upgrade_purchased(stored_upgrade)
 	

@@ -1,29 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb7nsw23g4g48"]
+[gd_scene load_steps=3 format=3 uid="uid://cb7nsw23g4g48"]
 
 [ext_resource type="Script" uid="uid://ccwt1ab7nuglb" path="res://scene/ui/upgrade_menu/upgrade_menu.gd" id="1_gsfoh"]
 [ext_resource type="PackedScene" uid="uid://cyve4ulxke7v5" path="res://scene/ui/upgrade_menu/upgrade_opt.tscn" id="1_y6u7p"]
-[ext_resource type="Script" uid="uid://dxuwnjlrn07av" path="res://scene/resources/upgrade_folder/BaseUpgradeResource.gd" id="2_77nyd"]
-
-[sub_resource type="Resource" id="Resource_ai7jt"]
-script = ExtResource("2_77nyd")
-upgrade_name = "Test 1"
-description = "Test1"
-upgrade_cost = 2
-metadata/_custom_type_script = "uid://dxuwnjlrn07av"
-
-[sub_resource type="Resource" id="Resource_jkugy"]
-script = ExtResource("2_77nyd")
-upgrade_name = "Test2"
-description = "Test2"
-upgrade_cost = 4
-metadata/_custom_type_script = "uid://dxuwnjlrn07av"
-
-[sub_resource type="Resource" id="Resource_sdc88"]
-script = ExtResource("2_77nyd")
-upgrade_name = "Test3"
-description = "Test3"
-upgrade_cost = 6
-metadata/_custom_type_script = "uid://dxuwnjlrn07av"
 
 [node name="UpgradeMenu" type="Control" node_paths=PackedStringArray("upgrade_option_ar")]
 process_mode = 2
@@ -35,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gsfoh")
 upgrade_option_ar = [NodePath("MarginContainer/VBoxContainer/UpgradeContainerPanel/MarginContainer/HBoxContainer/UpgradeOpt"), NodePath("MarginContainer/VBoxContainer/UpgradeContainerPanel/MarginContainer/HBoxContainer/UpgradeOpt2"), NodePath("MarginContainer/VBoxContainer/UpgradeContainerPanel/MarginContainer/HBoxContainer/UpgradeOpt3")]
-available_upgrade = Array[ExtResource("2_77nyd")]([SubResource("Resource_ai7jt"), SubResource("Resource_jkugy"), SubResource("Resource_sdc88")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

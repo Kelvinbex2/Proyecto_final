@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseUpgrade" load_steps=2 format=3 uid="uid://cy3qg00v7jnu6"]
+
+[ext_resource type="Script" uid="uid://dxuwnjlrn07av" path="res://scene/resources/upgrade_folder/BaseUpgradeResource.gd" id="1_oqxoh"]
+
+[resource]
+script = ExtResource("1_oqxoh")
+upgrade_name = "upgrade_1"
+description = "This is not an upgrade"
+upgrade_cost = 5
+metadata/_custom_type_script = "uid://dxuwnjlrn07av"

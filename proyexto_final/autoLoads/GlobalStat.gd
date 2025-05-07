@@ -2,6 +2,10 @@ extends Node
 
 var currently_held_coins = 5
 const DEFAULT_COINS = 5
+var currently_selected : BaseUpgrade = null
+
+func _ready() -> void:
+	SignalBus.on_upgrade_purchased.connect(on_upgrade_selected)
 
 func get_current_coin() -> int:
 	return currently_held_coins
@@ -23,3 +27,8 @@ func remove_coin(val: int) -> void:
 
 func reset_coins() -> void:
 	currently_held_coins = DEFAULT_COINS
+
+
+func on_upgrade_selected(upgrade : BaseUpgrade) -> void:
+	currently_selected = upgrade
+	
