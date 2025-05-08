@@ -1,4 +1,8 @@
+class_name PauseMenu
 extends Control
+
+signal menu_shown
+signal menu_hidden
 
 var player_ref: Player = null
 
@@ -20,18 +24,24 @@ func _unhandled_input(event: InputEvent) -> void:
 func pause() -> void:
 	get_tree().paused = true
 	visible = true
+	menu_shown.emit()
 	
 	if player_ref:
 		player_ref.freeze()
+	
+	
 
 
 
 func resume() -> void:
 	get_tree().paused = false
 	visible = false
+	menu_hidden.emit()
 
 	if player_ref:
 		player_ref.unfreeze()
+		
+	
  
 
 func _on_btn_resum_pressed() -> void:

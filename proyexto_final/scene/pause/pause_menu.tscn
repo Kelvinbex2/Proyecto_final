@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5e53p0d4ukws"]
+[gd_scene load_steps=14 format=3 uid="uid://c5e53p0d4ukws"]
 
 [ext_resource type="Script" uid="uid://d3ft73jvs7l6x" path="res://scene/pause/pause_menu.gd" id="1_avy3h"]
 [ext_resource type="Shader" uid="uid://cr6s0pm5ln5a" path="res://scene/pause/gdshader.gdshader" id="1_fo2g5"]
@@ -6,7 +6,9 @@
 [ext_resource type="StyleBox" uid="uid://qvkgi50qb4c2" path="res://Assets/font/hove.tres" id="4_45db5"]
 [ext_resource type="StyleBox" uid="uid://rwp6i0hdqlu5" path="res://Assets/font/main_menu.tres" id="4_qok3e"]
 [ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="6_sribt"]
+[ext_resource type="Script" uid="uid://cl4xja4h7yllc" path="res://scene/pause/inventory/inventory_ui.gd" id="7_4pfdo"]
 [ext_resource type="PackedScene" uid="uid://cc8pqkx3avp3f" path="res://scene/pause/inventory/inventory_slot.tscn" id="7_2850f"]
+[ext_resource type="Resource" uid="uid://dnu5fbj15mgo7" path="res://scene/pause/inventory/player_inevtory.tres" id="8_5k552"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_avy3h"]
 shader = ExtResource("1_fo2g5")
@@ -15,19 +17,6 @@ shader_parameter/lod = 0.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qok3e"]
 texture = ExtResource("3_is3o6")
 region_rect = Rect2(274, 111, 476, 799)
-
-[sub_resource type="Animation" id="Animation_qok3e"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_is3o6"]
-resource_name = "blur"
-length = 0.3
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_45db5"]
-_data = {
-&"RESET": SubResource("Animation_qok3e"),
-&"blur": SubResource("Animation_is3o6")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2850f"]
 atlas = ExtResource("6_sribt")
@@ -107,11 +96,6 @@ theme_override_styles/normal = ExtResource("4_qok3e")
 text = "Exit
 "
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_45db5")
-}
-
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 524.0
@@ -123,6 +107,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_4pfdo")
 [node name="GridContainer" type="GridContainer" parent="PanelContainer2"]
 layout_mode = 2
 columns = 4
+script = ExtResource("7_4pfdo")
+data = ExtResource("8_5k552")
 
 [node name="InventorySlot" parent="PanelContainer2/GridContainer" instance=ExtResource("7_2850f")]
 layout_mode = 2
