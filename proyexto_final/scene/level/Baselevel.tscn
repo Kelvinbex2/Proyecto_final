@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=32 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="18_j1l4i"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="19_ac421"]
 [ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="19_qqpwm"]
+[ext_resource type="PackedScene" uid="uid://cjnt8ok1r3b2i" path="res://scene/item/pickup/item_pickup.tscn" id="20_i2c38"]
+[ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/gem.tres" id="21_aur5l"]
+[ext_resource type="Resource" uid="uid://chhmnx3fotkji" path="res://scene/item/portion.tres" id="22_4kavb"]
+[ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/rock.tres" id="23_025cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1609,10 +1613,22 @@ scale_amount_max = 2.5
 color = Color(0.619608, 0.768627, 0.847059, 1)
 
 [node name="Diamante" parent="." instance=ExtResource("19_qqpwm")]
-position = Vector2(292, 378)
+position = Vector2(732, 470)
 
 [node name="Diamante2" parent="." instance=ExtResource("19_qqpwm")]
 position = Vector2(493, 470)
+
+[node name="ItemPickup" parent="." instance=ExtResource("20_i2c38")]
+position = Vector2(297, 373)
+item_data = ExtResource("21_aur5l")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("20_i2c38")]
+position = Vector2(572, 375)
+item_data = ExtResource("22_4kavb")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("20_i2c38")]
+position = Vector2(345, 470)
+item_data = ExtResource("23_025cg")
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
