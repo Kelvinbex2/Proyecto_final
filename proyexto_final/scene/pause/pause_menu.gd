@@ -6,6 +6,7 @@ signal menu_hidden
 
 var player_ref: Player = null
 @onready var item_desc: Label = $itemDesc
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	visible = false
@@ -61,3 +62,8 @@ func _on_exit_pressed() -> void:
 
 func update_item_description(new_text :String) -> void:
 	item_desc.text = new_text
+
+
+func play_audio(sound:AudioStream) -> void:
+	audio_stream_player.stream = sound
+	audio_stream_player.play()

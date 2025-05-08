@@ -10,6 +10,7 @@ func _ready() -> void:
 	label.text = ""
 	focus_entered.connect(item_focused)
 	focus_exited.connect(item_unfocused)
+	pressed.connect(item_pressed)
 	
 	
 
@@ -32,3 +33,13 @@ func item_unfocused () -> void:
 	var pause_menu = find_parent("PauseMenu") as PauseMenu
 	if pause_menu:
 		pause_menu.update_item_description("")
+
+
+func item_pressed() -> void:
+	if slot_data:
+		if slot_data.item_data:
+			var used = slot_data.item_data.use()
+			if used == false:
+				return
+			slot_data.quantity -=1
+			label.text = str(slot_data.quantity)

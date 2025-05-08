@@ -7,4 +7,13 @@ extends Resource
 @export var cost : int = 10
 
 @export_category("Item Use Effects")
-##@export var effects : Array[ ItemEffect ]
+@export var effects : Array[ ItemEffect ]
+
+
+func use() ->bool:
+	if effects.size() ==0:
+		return false
+		
+	for i in effects:
+		i.use()
+	return true
