@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cejaffxvvhnil"]
+
+[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="1_v4xrj"]
+[ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="2_vxl7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhaxh"]
+atlas = ExtResource("2_vxl7a")
+region = Rect2(32, 1, 32, 32)
+
+[resource]
+script = ExtResource("1_v4xrj")
+name = "Potion"
+description = "Potion para restora vida"
+texture = SubResource("AtlasTexture_qhaxh")
+cost = 10
+metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://c88rhhtxxeddp"]
+
+[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="1_unui1"]
+
+[resource]
+script = ExtResource("1_unui1")
+name = ""
+description = ""
+cost = 10
+metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"

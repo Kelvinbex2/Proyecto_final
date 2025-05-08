@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=9 format=3 uid="uid://dnu5fbj15mgo7"]
+
+[ext_resource type="Script" uid="uid://dawdvpvpbheot" path="res://scene/pause/inventory/invetory.gd" id="1_f83ch"]
+[ext_resource type="Script" uid="uid://dto22ujy47u1l" path="res://scene/pause/inventory/slot_data.gd" id="2_iwjb3"]
+[ext_resource type="Resource" uid="uid://chhmnx3fotkji" path="res://scene/item/portion.tres" id="3_aoq75"]
+[ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/gem.tres" id="4_s0p1w"]
+[ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/rock.tres" id="5_qjmce"]
+
+[sub_resource type="Resource" id="Resource_5ov2i"]
+script = ExtResource("2_iwjb3")
+item_data = ExtResource("3_aoq75")
+quantity = 3
+metadata/_custom_type_script = "uid://dto22ujy47u1l"
+
+[sub_resource type="Resource" id="Resource_yy4au"]
+script = ExtResource("2_iwjb3")
+item_data = ExtResource("4_s0p1w")
+quantity = 4
+metadata/_custom_type_script = "uid://dto22ujy47u1l"
+
+[sub_resource type="Resource" id="Resource_3ocje"]
+script = ExtResource("2_iwjb3")
+item_data = ExtResource("5_qjmce")
+quantity = 30
+metadata/_custom_type_script = "uid://dto22ujy47u1l"
+
+[resource]
+script = ExtResource("1_f83ch")
+slots = Array[ExtResource("2_iwjb3")]([SubResource("Resource_5ov2i"), SubResource("Resource_yy4au"), SubResource("Resource_3ocje")])
+metadata/_custom_type_script = "uid://dawdvpvpbheot"
