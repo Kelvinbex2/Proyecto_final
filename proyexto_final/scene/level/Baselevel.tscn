@@ -1627,7 +1627,7 @@ position = Vector2(572, 375)
 item_data = ExtResource("22_4kavb")
 
 [node name="ItemPickup3" parent="." instance=ExtResource("20_i2c38")]
-position = Vector2(345, 470)
+position = Vector2(270, 371)
 item_data = ExtResource("23_025cg")
 
 [editable path="EntitySpawn"]
