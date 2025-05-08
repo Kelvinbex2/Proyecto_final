@@ -10,7 +10,7 @@ region = Rect2(191, 1, 35, 32)
 [resource]
 script = ExtResource("1_unui1")
 name = "Gem"
-description = "Gem"
+description = "Apple"
 texture = SubResource("AtlasTexture_8q6wv")
 cost = 10
 metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"

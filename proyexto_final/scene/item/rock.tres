@@ -10,7 +10,7 @@ region = Rect2(32, 1, 32, 32)
 [resource]
 script = ExtResource("1_v4xrj")
 name = "Potion"
-description = "Potion para restora vida"
+description = "Potion"
 texture = SubResource("AtlasTexture_qhaxh")
 cost = 10
 metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"
