@@ -8,9 +8,10 @@ const INVENTORY_SLOT = preload("res://scene/pause/inventory/inventory_slot.tscn"
 
 
 func _ready() -> void:
-	var pause_menu = get_parent().get_parent() as PauseMenu
-	pause_menu.menu_shown.connect(update_inventory)
-	pause_menu.menu_hidden.connect(clear_inventory)
+	var pause_menu = find_parent("PauseMenu") as PauseMenu
+	if pause_menu:
+		pause_menu.menu_shown.connect(update_inventory)
+		pause_menu.menu_hidden.connect(clear_inventory)
 	clear_inventory()
 
 
