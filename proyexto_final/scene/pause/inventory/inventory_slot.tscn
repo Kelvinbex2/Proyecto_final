@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc8pqkx3avp3f"]
+[gd_scene load_steps=6 format=3 uid="uid://cc8pqkx3avp3f"]
 
 [ext_resource type="Script" uid="uid://b1qcdothg2xbw" path="res://scene/pause/inventory/inventory_slot_ui.gd" id="1_miy6y"]
+[ext_resource type="StyleBox" uid="uid://qvkgi50qb4c2" path="res://Assets/font/hove.tres" id="1_xrcnx"]
 [ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="1_ys5xh"]
+[ext_resource type="StyleBox" uid="uid://rwp6i0hdqlu5" path="res://Assets/font/main_menu.tres" id="2_57ulh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miy6y"]
 atlas = ExtResource("1_ys5xh")
@@ -11,6 +13,9 @@ region = Rect2(0, 0, 32, 32)
 custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
+theme_override_styles/hover = ExtResource("1_xrcnx")
+theme_override_styles/pressed = ExtResource("2_57ulh")
+theme_override_styles/normal = ExtResource("2_57ulh")
 text = "
 "
 script = ExtResource("1_miy6y")

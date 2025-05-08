@@ -5,6 +5,7 @@ signal menu_shown
 signal menu_hidden
 
 var player_ref: Player = null
+@onready var item_desc: Label = $itemDesc
 
 func _ready() -> void:
 	visible = false
@@ -55,3 +56,8 @@ func _on_restart_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/ui/main_menu.tscn")
+
+
+
+func update_item_description(new_text :String) -> void:
+	item_desc.text = new_text
