@@ -76,7 +76,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qok3e")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 11
+theme_override_constants/separation = 24
 
 [node name="btnResum" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
