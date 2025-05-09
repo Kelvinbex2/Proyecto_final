@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=77 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -406,6 +406,9 @@ size = Vector2(16, 9)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gt2ev"]
 radius = 7.07107
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt2ev"]
+size = Vector2(18, 16)
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite2D") groups=["Player"]]
 process_mode = 1
 collision_layer = 2
@@ -518,6 +521,16 @@ metadata/_custom_type_script = "uid://bdkwy3g71vfs5"
 [node name="PlayerDeathState" type="Node" parent="PlayerState"]
 script = ExtResource("21_gt2ev")
 metadata/_custom_type_script = "uid://cs7u7lw4u4o3t"
+
+[node name="Interraction" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Interraction"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interraction/Area2D"]
+position = Vector2(-1, 14)
+shape = SubResource("RectangleShape2D_gt2ev")
+debug_color = Color(0.504761, 0.491803, 0.80992, 0.42)
 
 [editable path="HandlerContainer/HitBoxHandler"]
 [editable path="HandlerContainer/CollectionHandler"]
