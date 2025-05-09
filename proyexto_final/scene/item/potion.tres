@@ -13,15 +13,15 @@ sound = ExtResource("3_jg0lp")
 use_descrip = ""
 metadata/_custom_type_script = "uid://rurvrgickpac"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhaxh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_82mnm"]
 atlas = ExtResource("5_fvtm6")
-region = Rect2(32, 1, 32, 32)
+region = Rect2(32, 0, 32, 32)
 
 [resource]
 script = ExtResource("4_ttcmw")
 name = "Potion"
 description = "Potion"
-texture = SubResource("AtlasTexture_qhaxh")
+texture = SubResource("AtlasTexture_82mnm")
 cost = 10
-effects = Array[ExtResource("1_82mnm")]([SubResource("Resource_8v8u0"), null])
+effects = Array[ExtResource("1_82mnm")]([SubResource("Resource_8v8u0")])
 metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bmdcbls8osp87"]
+
+[ext_resource type="Script" uid="uid://dpobcstr04mbp" path="res://scene/item/effect/item_effect.gd" id="1_fq6bm"]
+[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="4_mtx2e"]
+[ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="5_64ylc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q6wv"]
+atlas = ExtResource("5_64ylc")
+region = Rect2(0, 1, 32, 32)
+
+[resource]
+script = ExtResource("4_mtx2e")
+name = "Gem"
+description = "Gem"
+texture = SubResource("AtlasTexture_8q6wv")
+cost = 10
+effects = Array[ExtResource("1_fq6bm")]([])
+metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"
