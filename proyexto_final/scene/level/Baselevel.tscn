@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="19_ac421"]
 [ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="19_qqpwm"]
 [ext_resource type="PackedScene" uid="uid://cjnt8ok1r3b2i" path="res://scene/item/pickup/item_pickup.tscn" id="20_i2c38"]
-[ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/gem.tres" id="21_aur5l"]
-[ext_resource type="Resource" uid="uid://chhmnx3fotkji" path="res://scene/item/portion.tres" id="22_4kavb"]
-[ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/rock.tres" id="23_025cg"]
+[ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/apple.tres" id="21_aur5l"]
+[ext_resource type="Resource" uid="uid://chhmnx3fotkji" path="res://scene/item/rock.tres" id="22_4kavb"]
+[ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/potion.tres" id="23_025cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")

@@ -1,27 +1,18 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://cejaffxvvhnil"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://chhmnx3fotkji"]
 
-[ext_resource type="Script" uid="uid://dpobcstr04mbp" path="res://scene/item/effect/item_effect.gd" id="1_8v8u0"]
-[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="1_v4xrj"]
-[ext_resource type="Script" uid="uid://rurvrgickpac" path="res://scene/item/effect/item_effect_heal.gd" id="2_vtune"]
-[ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="2_vxl7a"]
-[ext_resource type="AudioStream" uid="uid://cwqhd5ca3r7tv" path="res://Assets/audio/Items_item_effects_hp-up.wav" id="3_tds6g"]
-
-[sub_resource type="Resource" id="Resource_8v8u0"]
-script = ExtResource("2_vtune")
-heal_amount = 5
-sound = ExtResource("3_tds6g")
-use_descrip = ""
-metadata/_custom_type_script = "uid://rurvrgickpac"
+[ext_resource type="Script" uid="uid://dpobcstr04mbp" path="res://scene/item/effect/item_effect.gd" id="1_8q6wv"]
+[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="1_iu70q"]
+[ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="2_qhaxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhaxh"]
-atlas = ExtResource("2_vxl7a")
-region = Rect2(32, 1, 32, 32)
+atlas = ExtResource("2_qhaxh")
+region = Rect2(64, 1, 32, 32)
 
 [resource]
-script = ExtResource("1_v4xrj")
-name = "Potion"
-description = "Potion"
+script = ExtResource("1_iu70q")
+name = "Rock"
+description = "Rock"
 texture = SubResource("AtlasTexture_qhaxh")
 cost = 10
-effects = Array[ExtResource("1_8v8u0")]([SubResource("Resource_8v8u0")])
+effects = Array[ExtResource("1_8q6wv")]([])
 metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"
