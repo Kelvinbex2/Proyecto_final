@@ -10,11 +10,13 @@ extends Resource
 @export var effects : Array[ ItemEffect ]
 
 
-func use() ->bool:
-	if effects.size() ==0:
+func use(health_handler: HealthHandler = null, pause_menu: PauseMenu = null) -> bool:
+	if effects.size() == 0:
 		return false
 		
 	for i in effects:
 		if i:
+			i.health_handler = health_handler
+			i.pause_menu = pause_menu
 			i.use()
 	return true

@@ -36,3 +36,7 @@ func damage(val: int) -> void:
 
 func handle_healing(value: int) -> void:
 	current_health += value
+
+	if type == "Player":
+		GlobalStat.currently_held_coins = clamp(current_health, 0, max_health)
+		SignalBus.emit_on_coin_counter_update(GlobalStat.currently_held_coins)

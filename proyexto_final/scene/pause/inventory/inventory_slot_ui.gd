@@ -36,10 +36,18 @@ func item_unfocused () -> void:
 
 
 func item_pressed() -> void:
-	if slot_data:
-		if slot_data.item_data:
-			var used = slot_data.item_data.use()
-			if used == false:
-				return
-			slot_data.quantity -=1
-			label.text = str(slot_data.quantity)
+	if slot_data and slot_data.item_data:
+		var pause_menu = find_parent("PauseMenu") as PauseMenu
+
+		var health_handler: HealthHandler = null
+		if pause_menu and pause_menu.player_ref:
+			var handler_container = pause_menu.player_ref.get_node("HandlerContainer")
+			if handler_container:
+				health_handler = handler_container.get_node("HealthHandler")
+
+		var used = slot_data.item_data.use(health_handler, pause_menu)
+		if used == false:
+			return
+
+		slot_data.quantity -= 1
+		label.text = str(slot_data.quantity)
