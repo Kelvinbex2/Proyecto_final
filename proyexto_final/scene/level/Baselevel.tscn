@@ -1418,7 +1418,7 @@ sources/0 = SubResource("TileSetAtlasSource_34sm6")
 size = Vector2(1556, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
-size = Vector2(584.125, 27)
+size = Vector2(486, 27)
 
 [node name="BaseLevel" type="Node2D" groups=["entity_container"]]
 script = ExtResource("1_ac421")
@@ -1575,7 +1575,7 @@ collision_layer = 0
 collision_mask = 14
 
 [node name="CollisionShape2D" parent="DeadZone5" index="0"]
-position = Vector2(-176, 428)
+position = Vector2(-257, 428)
 shape = SubResource("RectangleShape2D_vv3gj")
 
 [node name="DeadZone6" parent="." instance=ExtResource("19_ac421")]
@@ -1644,9 +1644,13 @@ item_data = ExtResource("22_4kavb")
 
 [node name="Treasure" parent="Items" instance=ExtResource("25_4kavb")]
 position = Vector2(708, 121)
+item_data = ExtResource("24_aur5l")
+quantity = 2
 
 [node name="Treasure2" parent="Items" instance=ExtResource("25_4kavb")]
-position = Vector2(615, 548)
+position = Vector2(220, 360)
+item_data = ExtResource("22_4kavb")
+quantity = 4
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
