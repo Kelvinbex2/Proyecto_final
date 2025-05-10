@@ -63,17 +63,17 @@ script = ExtResource("1_i0gne")
 layout_mode = 1
 offset_right = 44.0
 offset_bottom = 28.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 7
+theme_override_constants/margin_left = 27
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 9
 theme_override_constants/margin_bottom = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer"]
-position = Vector2(16, 14)
+position = Vector2(14, 19)
 sprite_frames = SubResource("SpriteFrames_pako5")
 animation = &"oro"
 autoplay = "oro"
-frame_progress = 0.252506
+frame_progress = 0.231488
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
