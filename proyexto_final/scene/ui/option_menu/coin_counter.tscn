@@ -73,7 +73,7 @@ position = Vector2(14, 19)
 sprite_frames = SubResource("SpriteFrames_pako5")
 animation = &"oro"
 autoplay = "oro"
-frame_progress = 0.231488
+frame_progress = 0.10548
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
