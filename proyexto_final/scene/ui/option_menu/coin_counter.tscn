@@ -1,45 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://dspv53ufjllhe"]
+[gd_scene load_steps=10 format=3 uid="uid://dspv53ufjllhe"]
 
 [ext_resource type="Script" uid="uid://bpfjmv5ldbbrj" path="res://scene/ui/script_ui/coin_counter.gd" id="1_i0gne"]
-[ext_resource type="Texture2D" uid="uid://b1qdpbbhuljjy" path="res://Assets/collectable/Coin_Gems/MonedaD.png" id="2_qeey1"]
+[ext_resource type="Texture2D" uid="uid://8wtfi1rod7v7" path="res://Assets/character/coins-chests-etc-2-0-noborders.png" id="2_qeey1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_635nk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pako5"]
 atlas = ExtResource("2_qeey1")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(400, 225, 15, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1wwj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j244"]
 atlas = ExtResource("2_qeey1")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(416, 225, 15, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_feqdx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_crpcb"]
 atlas = ExtResource("2_qeey1")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(432, 225, 15, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yd7r6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6frk7"]
 atlas = ExtResource("2_qeey1")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(448, 225, 15, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ytkcd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu6im"]
 atlas = ExtResource("2_qeey1")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(464, 225, 15, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_200lk"]
+atlas = ExtResource("2_qeey1")
+region = Rect2(480, 225, 15, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pako5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_635nk")
+"texture": SubResource("AtlasTexture_pako5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k1wwj")
+"texture": SubResource("AtlasTexture_6j244")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_feqdx")
+"texture": SubResource("AtlasTexture_crpcb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yd7r6")
+"texture": SubResource("AtlasTexture_6frk7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ytkcd")
+"texture": SubResource("AtlasTexture_cu6im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_200lk")
 }],
 "loop": true,
 "name": &"oro",
@@ -48,11 +55,8 @@ animations = [{
 
 [node name="CoinCounter" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_vertical = 0
 script = ExtResource("1_i0gne")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -69,12 +73,12 @@ position = Vector2(16, 14)
 sprite_frames = SubResource("SpriteFrames_pako5")
 animation = &"oro"
 autoplay = "oro"
+frame_progress = 0.252506
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_constants/margin_left = -3
-theme_override_constants/margin_top = -12
+theme_override_constants/margin_top = -20
 
 [node name="coinCounter" type="Label" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
