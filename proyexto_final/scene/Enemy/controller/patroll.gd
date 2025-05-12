@@ -59,3 +59,11 @@ func play_hit_animation() -> void:
 
 	await get_tree().create_timer(0.5).timeout
 	can_attack = true
+
+
+func play_death_animation() -> void:
+	print("💀 Reproduciendo animación 'die'")
+	animatedSprite2D.play("die")
+
+	await animatedSprite2D.animation_finished
+	queue_free()

@@ -17,6 +17,7 @@ func death() -> void:
 
 		"Enemy":
 			SignalBus.emit_on_enemy_death()
+
 			var drop_handler : DropHandler = null
 			for child in parent.get_children():
 				if child is DropHandler:
@@ -26,7 +27,10 @@ func death() -> void:
 			if drop_handler != null:
 				drop_handler.drop_coin()
 
-			parent.queue_free()
+			if parent.has_method("play_death_animation"):
+				await parent.play_death_animation()
+			else:
+				parent.queue_free()
 
 	
 	
