@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dchkc0pxfwk8t"]
+[gd_scene load_steps=14 format=3 uid="uid://dchkc0pxfwk8t"]
 
 [ext_resource type="PackedScene" uid="uid://cih4sd1qg4lkq" path="res://scene/Enemy/base_enemy.tscn" id="1_biyi6"]
 [ext_resource type="PackedScene" uid="uid://ubr1r7ragr7w" path="res://scene/handlers/movement_handler.tscn" id="2_o0nt8"]
@@ -19,6 +19,9 @@ radius = 12.0416
 [sub_resource type="CircleShape2D" id="CircleShape2D_t8jwi"]
 radius = 5.09902
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1dy6"]
+radius = 7.0
+
 [node name="Patroll" instance=ExtResource("1_biyi6")]
 position = Vector2(4, -3)
 script = ExtResource("2_tf7cn")
@@ -26,7 +29,9 @@ script = ExtResource("2_tf7cn")
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(21, -10)
 scale = Vector2(-0.82697, 0.826366)
-frame_progress = 0.524396
+animation = &"idle"
+frame = 0
+frame_progress = 0.0
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -88,6 +93,14 @@ position = Vector2(4, -6)
 shape = SubResource("CircleShape2D_t8jwi")
 
 [node name="Drop_handler" parent="." index="14" instance=ExtResource("9_u1dy6")]
+
+[node name="DetectionArea" type="Area2D" parent="." index="15"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+position = Vector2(7, -8)
+shape = SubResource("CircleShape2D_u1dy6")
 
 [editable path="HurtBox"]
 [editable path="HitBoxHandler"]

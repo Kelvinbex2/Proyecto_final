@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cih4sd1qg4lkq"]
+[gd_scene load_steps=30 format=3 uid="uid://cih4sd1qg4lkq"]
 
 [ext_resource type="Script" uid="uid://ln132l1u61op" path="res://scene/Enemy/base_enemy.gd" id="1_4o8kt"]
 [ext_resource type="Texture2D" uid="uid://ddygxnlcv6dlq" path="res://Assets/Enemies/Rino/Hit (52x34).png" id="1_6w0ns"]
@@ -9,19 +9,23 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10njv"]
 atlas = ExtResource("1_6w0ns")
-region = Rect2(0, 0, 65, 34)
+region = Rect2(0, 0, 52, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2jjn"]
 atlas = ExtResource("1_6w0ns")
-region = Rect2(65, 0, 65, 34)
+region = Rect2(52, 0, 52, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuah0"]
 atlas = ExtResource("1_6w0ns")
-region = Rect2(130, 0, 65, 34)
+region = Rect2(104, 0, 52, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yh78"]
 atlas = ExtResource("1_6w0ns")
-region = Rect2(195, 0, 65, 34)
+region = Rect2(156, 0, 52, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m677"]
+atlas = ExtResource("1_6w0ns")
+region = Rect2(208, 0, 52, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtbkp"]
 atlas = ExtResource("2_4o8kt")
@@ -105,8 +109,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4yh78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m677")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -179,9 +186,10 @@ script = ExtResource("1_4o8kt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, -15)
 sprite_frames = SubResource("SpriteFrames_3m677")
-animation = &"run"
+animation = &"hit"
 autoplay = "run"
-frame_progress = 0.337605
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
