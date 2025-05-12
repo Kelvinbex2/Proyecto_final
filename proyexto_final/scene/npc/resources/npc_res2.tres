@@ -1,31 +1,31 @@
-[gd_resource type="Resource" script_class="NpcResource" load_steps=11 format=3 uid="uid://eandoq6h1w11"]
+[gd_resource type="Resource" script_class="NpcResource" load_steps=11 format=3 uid="uid://bqhhebra0fbkl"]
 
-[ext_resource type="Script" uid="uid://bd6jrugj8h3ur" path="res://scene/npc/npc_resource.gd" id="1_rkq66"]
-[ext_resource type="Texture2D" uid="uid://d0bylmydp8eow" path="res://Assets/character/npc/potriat.png" id="1_xhwti"]
-[ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="3_v64vl"]
+[ext_resource type="Texture2D" uid="uid://d0bylmydp8eow" path="res://Assets/character/npc/potriat.png" id="1_jv75u"]
+[ext_resource type="Script" uid="uid://bd6jrugj8h3ur" path="res://scene/npc/npc_resource.gd" id="2_xuc2u"]
+[ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="3_oovvv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhwti"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(0, 0, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v64vl"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(56, 0, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8afxx"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(112, 0, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_noert"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(168, 0, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7rt2"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(224, 0, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmrd1"]
-atlas = ExtResource("3_v64vl")
+atlas = ExtResource("3_oovvv")
 region = Rect2(280, 0, 56, 56)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x7g52"]
@@ -55,9 +55,9 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_rkq66")
-npc_name = "Erick"
+script = ExtResource("2_xuc2u")
+npc_name = "Jesus"
 sprite_frames = SubResource("SpriteFrames_x7g52")
-potrait = ExtResource("1_xhwti")
+potrait = ExtResource("1_jv75u")
 dialogo_audio = ""
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"
