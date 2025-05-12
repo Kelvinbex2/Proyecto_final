@@ -6,9 +6,8 @@ var frutas = 0
 
 
 
-func actualizar(frutas: int):
-	print("🖊️ Label.text = ", frutas)
-	label.text = str(frutas)
+func actualizar(fruta: int):
+	label.text = str(fruta)
 
 
 func add_frutas():
