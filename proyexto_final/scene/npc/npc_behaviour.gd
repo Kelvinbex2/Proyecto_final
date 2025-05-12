@@ -9,4 +9,8 @@ func _ready() -> void:
 	var parent = get_parent()
 	if parent is Npc:
 		npc = parent as Npc
+		npc.behaviour_enabled.connect(start)
 		
+		
+func start() -> void:
+	pass
