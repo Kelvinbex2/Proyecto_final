@@ -18,7 +18,16 @@ func _ready() -> void:
 	super()
 	collision_shape.queue_free()
 	original_pos = npc.global_position
-	
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+		
+	if abs(global_position.distance_to(original_pos)) > wander_range * 32:
+		npc.velocity *=-1
+		npc.direction *=-1
+		npc.update_direction(global_position + npc.direction)
+		npc.update_animation()
 
 func start() -> void:
 	#Idle
