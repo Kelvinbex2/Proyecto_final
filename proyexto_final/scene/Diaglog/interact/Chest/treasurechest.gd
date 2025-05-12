@@ -3,14 +3,14 @@ class_name TreasureChest
 extends Node2D
 @export var item_data : ItemData : set = _set_item_data
 @export var quantity: int = 1 : set = _set_quantity
-var is_open = false
 @onready var sprite: Sprite2D = $ItemCol
 @onready var label: Label = $ItemCol/Label
 @onready var interact_area: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hint_label: Label = $HintLabel
+
+var is_open = false
 var item: ItemPickup = null
-
-
 
 func _ready() -> void:
 	_update_textute()
@@ -37,10 +37,16 @@ func player_interact() -> void:
 func _on_area_entered(_a: Area2D) -> void:
 	if not SignalBus.interact_pressed.is_connected(player_interact):
 		SignalBus.interact_pressed.connect(player_interact)
+	
+	if hint_label:
+		hint_label.visible = true
 
 func _on_area_exit(_a: Area2D) -> void:
 	if SignalBus.interact_pressed.is_connected(player_interact):
 		SignalBus.interact_pressed.disconnect(player_interact)
+	
+	if hint_label:
+		hint_label.visible = false
 
 	
 func _set_item_data(val : ItemData) -> void:
