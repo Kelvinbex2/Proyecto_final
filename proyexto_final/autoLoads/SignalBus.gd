@@ -11,6 +11,10 @@ signal on_upgrade_purchased(upgrade:BaseUpgrade)
 signal on_player_attack(player: Player)
 signal on_player_die
 signal on_level_changed
+signal interact_pressed
+
+func emit_interact_pressed()-> void:
+	interact_pressed.emit()
 
 
 func emit_on_level_changed()-> void:

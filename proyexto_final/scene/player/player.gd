@@ -108,3 +108,7 @@ func unfreeze() -> void:
 func add_frutas():
 	frutas += 1
 	get_tree().call_group("Contador", "actualizar", frutas)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		SignalBus.emit_interact_pressed()

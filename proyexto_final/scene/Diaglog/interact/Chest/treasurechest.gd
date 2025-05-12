@@ -34,18 +34,13 @@ func player_interact() -> void:
 		printerr("No items in chest")
 		push_error("No items in chest")
 
-func _on_area_entered (_a:Area2D) -> void:
-	GlobalStat.interact_pressed.connect(player_interact)
-	
-	
-	
+func _on_area_entered(_a: Area2D) -> void:
+	if not SignalBus.interact_pressed.is_connected(player_interact):
+		SignalBus.interact_pressed.connect(player_interact)
 
-func _on_area_exit (_a:Area2D) -> void:
-	GlobalStat.interact_pressed.disconnect(player_interact)
-	
-	
-	
-
+func _on_area_exit(_a: Area2D) -> void:
+	if SignalBus.interact_pressed.is_connected(player_interact):
+		SignalBus.interact_pressed.disconnect(player_interact)
 
 	
 func _set_item_data(val : ItemData) -> void:

@@ -193,7 +193,7 @@ _data = {
 size = Vector2(26, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26hr0"]
-size = Vector2(24, 26)
+size = Vector2(24, 23)
 
 [node name="Treasure" type="Node2D"]
 script = ExtResource("1_lcb60")
@@ -232,10 +232,10 @@ position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_fel0x")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
+collision_layer = 8
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 10)
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_26hr0")

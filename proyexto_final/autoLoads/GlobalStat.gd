@@ -4,7 +4,7 @@ var currently_held_coins = 5
 const DEFAULT_COINS = 5
 var currently_selected : BaseUpgrade = null
 
-signal interact_pressed
+
 
 func _ready() -> void:
 	SignalBus.on_upgrade_purchased.connect(on_upgrade_selected)
