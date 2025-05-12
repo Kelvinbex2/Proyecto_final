@@ -29,12 +29,14 @@ extends CharacterBody2D
 
 
 var frutas :int =0
+var is_dying := false
+
 
 func _ready() -> void:
 	handle_state_machine_signals()
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
-	SignalBus.on_player_die.connect(_on_player_die)
+	#SignalBus.on_player_die.connect(_on_player_die)
 
 
 func _physics_process(delta: float) -> void:
@@ -67,16 +69,26 @@ func handle_state_machine_signals() -> void:
 
 
 func play_death_animation() -> void:
-	#animatedSprite2D.play("die")
-	#await animatedSprite2D.animation_finished
+	if is_dying:
+		return
+	is_dying = true
+
+	animatedSprite2D.play("die")
+
+	await get_tree().create_timer(2.5).timeout  
 	call_deferred("reload_scene")
 
-func _on_player_die() -> void:
-	play_death_animation()
+
+
+
+#func _on_player_die() -> void:
+	#play_death_animation()
 
 func reload_scene() -> void:
-	GlobalStat.reset_coins()
+	
 	get_tree().reload_current_scene()
+	GlobalStat.reset_coins()
+	
 	
 func _on_player_attack(attacking_player: Player) -> void:
 	if attacking_player == self:

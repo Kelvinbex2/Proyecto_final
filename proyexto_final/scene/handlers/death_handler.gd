@@ -10,14 +10,13 @@ func _ready() -> void:
 func death() -> void:
 	match type:
 		"Player":
-			pass
-			##if parent is Player:
-				##parent.play_death_animation()
-				
+			if parent is Player:
+				await parent.play_death_animation()
+				return 
+			
 
 		"Enemy":
 			SignalBus.emit_on_enemy_death()
-
 			var drop_handler : DropHandler = null
 			for child in parent.get_children():
 				if child is DropHandler:
@@ -27,8 +26,8 @@ func death() -> void:
 			if drop_handler != null:
 				drop_handler.drop_coin()
 
-	#
-	parent.queue_free()
+			parent.queue_free()
+
 	
 	
 
