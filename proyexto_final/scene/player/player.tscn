@@ -392,8 +392,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfhxk"]
-radius = 4.0
-height = 14.0
+radius = 14.0
+height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pisg7"]
 radius = 12.0
@@ -423,6 +423,7 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 12)
 shape = SubResource("CapsuleShape2D_hfhxk")
+debug_color = Color(0.957407, 0.146747, 0.375389, 0.42)
 
 [node name="HandlerContainer" type="Node2D" parent="."]
 
