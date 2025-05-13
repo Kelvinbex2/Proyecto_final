@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1rwho3akcmip"]
+[gd_scene load_steps=8 format=3 uid="uid://d1rwho3akcmip"]
 
-[ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="1_5kp4e"]
 [ext_resource type="Script" uid="uid://dkp7fhhlefp4w" path="res://scene/colectables/contador.gd" id="1_622fn"]
+[ext_resource type="Texture2D" uid="uid://bacmt8au81jbb" path="res://Assets/collectable/Coin_Gems/spr_coin_azu.png" id="2_622fn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hrar"]
+atlas = ExtResource("2_622fn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loahy"]
+atlas = ExtResource("2_622fn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmy8w"]
+atlas = ExtResource("2_622fn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlfu5"]
+atlas = ExtResource("2_622fn")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egpgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hrar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loahy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmy8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlfu5")
+}],
+"loop": true,
+"name": &"diamante",
+"speed": 5.0
+}]
 
 [node name="Contador" type="Control" groups=["Player"]]
 layout_mode = 3
@@ -10,8 +46,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_622fn")
 
-[node name="Diamante" parent="." instance=ExtResource("1_5kp4e")]
-position = Vector2(5, 14)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 13)
+sprite_frames = SubResource("SpriteFrames_egpgy")
+animation = &"diamante"
+autoplay = "diamante"
+frame_progress = 0.760918
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." groups=["Player"]]
 layout_mode = 0
