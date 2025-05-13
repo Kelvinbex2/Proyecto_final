@@ -12,6 +12,10 @@ signal on_player_attack(player: Player)
 signal on_player_die
 signal on_level_changed
 signal interact_pressed
+signal on_portal_triggered
+
+func emit_on_portal_triggered()-> void:
+	on_portal_triggered.emit()
 
 func emit_interact_pressed()-> void:
 	interact_pressed.emit()

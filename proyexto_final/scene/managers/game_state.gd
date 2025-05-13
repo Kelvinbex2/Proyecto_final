@@ -5,6 +5,8 @@ extends Node
 @export var upgrade_menu: PackedScene = null
 @export var level_1: PackedScene = null
 @export var level_2: PackedScene = null
+var level_stage := 1  
+
 
 var upgrade_menu_exists: bool = false
 var level_exists: bool = false
@@ -18,7 +20,12 @@ var current_state = ActiveState
 func _ready() -> void:
 	state_timer.timeout.connect(on_active_state_end)
 	SignalBus.emit_on_game_state_manager_ready(self)
-	load_level()
+	SignalBus.on_portal_triggered.connect(_on_portal_triggered)
+
+	load_level()  # Cargamos solo el primer nivel al iniciar
+
+	
+	
 
 func _process(delta: float) -> void:
 	match current_state:
@@ -51,30 +58,41 @@ func load_level() -> void:
 	if level_container == null:
 		return
 
-	# Asegurarse que hay al menos un hijo antes de intentar accederlo
+	# Elimina el nivel anterior si existe
 	if level_container.get_child_count() > 0:
 		var existing_level = level_container.get_child(0)
-		if existing_level != null:
+		if existing_level:
 			existing_level.queue_free()
+
+	await get_tree().process_frame  # Esperamos un frame para que se elimine correctamente
 
 	SignalBus.emit_on_level_changed()
 
 	var new_level: Node = null
 
-	if not level_exists:
-		new_level = level_1.instantiate()
-		level_exists = true
-	else:
-		new_level = level_2.instantiate()
-		level_exists = false
+	match level_stage:
+		1:
+			new_level = level_1.instantiate()
+			level_stage = 2
+		2:
+			new_level = level_2.instantiate()
+			level_stage = -1  # Ya no hay más niveles
 
-	if new_level != null:
+	if new_level:
 		level_container.add_child(new_level)
+		print("✔ Nivel cargado:", new_level.name)
+	else:
+		print("⚠ No hay más niveles que cargar.")
+
+
 		
 	
 
 func on_upgrade_state_end() -> void:
 	upgrade_menu_exists = false
 	current_state = ActiveState
-	load_level()
+	#load_level()
 	##get_tree().reload_current_scene()
+
+func _on_portal_triggered() -> void:
+	load_level()

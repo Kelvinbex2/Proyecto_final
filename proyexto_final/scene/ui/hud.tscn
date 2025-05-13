@@ -15,6 +15,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RoundTimerUi" parent="." instance=ExtResource("2_iafo3")]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
