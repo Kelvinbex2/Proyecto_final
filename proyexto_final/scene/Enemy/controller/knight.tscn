@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxitolld5121e"]
+[gd_scene load_steps=6 format=3 uid="uid://cxitolld5121e"]
 
 [ext_resource type="Script" uid="uid://cnnm5hxm7i7b1" path="res://scene/handlers/death_handler.gd" id="1_0u614"]
 [ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="2_j0irp"]
+[ext_resource type="Script" uid="uid://bgluubxxgicks" path="res://scene/handlers/movement_handler.gd" id="4_0u614"]
 [ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="4_nkmnb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3qw5"]
@@ -13,8 +14,13 @@ radius = 15.0333
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_s3qw5")
 
-[node name="AIHandler" type="Node2D" parent="." index="2"]
+[node name="AIHandler" type="Node2D" parent="." index="2" node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement")]
 script = ExtResource("4_nkmnb")
+left_cast = NodePath("../leftCast")
+right_cast = NodePath("../rightCast")
+left_wall_cast = NodePath("../leftWCast")
+right_wall_cast = NodePath("../rightWCast")
+movement = NodePath("../MovementHandler")
 metadata/_custom_type_script = "uid://tsaabgoj48ck"
 
 [node name="GravityHandler" parent="." index="4"]
@@ -28,18 +34,22 @@ metadata/_custom_type_script = "uid://cnnm5hxm7i7b1"
 script = ExtResource("2_j0irp")
 metadata/_custom_type_script = "uid://dnlomrpambk1i"
 
-[node name="leftCast" type="RayCast2D" parent="." index="7"]
+[node name="MovementHandler" type="Node2D" parent="." index="7"]
+script = ExtResource("4_0u614")
+metadata/_custom_type_script = "uid://bgluubxxgicks"
+
+[node name="leftCast" type="RayCast2D" parent="." index="8"]
 position = Vector2(-10, 11)
 target_position = Vector2(-40, 0)
 
-[node name="leftWCast" type="RayCast2D" parent="." index="8"]
+[node name="leftWCast" type="RayCast2D" parent="." index="9"]
 position = Vector2(-10, 11)
 target_position = Vector2(-1, 45)
 
-[node name="rightCast" type="RayCast2D" parent="." index="9"]
+[node name="rightCast" type="RayCast2D" parent="." index="10"]
 position = Vector2(10, 11)
 target_position = Vector2(40, 0)
 
-[node name="rightWCast" type="RayCast2D" parent="." index="10"]
+[node name="rightWCast" type="RayCast2D" parent="." index="11"]
 position = Vector2(10, 11)
 target_position = Vector2(-1, 45)
