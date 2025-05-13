@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxitolld5121e"]
+
+[ext_resource type="Script" uid="uid://cnnm5hxm7i7b1" path="res://scene/handlers/death_handler.gd" id="1_0u614"]
+[ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="2_j0irp"]
+[ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="4_nkmnb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3qw5"]
+radius = 15.0333
+
+[node name="Knight"]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_s3qw5")
+
+[node name="AIHandler" type="Node2D" parent="." index="2"]
+script = ExtResource("4_nkmnb")
+metadata/_custom_type_script = "uid://tsaabgoj48ck"
+
+[node name="GravityHandler" parent="." index="4"]
+position = Vector2(-4, 8)
+
+[node name="DeathHandler" type="Node2D" parent="." index="5"]
+script = ExtResource("1_0u614")
+metadata/_custom_type_script = "uid://cnnm5hxm7i7b1"
+
+[node name="HealthHandler" type="Node2D" parent="." index="6"]
+script = ExtResource("2_j0irp")
+metadata/_custom_type_script = "uid://dnlomrpambk1i"
+
+[node name="leftCast" type="RayCast2D" parent="." index="7"]
+position = Vector2(-10, 11)
+target_position = Vector2(-40, 0)
+
+[node name="leftWCast" type="RayCast2D" parent="." index="8"]
+position = Vector2(-10, 11)
+target_position = Vector2(-1, 45)
+
+[node name="rightCast" type="RayCast2D" parent="." index="9"]
+position = Vector2(10, 11)
+target_position = Vector2(40, 0)
+
+[node name="rightWCast" type="RayCast2D" parent="." index="10"]
+position = Vector2(10, 11)
+target_position = Vector2(-1, 45)
