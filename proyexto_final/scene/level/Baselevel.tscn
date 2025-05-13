@@ -1665,7 +1665,7 @@ npc_resoure = ExtResource("27_4fywq")
 [node name="NpcBehaviourWander" parent="Npc" instance=ExtResource("27_4kuo4")]
 
 [node name="Npc2" parent="." instance=ExtResource("26_025cg")]
-position = Vector2(705, 453)
+position = Vector2(879, 117)
 collision_layer = 2
 collision_mask = 1
 npc_resoure = ExtResource("29_x5ysf")

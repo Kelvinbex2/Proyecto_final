@@ -57,4 +57,4 @@ func start() -> void:
 
 func _set_wander_range(val : int) -> void:
 	wander_range =val
-	collision_shape.radius = val * 32.0
+	collision_shape.ra = val * 32.0
