@@ -1,9 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://iellk33xgjhc"]
+[gd_scene load_steps=36 format=3 uid="uid://iellk33xgjhc"]
 
 [ext_resource type="Script" uid="uid://1nw2omx3qxfa" path="res://scene/Enemy/knight_base.gd" id="1_ovgof"]
 [ext_resource type="Texture2D" uid="uid://p2js25a84u72" path="res://Assets/character/GandalfHardcore Warrior.png" id="1_xpg0i"]
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="2_ovgof"]
 [ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="3_etfal"]
+[ext_resource type="Script" uid="uid://bgluubxxgicks" path="res://scene/handlers/movement_handler.gd" id="5_hdbv3"]
+[ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="6_a1hte"]
+[ext_resource type="Script" uid="uid://cnnm5hxm7i7b1" path="res://scene/handlers/death_handler.gd" id="7_1kl7h"]
+[ext_resource type="Script" uid="uid://3u18amy04ntt" path="res://scene/handlers/drop_handler.gd" id="8_hf734"]
+[ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="9_t51gr"]
+[ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="10_8v8r7"]
+[ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="11_701n7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur464"]
 atlas = ExtResource("1_xpg0i")
@@ -156,6 +163,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdbv3"]
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdbv3"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdbv3"]
+size = Vector2(20, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1hte"]
+size = Vector2(14.9366, 42.9726)
+
 [node name="KnightBase" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_ovgof")
@@ -164,13 +183,95 @@ script = ExtResource("1_ovgof")
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"hit"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.648829
+frame = 5
+frame_progress = 0.544064
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_hdbv3")
 
 [node name="FlipHandler" parent="." instance=ExtResource("2_ovgof")]
 
 [node name="GravityHandler" type="Node2D" parent="."]
 script = ExtResource("3_etfal")
 metadata/_custom_type_script = "uid://cpshoaoij2d7y"
+
+[node name="MovementHandler" type="Node2D" parent="."]
+script = ExtResource("5_hdbv3")
+move_speed = 75.0
+acceleration = 10.0
+metadata/_custom_type_script = "uid://bgluubxxgicks"
+
+[node name="AIHandler" type="Node2D" parent="." node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement")]
+script = ExtResource("6_a1hte")
+left_cast = NodePath("../leftCast")
+right_cast = NodePath("../RightCast")
+left_wall_cast = NodePath("../leftWCast")
+right_wall_cast = NodePath("../RightWCast")
+movement = NodePath("../MovementHandler")
+metadata/_custom_type_script = "uid://tsaabgoj48ck"
+
+[node name="DeathHandler" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("7_1kl7h")
+parent = NodePath("..")
+type = "Enemy"
+metadata/_custom_type_script = "uid://cnnm5hxm7i7b1"
+
+[node name="DropHandler" type="Node2D" parent="."]
+script = ExtResource("8_hf734")
+metadata/_custom_type_script = "uid://3u18amy04ntt"
+
+[node name="HealthHandler" type="Node2D" parent="." node_paths=PackedStringArray("death_handler")]
+script = ExtResource("9_t51gr")
+max_health = 4
+death_handler = NodePath("../DeathHandler")
+type = "Enemy"
+metadata/_custom_type_script = "uid://dnlomrpambk1i"
+
+[node name="HurtBox" parent="." instance=ExtResource("10_8v8r7")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_hdbv3")
+debug_color = Color(0, 0.0588235, 0.701961, 0.419608)
+
+[node name="HitBoxHandler" parent="." node_paths=PackedStringArray("health_handler") instance=ExtResource("11_701n7")]
+collision_layer = 4
+collision_mask = 2
+time = 0.5
+health_handler = NodePath("../HealthHandler")
+
+[node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
+position = Vector2(-18, 8)
+shape = SubResource("RectangleShape2D_hdbv3")
+debug_color = Color(0.776471, 0, 0, 0.419608)
+
+[node name="RightWCast" type="RayCast2D" parent="."]
+position = Vector2(8, 9)
+target_position = Vector2(0, 42)
+
+[node name="RightCast" type="RayCast2D" parent="."]
+position = Vector2(8, 9)
+target_position = Vector2(28, 0)
+
+[node name="leftWCast" type="RayCast2D" parent="."]
+position = Vector2(-8, 9)
+target_position = Vector2(0, 42)
+
+[node name="leftCast" type="RayCast2D" parent="."]
+position = Vector2(-8, 9)
+target_position = Vector2(-28, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-1.48046, 7.51084)
+rotation = 1.55147
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_a1hte")
+debug_color = Color(0.921569, 0.6, 0.701961, 0.419608)
+
+[editable path="HurtBox"]
+[editable path="HitBoxHandler"]

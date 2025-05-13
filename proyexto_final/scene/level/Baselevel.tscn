@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=41 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://ch2ojd3pmejf7" path="res://scene/npc/npc_behaviour_wander.tscn" id="27_4kuo4"]
 [ext_resource type="Resource" uid="uid://eandoq6h1w11" path="res://scene/npc/resources/npc_res.tres" id="29_x5ysf"]
 [ext_resource type="PackedScene" uid="uid://rt2ftdu2xa00" path="res://scene/Portal/portal.tscn" id="30_00ep3"]
+[ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1684,6 +1685,9 @@ collision_mask = 2
 position = Vector2(-101, -24)
 shape = SubResource("RectangleShape2D_1lfc4")
 debug_color = Color(0.776287, 0.434264, 0.197398, 0.42)
+
+[node name="KnightBase" parent="." instance=ExtResource("31_1lfc4")]
+position = Vector2(317, 353)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
