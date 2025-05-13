@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://iellk33xgjhc"]
+[gd_scene load_steps=25 format=3 uid="uid://iellk33xgjhc"]
 
+[ext_resource type="Script" uid="uid://1nw2omx3qxfa" path="res://scene/Enemy/knight_base.gd" id="1_ovgof"]
 [ext_resource type="Texture2D" uid="uid://p2js25a84u72" path="res://Assets/character/GandalfHardcore Warrior.png" id="1_xpg0i"]
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="2_ovgof"]
 [ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="3_etfal"]
@@ -157,12 +158,14 @@ animations = [{
 
 [node name="KnightBase" type="CharacterBody2D"]
 collision_layer = 4
+script = ExtResource("1_ovgof")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.0209808
+frame = 4
+frame_progress = 0.648829
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
