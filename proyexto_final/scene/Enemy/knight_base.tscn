@@ -204,10 +204,10 @@ metadata/_custom_type_script = "uid://bgluubxxgicks"
 
 [node name="AIHandler" type="Node2D" parent="." node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement")]
 script = ExtResource("6_a1hte")
-left_cast = NodePath("../leftCast")
-right_cast = NodePath("../RightCast")
-left_wall_cast = NodePath("../leftWCast")
-right_wall_cast = NodePath("../RightWCast")
+left_cast = NodePath("../leftWCast")
+right_cast = NodePath("../RightWCast")
+left_wall_cast = NodePath("../leftCast")
+right_wall_cast = NodePath("../RightCast")
 movement = NodePath("../MovementHandler")
 metadata/_custom_type_script = "uid://tsaabgoj48ck"
 
@@ -250,7 +250,7 @@ debug_color = Color(0.776471, 0, 0, 0.419608)
 
 [node name="RightWCast" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
-target_position = Vector2(0, 42)
+target_position = Vector2(0, 33)
 
 [node name="RightCast" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
@@ -258,7 +258,7 @@ target_position = Vector2(28, 0)
 
 [node name="leftWCast" type="RayCast2D" parent="."]
 position = Vector2(-8, 9)
-target_position = Vector2(0, 42)
+target_position = Vector2(1, 33)
 
 [node name="leftCast" type="RayCast2D" parent="."]
 position = Vector2(-8, 9)
