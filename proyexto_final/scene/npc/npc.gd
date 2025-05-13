@@ -33,7 +33,7 @@ func update_animation() -> void:
 func update_direction(target : Vector2) -> void:
 	direction = global_position.direction_to(target)
 	update_animation()
-	if direction_name == "side" and direction.x < 0:
+	if direction_name == "side" and direction.x > 0:
 		animated_sprite.flip_h = true
 	else :
 		animated_sprite.flip_h = false
