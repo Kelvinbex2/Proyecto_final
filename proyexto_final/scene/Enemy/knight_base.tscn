@@ -176,10 +176,12 @@ size = Vector2(20, 9)
 size = Vector2(14.9366, 42.9726)
 
 [node name="KnightBase" type="CharacterBody2D"]
+rotation = 0.0289567
 collision_layer = 4
 script = ExtResource("1_ovgof")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-0.809422, 0.906753)
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"hit"
 autoplay = "idle"
@@ -223,7 +225,7 @@ metadata/_custom_type_script = "uid://3u18amy04ntt"
 
 [node name="HealthHandler" type="Node2D" parent="." node_paths=PackedStringArray("death_handler")]
 script = ExtResource("9_t51gr")
-max_health = 4
+max_health = 6
 death_handler = NodePath("../DeathHandler")
 type = "Enemy"
 metadata/_custom_type_script = "uid://dnlomrpambk1i"
