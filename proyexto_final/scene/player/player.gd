@@ -104,10 +104,10 @@ func freeze() -> void:
 func unfreeze() -> void:
 	set_physics_process(true)
 	velocity = Vector2.ZERO  
-	
+
 func add_frutas():
 	frutas += 1
-	get_tree().call_group("Contador", "actualizar", frutas)
+	SignalBus.emit_on_fruta_recogida(frutas)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):

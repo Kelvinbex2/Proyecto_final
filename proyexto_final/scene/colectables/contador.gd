@@ -4,12 +4,9 @@ extends Control
 @onready var label: Label = $HBoxContainer/Label
 var frutas = 0
 
+func _ready():
+	SignalBus.on_fruta_recogida.connect(actualizar)
 
-
-func actualizar(fruta: int):
-	label.text = str(fruta)
-
-
-func add_frutas():
-	frutas += 1
-	actualizar(frutas)
+func actualizar(nueva_cantidad: int):
+	frutas = nueva_cantidad
+	label.text = str(frutas)

@@ -13,6 +13,12 @@ signal on_player_die
 signal on_level_changed
 signal interact_pressed
 signal on_portal_triggered
+signal on_fruta_recogida(nueva_cantidad: int)
+
+
+func emit_on_fruta_recogida(nueva_cantidad: int) -> void:
+	on_fruta_recogida.emit(nueva_cantidad)
+
 
 func emit_on_portal_triggered()-> void:
 	on_portal_triggered.emit()
