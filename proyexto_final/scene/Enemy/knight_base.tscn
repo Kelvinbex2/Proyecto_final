@@ -162,7 +162,7 @@ collision_layer = 4
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.996979
+frame_progress = 0.0209808
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
