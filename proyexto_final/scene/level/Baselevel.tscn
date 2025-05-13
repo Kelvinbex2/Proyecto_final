@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://bmdcbls8osp87" path="res://scene/item/gem.tres" id="24_aur5l"]
 [ext_resource type="PackedScene" uid="uid://3126mhw2elk0" path="res://scene/Diaglog/interact/Chest/treasure.tscn" id="25_4kavb"]
 [ext_resource type="PackedScene" uid="uid://bdr8eot4jqfys" path="res://scene/npc/npc.tscn" id="26_025cg"]
-[ext_resource type="Resource" uid="uid://eandoq6h1w11" path="res://scene/npc/resources/npc_res.tres" id="27_4fywq"]
+[ext_resource type="Resource" uid="uid://bqhhebra0fbkl" path="res://scene/npc/resources/npc_res2.tres" id="27_4fywq"]
 [ext_resource type="PackedScene" uid="uid://ch2ojd3pmejf7" path="res://scene/npc/npc_behaviour_wander.tscn" id="27_4kuo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
