@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=38 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bdr8eot4jqfys" path="res://scene/npc/npc.tscn" id="26_025cg"]
 [ext_resource type="Resource" uid="uid://bqhhebra0fbkl" path="res://scene/npc/resources/npc_res2.tres" id="27_4fywq"]
 [ext_resource type="PackedScene" uid="uid://ch2ojd3pmejf7" path="res://scene/npc/npc_behaviour_wander.tscn" id="27_4kuo4"]
+[ext_resource type="Resource" uid="uid://eandoq6h1w11" path="res://scene/npc/resources/npc_res.tres" id="29_x5ysf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1662,6 +1663,14 @@ collision_mask = 1
 npc_resoure = ExtResource("27_4fywq")
 
 [node name="NpcBehaviourWander" parent="Npc" instance=ExtResource("27_4kuo4")]
+
+[node name="Npc2" parent="." instance=ExtResource("26_025cg")]
+position = Vector2(705, 453)
+collision_layer = 2
+collision_mask = 1
+npc_resoure = ExtResource("29_x5ysf")
+
+[node name="NpcBehaviourWander" parent="Npc2" instance=ExtResource("27_4kuo4")]
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]

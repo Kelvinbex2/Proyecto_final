@@ -1,14 +1,115 @@
-[gd_resource type="Resource" script_class="NpcResource" load_steps=4 format=3 uid="uid://eandoq6h1w11"]
+[gd_resource type="Resource" script_class="NpcResource" load_steps=17 format=3 uid="uid://eandoq6h1w11"]
 
 [ext_resource type="Script" uid="uid://bd6jrugj8h3ur" path="res://scene/npc/npc_resource.gd" id="1_rkq66"]
-[ext_resource type="Texture2D" uid="uid://d0bylmydp8eow" path="res://Assets/character/npc/potriat.png" id="1_xhwti"]
+[ext_resource type="Texture2D" uid="uid://pji3hj13brm3" path="res://Assets/character/npc/GandalfHardcFREE NPC/GandalfHardcore Goddess NPC.png" id="2_lrfrv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lrfrv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhwti"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v64vl"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afxx"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noert"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7rt2"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48m1l"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vw76"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o37pv"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubn0a"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54kdh"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8dtk"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eimsu"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkftt"]
+atlas = ExtResource("2_lrfrv")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mag5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhwti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v64vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8afxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noert")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7rt2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48m1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vw76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o37pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubn0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54kdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8dtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eimsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkftt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_rkq66")
-npc_name = "Erick"
-sprite_frames = SubResource("SpriteFrames_lrfrv")
-potrait = ExtResource("1_xhwti")
+npc_name = "Ericka"
+sprite_frames = SubResource("SpriteFrames_mag5a")
 dialogo_audio = ""
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"
