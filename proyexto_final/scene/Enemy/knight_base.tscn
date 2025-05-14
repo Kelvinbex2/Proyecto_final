@@ -165,9 +165,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rlpp0")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -249,11 +249,11 @@ animations = [{
 height = 22.0403
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdbv3"]
-radius = 8.0
+radius = 14.2895
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1hte"]
-radius = 13.9652
-height = 27.9304
+radius = 15.0227
+height = 30.0453
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1hte"]
 size = Vector2(14.9366, 42.9726)
@@ -266,10 +266,8 @@ script = ExtResource("1_ovgof")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(-0.809422, 0.906753)
 sprite_frames = SubResource("SpriteFrames_mgqc2")
-animation = &"hit"
+animation = &"die"
 autoplay = "walk"
-frame = 6
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
