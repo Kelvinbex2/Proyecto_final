@@ -1703,7 +1703,7 @@ shape = SubResource("RectangleShape2D_1lfc4")
 debug_color = Color(0.776287, 0.434264, 0.197398, 0.42)
 
 [node name="KnightBase" parent="." instance=ExtResource("31_1lfc4")]
-position = Vector2(225, 432)
+position = Vector2(228, 451)
 rotation = 0.0169625
 
 [editable path="EntitySpawn"]

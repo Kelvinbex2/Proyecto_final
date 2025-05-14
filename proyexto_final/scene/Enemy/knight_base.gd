@@ -15,6 +15,8 @@ extends CharacterBody2D
 @onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 
+
+
 var is_attacking: bool = false
 var is_player_in_range: bool = false
 
@@ -62,5 +64,5 @@ func attack_loop() -> void:
 			break
 
 	# Fin del ataque
-	animatedSprite2D.play("idle")
+	animatedSprite2D.play("walk")
 	is_attacking = false
