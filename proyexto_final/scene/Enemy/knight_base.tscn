@@ -192,7 +192,7 @@ scale = Vector2(-0.809422, 0.906753)
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.565401
+frame_progress = 0.760123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
@@ -277,7 +277,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-1.48046, 7.51084)
+position = Vector2(0.231621, 7.99665)
 rotation = 1.55147
 shape = SubResource("RectangleShape2D_a1hte")
 debug_color = Color(0.921569, 0.6, 0.701961, 0.419608)

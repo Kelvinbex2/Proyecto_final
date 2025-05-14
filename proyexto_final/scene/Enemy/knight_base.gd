@@ -38,8 +38,19 @@ func on_player_hit(area: Area2D) -> void:
 func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = true
+
+		# Forzar dirección para flip visual
+		if body.global_position.x < global_position.x:
+			velocity.x = -1  # izquierda
+		else:
+			velocity.x = 1   # derecha
+
+		# Ejecutar flip visual usando mi sistema actual
+		flip_handler.handle_flip(self)
+
 		if not is_attacking:
 			attack_loop()
+
 
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
