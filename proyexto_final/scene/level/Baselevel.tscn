@@ -1686,6 +1686,10 @@ position = Vector2(-65, 4)
 position = Vector2(136, 1)
 wait_time = 1.0
 
+[node name="PatrolLocation3" parent="Npc2/NpcBehaviourPatrol" instance=ExtResource("31_v7w4t")]
+position = Vector2(307, 8)
+wait_time = 1.0
+
 [node name="Portal" parent="." instance=ExtResource("30_00ep3")]
 collision_layer = 0
 collision_mask = 2

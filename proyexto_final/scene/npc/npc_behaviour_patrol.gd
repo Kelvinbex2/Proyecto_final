@@ -1,5 +1,6 @@
 @tool
 extends NpcBehaviour
+const COLORS = [Color(1,0,0), Color(1,1,0),Color(0,1,0),Color(0,1,1),Color(0,0,1),Color(1,0,1),]
 
 @export var walk_speed : float =30.0
 
@@ -35,6 +36,13 @@ func gather_patrol_location(_n : Node = null) -> void:
 	for i in get_children():
 		if i is PatrolLocation:
 			patrol_location.append(i)
+	
+	if Engine.is_editor_hint():
+		if patrol_location.size() > 0:
+			for j in patrol_location.size():
+				var _p = patrol_location[j] as PatrolLocation
+				_p.update_label(str(j))
+				_p.modulate = _get_color(j)
 
 
 func start() -> void:
@@ -66,3 +74,11 @@ func start() -> void:
 	npc.velocity = walk_speed * _dir
 	npc.update_direction(target.target_position)
 	npc.update_animation()
+
+
+
+func _get_color(i : int)-> Color:
+	var color_count : int = COLORS.size()
+	while  i > color_count -1:
+		i -= color_count
+	return COLORS[i]
