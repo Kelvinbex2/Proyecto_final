@@ -41,8 +41,19 @@ func gather_patrol_location(_n : Node = null) -> void:
 		if patrol_location.size() > 0:
 			for j in patrol_location.size():
 				var _p = patrol_location[j] as PatrolLocation
+				
+				if not _p.transform_changed.is_connected(gather_patrol_location):
+					_p.transform_changed.connect(gather_patrol_location)
+					
 				_p.update_label(str(j))
 				_p.modulate = _get_color(j)
+				
+				var _next : PatrolLocation
+				if j < patrol_location.size() -1 :
+					_next = patrol_location[j + 1]
+				else :
+					_next = patrol_location[0]
+					_p.update_line(_next.position)
 
 
 func start() -> void:

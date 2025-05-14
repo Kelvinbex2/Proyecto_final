@@ -1681,16 +1681,16 @@ npc_resoure = ExtResource("29_x5ysf")
 
 [node name="PatrolLocation" parent="Npc2/NpcBehaviourPatrol" instance=ExtResource("31_v7w4t")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(-65, 4)
+position = Vector2(-180, 2)
 
 [node name="PatrolLocation2" parent="Npc2/NpcBehaviourPatrol" instance=ExtResource("31_v7w4t")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(136, 1)
+position = Vector2(165, 4)
 wait_time = 1.0
 
 [node name="PatrolLocation3" parent="Npc2/NpcBehaviourPatrol" instance=ExtResource("31_v7w4t")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(307, 8)
+position = Vector2(365, 0)
 wait_time = 1.0
 
 [node name="Portal" parent="." instance=ExtResource("30_00ep3")]

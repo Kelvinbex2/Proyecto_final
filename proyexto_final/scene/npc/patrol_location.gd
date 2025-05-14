@@ -1,5 +1,6 @@
 @tool
 class_name PatrolLocation extends Node2D
+signal transform_changed
 
 @onready var label: Label = $Sprite2D/Label
 @onready var sprite: Sprite2D = $Sprite2D
@@ -11,8 +12,15 @@ class_name PatrolLocation extends Node2D
 		wait_time = val
 		_update_wait_time_label()
 
-		
 var target_position : Vector2 = Vector2.ZERO
+
+func _enter_tree() -> void:
+	set_notify_transform(true)
+	
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED:
+		transform_changed.emit()
 
 func _ready() -> void:
 	target_position = global_position
