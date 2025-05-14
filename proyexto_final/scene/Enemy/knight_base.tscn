@@ -267,11 +267,12 @@ position = Vector2(-8, 9)
 target_position = Vector2(-28, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-1.48046, 7.51084)
 rotation = 1.55147
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_a1hte")
 debug_color = Color(0.921569, 0.6, 0.701961, 0.419608)
 

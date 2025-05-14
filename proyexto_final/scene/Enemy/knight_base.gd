@@ -49,6 +49,6 @@ func attack_loop() -> void:
 		print("👊 Atacando jugador")
 		animatedSprite2D.play("hit")
 		await animatedSprite2D.animation_finished
-		await get_tree().create_timer(1.0).timeout  # Tiempo entre ataques
+		await get_tree().create_timer(1.0).timeout 
 	animatedSprite2D.play("idle")
 	is_attacking = false
