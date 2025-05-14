@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://iellk33xgjhc"]
+[gd_scene load_steps=37 format=3 uid="uid://iellk33xgjhc"]
 
 [ext_resource type="Script" uid="uid://1nw2omx3qxfa" path="res://scene/Enemy/knight_base.gd" id="1_ovgof"]
 [ext_resource type="Texture2D" uid="uid://p2js25a84u72" path="res://Assets/character/GandalfHardcore Warrior.png" id="1_xpg0i"]
@@ -35,6 +35,10 @@ region = Rect2(320, 896, 80, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdcwp"]
 atlas = ExtResource("1_xpg0i")
 region = Rect2(400, 896, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdbv3"]
+atlas = ExtResource("1_xpg0i")
+region = Rect2(0, 896, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta8kb"]
 atlas = ExtResource("1_xpg0i")
@@ -108,10 +112,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xdcwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdbv3")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 7.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -185,8 +192,8 @@ scale = Vector2(-0.809422, 0.906753)
 sprite_frames = SubResource("SpriteFrames_mgqc2")
 animation = &"hit"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.544064
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)

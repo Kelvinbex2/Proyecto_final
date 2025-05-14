@@ -45,10 +45,22 @@ func _on_detection_area_exited(body: Node) -> void:
 
 func attack_loop() -> void:
 	is_attacking = true
+
 	while is_player_in_range:
 		print("👊 Atacando jugador")
 		animatedSprite2D.play("hit")
 		await animatedSprite2D.animation_finished
-		await get_tree().create_timer(1.0).timeout 
+
+		# Si el jugador se ha ido durante la animación
+		if not is_player_in_range:
+			break
+
+		await get_tree().create_timer(1.0).timeout
+
+		# Si el jugador se ha ido durante el tiempo de espera
+		if not is_player_in_range:
+			break
+
+	# Fin del ataque
 	animatedSprite2D.play("idle")
 	is_attacking = false
