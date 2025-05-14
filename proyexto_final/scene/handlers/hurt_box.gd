@@ -13,4 +13,4 @@ func on_area_entered(area: Area2D) -> void:
 	print("HurtBox hit by:", area.name)
 	var health = get_parent().get_node_or_null("HealthHandler")
 	if health:
-		health.damage(2)
+		health.damage(1)
