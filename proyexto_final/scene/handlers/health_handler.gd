@@ -23,11 +23,8 @@ func damage(val: int) -> void:
 		
 	match type:
 		"Player":
-			current_health -= val
-			current_health = max(current_health, 0)
-			GlobalStat.currently_held_coins = current_health
-			SignalBus.emit_on_coin_counter_update(current_health)
 			SignalBus.emit_on_hit(1)
+			current_health -= val
 			
 		"Enemy":
 			current_health -= val
