@@ -15,12 +15,14 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		child_entered_tree.connect(gather_patrol_location)
 		child_order_changed.connect(gather_patrol_location)
+		return
 	
 	super()
 	if patrol_location.size() ==0:
 		process_mode = Node.PROCESS_MODE_DISABLED
 		return
 	target = patrol_location[0]
+
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
