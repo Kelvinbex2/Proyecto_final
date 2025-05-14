@@ -56,21 +56,28 @@ func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = false
 
+
+
 func attack_loop() -> void:
 	is_attacking = true
 
 	while is_player_in_range:
 		print("👊 Atacando jugador")
+
+		# Activar el hitbox justo antes del golpe
+		hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
+
 		animatedSprite2D.play("hit")
 		await animatedSprite2D.animation_finished
 
-		# Si el jugador se ha ido durante la animación
+		# Desactivar el hitbox justo después del golpe
+		hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
+
 		if not is_player_in_range:
 			break
 
 		await get_tree().create_timer(1.0).timeout
 
-		# Si el jugador se ha ido durante el tiempo de espera
 		if not is_player_in_range:
 			break
 

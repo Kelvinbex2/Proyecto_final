@@ -35,7 +35,7 @@ func on_player_hit(area: Area2D)-> void:
 func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player") and not has_already_attacked:
 		print("Jugador detectado")
-		has_already_attacked = true  # Marcamos que ya atacó
+		has_already_attacked = true  
 		play_hit_animation()
 
 
@@ -43,7 +43,7 @@ func _on_detection_area_entered(body: Node) -> void:
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		print("Jugador se fue")
-		has_already_attacked = false  # Ahora puede volver a atacar la próxima vez
+		has_already_attacked = false  
 
 
 func play_hit_animation() -> void:

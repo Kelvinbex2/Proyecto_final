@@ -176,8 +176,9 @@ height = 22.0403
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdbv3"]
 radius = 8.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdbv3"]
-size = Vector2(20, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1hte"]
+radius = 13.9652
+height = 27.9304
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1hte"]
 size = Vector2(14.9366, 42.9726)
@@ -252,8 +253,8 @@ time = 0.5
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="HitBoxHandler" index="0"]
-position = Vector2(-18, 8)
-shape = SubResource("RectangleShape2D_hdbv3")
+position = Vector2(2.25974, 8.93832)
+shape = SubResource("CapsuleShape2D_a1hte")
 debug_color = Color(0.776471, 0, 0, 0.419608)
 
 [node name="RightWCast" type="RayCast2D" parent="."]
