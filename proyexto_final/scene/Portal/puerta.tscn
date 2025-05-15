@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5fwndbv5mgny"]
+
+[ext_resource type="Texture2D" uid="uid://dhr7xfa1swh8g" path="res://Assets/portal/Dimensional_Portal.png" id="1_nbd0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnxe3"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c01fc"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbk5m"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p62e"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oyuk"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouqcq"]
+atlas = ExtResource("1_nbd0r")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7kmf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnxe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c01fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbk5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p62e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oyuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouqcq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbd0r"]
+size = Vector2(13, 50)
+
+[node name="Puerta" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_t7kmf")
+autoplay = "default"
+frame = 4
+frame_progress = 0.446755
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nbd0r")
+
+[node name="Destination" type="Marker2D" parent="."]
+position = Vector2(1, -10)

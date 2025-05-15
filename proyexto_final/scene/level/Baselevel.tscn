@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=44 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://chmt3kmuuqv3" path="res://scene/npc/npc_behaviour_patrol.tscn" id="30_hegci"]
 [ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
+[ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1673,7 +1674,7 @@ npc_resoure = ExtResource("27_4fywq")
 [node name="NpcBehaviourWander" parent="Npc" instance=ExtResource("27_4kuo4")]
 
 [node name="Npc2" parent="." instance=ExtResource("26_025cg")]
-position = Vector2(2799, 598)
+position = Vector2(2650.24, 600.939)
 collision_layer = 10
 collision_mask = 9
 npc_resoure = ExtResource("29_x5ysf")
@@ -1718,6 +1719,9 @@ rotation = 0.0169625
 [node name="KnightBase4" parent="." instance=ExtResource("31_1lfc4")]
 position = Vector2(2991, 255)
 rotation = 0.0169625
+
+[node name="Puerta" parent="." instance=ExtResource("34_v7w4t")]
+position = Vector2(3169, 596)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
