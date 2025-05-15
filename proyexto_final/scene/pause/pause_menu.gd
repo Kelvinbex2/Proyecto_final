@@ -50,9 +50,13 @@ func _on_btn_resum_pressed() -> void:
 	resume()
 
 func _on_restart_pressed() -> void:
-	GlobalStat.reset_coins()  
-	get_tree().paused = false  
-	get_tree().reload_current_scene()
+	GlobalStat.reset_coins()
+	get_tree().paused = false
+	
+	var game_state = SignalBus.get_game_state_manager()
+	if game_state:
+		game_state.restart_level()
+
 
 
 func _on_exit_pressed() -> void:

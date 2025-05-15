@@ -6,6 +6,8 @@ extends Node
 @export var level_1: PackedScene = null
 @export var level_2: PackedScene = null
 var level_stage := 1  
+var current_level_scene: PackedScene = null  
+
 
 
 var upgrade_menu_exists: bool = false
@@ -72,9 +74,11 @@ func load_level() -> void:
 
 	match level_stage:
 		1:
+			current_level_scene = level_1
 			new_level = level_1.instantiate()
 			level_stage = 2
 		2:
+			current_level_scene = level_2
 			new_level = level_2.instantiate()
 			level_stage = -1  # Ya no hay más niveles
 
@@ -96,3 +100,33 @@ func on_upgrade_state_end() -> void:
 
 func _on_portal_triggered() -> void:
 	load_level()
+
+
+func restart_level() -> void:
+	var level_container: Node2D = NodeExtensions.get_level_container()
+	if level_container == null:
+		return
+
+	# Elimina el nivel actual
+	if level_container.get_child_count() > 0:
+		var existing_level = level_container.get_child(0)
+		if existing_level:
+			existing_level.queue_free()
+
+	await get_tree().process_frame
+	SignalBus.emit_on_level_changed()
+
+	# Resetear monedas
+	GlobalStat.reset_coins()
+
+	# Resetear player
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.reset_stats()
+
+	if current_level_scene != null:
+		var new_level = current_level_scene.instantiate()
+		level_container.add_child(new_level)
+		print("🔁 Nivel reiniciado:", new_level.name)
+	else:
+		print("⚠ No se pudo reiniciar el nivel.")

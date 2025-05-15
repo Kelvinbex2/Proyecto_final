@@ -112,3 +112,9 @@ func add_frutas():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		SignalBus.emit_interact_pressed()
+
+
+func reset_stats() -> void:
+	print("🔁 Reset player stats called")  # <-- Agregar esto
+	frutas = 0
+	SignalBus.emit_on_fruta_recogida(frutas)

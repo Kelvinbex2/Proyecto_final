@@ -14,8 +14,13 @@ signal on_level_changed
 signal interact_pressed
 signal on_portal_triggered
 signal on_fruta_recogida(nueva_cantidad: int)
+var game_state_manager: GameState = null
 
 
+	
+func get_game_state_manager() -> GameState:
+	return game_state_manager
+	
 func emit_on_fruta_recogida(nueva_cantidad: int) -> void:
 	on_fruta_recogida.emit(nueva_cantidad)
 
@@ -45,7 +50,9 @@ func emit_on_upgrade_purchased(upgrade:BaseUpgrade)->void:
 	on_upgrade_purchased.emit(upgrade)
 	
 func emit_on_game_state_manager_ready(GS:GameState) -> void:
+	game_state_manager = GS
 	on_game_state_manager_ready.emit(GS)
+	
 func emit_on_enemy_death()->void:
 	on_enemy_death.emit()
 	
