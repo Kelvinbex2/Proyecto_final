@@ -1723,8 +1723,19 @@ rotation = 0.0169625
 [node name="Puerta" parent="." instance=ExtResource("34_v7w4t")]
 position = Vector2(3169, 596)
 
+[node name="Destination" parent="Puerta" index="2"]
+position = Vector2(-33, -333)
+
+[node name="Puerta2" parent="." instance=ExtResource("34_v7w4t")]
+position = Vector2(3205, 257)
+
+[node name="Destination" parent="Puerta2" index="2"]
+position = Vector2(-86, 337)
+
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]
 [editable path="DeadZone5"]
 [editable path="DeadZone6"]
 [editable path="Portal"]
+[editable path="Puerta"]
+[editable path="Puerta2"]
