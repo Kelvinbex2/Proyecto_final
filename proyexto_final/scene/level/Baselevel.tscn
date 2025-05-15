@@ -1603,6 +1603,10 @@ shape = SubResource("RectangleShape2D_vv3gj")
 [node name="Platform" parent="." instance=ExtResource("17_j1l4i")]
 position = Vector2(1988, 581)
 
+[node name="CollisionShape2D" parent="Platform/Platform_up" index="1"]
+position = Vector2(1.5, -4)
+one_way_collision = false
+
 [node name="Platform2" parent="." instance=ExtResource("17_j1l4i")]
 position = Vector2(1357, 312)
 
@@ -1738,6 +1742,7 @@ position = Vector2(-82, 334)
 [editable path="DeadZone4"]
 [editable path="DeadZone5"]
 [editable path="DeadZone6"]
+[editable path="Platform"]
 [editable path="Portal"]
 [editable path="Puerta"]
 [editable path="Puerta2"]
