@@ -48,6 +48,7 @@ func _on_btn_resum_pressed() -> void:
 	resume()
 
 func _on_restart_pressed() -> void:
+	resume()
 	GlobalStat.reset_coins()
 	SignalBus.emit_on_fruta_recogida(0)
 	get_tree().paused = false
