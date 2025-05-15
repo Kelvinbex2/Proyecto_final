@@ -4,9 +4,11 @@ extends Control
 signal menu_shown
 signal menu_hidden
 
-var player_ref: Player = null
+
 @onready var item_desc: Label = $itemDesc
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+var player_ref: Player = null
+var can_toggle := true
 
 func _ready() -> void:
 	visible = false
@@ -17,11 +19,14 @@ func _on_player_ready(player: Player) -> void:
 
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape") and can_toggle:
+		can_toggle = false 
+
 		if get_tree().paused:
 			resume()
 		else:
 			pause()
+
 
 func pause() -> void:
 	get_tree().paused = true
@@ -42,6 +47,8 @@ func resume() -> void:
 
 	if player_ref:
 		player_ref.unfreeze()
+	
+	can_toggle = true
 		
 	
 func _on_btn_resum_pressed() -> void:
@@ -61,6 +68,7 @@ func _on_restart_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/ui/main_menu.tscn")
+	can_toggle = true
 
 
 
