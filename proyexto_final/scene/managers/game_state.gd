@@ -116,13 +116,7 @@ func restart_level() -> void:
 	await get_tree().process_frame
 	SignalBus.emit_on_level_changed()
 
-	# Resetear monedas
-	GlobalStat.reset_coins()
 
-	# Resetear player
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.reset_stats()
 
 	if current_level_scene != null:
 		var new_level = current_level_scene.instantiate()

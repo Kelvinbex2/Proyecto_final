@@ -33,6 +33,7 @@ var is_dying := false
 
 
 func _ready() -> void:
+	
 	handle_state_machine_signals()
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
@@ -115,6 +116,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func reset_stats() -> void:
-	print("🔁 Reset player stats called")  # <-- Agregar esto
 	frutas = 0
 	SignalBus.emit_on_fruta_recogida(frutas)

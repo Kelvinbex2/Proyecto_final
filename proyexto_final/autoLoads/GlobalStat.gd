@@ -28,7 +28,7 @@ func remove_coin(val: int) -> void:
 
 
 func reset_coins() -> void:
-	print("🔁 Reset coins called")  # <-- Agregar esto
+	print("🔁 Reset coins called")  
 	currently_held_coins = DEFAULT_COINS
 	SignalBus.emit_on_coin_counter_update(currently_held_coins)
 

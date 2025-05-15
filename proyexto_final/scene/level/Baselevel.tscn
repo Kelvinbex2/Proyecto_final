@@ -1570,7 +1570,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(201, -19)
+position = Vector2(589, 129)
 
 [node name="DeadZone4" parent="." instance=ExtResource("19_ac421")]
 position = Vector2(182, 2)
@@ -1630,7 +1630,7 @@ color = Color(0.619608, 0.768627, 0.847059, 1)
 position = Vector2(732, 470)
 
 [node name="Diamante2" parent="." instance=ExtResource("19_qqpwm")]
-position = Vector2(493, 470)
+position = Vector2(465, 131)
 
 [node name="Items" type="Control" parent="."]
 layout_mode = 3
