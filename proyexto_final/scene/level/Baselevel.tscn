@@ -1727,16 +1727,22 @@ position = Vector2(3169, 596)
 collision_layer = 0
 collision_mask = 2
 
+[node name="CollisionShape2D" parent="Puerta" index="1"]
+position = Vector2(2.75, 1)
+
 [node name="Destination" parent="Puerta" index="2"]
-position = Vector2(-33, -333)
+position = Vector2(15, -333)
 
 [node name="Puerta2" parent="." instance=ExtResource("34_v7w4t")]
 position = Vector2(3205, 257)
 collision_layer = 0
 collision_mask = 2
 
+[node name="CollisionShape2D" parent="Puerta2" index="1"]
+position = Vector2(4.375, 1)
+
 [node name="Destination" parent="Puerta2" index="2"]
-position = Vector2(-82, 334)
+position = Vector2(-57, 341)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone4"]

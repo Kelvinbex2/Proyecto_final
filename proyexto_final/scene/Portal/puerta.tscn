@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbd0r"]
-size = Vector2(17, 34.5)
+size = Vector2(6.75, 34.5)
 
 [node name="Puerta" type="Area2D"]
 script = ExtResource("1_jnxe3")
