@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5fwndbv5mgny"]
+[gd_scene load_steps=12 format=3 uid="uid://b5fwndbv5mgny"]
 
 [ext_resource type="Script" uid="uid://d1wvqjajkmc6s" path="res://scene/Portal/puerta.gd" id="1_jnxe3"]
 [ext_resource type="Texture2D" uid="uid://dhr7xfa1swh8g" path="res://Assets/portal/Dimensional_Portal.png" id="1_nbd0r"]
+[ext_resource type="AudioStream" uid="uid://cwqhd5ca3r7tv" path="res://Assets/audio/Items_item_effects_hp-up.wav" id="3_c01fc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnxe3"]
 atlas = ExtResource("1_nbd0r")
@@ -72,5 +73,8 @@ shape = SubResource("RectangleShape2D_nbd0r")
 
 [node name="Destination" type="Marker2D" parent="."]
 position = Vector2(1, -10)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c01fc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
