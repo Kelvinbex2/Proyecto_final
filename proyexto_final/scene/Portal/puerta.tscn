@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5fwndbv5mgny"]
+[gd_scene load_steps=11 format=3 uid="uid://b5fwndbv5mgny"]
 
+[ext_resource type="Script" uid="uid://d1wvqjajkmc6s" path="res://scene/Portal/puerta.gd" id="1_jnxe3"]
 [ext_resource type="Texture2D" uid="uid://dhr7xfa1swh8g" path="res://Assets/portal/Dimensional_Portal.png" id="1_nbd0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnxe3"]
@@ -53,9 +54,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbd0r"]
-size = Vector2(13, 50)
+size = Vector2(17, 34.5)
 
 [node name="Puerta" type="Area2D"]
+script = ExtResource("1_jnxe3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -70,3 +72,5 @@ shape = SubResource("RectangleShape2D_nbd0r")
 
 [node name="Destination" type="Marker2D" parent="."]
 position = Vector2(1, -10)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
