@@ -1,12 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5p0y80u5v0dn"]
 
+[ext_resource type="Script" uid="uid://cx6osu6fypgri" path="res://scene/Diaglog/interact/dialog/dialog_interraction.gd" id="1_0gjrh"]
 [ext_resource type="Texture2D" uid="uid://ba1kge080qiem" path="res://Assets/dialog/dialog_interactable.png" id="1_p5tvq"]
-
-[sub_resource type="GDScript" id="GDScript_p5tvq"]
-script/source = "@tool
-class_name DialogInterraction
-extends Area2D
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gjrh"]
 size = Vector2(44, 32)
@@ -133,7 +128,7 @@ _data = {
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = SubResource("GDScript_p5tvq")
+script = ExtResource("1_0gjrh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0gjrh")
