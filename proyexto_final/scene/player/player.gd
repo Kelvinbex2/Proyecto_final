@@ -35,7 +35,8 @@ var game_state: GameState = null
 
 
 func _ready() -> void:
-	
+	is_dying = false
+	reset_stats()
 	handle_state_machine_signals()
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
