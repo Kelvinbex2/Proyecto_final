@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func player_interact() -> void:
 	player_interacted.emit()
+	DialogSystem.show_dialog()
 	
 
 func _on_area_enter(_a :Area2D ) -> void:
