@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_active == false:
 		return
 	
-	pass
+
 	
 	
 		
@@ -37,8 +37,16 @@ func show_dialog( _items : Array[DialogItem])-> void:
 	is_active = true
 	dialog_ui.visible = true
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
+	dialog_items = _items
+	dialog_index =0
 	get_tree().paused = true
+	await get_tree().process_frame
+	if dialog_items.size() == 0:
+		hide_dialog()
+	else:
+		start_dialog()
 	pass
+
 		
 
 func hide_dialog()-> void:
@@ -46,4 +54,25 @@ func hide_dialog()-> void:
 	dialog_ui.visible = false
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
-	pass
+	finished.emit()
+	
+	
+	
+func start_dialog() -> void:
+	show_dialog_button_indicator( true )
+	content.text = dialog_items[dialog_index].text
+
+
+func set_dialog_text( _d : DialogText ) -> void:
+	content.text = _d.text
+	name_label.text = _d.npc_info.npc_name
+
+	content.visible_characters = 0
+	
+
+func show_dialog_button_indicator( _is_visible : bool ) -> void:
+	dialog_progress_indicator.visible = _is_visible
+	if dialog_index + 1 < dialog_items.size():
+		label.text = "NEXT"
+	else:
+		label.text = "END"
