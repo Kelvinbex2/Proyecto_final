@@ -32,11 +32,14 @@ func _on_area_enter(_a :Area2D ) -> void:
 		
 	animation.play("show")
 	SignalBus.interact_pressed.connect(player_interact)
+	player_interact()
 	
 	
 func _on_area_exit(_a :Area2D ) -> void:
 	animation.play("hide")
 	SignalBus.interact_pressed.disconnect(player_interact)
+	DialogSystem.hide_dialog()
+	finished.emit()
 	
 	
 func _get_configuration_warnings() -> PackedStringArray:

@@ -40,7 +40,9 @@ func gather_interactables() -> void:
 
 
 func _on_player_interacted() -> void:
-	update_direction(Player.global_position)
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		update_direction(player.global_position)
 	state = "idle"
 	velocity = Vector2.ZERO
 	update_animation()

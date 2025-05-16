@@ -25,14 +25,10 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if is_active == false:
-	#	return
+	if is_active == false:
+		return
 	
-	if event.is_action_pressed("text"):
-		if is_active == false:
-			show_dialog(dialog_items)
-		else:
-			hide_dialog()
+	pass
 	
 	
 		
