@@ -26,23 +26,34 @@ func player_interact() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	DialogSystem.show_dialog(dialog_items)
-	DialogSystem.finished.connect(_on_dialog_finished)
+
+	if not DialogSystem.finished.is_connected(_on_dialog_finished):
+		DialogSystem.finished.connect(_on_dialog_finished)
+
 	
 
 func _on_area_enter(_a :Area2D ) -> void:
-	if enabled == false || dialog_items.size() ==0:
+	if enabled == false or dialog_items.size() == 0:
 		return
-		
+
 	animation.play("show")
-	SignalBus.interact_pressed.connect(player_interact)
+
+	if not SignalBus.interact_pressed.is_connected(player_interact):
+		SignalBus.interact_pressed.connect(player_interact)
+
 	player_interact()
+
 	
 	
 func _on_area_exit(_a :Area2D ) -> void:
 	animation.play("hide")
-	SignalBus.interact_pressed.disconnect(player_interact)
+
+	if SignalBus.interact_pressed.is_connected(player_interact):
+		SignalBus.interact_pressed.disconnect(player_interact)
+
 	DialogSystem.hide_dialog()
 	finished.emit()
+
 	
 
 func _on_dialog_finished () -> void:
