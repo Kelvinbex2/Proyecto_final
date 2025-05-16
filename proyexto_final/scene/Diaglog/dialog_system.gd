@@ -60,14 +60,16 @@ func hide_dialog()-> void:
 	
 func start_dialog() -> void:
 	show_dialog_button_indicator( true )
-	content.text = dialog_items[dialog_index].text
+	var _d : DialogItem = dialog_items[dialog_index]
+	set_dialog_data(_d)
 
 
-func set_dialog_text( _d : DialogText ) -> void:
-	content.text = _d.text
+func set_dialog_data( _d : DialogItem ) -> void:
+	if _d is DialogText:
+		content.text = _d.text
 	name_label.text = _d.npc_info.npc_name
-
-	content.visible_characters = 0
+	potrait_sprite.texture = _d.npc_info.potrait
+	
 	
 
 func show_dialog_button_indicator( _is_visible : bool ) -> void:
