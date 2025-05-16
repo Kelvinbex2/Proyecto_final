@@ -9,5 +9,5 @@ func _ready() -> void:
 func on_body_entered(body:Node2D) -> void:
 	if body is Player:
 		SignalBus.emit_on_player_entered_dead_zone()
-		body.call_deferred("reload_scene")
-		call_deferred("queue_free") 
+		body.call_deferred("reload_scene_level")
+		

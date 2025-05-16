@@ -30,6 +30,8 @@ extends CharacterBody2D
 
 var frutas :int =0
 var is_dying := false
+var game_state: GameState = null
+
 
 
 func _ready() -> void:
@@ -38,7 +40,10 @@ func _ready() -> void:
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
 	SignalBus.on_player_die.connect(_on_player_die)
+	SignalBus.on_game_state_manager_ready.connect(_on_game_state_manager_ready)
 
+	if SignalBus.game_state_manager != null:
+		_on_game_state_manager_ready(SignalBus.game_state_manager)
 
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
@@ -80,7 +85,8 @@ func play_death_animation() -> void:
 	call_deferred("reload_scene")
 
 
-
+func _on_game_state_manager_ready(gs: GameState) -> void:
+	game_state = gs
 
 func _on_player_die() -> void:
 	play_death_animation()
@@ -89,7 +95,14 @@ func reload_scene() -> void:
 	
 	get_tree().reload_current_scene()
 	GlobalStat.reset_coins()
-	
+
+func reload_scene_level() -> void:
+	if game_state:
+		game_state.restart_level()
+	else:
+		get_tree().reload_current_scene() 
+	GlobalStat.reset_coins()
+
 	
 func _on_player_attack(attacking_player: Player) -> void:
 	if attacking_player == self:
