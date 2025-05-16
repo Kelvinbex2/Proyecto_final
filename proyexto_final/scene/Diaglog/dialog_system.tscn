@@ -109,7 +109,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1039.0
 offset_top = -91.0
-offset_right = -716.0
+offset_right = -563.0
 offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -152,10 +152,10 @@ hframes = 4
 [node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI"]
 self_modulate = Color(0.549974, 0.496043, 0.380827, 1)
 layout_mode = 0
-offset_left = 400.0
-offset_top = 619.0
-offset_right = 440.0
-offset_bottom = 634.0
+offset_left = 552.0
+offset_top = 614.0
+offset_right = 592.0
+offset_bottom = 629.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3si6u")
 
 [node name="Label" type="Label" parent="DialogUI/DialogProgressIndicator"]
