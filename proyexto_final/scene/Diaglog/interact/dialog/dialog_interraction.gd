@@ -26,6 +26,7 @@ func player_interact() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	DialogSystem.show_dialog(dialog_items)
+	DialogSystem.finished.connect(_on_dialog_finished)
 	
 
 func _on_area_enter(_a :Area2D ) -> void:
@@ -43,7 +44,11 @@ func _on_area_exit(_a :Area2D ) -> void:
 	DialogSystem.hide_dialog()
 	finished.emit()
 	
-	
+
+func _on_dialog_finished () -> void:
+	DialogSystem.finished.disconnect(_on_dialog_finished)
+	finished.emit()
+
 func _get_configuration_warnings() -> PackedStringArray:
 	if _check_for_dialog_item() == false:
 		return ["Se requiere al menos un nodo DialogItem."]

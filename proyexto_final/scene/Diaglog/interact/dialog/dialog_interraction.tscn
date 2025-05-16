@@ -125,6 +125,7 @@ _data = {
 }
 
 [node name="DialogInterraction" type="Area2D"]
+process_mode = 3
 collision_layer = 0
 collision_mask = 2
 monitorable = false
