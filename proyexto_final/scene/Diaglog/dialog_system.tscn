@@ -1,8 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck1nnwsnomvsn"]
+[gd_scene load_steps=8 format=3 uid="uid://ck1nnwsnomvsn"]
 
 [ext_resource type="Script" uid="uid://jrb4an1ltaju" path="res://scene/Diaglog/dialog_system.gd" id="1_s7rmm"]
+[ext_resource type="Texture2D" uid="uid://b4pi4wknw3xxb" path="res://Assets/dialog/text-bubble.png" id="2_23br8"]
+[ext_resource type="FontFile" uid="uid://dc3u845qkgu6y" path="res://Assets/font/Abaddon Light.ttf" id="3_luhiq"]
+[ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="4_gp8qg"]
+
+[sub_resource type="Gradient" id="Gradient_3si6u"]
+offsets = PackedFloat32Array(0, 0.992218)
+colors = PackedColorArray(0.989994, 0.953276, 0.973732, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_68t48"]
+gradient = SubResource("Gradient_3si6u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvi8a"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_23br8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="DialogSystem" type="CanvasLayer"]
 process_mode = 3
 layer = 0
 script = ExtResource("1_s7rmm")
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogUI"]
+modulate = Color(0.176, 0.176, 0.176, 0.817)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -333.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_68t48")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1076.0
+offset_top = -92.0
+offset_right = -73.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xvi8a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
+theme_override_fonts/normal_font = ExtResource("3_luhiq")
+theme_override_fonts/bold_font = ExtResource("4_gp8qg")
+bbcode_enabled = true
+text = "hola kelvin
+[wave]hola
+[shake]u"
+scroll_active = false
+
+[node name="Label" type="Label" parent="DialogUI"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 531.0
+offset_right = 119.0
+offset_bottom = 554.0
+text = "Nombre"

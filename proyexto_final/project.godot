@@ -33,6 +33,10 @@ window/size/mode=2
 
 Player=""
 
+[gui]
+
+theme/custom_font="uid://dc3u845qkgu6y"
+
 [input]
 
 move_left={
