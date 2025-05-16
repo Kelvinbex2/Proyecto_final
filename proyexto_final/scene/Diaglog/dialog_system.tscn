@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck1nnwsnomvsn"]
+[gd_scene load_steps=9 format=3 uid="uid://ck1nnwsnomvsn"]
 
 [ext_resource type="Script" uid="uid://jrb4an1ltaju" path="res://scene/Diaglog/dialog_system.gd" id="1_s7rmm"]
 [ext_resource type="Texture2D" uid="uid://b4pi4wknw3xxb" path="res://Assets/dialog/text-bubble.png" id="2_23br8"]
 [ext_resource type="FontFile" uid="uid://dc3u845qkgu6y" path="res://Assets/font/Abaddon Light.ttf" id="3_luhiq"]
 [ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="4_gp8qg"]
+[ext_resource type="Texture2D" uid="uid://8kk3tc6xn2h0" path="res://Assets/character/npc/npc_portrait_01.png" id="5_luhiq"]
 
 [sub_resource type="Gradient" id="Gradient_3si6u"]
 offsets = PackedFloat32Array(0, 0.992218)
@@ -55,10 +56,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1076.0
-offset_top = -92.0
-offset_right = -73.0
-offset_bottom = -19.0
+offset_left = -1039.0
+offset_top = -91.0
+offset_right = -716.0
+offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xvi8a")
@@ -74,10 +75,21 @@ text = "hola kelvin
 [shake]u"
 scroll_active = false
 
-[node name="Label" type="Label" parent="DialogUI"]
+[node name="NameLabel" type="Label" parent="DialogUI"]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 531.0
-offset_right = 119.0
-offset_bottom = 554.0
+offset_left = 114.0
+offset_top = 534.0
+offset_right = 162.0
+offset_bottom = 557.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_gp8qg")
 text = "Nombre"
+
+[node name="PotraitSprite" type="Sprite2D" parent="."]
+position = Vector2(69, 567)
+texture = ExtResource("5_luhiq")
+hframes = 4
