@@ -48,11 +48,8 @@ func show_dialog( _items : Array[DialogItem])-> void:
 	dialog_index =0
 	get_tree().paused = true
 	await get_tree().process_frame
-	if dialog_items.size() == 0:
-		hide_dialog()
-	else:
-		start_dialog()
-	pass
+	start_dialog()
+	
 
 		
 
