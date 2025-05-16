@@ -28,6 +28,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_active == false:
 		return
 	
+	if(event.is_action_pressed("interact") or event.is_action_pressed("space") or event.is_action_pressed("ui_accept")):
+		dialog_index +=1
+		
+		if dialog_index < dialog_items.size():
+			start_dialog()
+		else:
+			hide_dialog()
 
 	
 	
