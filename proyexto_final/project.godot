@@ -23,6 +23,7 @@ NodeExtensions="*res://autoLoads/NodeExtensions.gd"
 SaveManager="*res://autoLoads/SaveManager.gd"
 SettingDataContainer="*res://autoLoads/SettingDataContainer.gd"
 SettingSignalBus="*res://autoLoads/SettingSignalBus.gd"
+DialogSystem="*res://scene/Diaglog/dialog_system.tscn"
 
 [display]
 
