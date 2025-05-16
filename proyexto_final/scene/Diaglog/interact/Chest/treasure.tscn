@@ -200,6 +200,7 @@ font_names = PackedStringArray("Century Gothic")
 font_italic = true
 font_weight = 100
 hinting = 2
+subpixel_positioning = 0
 msdf_pixel_range = 64
 oversampling = 4.0
 
