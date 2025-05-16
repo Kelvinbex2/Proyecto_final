@@ -1684,7 +1684,7 @@ position = Vector2(-1, 24)
 
 [node name="DialogText" type="Node" parent="Npc/DialogInterraction"]
 script = ExtResource("30_28ddt")
-text = "Hola,[b] Erick[/b] sigues por este camino?"
+text = "Hola,[b] Jesus[/b] sigues por este camino?"
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText2" type="Node" parent="Npc/DialogInterraction"]
