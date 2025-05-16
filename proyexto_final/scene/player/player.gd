@@ -82,7 +82,7 @@ func play_death_animation() -> void:
 	animatedSprite2D.play("die")
 
 	await get_tree().create_timer(2.5).timeout  
-	call_deferred("reload_scene")
+	call_deferred("reload_scene_level")
 
 
 func _on_game_state_manager_ready(gs: GameState) -> void:
