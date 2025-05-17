@@ -1766,22 +1766,18 @@ offset_bottom = 40.0
 [node name="KnightBase" parent="Enemy" instance=ExtResource("31_1lfc4")]
 position = Vector2(1388, 591)
 rotation = 0.0169625
-scale = Vector2(1, 1)
 
 [node name="KnightBase2" parent="Enemy" instance=ExtResource("31_1lfc4")]
 position = Vector2(2430, 593)
 rotation = 0.0169625
-scale = Vector2(1, 1)
 
 [node name="KnightBase3" parent="Enemy" instance=ExtResource("31_1lfc4")]
 position = Vector2(2577, 256)
 rotation = 0.0169625
-scale = Vector2(1, 1)
 
 [node name="KnightBase4" parent="Enemy" instance=ExtResource("31_1lfc4")]
 position = Vector2(2991, 255)
 rotation = 0.0169625
-scale = Vector2(1, 1)
 
 [node name="Goblin" parent="Enemy" instance=ExtResource("37_qrcug")]
 position = Vector2(711, 463)
