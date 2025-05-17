@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=48 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
+[ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1780,6 +1781,9 @@ scale = Vector2(1, 1)
 position = Vector2(2991, 255)
 rotation = 0.0169625
 scale = Vector2(1, 1)
+
+[node name="Goblin" parent="Enemy" instance=ExtResource("37_qrcug")]
+position = Vector2(722, 467)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
