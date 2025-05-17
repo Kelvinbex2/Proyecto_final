@@ -10,7 +10,7 @@ region = Rect2(226, 1, 32, 32)
 
 [resource]
 script = ExtResource("2_743tx")
-name = "Rock"
+name = "Key"
 description = "Key"
 texture = SubResource("AtlasTexture_qhaxh")
 cost = 10
