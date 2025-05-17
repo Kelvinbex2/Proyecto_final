@@ -1,0 +1,168 @@
+[gd_scene load_steps=23 format=3 uid="uid://c11yooyfqvnh7"]
+
+[ext_resource type="Texture2D" uid="uid://b0m7466fbn6o8" path="res://Assets/character/goblin.png" id="1_8escd"]
+[ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="2_cpuuy"]
+[ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="3_g32s5"]
+[ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="4_7skqv"]
+[ext_resource type="Script" uid="uid://bgluubxxgicks" path="res://scene/handlers/movement_handler.gd" id="5_ctvg5"]
+[ext_resource type="Script" uid="uid://cnnm5hxm7i7b1" path="res://scene/handlers/death_handler.gd" id="6_px1c3"]
+[ext_resource type="Script" uid="uid://3u18amy04ntt" path="res://scene/handlers/drop_handler.gd" id="7_2ejjm"]
+[ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="8_7ku6l"]
+[ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="9_ctvg5"]
+[ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="10_px1c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpuuy"]
+atlas = ExtResource("1_8escd")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7fdg"]
+atlas = ExtResource("1_8escd")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqwv4"]
+atlas = ExtResource("1_8escd")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix5oi"]
+atlas = ExtResource("1_8escd")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t44gp"]
+atlas = ExtResource("1_8escd")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iunm5"]
+atlas = ExtResource("1_8escd")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g32s5"]
+atlas = ExtResource("1_8escd")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7skqv"]
+atlas = ExtResource("1_8escd")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctvg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpuuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7fdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqwv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix5oi")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t44gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iunm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g32s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7skqv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8escd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ejjm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
+radius = 12.0416
+
+[node name="Goblin" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ctvg5")
+animation = &"hit"
+autoplay = "walk"
+frame_progress = 0.626384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8escd")
+
+[node name="RightWCast" type="RayCast2D" parent="."]
+position = Vector2(8, 9)
+target_position = Vector2(0, 33)
+
+[node name="RightCast" type="RayCast2D" parent="."]
+position = Vector2(8, 9)
+target_position = Vector2(107, 0)
+
+[node name="leftWCast" type="RayCast2D" parent="."]
+position = Vector2(-8, 9)
+target_position = Vector2(1, 33)
+
+[node name="leftCast" type="RayCast2D" parent="."]
+position = Vector2(-8, 9)
+target_position = Vector2(-107, 0)
+
+[node name="handlers" type="Node2D" parent="."]
+
+[node name="AIHandler" type="Node2D" parent="handlers" node_paths=PackedStringArray("left_cast", "right_cast", "left_wall_cast", "right_wall_cast", "movement")]
+script = ExtResource("2_cpuuy")
+left_cast = NodePath("../../leftWCast")
+right_cast = NodePath("../../RightWCast")
+left_wall_cast = NodePath("../../leftCast")
+right_wall_cast = NodePath("../../RightCast")
+movement = NodePath("../MovementHandler")
+metadata/_custom_type_script = "uid://tsaabgoj48ck"
+
+[node name="FlipHandler" parent="handlers" instance=ExtResource("3_g32s5")]
+
+[node name="GravityHandler" type="Node2D" parent="handlers"]
+script = ExtResource("4_7skqv")
+metadata/_custom_type_script = "uid://cpshoaoij2d7y"
+
+[node name="MovementHandler" type="Node2D" parent="handlers"]
+script = ExtResource("5_ctvg5")
+move_speed = 50.0
+acceleration = 10.0
+metadata/_custom_type_script = "uid://bgluubxxgicks"
+
+[node name="DeathHandler" type="Node2D" parent="handlers" node_paths=PackedStringArray("parent")]
+script = ExtResource("6_px1c3")
+parent = NodePath("../..")
+type = "Enemy"
+metadata/_custom_type_script = "uid://cnnm5hxm7i7b1"
+
+[node name="DropHandler" type="Node2D" parent="handlers"]
+script = ExtResource("7_2ejjm")
+metadata/_custom_type_script = "uid://3u18amy04ntt"
+
+[node name="HealthHandler" type="Node2D" parent="handlers" node_paths=PackedStringArray("death_handler")]
+script = ExtResource("8_7ku6l")
+max_health = 3
+death_handler = NodePath("../DeathHandler")
+type = "Enemy"
+metadata/_custom_type_script = "uid://dnlomrpambk1i"
+
+[node name="HurtBox" parent="handlers" instance=ExtResource("9_ctvg5")]
+
+[node name="CollisionShape2D" parent="handlers/HurtBox" index="0"]
+shape = SubResource("CircleShape2D_2ejjm")
+
+[node name="HitBoxHandler" parent="handlers" instance=ExtResource("10_px1c3")]
+
+[node name="CollisionShape2D" parent="handlers/HitBoxHandler" index="0"]
+shape = SubResource("CircleShape2D_ctvg5")
+
+[editable path="handlers/HurtBox"]
+[editable path="handlers/HitBoxHandler"]

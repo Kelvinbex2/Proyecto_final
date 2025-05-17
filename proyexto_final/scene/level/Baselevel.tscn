@@ -1431,7 +1431,7 @@ sources/0 = SubResource("TileSetAtlasSource_34sm6")
 size = Vector2(1556, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
-size = Vector2(526, 27)
+size = Vector2(552.938, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lfc4"]
 size = Vector2(79, 63)
@@ -1574,47 +1574,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(192, -3)
-
-[node name="DeadZone4" parent="." instance=ExtResource("19_ac421")]
-position = Vector2(182, 2)
-collision_layer = 0
-collision_mask = 14
-
-[node name="CollisionShape2D" parent="DeadZone4" index="0"]
-position = Vector2(2639, 374)
-shape = SubResource("RectangleShape2D_vhb6c")
-
-[node name="DeadZone5" parent="." instance=ExtResource("19_ac421")]
-position = Vector2(182, 2)
-collision_layer = 0
-collision_mask = 14
-
-[node name="CollisionShape2D" parent="DeadZone5" index="0"]
-position = Vector2(-277, 428)
-shape = SubResource("RectangleShape2D_vv3gj")
-
-[node name="DeadZone6" parent="." instance=ExtResource("19_ac421")]
-position = Vector2(787, 161)
-collision_layer = 0
-collision_mask = 14
-
-[node name="CollisionShape2D" parent="DeadZone6" index="0"]
-position = Vector2(827.938, 249.5)
-shape = SubResource("RectangleShape2D_vv3gj")
-
-[node name="Platform" parent="." instance=ExtResource("17_j1l4i")]
-position = Vector2(1988, 581)
-
-[node name="CollisionShape2D" parent="Platform/Platform_up" index="1"]
-position = Vector2(1.5, -4)
-one_way_collision = false
-
-[node name="Platform2" parent="." instance=ExtResource("17_j1l4i")]
-position = Vector2(1357, 312)
-
-[node name="Platform3" parent="." instance=ExtResource("17_j1l4i")]
-position = Vector2(333, 109)
+position = Vector2(627, 440)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1633,12 +1593,6 @@ initial_velocity_max = 25.0
 scale_amount_min = 0.0
 scale_amount_max = 2.5
 color = Color(0.619608, 0.768627, 0.847059, 1)
-
-[node name="Diamante" parent="." instance=ExtResource("19_qqpwm")]
-position = Vector2(312, 368)
-
-[node name="Diamante2" parent="." instance=ExtResource("19_qqpwm")]
-position = Vector2(465, 131)
 
 [node name="Items" type="Control" parent="."]
 layout_mode = 3
@@ -1675,6 +1629,12 @@ quantity = 2
 position = Vector2(197, 461)
 item_data = ExtResource("22_4kavb")
 quantity = 4
+
+[node name="Diamante" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(312, 368)
+
+[node name="Diamante2" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(465, 131)
 
 [node name="Npc" parent="." instance=ExtResource("26_025cg")]
 position = Vector2(385, 454)
@@ -1725,58 +1685,126 @@ position = Vector2(72, 12)
 modulate = Color(0, 1, 0, 1)
 position = Vector2(162, 14)
 
-[node name="Portal" parent="." instance=ExtResource("30_00ep3")]
+[node name="DeadZone" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DeadZone4" parent="DeadZone" instance=ExtResource("19_ac421")]
+position = Vector2(182, 2)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 14
 
-[node name="CollisionShape2D" parent="Portal" index="0"]
-position = Vector2(-101, -24)
-shape = SubResource("RectangleShape2D_1lfc4")
-debug_color = Color(0.776287, 0.434264, 0.197398, 0.42)
+[node name="CollisionShape2D" parent="DeadZone/DeadZone4" index="0"]
+position = Vector2(2639, 374)
+shape = SubResource("RectangleShape2D_vhb6c")
 
-[node name="KnightBase" parent="." instance=ExtResource("31_1lfc4")]
-position = Vector2(1388, 591)
-rotation = 0.0169625
+[node name="DeadZone5" parent="DeadZone" instance=ExtResource("19_ac421")]
+position = Vector2(182, 2)
+collision_layer = 0
+collision_mask = 14
 
-[node name="KnightBase2" parent="." instance=ExtResource("31_1lfc4")]
-position = Vector2(2430, 593)
-rotation = 0.0169625
+[node name="CollisionShape2D" parent="DeadZone/DeadZone5" index="0"]
+position = Vector2(-277, 428)
+shape = SubResource("RectangleShape2D_vv3gj")
 
-[node name="KnightBase3" parent="." instance=ExtResource("31_1lfc4")]
-position = Vector2(2577, 256)
-rotation = 0.0169625
+[node name="DeadZone6" parent="DeadZone" instance=ExtResource("19_ac421")]
+position = Vector2(787, 161)
+collision_layer = 0
+collision_mask = 14
 
-[node name="KnightBase4" parent="." instance=ExtResource("31_1lfc4")]
-position = Vector2(2991, 255)
-rotation = 0.0169625
+[node name="CollisionShape2D" parent="DeadZone/DeadZone6" index="0"]
+position = Vector2(814.469, 246.5)
+shape = SubResource("RectangleShape2D_vv3gj")
 
-[node name="Puerta" parent="." instance=ExtResource("34_v7w4t")]
+[node name="Potal" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Puerta" parent="Potal" instance=ExtResource("34_v7w4t")]
 position = Vector2(3169, 596)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="Puerta" index="1"]
+[node name="CollisionShape2D" parent="Potal/Puerta" index="1"]
 position = Vector2(2.75, 1)
 
-[node name="Destination" parent="Puerta" index="2"]
+[node name="Destination" parent="Potal/Puerta" index="2"]
 position = Vector2(15, -333)
 
-[node name="Puerta2" parent="." instance=ExtResource("34_v7w4t")]
+[node name="Puerta2" parent="Potal" instance=ExtResource("34_v7w4t")]
 position = Vector2(3205, 257)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="Puerta2" index="1"]
+[node name="CollisionShape2D" parent="Potal/Puerta2" index="1"]
 position = Vector2(4.375, 1)
 
-[node name="Destination" parent="Puerta2" index="2"]
+[node name="Destination" parent="Potal/Puerta2" index="2"]
 position = Vector2(-57, 341)
 
+[node name="Portal" parent="Potal" instance=ExtResource("30_00ep3")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Potal/Portal" index="0"]
+position = Vector2(-101, -24)
+shape = SubResource("RectangleShape2D_1lfc4")
+debug_color = Color(0.776287, 0.434264, 0.197398, 0.42)
+
+[node name="Enemy" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KnightBase" parent="Enemy" instance=ExtResource("31_1lfc4")]
+position = Vector2(1388, 591)
+rotation = 0.0169625
+scale = Vector2(1, 1)
+
+[node name="KnightBase2" parent="Enemy" instance=ExtResource("31_1lfc4")]
+position = Vector2(2430, 593)
+rotation = 0.0169625
+scale = Vector2(1, 1)
+
+[node name="KnightBase3" parent="Enemy" instance=ExtResource("31_1lfc4")]
+position = Vector2(2577, 256)
+rotation = 0.0169625
+scale = Vector2(1, 1)
+
+[node name="KnightBase4" parent="Enemy" instance=ExtResource("31_1lfc4")]
+position = Vector2(2991, 255)
+rotation = 0.0169625
+scale = Vector2(1, 1)
+
+[node name="Platform" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Platform" parent="Platform" instance=ExtResource("17_j1l4i")]
+position = Vector2(1988, 581)
+
+[node name="CollisionShape2D" parent="Platform/Platform/Platform_up" index="1"]
+position = Vector2(1.5, -4)
+one_way_collision = false
+
+[node name="Platform2" parent="Platform" instance=ExtResource("17_j1l4i")]
+position = Vector2(1357, 312)
+
+[node name="Platform3" parent="Platform" instance=ExtResource("17_j1l4i")]
+position = Vector2(333, 109)
+
 [editable path="EntitySpawn"]
-[editable path="DeadZone4"]
-[editable path="DeadZone5"]
-[editable path="DeadZone6"]
-[editable path="Platform"]
-[editable path="Portal"]
-[editable path="Puerta"]
-[editable path="Puerta2"]
+[editable path="DeadZone/DeadZone4"]
+[editable path="DeadZone/DeadZone5"]
+[editable path="DeadZone/DeadZone6"]
+[editable path="Potal/Puerta"]
+[editable path="Potal/Puerta2"]
+[editable path="Potal/Portal"]
+[editable path="Platform/Platform"]
