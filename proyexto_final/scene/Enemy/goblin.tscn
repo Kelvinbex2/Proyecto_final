@@ -89,13 +89,14 @@ animations = [{
 radius = 7.0
 
 [node name="Goblin" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_px1c3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ctvg5")
 animation = &"hit"
 autoplay = "walk"
-frame_progress = 0.899187
+frame_progress = 0.0135612
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8escd")

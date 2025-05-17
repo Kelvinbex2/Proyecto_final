@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://birsifbmnhd61"]
+[gd_scene load_steps=61 format=3 uid="uid://birsifbmnhd61"]
 
 [ext_resource type="Texture2D" uid="uid://bduojlhwyxfvr" path="res://Assets/Enemies/Bat/Flying (46x30).png" id="1_6wugi"]
 [ext_resource type="Script" uid="uid://cru2phidd7hgw" path="res://scene/Enemy/bat.gd" id="1_pyrsc"]
@@ -14,6 +14,15 @@
 [ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="11_gfnn1"]
 [ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="12_ud4nd"]
 [ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="13_t8rqo"]
+[ext_resource type="AudioStream" uid="uid://8ipwumrp4fxo" path="res://Assets/audio/boss_hurt.wav" id="15_gbype"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w74np"]
+atlas = ExtResource("2_a0crv")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvefr"]
+atlas = ExtResource("2_a0crv")
+region = Rect2(46, 0, 46, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lm7ru"]
 atlas = ExtResource("1_6wugi")
@@ -171,6 +180,17 @@ region = Rect2(276, 0, 46, 30)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_w74np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvefr")
+}],
+"loop": false,
+"name": &"die",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lm7ru")
 }, {
 "duration": 1.0,
@@ -191,7 +211,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_raf8m")
 }],
-"loop": true,
+"loop": false,
 "name": &"fly",
 "speed": 5.0
 }, {
@@ -211,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_66sfb")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -278,7 +298,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_38p35")
 }],
-"loop": true,
+"loop": false,
 "name": &"nest_in",
 "speed": 5.0
 }, {
@@ -304,7 +324,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w71ce")
 }],
-"loop": true,
+"loop": false,
 "name": &"nest_out",
 "speed": 5.0
 }]
@@ -322,14 +342,16 @@ radius = 17.4642
 radius = 32.1403
 
 [node name="Bat" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_pyrsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_w74np")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.191971
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -384,9 +406,17 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_y20o3")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_pyrsc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_gbype")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]

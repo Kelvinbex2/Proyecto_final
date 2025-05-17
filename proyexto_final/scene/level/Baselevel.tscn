@@ -1785,7 +1785,6 @@ scale = Vector2(1, 1)
 
 [node name="Goblin" parent="Enemy" instance=ExtResource("37_qrcug")]
 position = Vector2(711, 463)
-collision_layer = 4
 
 [node name="Bat" parent="Enemy" instance=ExtResource("38_wxhhd")]
 position = Vector2(1036, 424)
