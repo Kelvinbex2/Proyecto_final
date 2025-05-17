@@ -28,6 +28,7 @@ DialogSystem="*res://scene/Diaglog/dialog_system.tscn"
 [display]
 
 window/size/mode=2
+window/stretch/mode="viewport"
 
 [global_group]
 
