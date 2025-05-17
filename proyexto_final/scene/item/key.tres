@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b23stkdejn24e"]
+
+[ext_resource type="Script" uid="uid://dpobcstr04mbp" path="res://scene/item/effect/item_effect.gd" id="1_c06hp"]
+[ext_resource type="Script" uid="uid://c2rbwrgd6ki6q" path="res://scene/item/item_data.gd" id="2_743tx"]
+[ext_resource type="Texture2D" uid="uid://c2fqb0uffgwrd" path="res://Assets/collectable/items.png" id="3_xh2l4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhaxh"]
+atlas = ExtResource("3_xh2l4")
+region = Rect2(226, 1, 32, 32)
+
+[resource]
+script = ExtResource("2_743tx")
+name = "Rock"
+description = "Key"
+texture = SubResource("AtlasTexture_qhaxh")
+cost = 10
+effects = Array[ExtResource("1_c06hp")]([])
+metadata/_custom_type_script = "uid://c2rbwrgd6ki6q"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=47 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/potion.tres" id="23_025cg"]
 [ext_resource type="Resource" uid="uid://bmdcbls8osp87" path="res://scene/item/gem.tres" id="24_aur5l"]
 [ext_resource type="PackedScene" uid="uid://3126mhw2elk0" path="res://scene/Diaglog/interact/Chest/treasure.tscn" id="25_4kavb"]
+[ext_resource type="Resource" uid="uid://b23stkdejn24e" path="res://scene/item/key.tres" id="25_eu465"]
 [ext_resource type="PackedScene" uid="uid://bdr8eot4jqfys" path="res://scene/npc/npc.tscn" id="26_025cg"]
 [ext_resource type="Resource" uid="uid://bqhhebra0fbkl" path="res://scene/npc/resources/npc_res2.tres" id="27_4fywq"]
 [ext_resource type="PackedScene" uid="uid://ch2ojd3pmejf7" path="res://scene/npc/npc_behaviour_wander.tscn" id="27_4kuo4"]
@@ -1573,7 +1574,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(289, 339)
+position = Vector2(192, -3)
 
 [node name="DeadZone4" parent="." instance=ExtResource("19_ac421")]
 position = Vector2(182, 2)
@@ -1661,13 +1662,17 @@ item_data = ExtResource("23_025cg")
 position = Vector2(265, 368)
 item_data = ExtResource("22_4kavb")
 
+[node name="Key" parent="Items" instance=ExtResource("20_i2c38")]
+position = Vector2(790, 373)
+item_data = ExtResource("25_eu465")
+
 [node name="Treasure" parent="Items" instance=ExtResource("25_4kavb")]
 position = Vector2(708, 121)
 item_data = ExtResource("24_aur5l")
 quantity = 2
 
 [node name="Treasure2" parent="Items" instance=ExtResource("25_4kavb")]
-position = Vector2(220, 360)
+position = Vector2(197, 461)
 item_data = ExtResource("22_4kavb")
 quantity = 4
 
