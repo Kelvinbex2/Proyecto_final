@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://birsifbmnhd61"]
+[gd_scene load_steps=65 format=3 uid="uid://birsifbmnhd61"]
 
 [ext_resource type="Texture2D" uid="uid://bduojlhwyxfvr" path="res://Assets/Enemies/Bat/Flying (46x30).png" id="1_6wugi"]
 [ext_resource type="Script" uid="uid://cru2phidd7hgw" path="res://scene/Enemy/bat.gd" id="1_pyrsc"]
@@ -24,6 +24,18 @@ region = Rect2(0, 0, 46, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvefr"]
 atlas = ExtResource("2_a0crv")
 region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8bi3"]
+atlas = ExtResource("1_6wugi")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7oqa"]
+atlas = ExtResource("1_6wugi")
+region = Rect2(184, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rigk1"]
+atlas = ExtResource("1_6wugi")
+region = Rect2(230, 0, 46, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lm7ru"]
 atlas = ExtResource("1_6wugi")
@@ -192,6 +204,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l8bi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7oqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rigk1")
+}],
+"loop": false,
+"name": &"dive",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lm7ru")
 }, {
 "duration": 1.0,
@@ -349,10 +375,8 @@ script = ExtResource("1_pyrsc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_w74np")
-animation = &"die"
+animation = &"dive"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
