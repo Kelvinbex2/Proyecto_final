@@ -109,7 +109,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_rkq66")
-npc_name = "Ericka"
+npc_name = "Campesino"
 sprite_frames = SubResource("SpriteFrames_mag5a")
 dialogo_audio = ""
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"

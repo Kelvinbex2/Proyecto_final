@@ -1698,7 +1698,6 @@ metadata/_custom_type_script = "uid://cdxc31wxd765y"
 script = ExtResource("30_28ddt")
 text = "Que pena
 Suerte"
-npc_info = ExtResource("29_x5ysf")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="Npc2" parent="." instance=ExtResource("26_025cg")]

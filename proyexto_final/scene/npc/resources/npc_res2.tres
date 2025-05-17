@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="NpcResource" load_steps=15 format=3 uid="uid://bqhhebra0fbkl"]
+[gd_resource type="Resource" script_class="NpcResource" load_steps=16 format=3 uid="uid://bqhhebra0fbkl"]
 
+[ext_resource type="Texture2D" uid="uid://8kk3tc6xn2h0" path="res://Assets/character/npc/npc_portrait_01.png" id="1_jv75u"]
 [ext_resource type="Script" uid="uid://bd6jrugj8h3ur" path="res://scene/npc/npc_resource.gd" id="2_xuc2u"]
 [ext_resource type="Texture2D" uid="uid://p2js25a84u72" path="res://Assets/character/GandalfHardcore Warrior.png" id="3_jv75u"]
 
@@ -97,5 +98,6 @@ animations = [{
 script = ExtResource("2_xuc2u")
 npc_name = "Jesus"
 sprite_frames = SubResource("SpriteFrames_x7g52")
+potrait = ExtResource("1_jv75u")
 dialogo_audio = ""
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"
