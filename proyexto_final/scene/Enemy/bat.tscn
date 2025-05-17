@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://birsifbmnhd61"]
+[gd_scene load_steps=58 format=3 uid="uid://birsifbmnhd61"]
 
 [ext_resource type="Texture2D" uid="uid://bduojlhwyxfvr" path="res://Assets/Enemies/Bat/Flying (46x30).png" id="1_6wugi"]
 [ext_resource type="Script" uid="uid://cru2phidd7hgw" path="res://scene/Enemy/bat.gd" id="1_pyrsc"]
@@ -318,6 +318,9 @@ radius = 18.0278
 [sub_resource type="CircleShape2D" id="CircleShape2D_y20o3"]
 radius = 17.4642
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyrsc"]
+radius = 32.1403
+
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_pyrsc")
 
@@ -326,7 +329,7 @@ scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_w74np")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0322585
+frame_progress = 0.191971
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -379,6 +382,11 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_y20o3")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_pyrsc")
 
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]
