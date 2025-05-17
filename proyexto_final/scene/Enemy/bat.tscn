@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://birsifbmnhd61"]
+[gd_scene load_steps=62 format=3 uid="uid://birsifbmnhd61"]
 
 [ext_resource type="Texture2D" uid="uid://bduojlhwyxfvr" path="res://Assets/Enemies/Bat/Flying (46x30).png" id="1_6wugi"]
 [ext_resource type="Script" uid="uid://cru2phidd7hgw" path="res://scene/Enemy/bat.gd" id="1_pyrsc"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="12_ud4nd"]
 [ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="13_t8rqo"]
 [ext_resource type="AudioStream" uid="uid://8ipwumrp4fxo" path="res://Assets/audio/boss_hurt.wav" id="15_gbype"]
+[ext_resource type="AudioStream" uid="uid://cqfwww2vkr7ap" path="res://Assets/audio/boss_destroy.wav" id="16_raf8m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w74np"]
 atlas = ExtResource("2_a0crv")
@@ -417,6 +418,7 @@ shape = SubResource("CircleShape2D_pyrsc")
 stream = ExtResource("15_gbype")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_raf8m")
 
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]
