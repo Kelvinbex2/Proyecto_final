@@ -310,22 +310,26 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfbho"]
+radius = 17.8885
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66sfb"]
+radius = 18.0278
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y20o3"]
-radius = 9.0
+radius = 17.4642
 
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_pyrsc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_w74np")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.132048
+frame_progress = 0.0322585
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_kfbho")
 
 [node name="Handlers" type="Node2D" parent="."]
@@ -338,13 +342,14 @@ metadata/_custom_type_script = "uid://cpshoaoij2d7y"
 
 [node name="MovementHandler" type="Node2D" parent="Handlers"]
 script = ExtResource("8_gbype")
-move_speed = 90.0
-acceleration = 10.0
+move_speed = 40.0
+acceleration = 20.0
+decceleration = 1.0
 metadata/_custom_type_script = "uid://bgluubxxgicks"
 
 [node name="DeathHandler" type="Node2D" parent="Handlers" node_paths=PackedStringArray("parent")]
 script = ExtResource("9_raf8m")
-parent = NodePath("")
+parent = NodePath("../..")
 type = "Enemy"
 metadata/_custom_type_script = "uid://cnnm5hxm7i7b1"
 
@@ -354,8 +359,8 @@ metadata/_custom_type_script = "uid://3u18amy04ntt"
 
 [node name="HealthHandler" type="Node2D" parent="Handlers" node_paths=PackedStringArray("death_handler")]
 script = ExtResource("11_gfnn1")
-max_health = 3
-death_handler = NodePath("")
+max_health = 8
+death_handler = NodePath("../DeathHandler")
 type = "Enemy"
 metadata/_custom_type_script = "uid://dnlomrpambk1i"
 
@@ -364,6 +369,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Handlers/HurtBox" index="0"]
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_66sfb")
 
 [node name="HitBoxHandler" parent="Handlers" instance=ExtResource("13_t8rqo")]
@@ -371,6 +377,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_y20o3")
 
 [editable path="Handlers/HurtBox"]
