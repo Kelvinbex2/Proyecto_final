@@ -1,8 +1,6 @@
 extends Area2D
 
-@onready var respawn_point := $Respawn
-var player: Player
-var last_checkpoint: Vector2
+@onready var respawn_point: Marker2D = $Respawn
 
 func _ready() -> void:
 	if not body_entered.is_connected(_on_body_entered):
@@ -10,6 +8,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		player = body
-		last_checkpoint = respawn_point.global_position
-		print("✔️ Checkpoint guardado:", last_checkpoint)
+		body.set_checkpoint(respawn_point.global_position)
