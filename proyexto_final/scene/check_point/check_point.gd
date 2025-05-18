@@ -1,18 +1,15 @@
 extends Area2D
-@onready var respawn: Marker2D = $Respawn
 
-var check_manager
+@onready var respawn_point := $Respawn
+var player: Player
+var last_checkpoint: Vector2
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	check_manager =get_parent().get_node("")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		check_manager.last_location = respawn.global_position
+	if body is Player:
+		player = body
+		last_checkpoint = respawn_point.global_position
+		print("✔️ Checkpoint guardado:", last_checkpoint)
