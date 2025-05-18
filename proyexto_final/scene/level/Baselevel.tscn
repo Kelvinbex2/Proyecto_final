@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=49 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
+[ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1575,7 +1576,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(627, 440)
+position = Vector2(298, 340)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1799,6 +1800,11 @@ position = Vector2(1357, 312)
 
 [node name="Platform3" parent="Platform" instance=ExtResource("17_j1l4i")]
 position = Vector2(333, 109)
+
+[node name="CheckPoint" parent="." instance=ExtResource("40_oumh2")]
+position = Vector2(232, 362)
+collision_layer = 0
+collision_mask = 14
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]
