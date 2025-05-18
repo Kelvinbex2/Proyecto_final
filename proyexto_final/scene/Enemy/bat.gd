@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+#region Handlers
 @onready var flip_handler: FlipHandler = $Handlers/FlipHandler
 @onready var gravity_handler: GravityHandler = $Handlers/GravityHandler
 @onready var movement_handler: MovementHandler = $Handlers/MovementHandler
@@ -8,6 +9,8 @@ extends CharacterBody2D
 @onready var health_handler: HealthHandler = $Handlers/HealthHandler
 @onready var hurt_box: HurtBox = $Handlers/HurtBox
 @onready var hit_box_handler: HitBoxHandler = $Handlers/HitBoxHandler
+@onready var ai_handler: AIHandler = $Handlers/AIHandler
+#endregion
 
 @onready var animated: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
