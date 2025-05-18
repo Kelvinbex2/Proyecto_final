@@ -118,13 +118,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8escd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ejjm"]
-radius = 17.0294
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
-radius = 10.198
+radius = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ejjm"]
-size = Vector2(20.5392, 58.7668)
+size = Vector2(20.5392, 66.3802)
 
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 4
@@ -199,7 +199,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HurtBox" index="0"]
-position = Vector2(6, 1)
+position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_2ejjm")
 
 [node name="HitBoxHandler" parent="handlers" instance=ExtResource("10_px1c3")]
@@ -208,7 +208,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HitBoxHandler" index="0"]
-position = Vector2(17, 7)
+position = Vector2(-3, 1)
 shape = SubResource("CircleShape2D_ctvg5")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -217,8 +217,9 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(42, -10)
-rotation = 1.55147
+position = Vector2(38, -14)
+rotation = 1.57759
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2ejjm")
 
 [editable path="handlers/HurtBox"]
