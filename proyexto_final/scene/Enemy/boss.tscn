@@ -1,6 +1,70 @@
-[gd_scene load_steps=24 format=3 uid="uid://pbiww2xqys71"]
+[gd_scene load_steps=40 format=3 uid="uid://pbiww2xqys71"]
 
 [ext_resource type="Texture2D" uid="uid://r1difsvorayy" path="res://Assets/character/Warrior_Sheet-Effect.png" id="1_wmqlt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmqlt"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(138, 176, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg27v"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(207, 176, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yq5q"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(276, 176, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83p0b"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(345, 176, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqif5"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(0, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khunn"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(69, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr5v0"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(138, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrum3"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(207, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74ojp"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(276, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3fe2"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(345, 220, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7234i"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(0, 572, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3a35"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(69, 572, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i56t"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(138, 572, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1wni"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(207, 572, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c7pq"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(276, 572, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68dln"]
+atlas = ExtResource("1_wmqlt")
+region = Rect2(345, 572, 69, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow2r6"]
 atlas = ExtResource("1_wmqlt")
@@ -86,6 +150,64 @@ region = Rect2(345, 44, 69, 44)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wmqlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg27v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yq5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83p0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqif5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khunn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr5v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrum3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74ojp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3fe2")
+}],
+"loop": true,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7234i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3a35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i56t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1wni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c7pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68dln")
+}],
+"loop": true,
+"name": &"double_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ow2r6")
 }, {
 "duration": 1.0,
@@ -167,9 +289,9 @@ collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
-animation = &"idle"
+animation = &"double_hit"
 autoplay = "idle"
-frame_progress = 0.02279
+frame_progress = 0.749619
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 5)
