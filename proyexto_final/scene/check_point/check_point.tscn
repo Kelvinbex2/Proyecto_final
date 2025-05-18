@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnq6eklwqghx3"]
+
+[ext_resource type="Script" uid="uid://4w0erhvlw4nx" path="res://scene/check_point/check_point.gd" id="1_o4wu2"]
+[ext_resource type="Texture2D" uid="uid://fgb6ep6nbmkv" path="res://Assets/Background ui/flag animation.png" id="2_gjbtd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1yi3"]
+atlas = ExtResource("2_gjbtd")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtl2e"]
+atlas = ExtResource("2_gjbtd")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okbwe"]
+atlas = ExtResource("2_gjbtd")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vbq5"]
+atlas = ExtResource("2_gjbtd")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvajj"]
+atlas = ExtResource("2_gjbtd")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mv3ob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1yi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtl2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okbwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vbq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvajj")
+}],
+"loop": true,
+"name": &"flag",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tx7o"]
+size = Vector2(12, 47)
+
+[node name="CheckPoint" type="Area2D"]
+script = ExtResource("1_o4wu2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 0)
+sprite_frames = SubResource("SpriteFrames_mv3ob")
+animation = &"flag"
+frame_progress = 0.359243
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 3.5)
+shape = SubResource("RectangleShape2D_2tx7o")
+
+[node name="Respawn" type="Marker2D" parent="."]
+position = Vector2(30, 7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
