@@ -84,8 +84,14 @@ func play_death_animation() -> void:
 
 	animatedSprite2D.play("die")
 
-	await get_tree().create_timer(2.5).timeout  
-	call_deferred("reload_scene_level")
+	await get_tree().create_timer(2.5).timeout
+
+	if checkpoint_position == Vector2.ZERO:
+		reload_scene_level()
+		GlobalStat.reset_coins()
+	else:
+		respawn_at_checkpoint()
+
 
 
 func _on_game_state_manager_ready(gs: GameState) -> void:
@@ -139,3 +145,19 @@ func reset_stats() -> void:
 func set_checkpoint(pos: Vector2) -> void:
 	checkpoint_position = pos
 	print("✔️ Checkpoint actualizado a:", pos)
+
+
+func respawn_at_checkpoint() -> void:
+	global_position = checkpoint_position
+	velocity = Vector2.ZERO
+	is_dying = false
+
+	if health_handler:
+		health_handler.reset_health()
+
+	reset_stats()
+	
+	change_state(player_idle_state)
+	unfreeze()
+
+	print("🔁 Jugador reapareció en el checkpoint con vida restaurada:", checkpoint_position)
