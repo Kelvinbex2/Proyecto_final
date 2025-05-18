@@ -14,3 +14,9 @@ func on_area_entered(area: Area2D) -> void:
 	var health = get_parent().get_node_or_null("HealthHandler")
 	if health:
 		health.damage(1)
+	
+		var blood_scene = load("res://scene/effect/blood_effect.tscn")
+		var blood_instance = blood_scene.instantiate()
+		get_tree().current_scene.add_child(blood_instance)
+		blood_instance.global_position = global_position
+		blood_instance.emitting = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnmr2kp7pgqg8"]
+
+[ext_resource type="Script" uid="uid://drgxtcfollnpb" path="res://scene/effect/blood_effect.gd" id="1_hlqbe"]
+
+[node name="BloodEffect" type="CPUParticles2D"]
+amount = 32
+lifetime = 0.2
+explosiveness = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 290.0
+color = Color(0.645932, 0.120529, 0.174763, 1)
+script = ExtResource("1_hlqbe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

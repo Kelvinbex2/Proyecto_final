@@ -18,6 +18,7 @@ extends CharacterBody2D
 var is_attacking: bool = false
 var is_player_in_range: bool = false
 var is_dying: bool = false
+var blood = load("res://scene/effect/blood_effect.tscn")
 
 
 func _ready() -> void:
