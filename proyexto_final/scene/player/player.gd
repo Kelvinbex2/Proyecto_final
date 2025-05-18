@@ -31,6 +31,8 @@ extends CharacterBody2D
 var frutas :int =0
 var is_dying := false
 var game_state: GameState = null
+var checkpoint_position: Vector2 = Vector2.ZERO
+
 
 
 
@@ -132,3 +134,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func reset_stats() -> void:
 	frutas = 0
 	SignalBus.emit_on_fruta_recogida(frutas)
+
+
+func set_checkpoint(pos: Vector2) -> void:
+	checkpoint_position = pos
+	print("✔️ Checkpoint actualizado a:", pos)

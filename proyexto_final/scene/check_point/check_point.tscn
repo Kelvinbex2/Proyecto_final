@@ -56,7 +56,8 @@ script = ExtResource("1_o4wu2")
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_mv3ob")
 animation = &"flag"
-frame_progress = 0.359243
+autoplay = "flag"
+frame_progress = 0.996336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 3.5)
