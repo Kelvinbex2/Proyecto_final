@@ -291,7 +291,7 @@ collision_layer = 4
 sprite_frames = SubResource("SpriteFrames_hg27v")
 animation = &"double_hit"
 autoplay = "idle"
-frame_progress = 0.870361
+frame_progress = 0.0291024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 5)

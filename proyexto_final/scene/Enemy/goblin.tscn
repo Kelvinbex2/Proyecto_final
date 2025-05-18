@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://c11yooyfqvnh7"]
+[gd_scene load_steps=30 format=3 uid="uid://c11yooyfqvnh7"]
 
 [ext_resource type="Texture2D" uid="uid://b0m7466fbn6o8" path="res://Assets/character/goblin.png" id="1_8escd"]
 [ext_resource type="Script" uid="uid://crav7mclg0y1s" path="res://scene/Enemy/goblin.gd" id="1_px1c3"]
+[ext_resource type="Texture2D" uid="uid://c6xoekidoyn7d" path="res://Assets/Enemies/Ghost/Desappear (44x30).png" id="2_2ejjm"]
 [ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="2_cpuuy"]
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="3_g32s5"]
 [ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="4_7skqv"]
@@ -11,6 +12,22 @@
 [ext_resource type="Script" uid="uid://dnlomrpambk1i" path="res://scene/handlers/health_handler.gd" id="8_7ku6l"]
 [ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="9_ctvg5"]
 [ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="10_px1c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ku6l"]
+atlas = ExtResource("2_2ejjm")
+region = Rect2(0, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dyt1"]
+atlas = ExtResource("2_2ejjm")
+region = Rect2(44, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjedq"]
+atlas = ExtResource("2_2ejjm")
+region = Rect2(88, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jatq0"]
+atlas = ExtResource("2_2ejjm")
+region = Rect2(132, 0, 44, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpuuy"]
 atlas = ExtResource("1_8escd")
@@ -48,6 +65,23 @@ region = Rect2(192, 64, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7ku6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dyt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjedq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jatq0")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cpuuy")
 }, {
 "duration": 1.0,
@@ -59,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ix5oi")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 8.0
 }, {
@@ -84,9 +118,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8escd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ejjm"]
+radius = 17.0294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
-radius = 7.0
+radius = 10.198
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ejjm"]
+size = Vector2(20.5392, 58.7668)
 
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 4
@@ -94,28 +132,27 @@ script = ExtResource("1_px1c3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ctvg5")
-animation = &"hit"
+animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.0135612
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8escd")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
-target_position = Vector2(0, 33)
+target_position = Vector2(0, 17)
 
 [node name="RightCast" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
-target_position = Vector2(107, 0)
+target_position = Vector2(20, 0)
 
 [node name="leftWCast" type="RayCast2D" parent="."]
 position = Vector2(-8, 9)
-target_position = Vector2(1, 33)
+target_position = Vector2(0, 17)
 
 [node name="leftCast" type="RayCast2D" parent="."]
 position = Vector2(-8, 9)
-target_position = Vector2(-107, 0)
+target_position = Vector2(-16, 0)
 
 [node name="handlers" type="Node2D" parent="."]
 
@@ -136,7 +173,7 @@ metadata/_custom_type_script = "uid://cpshoaoij2d7y"
 
 [node name="MovementHandler" type="Node2D" parent="handlers"]
 script = ExtResource("5_ctvg5")
-move_speed = 90.0
+move_speed = 80.0
 acceleration = 10.0
 metadata/_custom_type_script = "uid://bgluubxxgicks"
 
@@ -162,15 +199,27 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HurtBox" index="0"]
+position = Vector2(6, 1)
 shape = SubResource("CircleShape2D_2ejjm")
 
 [node name="HitBoxHandler" parent="handlers" instance=ExtResource("10_px1c3")]
+position = Vector2(4, 0)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HitBoxHandler" index="0"]
-position = Vector2(14, 6)
+position = Vector2(17, 7)
 shape = SubResource("CircleShape2D_ctvg5")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(-37, 14)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(42, -10)
+rotation = 1.55147
+shape = SubResource("RectangleShape2D_2ejjm")
 
 [editable path="handlers/HurtBox"]
 [editable path="handlers/HitBoxHandler"]
