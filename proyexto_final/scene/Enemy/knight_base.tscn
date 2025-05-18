@@ -249,10 +249,10 @@ animations = [{
 height = 22.0403
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdbv3"]
-radius = 14.2895
+radius = 21.3132
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1hte"]
-radius = 14.5602
+radius = 19.9249
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1hte"]
 size = Vector2(14.9366, 42.9726)
