@@ -3,6 +3,8 @@ extends Area2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_point: Marker2D = $Respawn
 @onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
+@onready var particles: CPUParticles2D = $Particles
+
 var activated := false
 
 func _ready() -> void:
@@ -15,3 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.set_checkpoint(respawn_point.global_position)
 		animated_sprite.play("flag")
 		audio_player.play()
+		particles.restart()
+		particles.emitting = true
