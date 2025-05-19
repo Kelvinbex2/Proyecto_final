@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 @onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var is_attacking: bool = false
 var is_player_in_range: bool = false
@@ -80,6 +81,12 @@ func play_death_animation() -> void:
 	print("💀 Reproduciendo animación 'die'")
 	is_dying = true
 	is_attacking = false
+	
+	if audio:
+		audio.play()
+		await get_tree().create_timer(0.2).timeout
+		audio.stop()
+		
 	animatedSprite2D.play("die")
 	await animatedSprite2D.animation_finished
 	queue_free()

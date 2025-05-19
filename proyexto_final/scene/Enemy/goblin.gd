@@ -90,6 +90,7 @@ func play_death_animation() -> void:
 		audio.play()
 		await get_tree().create_timer(0.2).timeout
 		audio.stop()
+		
 	animated.play("die")
 	await animated.animation_finished
 	queue_free()
