@@ -1531,12 +1531,6 @@ texture = ExtResource("9_iv3h3")
 position = Vector2(29, 523)
 texture = ExtResource("9_iv3h3")
 
-[node name="grass" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(53, 0)
 tile_map_data = PackedByteArray("AADz//z/AAASABAAAAD0//z/AAATABAAAAD1//z/AAAUABAAAAD2//z/AAAVABAAAAD3//z/AAAWABAAAAD4//z/AAAXABAAAADz//3/AAATABEAAADz//7/AAATABIAAADz////AAATABMAAADz/wAAAAATABQAAAD0//3/AAAUABEAAAD0//7/AAAUABIAAAD0////AAAUABMAAAD0/wAAAAAUABQAAAD1//3/AAAVABEAAAD1//7/AAAVABIAAAD1////AAAVABMAAAD1/wAAAAAVABQAAAD2//3/AAAWABEAAAD2//7/AAAWABIAAAD2////AAAWABMAAAD2/wAAAAAWABQAAAD3//3/AAAXABEAAAD3//7/AAAXABIAAAD3////AAAXABMAAAD3/wAAAAAXABQAAAD4//3/AAAYABEAAAD4//7/AAAYABIAAAD4////AAAYABMAAAD4/wAAAAAYABQAAAD5/wAAAAAXAA8AAAD5////AAAXAA4AAAD5//7/AAAXAA0AAAD5//3/AAAXAA4AAAD5//z/AAAXAA0AAAA=")
@@ -1615,7 +1609,7 @@ position = Vector2(555, 371)
 item_data = ExtResource("23_025cg")
 
 [node name="Rock" parent="Items" instance=ExtResource("20_i2c38")]
-position = Vector2(265, 368)
+position = Vector2(188, 376)
 item_data = ExtResource("22_4kavb")
 
 [node name="Key" parent="Items" instance=ExtResource("20_i2c38")]
@@ -1633,10 +1627,28 @@ item_data = ExtResource("22_4kavb")
 quantity = 4
 
 [node name="Diamante" parent="Items" instance=ExtResource("19_qqpwm")]
-position = Vector2(312, 368)
+position = Vector2(491, 564)
+
+[node name="Diamante8" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(252, 475)
+
+[node name="Diamante5" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(718, 375)
+
+[node name="Diamante6" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(937, 376)
+
+[node name="Diamante7" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(937, 376)
 
 [node name="Diamante2" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(465, 131)
+
+[node name="Diamante3" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(847, 128)
+
+[node name="Diamante4" parent="Items" instance=ExtResource("19_qqpwm")]
+position = Vector2(957, 129)
 
 [node name="Npc" parent="." instance=ExtResource("26_025cg")]
 position = Vector2(385, 454)
