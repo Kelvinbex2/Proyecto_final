@@ -1,3 +1,4 @@
+@icon("res://Assets/svg/potriat.svg")
 class_name Player
 extends CharacterBody2D
 

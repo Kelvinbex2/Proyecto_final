@@ -1548,8 +1548,8 @@ tile_map_data = PackedByteArray("AACZABIAAAAAAAEAAACZABMAAAAAAAIAAACZABQAAAAAAAM
 tile_set = SubResource("TileSet_cb4kv")
 
 [node name="Collectable_spawn" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("15_iv3h3")]
-timer_min = 2.0
-timer_max = 4.0
+timer_min = 10.0
+timer_max = 30.0
 spawn_point = [NodePath("Marker2D"), NodePath("Marker2D2")]
 
 [node name="Marker2D" type="Marker2D" parent="Collectable_spawn"]
