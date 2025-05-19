@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnq6eklwqghx3"]
+[gd_scene load_steps=11 format=3 uid="uid://cnq6eklwqghx3"]
 
 [ext_resource type="Script" uid="uid://4w0erhvlw4nx" path="res://scene/check_point/check_point.gd" id="1_o4wu2"]
 [ext_resource type="Texture2D" uid="uid://fgb6ep6nbmkv" path="res://Assets/Background ui/flag animation.png" id="2_gjbtd"]
+[ext_resource type="AudioStream" uid="uid://je2cilh13k2a" path="res://Assets/dialog/voice_blip.wav" id="3_h1yi3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1yi3"]
 atlas = ExtResource("2_gjbtd")
@@ -56,8 +57,6 @@ script = ExtResource("1_o4wu2")
 position = Vector2(17, 0)
 sprite_frames = SubResource("SpriteFrames_mv3ob")
 animation = &"flag"
-autoplay = "flag"
-frame_progress = 0.996336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 3.5)
@@ -65,5 +64,8 @@ shape = SubResource("RectangleShape2D_2tx7o")
 
 [node name="Respawn" type="Marker2D" parent="."]
 position = Vector2(30, 7)
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h1yi3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
