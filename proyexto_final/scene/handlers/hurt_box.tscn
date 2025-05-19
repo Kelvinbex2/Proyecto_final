@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cobs3nhfhj316"]
+[gd_scene load_steps=3 format=3 uid="uid://cobs3nhfhj316"]
 
 [ext_resource type="Script" uid="uid://dluw5rwoq2asl" path="res://scene/handlers/hurt_box.gd" id="1_yw141"]
+[ext_resource type="AudioStream" uid="uid://8ipwumrp4fxo" path="res://Assets/audio/boss_hurt.wav" id="2_ibptn"]
 
 [node name="HurtBox" type="Area2D"]
 script = ExtResource("1_yw141")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ibptn")
