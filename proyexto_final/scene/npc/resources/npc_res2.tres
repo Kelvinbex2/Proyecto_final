@@ -99,5 +99,5 @@ script = ExtResource("2_xuc2u")
 npc_name = "Jesus"
 sprite_frames = SubResource("SpriteFrames_x7g52")
 potrait = ExtResource("1_jv75u")
-dialogo_audio = ""
+dialogo_audio = 1.0
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"

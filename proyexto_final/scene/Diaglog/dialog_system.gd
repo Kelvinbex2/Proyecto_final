@@ -3,7 +3,7 @@ class_name DialogSysytemNode
 extends CanvasLayer
 
 @onready var label: Label = $DialogUI/DialogProgressIndicator/Label
-@onready var potrait_sprite: Sprite2D = $DialogUI/PotraitSprite
+@onready var potrait_sprite: DialogPotrait = $DialogUI/PotraitSprite
 @onready var dialog_progress_indicator: PanelContainer = $DialogUI/DialogProgressIndicator
 @onready var name_label: Label = $DialogUI/NameLabel
 @onready var content: RichTextLabel = $DialogUI/PanelContainer/RichTextLabel
@@ -95,6 +95,7 @@ func set_dialog_data( _d : DialogItem ) -> void:
 		content.text = _d.text
 	name_label.text = _d.npc_info.npc_name
 	potrait_sprite.texture = _d.npc_info.potrait
+	potrait_sprite.audio_pitch = _d.npc_info.dialogo_audio
 	
 	
 

@@ -111,5 +111,5 @@ animations = [{
 script = ExtResource("1_rkq66")
 npc_name = "Campesino"
 sprite_frames = SubResource("SpriteFrames_mag5a")
-dialogo_audio = ""
+dialogo_audio = 1.0
 metadata/_custom_type_script = "uid://bd6jrugj8h3ur"
