@@ -13,6 +13,7 @@ func _ready() -> void:
 		return
 	
 	DialogSystem.letter_added.connect(_on_letter_added)
+	blinker()
 
 func _on_letter_added(char: String) -> void:
 	if "aeiouy1234567890".contains(char.to_lower()):
@@ -35,9 +36,25 @@ func update_potrait() -> void:
 		frame = 2
 	else:
 		frame = 0
+		
+	if blink == true:
+		frame +=1
+		
+func blinker() -> void :
+	if blink == false:
+		await get_tree().create_timer(randf_range(0.1,3.1)).timeout
+	else:
+		await get_tree().create_timer(0.16).timeout
+	blink =!blink
+	blinker()
+
 
 func _set_blink(val: bool) -> void:
-	blink = val
+	if blink != val:
+		blink = val
+		update_potrait()
+
+
 
 func _set_open_mouth(val: bool) -> void:
 	if open_mouth != val:
