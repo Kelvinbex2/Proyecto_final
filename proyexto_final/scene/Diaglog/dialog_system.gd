@@ -29,6 +29,7 @@ func _ready() -> void:
 			get_parent().remove_child(self)
 			return
 		return
+	timer.timeout.connect(_on_timer_timeout)
 	hide_dialog()
 
 
@@ -37,8 +38,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if( event.is_action_pressed("ui_accept")):
-		dialog_index +=1
 		
+		
+		if text ==true:
+			return
+		dialog_index +=1
 		if dialog_index < dialog_items.size():
 			start_dialog()
 		else:
@@ -71,9 +75,15 @@ func hide_dialog()-> void:
 	
 	
 func start_dialog() -> void:
-	show_dialog_button_indicator( true )
+	show_dialog_button_indicator( false )
 	var _d : DialogItem = dialog_items[dialog_index]
 	set_dialog_data(_d)
+	
+	content.visible_characters=0
+	text_length = content.get_total_character_count()
+	plain_text=content.get_parsed_text()
+	text =true
+	start_timer()
 
 
 func set_dialog_data( _d : DialogItem ) -> void:
@@ -90,3 +100,17 @@ func show_dialog_button_indicator( _is_visible : bool ) -> void:
 		label.text = "NEXT"
 	else:
 		label.text = "END"
+
+
+func start_timer() -> void:
+	timer.wait_time = text_speed
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	content.visible_characters +=1
+	if content.visible_characters <= text_length:
+		start_timer()
+	else:
+		show_dialog_button_indicator(true)
+		text = false

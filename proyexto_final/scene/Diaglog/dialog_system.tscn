@@ -151,6 +151,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUI"]
 stream = ExtResource("6_3si6u")
+max_polyphony = 5
 bus = &"Sfx"
 
 [node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI"]
