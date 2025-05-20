@@ -48,4 +48,5 @@ func reset_health() -> void:
 	is_dead = false
 	if type == "Player":
 		GlobalStat.currently_held_coins = max_health
-		SignalBus.emit_on_coin_counter_update(current_health)
+		#SignalBus.emit_on_coin_counter_update(current_health)
+		SignalBus.emit_on_coin_counter_update(GlobalStat.currently_held_coins)

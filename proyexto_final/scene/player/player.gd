@@ -161,4 +161,5 @@ func respawn_at_checkpoint() -> void:
 	change_state(player_idle_state)
 	unfreeze()
 
+	SignalBus.emit_on_coin_counter_update(GlobalStat.get_current_coin())
 	print("🔁 Jugador reapareció en el checkpoint con vida restaurada:", checkpoint_position)
