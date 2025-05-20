@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=50 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://rt2ftdu2xa00" path="res://scene/Portal/portal.tscn" id="30_00ep3"]
 [ext_resource type="Script" uid="uid://cdxc31wxd765y" path="res://scene/Diaglog/interact/dialog/dialog_text.gd" id="30_28ddt"]
 [ext_resource type="PackedScene" uid="uid://chmt3kmuuqv3" path="res://scene/npc/npc_behaviour_patrol.tscn" id="30_hegci"]
+[ext_resource type="Resource" uid="uid://ggp7ojfp02pd" path="res://scene/npc/resources/Campesino.tres" id="30_jvbgy"]
 [ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
@@ -1670,7 +1671,7 @@ metadata/_custom_type_script = "uid://cdxc31wxd765y"
 script = ExtResource("30_28ddt")
 text = "
 [wave]Si"
-npc_info = ExtResource("29_x5ysf")
+npc_info = ExtResource("30_jvbgy")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText3" type="Node" parent="Npc/DialogInterraction"]
