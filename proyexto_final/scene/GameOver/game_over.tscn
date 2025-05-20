@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dve0luca7d4tl"]
+[gd_scene load_steps=8 format=3 uid="uid://dve0luca7d4tl"]
 
 [ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="1_ijvc3"]
+[ext_resource type="Script" uid="uid://coq85eoyb560t" path="res://scene/GameOver/game_over.gd" id="1_l431a"]
 
 [sub_resource type="FontVariation" id="FontVariation_l431a"]
 base_font = ExtResource("1_ijvc3")
@@ -242,6 +243,7 @@ _data = {
 }
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_l431a")
 
 [node name="Control" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -295,7 +297,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "Continue"
 
-[node name="btnBack" type="Button" parent="Control/VBoxContainer"]
+[node name="btnTitle" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
@@ -307,9 +309,13 @@ offset_right = 643.0
 offset_bottom = 371.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {
 &"": SubResource("AnimationLibrary_fkpf7")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
