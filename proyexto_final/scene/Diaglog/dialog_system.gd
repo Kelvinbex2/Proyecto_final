@@ -41,6 +41,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		
 		if text ==true:
+			content.visible_characters =text_length
+			timer.stop()
+			text = false
+			show_dialog_button_indicator(true)
 			return
 		dialog_index +=1
 		if dialog_index < dialog_items.size():
@@ -110,6 +114,7 @@ func start_timer() -> void:
 func _on_timer_timeout() -> void:
 	content.visible_characters +=1
 	if content.visible_characters <= text_length:
+		letter_added.emit(plain_text[content.visible_characters - 1])
 		start_timer()
 	else:
 		show_dialog_button_indicator(true)
