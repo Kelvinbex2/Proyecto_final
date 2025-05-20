@@ -8,11 +8,19 @@ extends CanvasLayer
 @onready var name_label: Label = $DialogUI/NameLabel
 @onready var content: RichTextLabel = $DialogUI/PanelContainer/RichTextLabel
 @onready var dialog_ui: Control = $DialogUI
+@onready var timer: Timer = $DialogUI/Timer
+@onready var audio_stream_player: AudioStreamPlayer = $DialogUI/AudioStreamPlayer
 
 signal finished
+signal letter_added(letter : String)
+
 var is_active : bool = false
 var dialog_items : Array [DialogItem]
 var dialog_index : int = 0
+var text :bool = false
+var text_speed =0.03
+var text_length = 0
+var plain_text : String
 
 
 func _ready() -> void:
