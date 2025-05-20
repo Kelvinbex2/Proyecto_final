@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	SignalBus.on_player_ready.connect(func(p): player = p)
 
-# 🔒 Oculta la UI del Game Over
+
 func hide_game_over_screen() -> bool:
 	if control == null:
 		push_error("Control node is missing!")
@@ -32,7 +32,7 @@ func hide_game_over_screen() -> bool:
 	control.modulate = Color(1, 1, 1, 0)
 	return true
 
-# 👁 Muestra el menú de Game Over con animación
+
 func show_game_over_screen() -> void:
 	control.visible = true
 	control.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -47,7 +47,6 @@ func show_game_over_screen() -> void:
 
 	btn_con.grab_focus()
 
-# 🔊 Reproduce audio
 func play_audio(_a: AudioStream) -> void:
 	audio.stream = _a
 	audio.play()
@@ -63,7 +62,7 @@ func load_game() -> void:
 	if player:
 		player.respawn_at_checkpoint()
 
-# 🏠 Vuelve al menú principal
+
 func title_screen() -> void:
 	disable_buttons()
 	play_audio(button_selected_audio)
@@ -71,19 +70,19 @@ func title_screen() -> void:
 	hide_game_over_ui()
 	get_tree().change_scene_to_file("res://scene/ui/main_menu.tscn")
 
-# 🎬 Fade de transición
+
 func fade_game_over_screen() -> bool:
 	animation_player.play("fade_tp_black")
 	await animation_player.animation_finished
 	return true
 
-# 🧹 Oculta y desactiva la UI
+
 func hide_game_over_ui() -> void:
 	control.visible = false
 	control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	control.modulate = Color(1, 1, 1, 0)
 
-# 🛑 Desactiva botones para evitar spam
+
 func disable_buttons() -> void:
 	btn_con.disabled = true
 	btn_title.disabled = true
