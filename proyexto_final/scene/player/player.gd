@@ -3,6 +3,8 @@ class_name Player
 extends CharacterBody2D
 
 @export var animatedSprite2D: AnimatedSprite2D = null
+@onready var death_sound_player: AudioStreamPlayer2D = $DeathSoundPlayer
+
 #region Handlers Region
 @onready var hit_box_handler: HitBoxHandler = $HandlerContainer/HitBoxHandler
 @onready var input_handler: InputHandler = $HandlerContainer/InputHandler
@@ -82,7 +84,10 @@ func play_death_animation() -> void:
 	if is_dying:
 		return
 	is_dying = true
-
+	
+	if death_sound_player:
+		death_sound_player.play()
+		
 	animatedSprite2D.play("die")
 
 	await get_tree().create_timer(2.5).timeout

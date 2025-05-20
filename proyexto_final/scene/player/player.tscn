@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://ctk2hyhwkmqsx"]
+[gd_scene load_steps=78 format=3 uid="uid://ctk2hyhwkmqsx"]
 
 [ext_resource type="Script" uid="uid://c5poy7rx4q3ed" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://cp251a4tj0ir0" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/character/char_blue.png" id="1_v7pse"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://kbr3j3hxcvwb" path="res://scene/stateMachine/state/playerstates/PlayerBounceState.gd" id="19_fspl2"]
 [ext_resource type="Script" uid="uid://bdkwy3g71vfs5" path="res://scene/stateMachine/state/playerstates/PlayerAttackState.gd" id="20_eeiom"]
 [ext_resource type="Script" uid="uid://cs7u7lw4u4o3t" path="res://scene/stateMachine/state/playerstates/PlayerDeathState.gd" id="21_gt2ev"]
+[ext_resource type="AudioStream" uid="uid://bf5kkfk0f8gx2" path="res://Assets/audio/exhausted.wav" id="22_aoq8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_732fb"]
 atlas = ExtResource("1_v7pse")
@@ -532,6 +533,11 @@ monitoring = false
 position = Vector2(-1, 14)
 shape = SubResource("RectangleShape2D_gt2ev")
 debug_color = Color(0.504761, 0.491803, 0.80992, 0.42)
+
+[node name="DeathSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_aoq8s")
+volume_db = 14.0
+bus = &"Sfx"
 
 [editable path="HandlerContainer/HitBoxHandler"]
 [editable path="HandlerContainer/CollectionHandler"]
