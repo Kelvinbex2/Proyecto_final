@@ -18,6 +18,7 @@ func _on_letter_added(char: String) -> void:
 	if "aeiouy1234567890".contains(char.to_lower()):
 		open_mouth = true	
 		mouth_open_timer = 3
+		audio_stream_player.pitch_scale= randf_range(0.96,1.06)
 		audio_stream_player.play()
 	elif ".,!?".contains(char):
 		mouth_open_timer = 0
