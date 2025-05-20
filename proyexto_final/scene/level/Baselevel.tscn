@@ -1571,7 +1571,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(408, 447)
+position = Vector2(286, 352)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1652,7 +1652,7 @@ position = Vector2(847, 128)
 position = Vector2(957, 129)
 
 [node name="Npc" parent="." instance=ExtResource("26_025cg")]
-position = Vector2(385, 454)
+position = Vector2(278, 452)
 collision_layer = 2
 collision_mask = 1
 npc_resoure = ExtResource("27_4fywq")
