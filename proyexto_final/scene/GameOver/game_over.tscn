@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dve0luca7d4tl"]
+[gd_scene load_steps=9 format=3 uid="uid://dve0luca7d4tl"]
 
 [ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="1_ijvc3"]
 [ext_resource type="Script" uid="uid://coq85eoyb560t" path="res://scene/GameOver/game_over.gd" id="1_l431a"]
+[ext_resource type="AudioStream" uid="uid://brn7t7jbr4ilc" path="res://Assets/audio/Crash_fx_01.wav" id="3_61u30"]
 
 [sub_resource type="FontVariation" id="FontVariation_l431a"]
 base_font = ExtResource("1_ijvc3")
@@ -318,4 +319,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_61u30")
 bus = &"Sfx"
+
+[node name="AudioStreamPlayerBGM" type="AudioStreamPlayer" parent="."]
+volume_db = 24.0

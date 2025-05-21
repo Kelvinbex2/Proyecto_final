@@ -2,11 +2,13 @@ extends CanvasLayer
 
 @export var button_focus_audio : AudioStream = preload("res://Assets/audio/menu_focus.wav")
 @export var button_selected_audio : AudioStream = preload("res://Assets/audio/menu_select.wav")
+@export var game_over_bgm : AudioStream = preload("res://Assets/audio/Breathless_Oblivion.wav")
 
 @onready var control: Control = $Control
 @onready var v_box_container: VBoxContainer = $Control/VBoxContainer
 @onready var btn_con: Button = $Control/VBoxContainer/btnCon
 @onready var btn_title: Button = $Control/VBoxContainer/btnTitle
+@onready var audio_bgm: AudioStreamPlayer = $AudioStreamPlayerBGM
 
 @onready var animation_player: AnimationPlayer = $Control/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
@@ -41,7 +43,10 @@ func show_game_over_screen() -> void:
 	btn_con.visible = true
 	btn_con.disabled = false
 	btn_title.disabled = false
-
+	
+	audio_bgm.stream = game_over_bgm
+	audio_bgm.play()
+	
 	animation_player.play("show_game_over")
 	await animation_player.animation_finished
 
@@ -54,6 +59,7 @@ func play_audio(_a: AudioStream) -> void:
 # 🕹 Carga la partida desde el checkpoint
 func load_game() -> void:
 	disable_buttons()
+	audio_bgm.stop()
 	play_audio(button_selected_audio)
 	await fade_game_over_screen()
 	hide_game_over_ui()
@@ -66,6 +72,7 @@ func load_game() -> void:
 
 func title_screen() -> void:
 	disable_buttons()
+	audio_bgm.stop()
 	play_audio(button_selected_audio)
 	await fade_game_over_screen()
 	hide_game_over_ui()
