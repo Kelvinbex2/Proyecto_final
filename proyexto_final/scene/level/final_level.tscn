@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://iw1b0iq7i4uy"]
+[gd_scene load_steps=52 format=4 uid="uid://iw1b0iq7i4uy"]
 
 [ext_resource type="Texture2D" uid="uid://doqliou1cnxcu" path="res://Assets/character/Texture/TX Tileset Ground.png" id="1_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://c0kx8wj3w2sl6" path="res://Assets/character/Texture/TX Village Props.png" id="2_dgfb3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgnh1he3p86xf" path="res://scene/managers/collectable_spawn.tscn" id="7_v38nc"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="7_vacne"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="8_m4ymn"]
+[ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="9_m4ymn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg08h"]
 texture = ExtResource("1_dgfb3")
@@ -2428,6 +2429,11 @@ collision_mask = 14
 [node name="CollisionShape2D" parent="DeadZone" index="0"]
 position = Vector2(733.5, 695)
 shape = SubResource("RectangleShape2D_v38nc")
+
+[node name="CheckPoint" parent="." instance=ExtResource("9_m4ymn")]
+position = Vector2(-31, -23)
+collision_layer = 0
+collision_mask = 2
 
 [editable path="EntitySpawn"]
 [editable path="Collectable_spawn"]

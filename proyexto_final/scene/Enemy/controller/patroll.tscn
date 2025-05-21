@@ -46,11 +46,13 @@ right_wall_cast = NodePath("../RightWallCast")
 movement = NodePath("../MovementHandler")
 
 [node name="HealthHandler" parent="." index="3" node_paths=PackedStringArray("death_handler") instance=ExtResource("4_t8jwi")]
+process_mode = 1
 max_health = 3
 death_handler = NodePath("../DeathHandler")
 type = "Enemy"
 
 [node name="DeathHandler" parent="." index="4" node_paths=PackedStringArray("parent") instance=ExtResource("5_a8n1f")]
+process_mode = 1
 parent = NodePath("..")
 type = "Enemy"
 
@@ -83,6 +85,7 @@ position = Vector2(22, -7)
 shape = SubResource("CircleShape2D_indo5")
 
 [node name="HitBoxHandler" parent="." index="13" node_paths=PackedStringArray("health_handler") instance=ExtResource("6_aca1g")]
+process_mode = 1
 collision_layer = 4
 collision_mask = 2
 time = 0.2
