@@ -57,10 +57,11 @@ func load_game() -> void:
 	play_audio(button_selected_audio)
 	await fade_game_over_screen()
 	hide_game_over_ui()
-	SignalBus.emit_on_player_ready(player)
-	
 	if player:
+		player.is_dying = false  
+		player.unfreeze()
 		player.respawn_at_checkpoint()
+
 
 
 func title_screen() -> void:

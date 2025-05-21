@@ -35,6 +35,7 @@ var frutas :int =0
 var is_dying := false
 var game_state: GameState = null
 var checkpoint_position: Vector2 = Vector2.ZERO
+var is_frozen := false
 
 
 
@@ -56,8 +57,7 @@ func _ready() -> void:
 		_on_game_state_manager_ready(SignalBus.game_state_manager)
 
 func _physics_process(delta: float) -> void:
-	if get_tree().paused:
-		print("🚨 Player is running while paused!")
+	if is_frozen or get_tree().paused:
 		return
 		
 	gravity_handler.apply_gravity(self,delta)
@@ -65,6 +65,13 @@ func _physics_process(delta: float) -> void:
 
 	flip_handler.handle_flip(self)
 	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_dying or is_frozen:
+		return	
+		
+	if event.is_action_pressed("interact"):
+		SignalBus.emit_interact_pressed()
 
 
 func handle_state_machine_signals() -> void:
@@ -89,26 +96,35 @@ func play_death_animation() -> void:
 		return
 	is_dying = true
 	
+	freeze()
+	
 	if death_sound_player:
 		death_sound_player.play()
 		
 	animatedSprite2D.play("die")
-
 	await get_tree().create_timer(2.5).timeout
-	#GameOver.show_game_over_screen()
-	if checkpoint_position == Vector2.ZERO:
-		reload_scene_level()
-		GlobalStat.reset_coins()
-	else:
-		respawn_at_checkpoint()
+	
+	GameOver.show_game_over_screen()
+	#if checkpoint_position == Vector2.ZERO:
+		#reload_scene_level()
+		#GlobalStat.reset_coins()
+	#else:
+		#respawn_at_checkpoint()
 
 
 
 func _on_game_state_manager_ready(gs: GameState) -> void:
 	game_state = gs
 
+
+	
+
 func _on_player_die() -> void:
-	play_death_animation()
+	if is_dying or is_frozen:
+		return
+	if health_handler.current_health <= 0:
+		is_dying = true
+		play_death_animation()
 
 func reload_scene() -> void:
 	
@@ -124,18 +140,25 @@ func reload_scene_level() -> void:
 
 	
 func _on_player_attack(attacking_player: Player) -> void:
+	if is_dying or is_frozen:
+		return
+		
 	if attacking_player == self:
 		hit_box_handler.apply_hit()
 		
 		
 func change_state(new_state: BasePlayerState) -> void:
+	if is_dying or is_frozen :
+		return
 	player_state.change_state(new_state)
 
 
 func freeze() -> void:
+	is_frozen = true
 	set_physics_process(false)
 	
 func unfreeze() -> void:
+	is_frozen = false
 	set_physics_process(true)
 	velocity = Vector2.ZERO  
 
@@ -143,9 +166,7 @@ func add_frutas():
 	frutas += 1
 	SignalBus.emit_on_fruta_recogida(frutas)
 	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		SignalBus.emit_interact_pressed()
+
 
 
 func reset_stats() -> void:
@@ -193,4 +214,6 @@ func _flash_coroutine(sprite: AnimatedSprite2D, blinks: int, interval: float) ->
 
 
 func _on_hit(val: int) -> void:
+	if is_dying or is_frozen:
+		return
 	flash_on_damage()
