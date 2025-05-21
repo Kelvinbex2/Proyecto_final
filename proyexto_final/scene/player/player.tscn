@@ -407,8 +407,8 @@ size = Vector2(16, 9)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gt2ev"]
 radius = 7.07107
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt2ev"]
-size = Vector2(18, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_aoq8s"]
+radius = 12.1655
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite2D") groups=["Player"]]
 process_mode = 1
@@ -530,8 +530,8 @@ metadata/_custom_type_script = "uid://cs7u7lw4u4o3t"
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interraction/Area2D"]
-position = Vector2(-1, 14)
-shape = SubResource("RectangleShape2D_gt2ev")
+position = Vector2(-2, 13)
+shape = SubResource("CircleShape2D_aoq8s")
 debug_color = Color(0.504761, 0.491803, 0.80992, 0.42)
 
 [node name="DeathSoundPlayer" type="AudioStreamPlayer2D" parent="."]
