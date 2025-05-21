@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 
 func on_start_pressed() -> void:
+	GlobalStat.reset_coins()
 	get_tree().change_scene_to_packed(start_game)
 
 func  on_exit_pressed() -> void:
