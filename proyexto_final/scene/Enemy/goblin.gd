@@ -40,7 +40,32 @@ func _physics_process(delta: float) -> void:
 	
 
 func on_player_hit(area: Area2D) -> void:
+	if is_dying:
+		return
+
+	# Knockback
+	var direction = sign(global_position.x - area.global_position.x)
+	var knockback_force = 250.0
+	velocity.x = direction * knockback_force
+
+	# Coin drop
 	drop_handler.add_coin(1)
+
+	# Blink
+	start_blink()
+
+
+
+func start_blink() -> void:
+	var blink_times = 5
+	var blink_interval = 0.1
+
+	for i in range(blink_times):
+		animated.modulate.a = 0.0  # invisible
+		await get_tree().create_timer(blink_interval).timeout
+		animated.modulate.a = 1.0  # visible
+		await get_tree().create_timer(blink_interval).timeout
+
 
 func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
@@ -96,5 +121,5 @@ func play_death_animation() -> void:
 	queue_free()
 
 
-	
+
 	
