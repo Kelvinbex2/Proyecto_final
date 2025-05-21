@@ -47,6 +47,10 @@ func _ready() -> void:
 	SignalBus.emit_on_player_ready(self)
 	SignalBus.on_player_die.connect(_on_player_die)
 	SignalBus.on_game_state_manager_ready.connect(_on_game_state_manager_ready)
+	## on hit con parpadeo
+	SignalBus.on_hit.connect(_on_hit)
+
+
 
 	if SignalBus.game_state_manager != null:
 		_on_game_state_manager_ready(SignalBus.game_state_manager)
@@ -123,6 +127,7 @@ func _on_player_attack(attacking_player: Player) -> void:
 	if attacking_player == self:
 		hit_box_handler.apply_hit()
 		
+		
 func change_state(new_state: BasePlayerState) -> void:
 	player_state.change_state(new_state)
 
@@ -168,3 +173,24 @@ func respawn_at_checkpoint() -> void:
 
 	SignalBus.emit_on_coin_counter_update(GlobalStat.get_current_coin())
 	print("🔁 Jugador reapareció en el checkpoint con vida restaurada:", checkpoint_position)
+
+
+func flash_on_damage(blinks := 6, interval := 0.1) -> void:
+	var sprite := animatedSprite2D
+	if sprite == null:
+		return
+
+	# Iniciar el parpadeo como una corrutina
+	await _flash_coroutine(sprite, blinks, interval)
+
+
+func _flash_coroutine(sprite: AnimatedSprite2D, blinks: int, interval: float) -> void:
+	for i in blinks:
+		sprite.visible = false
+		await get_tree().create_timer(interval).timeout
+		sprite.visible = true
+		await get_tree().create_timer(interval).timeout
+
+
+func _on_hit(val: int) -> void:
+	flash_on_damage()
