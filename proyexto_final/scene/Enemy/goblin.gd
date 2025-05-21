@@ -132,7 +132,7 @@ func play_death_animation() -> void:
 		
 	animated.play("die")
 	await animated.animation_finished
-	queue_free()
+	queue_free() #que
 
 
 
