@@ -116,13 +116,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8escd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ku6l"]
+size = Vector2(7, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ejjm"]
-radius = 20.0
+radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
-radius = 20.0
+radius = 17.4642
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ejjm"]
 size = Vector2(20.5392, 66.3802)
@@ -137,7 +138,9 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_8escd")
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_7ku6l")
+debug_color = Color(0, 0, 0, 0.42)
 
 [node name="RightWCast" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
