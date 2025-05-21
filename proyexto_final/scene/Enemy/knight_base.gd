@@ -19,13 +19,20 @@ extends CharacterBody2D
 var is_attacking: bool = false
 var is_player_in_range: bool = false
 var is_dying: bool = false
+var player: Player = null
 
 func _ready() -> void:
 	hurt_box.area_entered.connect(on_player_hit)
 	detection_area.body_entered.connect(_on_detection_area_entered)
 	detection_area.body_exited.connect(_on_detection_area_exited)
+	SignalBus.on_player_ready.connect(func(p): player = p)
+	SignalBus.on_player_respawned.connect(_on_player_respawned)
 
 func _physics_process(delta: float) -> void:
+	if player and player.health_handler.current_health <= 0:
+		is_dying = true
+		return
+		
 	if is_attacking or health_handler.is_dead or is_dying:
 		return
 
@@ -90,3 +97,8 @@ func play_death_animation() -> void:
 	animatedSprite2D.play("die")
 	await animatedSprite2D.animation_finished
 	queue_free()
+
+
+func _on_player_respawned() -> void:
+	print("🔁 Jugador revivió, reactivando enemigo")
+	is_dying = false

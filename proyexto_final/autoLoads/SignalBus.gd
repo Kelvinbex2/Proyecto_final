@@ -14,10 +14,14 @@ signal on_level_changed
 signal interact_pressed
 signal on_portal_triggered
 signal on_fruta_recogida(nueva_cantidad: int)
+signal on_player_respawned
+
 var game_state_manager: GameState = null
 
 
-	
+func emit_on_player_respawned() -> void:
+	on_player_respawned.emit()
+		
 func get_game_state_manager() -> GameState:
 	return game_state_manager
 	

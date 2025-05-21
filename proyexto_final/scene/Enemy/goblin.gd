@@ -20,7 +20,7 @@ var is_attacking: bool = false
 var is_player_in_range: bool = false
 var is_dying: bool = false
 var blood = load("res://scene/effect/blood_effect.tscn")
-
+var player: Player = null
 var knockback_time := 0.2
 var knockback_timer := 0.0
 var is_knocked_back := false
@@ -30,10 +30,17 @@ func _ready() -> void:
 	hurt_box.area_entered.connect(on_player_hit)
 	detection_area.body_entered.connect(_on_detection_area_entered)
 	detection_area.body_exited.connect(_on_detection_area_exited)
+	SignalBus.on_player_ready.connect(func(p): player = p)
+	SignalBus.on_player_respawned.connect(_on_player_respawned)
+
 
 	
 
 func _physics_process(delta: float) -> void:
+	if player and player.health_handler.current_health <= 0:
+		is_dying = true
+		return
+
 	if health_handler.is_dead or is_dying:
 		return
 
@@ -84,6 +91,7 @@ func start_blink() -> void:
 func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = true
+		player = body
 
 		if body.global_position.x < global_position.x:
 			velocity.x = -1
@@ -133,3 +141,8 @@ func play_death_animation() -> void:
 	animated.play("die")
 	await animated.animation_finished
 	queue_free()
+
+
+func _on_player_respawned() -> void:
+	print("🔁 Jugador revivió, reactivando enemigo")
+	is_dying = false

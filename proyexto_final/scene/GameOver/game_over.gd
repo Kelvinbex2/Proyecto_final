@@ -67,6 +67,7 @@ func load_game() -> void:
 		player.is_dying = false  
 		player.unfreeze()
 		player.respawn_at_checkpoint()
+		SignalBus.on_player_respawned.emit()
 
 
 
