@@ -21,6 +21,10 @@ var is_player_in_range: bool = false
 var is_dying: bool = false
 var blood = load("res://scene/effect/blood_effect.tscn")
 
+var knockback_time := 0.2
+var knockback_timer := 0.0
+var is_knocked_back := false
+
 
 func _ready() -> void:
 	hurt_box.area_entered.connect(on_player_hit)
@@ -30,13 +34,24 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if is_attacking or health_handler.is_dead or is_dying:
+	if health_handler.is_dead or is_dying:
+		return
+
+	if is_knocked_back:
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			is_knocked_back = false
+		move_and_slide()
+		return
+
+	if is_attacking:
 		return
 
 	gravity_handler.apply_gravity(self, delta)
 	ai_handler.handle_state(self, delta)
 	move_and_slide()
 	flip_handler.handle_flip(self)
+
 	
 
 func on_player_hit(area: Area2D) -> void:
@@ -45,14 +60,14 @@ func on_player_hit(area: Area2D) -> void:
 
 	# Knockback
 	var direction = sign(global_position.x - area.global_position.x)
-	var knockback_force = 250.0
+	var knockback_force = 150.0
 	velocity.x = direction * knockback_force
+	is_knocked_back = true
+	knockback_timer = knockback_time
 
-	# Coin drop
 	drop_handler.add_coin(1)
-
-	# Blink
 	start_blink()
+
 
 
 
