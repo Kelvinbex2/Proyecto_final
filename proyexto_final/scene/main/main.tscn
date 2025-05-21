@@ -32,7 +32,7 @@ wait_time = 4096.0
 [node name="PlayerCamera" parent="Camera" instance=ExtResource("3_onf7c")]
 position = Vector2(-25, -188)
 zoom = Vector2(2, 1.668)
-camera_move_speed = 0.698
+follow_speed = 1.5
 camera_offset = Vector2(10, -80)
 
 [node name="LevelContainer" type="Node2D" parent="." groups=["level_container"]]
