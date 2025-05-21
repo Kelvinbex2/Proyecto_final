@@ -37,12 +37,12 @@ func _physics_process(delta: float) -> void:
 	if health_handler.is_dead or is_dying:
 		return
 
-	if is_knocked_back:
-		knockback_timer -= delta
-		if knockback_timer <= 0.0:
-			is_knocked_back = false
+	#if is_knocked_back:
+		#knockback_timer -= delta
+		#if knockback_timer <= 0.0:
+			#is_knocked_back = false
 		move_and_slide()
-		return
+		#return
 
 	if is_attacking:
 		return
