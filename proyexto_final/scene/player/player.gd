@@ -47,7 +47,7 @@ func _ready() -> void:
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
 	SignalBus.on_player_die.connect(_on_player_die)
-	SignalBus.emit_on_player_die()
+	#SignalBus.emit_on_player_die()
 	SignalBus.on_game_state_manager_ready.connect(_on_game_state_manager_ready)
 	## on hit con parpadeo
 	SignalBus.on_hit.connect(_on_hit)
@@ -118,6 +118,7 @@ func _on_player_die() -> void:
 	
 	if health_handler.current_health <= 0:
 		is_dying = true
+		SignalBus.emit_on_player_die()
 		play_death_animation()
 
 func reload_scene() -> void:
