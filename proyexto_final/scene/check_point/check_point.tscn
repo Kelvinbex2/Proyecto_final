@@ -67,6 +67,7 @@ position = Vector2(30, 7)
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_h1yi3")
+volume_db = 24.0
 bus = &"Sfx"
 
 [node name="Particles" type="CPUParticles2D" parent="."]
