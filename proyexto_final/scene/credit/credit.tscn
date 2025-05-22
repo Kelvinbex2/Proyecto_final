@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxs6uqttgg4b5"]
+
+[ext_resource type="Texture2D" uid="uid://b4pi4wknw3xxb" path="res://Assets/dialog/text-bubble.png" id="1_hg6df"]
+[ext_resource type="Script" uid="uid://boipom01qgs5l" path="res://scene/credit/credit.gd" id="1_pp0kr"]
+[ext_resource type="FontFile" uid="uid://dc3u845qkgu6y" path="res://Assets/font/Abaddon Light.ttf" id="2_6crb1"]
+[ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="3_pp0kr"]
+[ext_resource type="AudioStream" uid="uid://bjkk6kh4tb6or" path="res://Assets/audio/voice_blip.wav" id="4_hmcak"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3r24i"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_hg6df")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="Credit" type="CanvasLayer"]
+script = ExtResource("1_pp0kr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3r24i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
+theme_override_fonts/normal_font = ExtResource("2_6crb1")
+theme_override_fonts/bold_font = ExtResource("3_pp0kr")
+bbcode_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("4_hmcak")
+max_polyphony = 5
+bus = &"Sfx"

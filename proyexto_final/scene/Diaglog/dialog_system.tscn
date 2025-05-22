@@ -9,12 +9,12 @@
 [ext_resource type="Script" uid="uid://d1btmjnpcwtrv" path="res://scene/Diaglog/potrait_sprite.gd" id="6_68t48"]
 [ext_resource type="FontFile" uid="uid://dcx8bqc4fitq8" path="res://Assets/font/m5x7.ttf" id="6_gp8qg"]
 
-[sub_resource type="Gradient" id="Gradient_3si6u"]
+[sub_resource type="Gradient" id="Gradient_68t48"]
 offsets = PackedFloat32Array(0, 0.992218)
 colors = PackedColorArray(0.989994, 0.953276, 0.973732, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_68t48"]
-gradient = SubResource("Gradient_3si6u")
+gradient = SubResource("Gradient_68t48")
 fill_from = Vector2(0.0213675, 0.987179)
 fill_to = Vector2(0.017094, 0.017094)
 
