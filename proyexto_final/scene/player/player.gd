@@ -58,13 +58,18 @@ func _ready() -> void:
 		_on_game_state_manager_ready(SignalBus.game_state_manager)
 
 func _physics_process(delta: float) -> void:
+	if is_dying:
+		return	
+		
 	gravity_handler.apply_gravity(self,delta)
 	move_and_slide()
-
 	flip_handler.handle_flip(self)
 	
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dying:
+		return
+		
 	if event.is_action_pressed("interact"):
 		SignalBus.emit_interact_pressed()
 
@@ -150,10 +155,13 @@ func change_state(new_state: BasePlayerState) -> void:
 
 func freeze() -> void:
 	set_physics_process(false)
+	velocity = Vector2.ZERO  
+	move_and_slide()
 	
 func unfreeze() -> void:
 	set_physics_process(true)
 	velocity = Vector2.ZERO  
+	
 
 func add_frutas():
 	frutas += 1
