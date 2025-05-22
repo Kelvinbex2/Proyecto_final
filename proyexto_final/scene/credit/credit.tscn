@@ -91,7 +91,10 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
 theme_override_fonts/normal_font = ExtResource("2_6crb1")
 theme_override_fonts/bold_font = ExtResource("3_pp0kr")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
+scroll_active = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("5_6crb1")
