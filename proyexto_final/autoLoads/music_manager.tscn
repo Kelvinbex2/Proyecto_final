@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg1u4duva3yrg"]
+
+[ext_resource type="Script" uid="uid://doggb8tgekrob" path="res://autoLoads/music_manager.gd" id="1_gpntg"]
+[ext_resource type="AudioStream" uid="uid://bbsbn6cw814i4" path="res://Assets/audio/Breathless_Oblivion.wav" id="2_4as3o"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_gpntg")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4as3o")

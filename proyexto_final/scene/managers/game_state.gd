@@ -51,6 +51,8 @@ func run_upgrade_state() -> void:
 	ui_container.add_child(new_upgrade_menu)
 	new_upgrade_menu.exit_btn_pressed.connect(on_upgrade_state_end)
 	upgrade_menu_exists = true
+	
+	MusicManager.fade_out(1.0)
 
 func on_active_state_end() -> void:
 	current_state = UpgradeState
@@ -84,6 +86,7 @@ func load_level() -> void:
 
 	if new_level:
 		level_container.add_child(new_level)
+		MusicManager.play_music()
 		print("✔ Nivel cargado:", new_level.name)
 	else:
 		print("⚠ No hay más niveles que cargar.")
@@ -95,6 +98,7 @@ func load_level() -> void:
 func on_upgrade_state_end() -> void:
 	upgrade_menu_exists = false
 	current_state = ActiveState
+	MusicManager.fade_in(0.0, 1.0)
 	#load_level()
 	##get_tree().reload_current_scene()
 

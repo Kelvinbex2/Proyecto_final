@@ -25,6 +25,7 @@ SettingDataContainer="*res://autoLoads/SettingDataContainer.gd"
 SettingSignalBus="*res://autoLoads/SettingSignalBus.gd"
 DialogSystem="*res://scene/Diaglog/dialog_system.tscn"
 GameOver="*res://scene/GameOver/game_over.tscn"
+MusicManager="*res://autoLoads/music_manager.tscn"
 
 [display]
 
