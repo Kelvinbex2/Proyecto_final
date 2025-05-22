@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://pbiww2xqys71"]
+[gd_scene load_steps=52 format=3 uid="uid://pbiww2xqys71"]
 
 [ext_resource type="Texture2D" uid="uid://r1difsvorayy" path="res://Assets/character/Warrior_Sheet-Effect.png" id="1_wmqlt"]
 [ext_resource type="PackedScene" uid="uid://buxejbbf4pwo3" path="res://scene/handlers/gravity_handler.tscn" id="2_tgykv"]
@@ -293,6 +293,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmqlt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgykv"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxhv8"]
+radius = 12.0416
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhv8"]
+size = Vector2(20.5392, 113.991)
+
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
 
@@ -331,9 +340,25 @@ type = "Enemy"
 [node name="Drop_handler" parent="Handlers" instance=ExtResource("9_hkf85")]
 
 [node name="HurtBox" parent="Handlers" instance=ExtResource("10_sbq3f")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Handlers/HurtBox" index="0"]
+position = Vector2(-8, 6)
+shape = SubResource("CircleShape2D_tgykv")
+
+[node name="Audio" parent="Handlers/HurtBox" index="1"]
+position = Vector2(-10, 8)
 
 [node name="HitBoxHandler" parent="Handlers" node_paths=PackedStringArray("health_handler") instance=ExtResource("11_m7pec")]
+position = Vector2(-11, 8)
+collision_layer = 4
+collision_mask = 2
 health_handler = NodePath("../HealthHandler")
+
+[node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_uxhv8")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
 position = Vector2(4, 8)
@@ -350,3 +375,16 @@ target_position = Vector2(0, 17)
 [node name="leftCast" type="RayCast2D" parent="."]
 position = Vector2(-19, 8)
 target_position = Vector2(-16, 0)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(-37, 14)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(31.0035, -3.02036)
+rotation = 1.57759
+shape = SubResource("RectangleShape2D_uxhv8")
+
+[editable path="Handlers/HurtBox"]
+[editable path="Handlers/HitBoxHandler"]
