@@ -1,28 +1,26 @@
-[effect=glitch][center][b]Campesino Místico[/b][/center][/effect]
 
-[space=20]
 
-[b]Created by:[/b] Noma Kelvin Obamedo 
 
-[space=40]
 
-[i]Special Thanks[/i]  
-- Your Friends  
-- Playtesters  
-- Your Dog 🐶  
 
-[space=60]
 
-[center]Thank you for playing![/center]
+[typewriter][center][b]Campesino Místico[/b]
 
-[space=20]
 
-[effect=wave amp=20 freq=4][center][b]Thanks for Playing![/b][/center][/effect]
 
-[space=40]
+ [shake][b]Created by[/b] [/shake] 
+[fire]Noma Kelvin Obamedo[/fire]
 
-[effect=shake rate=30 level=5][center]The End[/center][/effect]
 
-[space=40]
 
-[effect=typewriter delay=0.1]Created by: You[/effect]
+[wave][i]Special Thanks[/i] [/wave] 
+[shake]Aya
+Jesus 
+HeraldOfFire [/shake]
+
+
+[rainbow][b]Thanks for Playing![/b][/rainbow]
+
+
+
+[wave]The End[/wave][/center]

@@ -1,6 +1,7 @@
 extends RichTextEffect
 class_name WaveEffect
 
+var bbcode: String = "wave"
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	var amp = 20.0
 	var freq = 4.0

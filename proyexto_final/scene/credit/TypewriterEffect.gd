@@ -2,6 +2,7 @@ extends RichTextEffect
 class_name TypewriterEffect
 
 @export var delay := 0.05
+var bbcode: String = "typewriter"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	if char_fx.elapsed_time < char_fx.relative_index * delay:

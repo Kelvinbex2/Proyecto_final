@@ -2,6 +2,7 @@ extends RichTextEffect
 class_name ShakeEffect
 
 var rng = RandomNumberGenerator.new()
+var bbcode: String = "shake"
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	rng.randomize()

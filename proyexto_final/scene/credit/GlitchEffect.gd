@@ -1,6 +1,7 @@
 extends RichTextEffect
 class_name GlitchEffect
 
+var bbcode: String = "glitch"
 var rng = RandomNumberGenerator.new()
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
