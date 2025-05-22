@@ -123,7 +123,7 @@ size = Vector2(7, 20)
 radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
-radius = 17.4642
+radius = 21.0238
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ejjm"]
 size = Vector2(20.5392, 66.3802)
@@ -199,6 +199,7 @@ type = "Enemy"
 metadata/_custom_type_script = "uid://dnlomrpambk1i"
 
 [node name="HurtBox" parent="handlers" instance=ExtResource("9_ctvg5")]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
