@@ -36,11 +36,14 @@ func damage(val: int) -> void:
 		death_handler.death()
 
 func handle_healing(value: int) -> void:
-	current_health += value
+	if is_dead:
+		return
+		
+	current_health = clamp(current_health + value, 0, max_health)
 
 	if type == "Player":
-		GlobalStat.currently_held_coins = clamp(current_health, 0, max_health)
-		SignalBus.emit_on_coin_counter_update(GlobalStat.currently_held_coins)
+		GlobalStat.currently_held_coins = current_health
+		SignalBus.emit_on_coin_counter_update(current_health)
 
 
 func reset_health() -> void:
