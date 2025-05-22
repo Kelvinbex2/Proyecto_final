@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://do36ft7lenarb"]
+[gd_scene load_steps=10 format=3 uid="uid://do36ft7lenarb"]
 
 [ext_resource type="Script" uid="uid://bt7ys3a6x8ai0" path="res://scene/colectables/diamante.gd" id="1_sq5mj"]
 [ext_resource type="Texture2D" uid="uid://bacmt8au81jbb" path="res://Assets/collectable/Coin_Gems/spr_coin_azu.png" id="1_trvwv"]
+[ext_resource type="AudioStream" uid="uid://bc8cytv8tliv1" path="res://Assets/audio/Items_item_pickup_item_pickup.wav" id="3_wwn47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sq5mj"]
 atlas = ExtResource("1_trvwv")
@@ -56,3 +57,6 @@ frame_progress = 0.907308
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v6lmg")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wwn47")

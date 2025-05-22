@@ -1629,7 +1629,7 @@ item_data = ExtResource("22_4kavb")
 quantity = 4
 
 [node name="Diamante" parent="Items" instance=ExtResource("19_qqpwm")]
-position = Vector2(491, 564)
+position = Vector2(257, 373)
 
 [node name="Diamante8" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(252, 475)
@@ -1797,7 +1797,7 @@ rotation = 0.0169625
 position = Vector2(711, 463)
 
 [node name="Boss" parent="Enemy" instance=ExtResource("42_a757i")]
-position = Vector2(425, 463)
+position = Vector2(369, 555)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
