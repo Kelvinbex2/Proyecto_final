@@ -323,4 +323,4 @@ stream = ExtResource("3_61u30")
 bus = &"Sfx"
 
 [node name="AudioStreamPlayerBGM" type="AudioStreamPlayer" parent="."]
-volume_db = 24.0
+bus = &"Sfx"
