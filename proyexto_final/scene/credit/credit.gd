@@ -20,8 +20,7 @@ func _ready() -> void:
 		var content = file.get_as_text()
 		rich_text.clear()
 		rich_text.parse_bbcode(content)
-		credits_loaded = true  # ✅ Marcamos que ya está listo
-
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name == "pop_out" and credits_loaded:
-		rich_text.visible = true
+		credits_loaded = true  
+		
+		await get_tree().create_timer(20.0).timeout
+		get_tree().change_scene_to_file("res://scene/ui/main_menu.tscn")
