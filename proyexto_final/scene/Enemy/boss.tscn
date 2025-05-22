@@ -301,8 +301,8 @@ radius = 14.0357
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxhv8"]
 radius = 22.8035
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhv8"]
-size = Vector2(20.5392, 55.9783)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03cv6"]
+size = Vector2(154, 20)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
@@ -310,10 +310,8 @@ script = ExtResource("1_tgykv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
-animation = &"double_hit"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.5, 8.5)
@@ -390,10 +388,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
-position = Vector2(27.0037, -3.04753)
-rotation = 1.57759
-shape = SubResource("RectangleShape2D_uxhv8")
+position = Vector2(67, 0)
+shape = SubResource("RectangleShape2D_03cv6")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 
