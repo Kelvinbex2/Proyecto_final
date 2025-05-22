@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=51 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
+[ext_resource type="PackedScene" uid="uid://cy84lbx1op3ju" path="res://scene/credit/credit_trigger.tscn" id="41_oumh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
 texture = ExtResource("1_1c01b")
@@ -1818,6 +1819,11 @@ position = Vector2(333, 109)
 position = Vector2(487, 454)
 collision_layer = 0
 collision_mask = 14
+
+[node name="CreditTrigger" parent="." instance=ExtResource("41_oumh2")]
+position = Vector2(899, 453)
+collision_layer = 0
+collision_mask = 2
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]

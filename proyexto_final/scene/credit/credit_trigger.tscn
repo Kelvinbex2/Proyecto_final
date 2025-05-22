@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy84lbx1op3ju"]
+
+[ext_resource type="Script" uid="uid://cky7vnb2jnqlq" path="res://scene/credit/credit_trigger.gd" id="1_88q86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6stly"]
+size = Vector2(49, 49)
+
+[node name="CreditTrigger" type="Area2D"]
+script = ExtResource("1_88q86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6stly")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
