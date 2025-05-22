@@ -188,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v3fe2")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 8.0
 }, {
@@ -211,7 +211,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_68dln")
 }],
-"loop": true,
+"loop": false,
 "name": &"double_hit",
 "speed": 5.0
 }, {
@@ -240,7 +240,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c8pwv")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -263,7 +263,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ske8f")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pngs8")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 5.0
 }]
@@ -300,16 +300,15 @@ radius = 13.0
 radius = 12.0416
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhv8"]
-size = Vector2(20.5392, 113.991)
+size = Vector2(20.5392, 55.9783)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
-animation = &"double_hit"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.339772
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 5)
@@ -329,8 +328,12 @@ movement = NodePath("../MovementHandler")
 [node name="GravityHandler" parent="Handlers" instance=ExtResource("2_tgykv")]
 
 [node name="MovementHandler" parent="Handlers" instance=ExtResource("8_c67wr")]
+move_speed = 70.0
+acceleration = 10.0
 
-[node name="DeathHandler" parent="Handlers" instance=ExtResource("7_jlj7u")]
+[node name="DeathHandler" parent="Handlers" node_paths=PackedStringArray("parent") instance=ExtResource("7_jlj7u")]
+parent = NodePath("../..")
+type = "Enemy"
 
 [node name="HealthHandler" parent="Handlers" node_paths=PackedStringArray("death_handler") instance=ExtResource("6_ske8f")]
 max_health = 10
@@ -382,7 +385,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(31.0035, -3.02036)
+position = Vector2(27.0037, -3.04753)
 rotation = 1.57759
 shape = SubResource("RectangleShape2D_uxhv8")
 
