@@ -292,13 +292,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wmqlt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgykv"]
+size = Vector2(13, 19)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgykv"]
-radius = 13.0
+radius = 14.0357
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxhv8"]
-radius = 12.0416
+radius = 22.8035
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxhv8"]
 size = Vector2(20.5392, 55.9783)
@@ -309,12 +310,14 @@ script = ExtResource("1_tgykv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
-animation = &"die"
+animation = &"double_hit"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 5)
-shape = SubResource("CircleShape2D_wmqlt")
+position = Vector2(-5.5, 8.5)
+shape = SubResource("RectangleShape2D_tgykv")
 
 [node name="Handlers" type="Node2D" parent="."]
 
@@ -330,8 +333,8 @@ movement = NodePath("../MovementHandler")
 [node name="GravityHandler" parent="Handlers" instance=ExtResource("2_tgykv")]
 
 [node name="MovementHandler" parent="Handlers" instance=ExtResource("8_c67wr")]
-move_speed = 70.0
-acceleration = 10.0
+move_speed = 50.0
+acceleration = 2.0
 
 [node name="DeathHandler" parent="Handlers" node_paths=PackedStringArray("parent") instance=ExtResource("7_jlj7u")]
 parent = NodePath("../..")
@@ -349,7 +352,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Handlers/HurtBox" index="0"]
-position = Vector2(-8, 6)
+position = Vector2(-5, 9)
 shape = SubResource("CircleShape2D_tgykv")
 
 [node name="Audio" parent="Handlers/HurtBox" index="1"]
@@ -362,7 +365,7 @@ collision_mask = 2
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
-position = Vector2(2, 0)
+position = Vector2(9, 1)
 shape = SubResource("CircleShape2D_uxhv8")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
@@ -387,6 +390,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 position = Vector2(27.0037, -3.04753)
 rotation = 1.57759
 shape = SubResource("RectangleShape2D_uxhv8")
