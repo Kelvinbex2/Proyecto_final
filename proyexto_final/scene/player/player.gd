@@ -35,7 +35,7 @@ var frutas :int =0
 var is_dying := false
 var game_state: GameState = null
 var checkpoint_position: Vector2 = Vector2.ZERO
-var is_frozen := false
+#var is_frozen := false
 
 
 
@@ -47,6 +47,7 @@ func _ready() -> void:
 	SignalBus.on_player_attack.connect(_on_player_attack)
 	SignalBus.emit_on_player_ready(self)
 	SignalBus.on_player_die.connect(_on_player_die)
+	#SignalBus.emit_on_player_die()
 	SignalBus.on_game_state_manager_ready.connect(_on_game_state_manager_ready)
 	## on hit con parpadeo
 	SignalBus.on_hit.connect(_on_hit)
@@ -57,9 +58,6 @@ func _ready() -> void:
 		_on_game_state_manager_ready(SignalBus.game_state_manager)
 
 func _physics_process(delta: float) -> void:
-	if is_frozen or get_tree().paused:
-		return
-		
 	gravity_handler.apply_gravity(self,delta)
 	move_and_slide()
 
@@ -67,9 +65,6 @@ func _physics_process(delta: float) -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_dying or is_frozen:
-		return	
-		
 	if event.is_action_pressed("interact"):
 		SignalBus.emit_interact_pressed()
 
@@ -120,10 +115,10 @@ func _on_game_state_manager_ready(gs: GameState) -> void:
 	
 
 func _on_player_die() -> void:
-	if is_dying or is_frozen:
-		return
+	
 	if health_handler.current_health <= 0:
 		is_dying = true
+		SignalBus.emit_on_player_die()
 		play_death_animation()
 
 func reload_scene() -> void:
@@ -140,7 +135,7 @@ func reload_scene_level() -> void:
 
 	
 func _on_player_attack(attacking_player: Player) -> void:
-	if is_dying or is_frozen:
+	if is_dying :
 		return
 		
 	if attacking_player == self:
@@ -148,17 +143,15 @@ func _on_player_attack(attacking_player: Player) -> void:
 		
 		
 func change_state(new_state: BasePlayerState) -> void:
-	if is_dying or is_frozen :
+	if is_dying :
 		return
 	player_state.change_state(new_state)
 
 
 func freeze() -> void:
-	is_frozen = true
 	set_physics_process(false)
 	
 func unfreeze() -> void:
-	is_frozen = false
 	set_physics_process(true)
 	velocity = Vector2.ZERO  
 
@@ -214,6 +207,6 @@ func _flash_coroutine(sprite: AnimatedSprite2D, blinks: int, interval: float) ->
 
 
 func _on_hit(val: int) -> void:
-	if is_dying or is_frozen:
+	if is_dying :
 		return
 	flash_on_damage()
