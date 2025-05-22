@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://boipom01qgs5l" path="res://scene/credit/credit.gd" id="1_pp0kr"]
 [ext_resource type="FontFile" uid="uid://dc3u845qkgu6y" path="res://Assets/font/Abaddon Light.ttf" id="2_6crb1"]
 [ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="3_pp0kr"]
-[ext_resource type="AudioStream" uid="uid://bjkk6kh4tb6or" path="res://Assets/audio/voice_blip.wav" id="4_hmcak"]
+[ext_resource type="AudioStream" uid="uid://brn7t7jbr4ilc" path="res://Assets/audio/Crash_fx_01.wav" id="5_6crb1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3r24i"]
 content_margin_left = 14.0
@@ -83,9 +83,9 @@ theme_override_fonts/bold_font = ExtResource("3_pp0kr")
 bbcode_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource("4_hmcak")
+stream = ExtResource("5_6crb1")
 max_polyphony = 5
-bus = &"Sfx"
+bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

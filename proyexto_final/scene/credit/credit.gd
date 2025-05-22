@@ -2,11 +2,12 @@ extends CanvasLayer
 
 @onready var rich_text: RichTextLabel = $Control/PanelContainer/RichTextLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio: AudioStreamPlayer = $Control/AudioStreamPlayer
 
 var credits_loaded := false
 
 func _ready() -> void:
-	
+	audio.play()
 	animation_player.play("pop_out")
 
 	var loader = TextEffectsLoader.new()
