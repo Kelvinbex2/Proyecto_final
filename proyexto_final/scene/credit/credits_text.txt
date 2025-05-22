@@ -2,7 +2,7 @@
 
 
 
-
+[timedfade]
 
 [typewriter][center][b]Campesino Místico[/b]
 
@@ -24,3 +24,8 @@ HeraldOfFire [/shake]
 
 
 [wave]The End[/wave][/center]
+
+[/typewriter]
+
+
+[/timedfade]
