@@ -11,9 +11,8 @@ extends CharacterBody2D
 @onready var hurt_box: HurtBox = $Handlers/HurtBox
 @onready var hit_box_handler: HitBoxHandler = $Handlers/HitBoxHandler
 #endregion
-
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var start_position: Marker2D = $StartPosition
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @export var detection_range := 200
 @export var move_speed := 150

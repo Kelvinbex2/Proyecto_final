@@ -1,5 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://pbiww2xqys71"]
+[gd_scene load_steps=53 format=3 uid="uid://pbiww2xqys71"]
 
+[ext_resource type="Script" uid="uid://bmpgb8g0ahd70" path="res://scene/Enemy/boss.gd" id="1_tgykv"]
 [ext_resource type="Texture2D" uid="uid://r1difsvorayy" path="res://Assets/character/Warrior_Sheet-Effect.png" id="1_wmqlt"]
 [ext_resource type="PackedScene" uid="uid://buxejbbf4pwo3" path="res://scene/handlers/gravity_handler.tscn" id="2_tgykv"]
 [ext_resource type="PackedScene" uid="uid://c5sm8vvd8i46" path="res://scene/handlers/enemy/ai_handler.tscn" id="3_03cv6"]
@@ -304,6 +305,7 @@ size = Vector2(20.5392, 55.9783)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
+script = ExtResource("1_tgykv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
@@ -388,6 +390,8 @@ collision_mask = 2
 position = Vector2(27.0037, -3.04753)
 rotation = 1.57759
 shape = SubResource("RectangleShape2D_uxhv8")
+
+[node name="StartPosition" type="Marker2D" parent="."]
 
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]
