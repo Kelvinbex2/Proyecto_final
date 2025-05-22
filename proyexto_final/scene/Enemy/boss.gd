@@ -21,7 +21,6 @@ extends CharacterBody2D
 #region Config
 @export var detection_range := 200
 @export var move_speed := 150
-@export var flee_health_threshold := 1
 #endregion
 
 enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }
@@ -64,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		State.CHASE:
 			handle_chase()
 		State.ATTACK:
-			# Coroutine already handles this
+			# Controlado por la corrutina
 			pass
 		State.FLEE:
 			handle_flee()
@@ -74,7 +73,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	flip_handler.handle_flip(self)
 
-	if health_handler.current_health <= flee_health_threshold and state != State.FLEE:
+	# FLEE solo cuando la salud está al 50% o menos
+	if health_handler.current_health <= health_handler.max_health / 2 and state != State.FLEE:
 		state = State.FLEE
 
 # ──────────────── STATE METHODS ──────────────── #
@@ -88,7 +88,10 @@ func handle_chase() -> void:
 	velocity.x = direction.x * move_speed
 	animated_sprite.play("run")
 
-	if global_position.distance_to(player.global_position) < 50 and not is_attacking:
+	var distance = global_position.distance_to(player.global_position)
+	var vertical_diff = abs(global_position.y - player.global_position.y)
+
+	if distance < 10 and vertical_diff < 20 and not is_attacking:
 		state = State.ATTACK
 		attack_loop()
 
@@ -105,7 +108,7 @@ func handle_return() -> void:
 	state = State.IDLE
 	animated_sprite.play("idle")
 
-# ──────────────── COMBAT ──────────────── #
+# ──────────────── COMBATE ──────────────── #
 
 func attack_loop() -> void:
 	if is_attacking or health_handler.is_dead or is_dying:
@@ -120,6 +123,7 @@ func attack_loop() -> void:
 		await animated_sprite.animation_finished
 
 		hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
+
 		if not is_player_in_range:
 			break
 
@@ -132,7 +136,7 @@ func attack_loop() -> void:
 	if not health_handler.is_dead and not is_dying:
 		state = State.CHASE
 
-# ──────────────── SIGNAL HANDLERS ──────────────── #
+# ──────────────── SEÑALES ──────────────── #
 
 func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != State.FLEE and not is_dying:
@@ -146,6 +150,10 @@ func _on_detection_area_exited(body: Node) -> void:
 		if state == State.CHASE:
 			state = State.RETURN
 
+func _on_player_respawned() -> void:
+	is_dying = false
+	state = State.IDLE
+
 func on_player_hit(area: Area2D) -> void:
 	if is_dying:
 		return
@@ -157,11 +165,7 @@ func on_player_hit(area: Area2D) -> void:
 	drop_handler.add_coin(1)
 	start_blink()
 
-func _on_player_respawned() -> void:
-	is_dying = false
-	state = State.IDLE
-
-# ──────────────── UTILITIES ──────────────── #
+# ──────────────── UTILIDADES ──────────────── #
 
 func handle_knockback(delta: float) -> void:
 	knockback_timer -= delta
