@@ -453,7 +453,6 @@ shape = SubResource("CircleShape2D_pisg7")
 disabled = true
 
 [node name="HealthHandler" parent="HandlerContainer" node_paths=PackedStringArray("death_handler") instance=ExtResource("9_oypl4")]
-max_health = 5
 death_handler = NodePath("../DeathHandler")
 
 [node name="DeathHandler" parent="HandlerContainer" node_paths=PackedStringArray("parent") instance=ExtResource("10_qjg4s")]

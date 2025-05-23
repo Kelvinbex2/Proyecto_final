@@ -1,7 +1,7 @@
 class_name HealthHandler
 extends Node2D
 
-@export var max_health = 0
+@export var max_health = 10
 @export var death_handler : DeathHandler = null
 @export_enum("Player", "Enemy") var type : String = "Player"
 

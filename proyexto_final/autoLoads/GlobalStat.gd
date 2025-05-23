@@ -1,7 +1,7 @@
 extends Node
 
 
-const DEFAULT_COINS = 5
+const DEFAULT_COINS = 10
 var currently_held_coins = DEFAULT_COINS
 var currently_selected : BaseUpgrade = null
 
@@ -26,8 +26,7 @@ func remove_coin(val: int) -> void:
 		SignalBus.emit_on_coin_counter_update(currently_held_coins)
 
 
-func reset_coins() -> void:
-	print("🔁 Reset life called")  
+func reset_coins() -> void: 
 	currently_held_coins = DEFAULT_COINS
 	SignalBus.emit_on_coin_counter_update(currently_held_coins)
 

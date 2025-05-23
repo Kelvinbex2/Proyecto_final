@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var flip_handler: FlipHandler = $HandlerContainer/FlipHandler
 @onready var gravity_handler: GravityHandler = $HandlerContainer/GravityHandler
 @onready var health_handler: HealthHandler = $HandlerContainer/HealthHandler
+@onready var collection_handler: CollectionHandler = $HandlerContainer/CollectionHandler
 
 #endregion
 #region StateMachine Region
