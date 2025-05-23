@@ -1619,7 +1619,7 @@ position = Vector2(790, 373)
 item_data = ExtResource("25_eu465")
 
 [node name="Treasure" parent="Items" instance=ExtResource("25_4kavb")]
-position = Vector2(708, 121)
+position = Vector2(-137, 121)
 item_data = ExtResource("24_aur5l")
 quantity = 2
 
@@ -1797,7 +1797,7 @@ rotation = 0.0169625
 position = Vector2(711, 463)
 
 [node name="Boss" parent="Enemy" instance=ExtResource("42_a757i")]
-position = Vector2(369, 555)
+position = Vector2(90, -7)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
