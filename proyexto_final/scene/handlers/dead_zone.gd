@@ -6,4 +6,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.reload_scene_level()
+		body.respawn_at_checkpoint()
