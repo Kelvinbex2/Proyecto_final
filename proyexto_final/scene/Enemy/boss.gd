@@ -58,16 +58,17 @@ func _physics_process(delta: float) -> void:
 
 	gravity_handler.apply_gravity(self, delta)
 
-	if not is_attacking:
-		match state:
-			State.IDLE:
-				handle_idle()
-			State.CHASE:
-				handle_chase()
-			State.FLEE:
-				handle_flee()
-			State.RETURN:
-				handle_return()
+	# ✅ FLEE and RETURN always run, even while attacking
+	match state:
+		State.FLEE:
+			handle_flee()
+		State.RETURN:
+			handle_return()
+		State.IDLE, State.CHASE:
+			if not is_attacking:
+				handle_idle() if state == State.IDLE else handle_chase()
+		State.ATTACK:
+			pass  # handled by attack_loop()
 
 	move_and_slide()
 	flip_handler.handle_flip(self)
@@ -76,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		health_bar.value = health_handler.current_health
 
 	if not has_fled and health_handler.current_health <= flee_health_threshold and state != State.FLEE:
+		print("💀 Health low, boss is fleeing!")
 		state = State.FLEE
 		has_fled = true
 
@@ -142,7 +144,7 @@ func attack_loop() -> void:
 		await get_tree().create_timer(0.5).timeout
 
 	is_attacking = false
-	if not health_handler.is_dead and not is_dying:
+	if not health_handler.is_dead and not is_dying and state != State.FLEE:
 		state = State.CHASE
 
 # ──────────────── HITBOX CONTROL ──────────────── #
@@ -166,10 +168,11 @@ func disable_hitbox():
 # ──────────────── SIGNAL HANDLERS ──────────────── #
 
 func _on_detection_area_entered(body: Node) -> void:
-	if body.is_in_group("Player") and state != State.FLEE and not is_dying:
+	if body.is_in_group("Player") and not is_dying:
 		is_player_in_range = true
 		player = body
-		state = State.CHASE
+		if state not in [State.FLEE, State.RETURN]:
+			state = State.CHASE
 
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):

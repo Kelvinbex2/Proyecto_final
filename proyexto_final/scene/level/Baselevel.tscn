@@ -1799,6 +1799,9 @@ position = Vector2(711, 463)
 [node name="Boss" parent="Enemy" instance=ExtResource("42_a757i")]
 position = Vector2(627, 457)
 
+[node name="StartPosition" parent="Enemy/Boss" index="9"]
+position = Vector2(542, 17)
+
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1830,4 +1833,7 @@ collision_mask = 14
 [editable path="Potal/Puerta"]
 [editable path="Potal/Puerta2"]
 [editable path="Potal/Portal"]
+[editable path="Enemy/Boss"]
+[editable path="Enemy/Boss/Handlers/HurtBox"]
+[editable path="Enemy/Boss/Handlers/HitBoxHandler"]
 [editable path="Platform/Platform"]
