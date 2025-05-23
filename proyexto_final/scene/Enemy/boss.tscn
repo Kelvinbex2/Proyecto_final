@@ -375,7 +375,7 @@ parent = NodePath("../..")
 type = "Enemy"
 
 [node name="HealthHandler" parent="Handlers" node_paths=PackedStringArray("death_handler") instance=ExtResource("6_ske8f")]
-max_health = 20
+max_health = 100
 death_handler = NodePath("../DeathHandler")
 type = "Enemy"
 
