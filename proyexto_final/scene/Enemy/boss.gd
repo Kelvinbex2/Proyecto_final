@@ -98,10 +98,19 @@ func handle_idle() -> void:
 	velocity.x = 0
 	animated_sprite.play("idle")
 
+	if player and global_position.distance_to(player.global_position) < detection_range:
+		flip_handler.handle_flip(self)  # opcional: mirar al jugador
+
 func handle_chase() -> void:
-	if global_position.distance_to(player.global_position) < 50:
+	var distance = global_position.distance_to(player.global_position)
+
+	if distance < 50:
 		state = State.ATTACK
 		attack_loop()
+		return
+	elif distance > detection_range:
+		print("📍 Player fled — boss returning to start position.")
+		state = State.RETURN
 		return
 
 	var direction = (player.global_position - global_position).normalized()
@@ -126,7 +135,7 @@ func handle_return() -> void:
 
 	if global_position.distance_to(start_position.global_position) < 10:
 		velocity.x = 0
-		state = State.HEAL
+		state = State.IDLE
 
 func handle_heal() -> void:
 	velocity.x = 0
@@ -174,7 +183,6 @@ func _on_frame_changed() -> void:
 		"hit":
 			enable_hitbox() if frame == 3 else disable_hitbox()
 
-
 func enable_hitbox():
 	hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
 
@@ -193,7 +201,8 @@ func _on_detection_area_entered(body: Node) -> void:
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = false
-		if state == State.CHASE:
+		if state in [State.CHASE, State.ATTACK]:
+			print("🚪 Player left detection area — boss going idle.")
 			state = State.RETURN
 
 func on_player_hit(area: Area2D) -> void:
