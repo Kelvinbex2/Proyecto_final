@@ -12,6 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://cobs3nhfhj316" path="res://scene/handlers/hurt_box.tscn" id="10_sbq3f"]
 [ext_resource type="PackedScene" uid="uid://bd3teekf53c7k" path="res://scene/handlers/hit_box_handler.tscn" id="11_m7pec"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgykv"]
+bg_color = Color(0.258824, 0.141176, 0.270588, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03cv6"]
+bg_color = Color(0.901961, 0.270588, 0.223529, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wmqlt"]
 atlas = ExtResource("1_wmqlt")
 region = Rect2(138, 176, 69, 44)
@@ -298,36 +312,46 @@ size = Vector2(13, 19)
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgykv"]
 radius = 14.0357
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uxhv8"]
-radius = 22.8035
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6outd"]
+size = Vector2(22, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03cv6"]
 size = Vector2(154, 20)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgykv"]
-bg_color = Color(0.258824, 0.141176, 0.270588, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03cv6"]
-bg_color = Color(0.901961, 0.270588, 0.223529, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_tgykv")
 
+[node name="BossUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 24.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="BossUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_tgykv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_03cv6")
+value = 50.0
+show_percentage = false
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg27v")
-animation = &"idle"
+animation = &"double_hit"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-5.5, 8.5)
 shape = SubResource("RectangleShape2D_tgykv")
 
@@ -377,8 +401,8 @@ collision_mask = 2
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
-position = Vector2(9, 1)
-shape = SubResource("CircleShape2D_uxhv8")
+position = Vector2(24, 5.5)
+shape = SubResource("RectangleShape2D_6outd")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
 position = Vector2(4, 8)
@@ -402,30 +426,11 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 position = Vector2(67, 0)
 shape = SubResource("RectangleShape2D_03cv6")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-
-[node name="BossUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -26.0
-offset_top = -16.0
-offset_right = 14.0
-offset_bottom = 24.0
-
-[node name="HealthBar" type="ProgressBar" parent="BossUI"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -1.0
-offset_bottom = 3.0
-grow_horizontal = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_tgykv")
-theme_override_styles/fill = SubResource("StyleBoxFlat_03cv6")
-value = 50.0
-show_percentage = false
 
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]

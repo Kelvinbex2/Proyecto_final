@@ -16,8 +16,7 @@ extends CharacterBody2D
 @onready var start_position: Marker2D = $StartPosition
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
-@onready var progress_bar: ProgressBar = $BossUI/ProgressBar
-
+@onready var health_bar: ProgressBar = $BossUI/HealthBar
 #endregion
 
 #region Config
@@ -50,6 +49,9 @@ func _ready() -> void:
 	SignalBus.on_player_respawned.connect(_on_player_respawned)
 	print("🔍 Boss start position:", start_position.global_position)
 
+	health_bar.max_value = health_handler.max_health
+	health_bar.value = health_handler.current_health
+
 func _physics_process(delta: float) -> void:
 	if player and player.health_handler.current_health <= 0:
 		is_dying = true
@@ -79,6 +81,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	flip_handler.handle_flip(self)
+
+	if health_bar:
+		health_bar.value = health_handler.current_health
 
 	if not has_fled and health_handler.current_health <= flee_health_threshold and state != State.FLEE:
 		state = State.FLEE
