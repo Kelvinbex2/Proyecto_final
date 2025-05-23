@@ -14,6 +14,6 @@ func _ready() -> void:
 func set_coin_counter(value: int) -> void:
 	if health_bar:
 		health_bar.max_value = GlobalStat.DEFAULT_COINS
-		health_bar.value = value
+		health_bar.value = clamp(value, 0, GlobalStat.DEFAULT_COINS)
 
 		
