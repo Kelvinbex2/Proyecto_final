@@ -16,15 +16,18 @@ extends CharacterBody2D
 @onready var start_position: Marker2D = $StartPosition
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
+@onready var progress_bar: ProgressBar = $BossUI/ProgressBar
+
 #endregion
 
 #region Config
 @export var detection_range := 200
 @export var move_speed := 150
 @export var flee_health_threshold := 5
+@export var heal_amount := 1
 #endregion
 
-enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }
+enum State { IDLE, CHASE, ATTACK, FLEE, RETURN, HEAL }
 var state = State.IDLE
 
 var player: Player = null
@@ -45,6 +48,7 @@ func _ready() -> void:
 	detection_area.body_exited.connect(_on_detection_area_exited)
 	SignalBus.on_player_ready.connect(func(p): player = p)
 	SignalBus.on_player_respawned.connect(_on_player_respawned)
+	print("🔍 Boss start position:", start_position.global_position)
 
 func _physics_process(delta: float) -> void:
 	if player and player.health_handler.current_health <= 0:
@@ -55,6 +59,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_knocked_back:
 		handle_knockback(delta)
+		move_and_slide()
 		return
 
 	gravity_handler.apply_gravity(self, delta)
@@ -69,6 +74,8 @@ func _physics_process(delta: float) -> void:
 				handle_flee()
 			State.RETURN:
 				handle_return()
+			State.HEAL:
+				handle_heal()
 
 	move_and_slide()
 	flip_handler.handle_flip(self)
@@ -101,6 +108,7 @@ func handle_flee() -> void:
 
 	if global_position.distance_to(start_position.global_position) < 10:
 		print("🏁 Boss reached flee destination")
+		velocity.x = 0
 		state = State.RETURN
 
 func handle_return() -> void:
@@ -110,7 +118,17 @@ func handle_return() -> void:
 
 	if global_position.distance_to(start_position.global_position) < 10:
 		velocity.x = 0
-		state = State.IDLE
+		state = State.HEAL
+
+func handle_heal() -> void:
+	velocity.x = 0
+	animated_sprite.play("idle")
+	print("🩹 Boss is healing... Current health:", health_handler.current_health)
+	await get_tree().create_timer(0.5).timeout
+	health_handler.handle_healing(heal_amount)
+	print("💪 Boss healed by", heal_amount, "→ New health:", health_handler.current_health)
+	await get_tree().create_timer(1.5).timeout
+	state = State.IDLE
 
 # ──────────────── COMBAT ──────────────── #
 
