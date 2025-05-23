@@ -13,7 +13,7 @@ extends CharacterBody2D
 #endregion
 
 #region Nodes
-@onready var start_position: Marker2D = $StartPosition
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var health_bar: ProgressBar = $BossUI/HealthBar
@@ -23,6 +23,7 @@ extends CharacterBody2D
 @export var detection_range := 200
 @export var move_speed := 150
 @export var flee_health_threshold := 5
+@export var start_position: Marker2D 
 #endregion
 
 enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }

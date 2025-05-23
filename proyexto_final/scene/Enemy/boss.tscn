@@ -429,7 +429,5 @@ visible = false
 position = Vector2(67, 0)
 shape = SubResource("RectangleShape2D_03cv6")
 
-[node name="StartPosition" type="Marker2D" parent="."]
-
 [editable path="Handlers/HurtBox"]
 [editable path="Handlers/HitBoxHandler"]

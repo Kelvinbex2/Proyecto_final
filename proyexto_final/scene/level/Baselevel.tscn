@@ -1796,8 +1796,9 @@ rotation = 0.0169625
 [node name="Goblin" parent="Enemy" instance=ExtResource("37_qrcug")]
 position = Vector2(711, 463)
 
-[node name="Boss" parent="Enemy" instance=ExtResource("42_a757i")]
+[node name="Boss" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_a757i")]
 position = Vector2(627, 457)
+start_position = NodePath("../../StartPosi")
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
@@ -1822,6 +1823,9 @@ position = Vector2(333, 109)
 position = Vector2(487, 454)
 collision_layer = 0
 collision_mask = 14
+
+[node name="StartPosi" type="Marker2D" parent="."]
+position = Vector2(1026, 462)
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]
