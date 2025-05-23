@@ -47,7 +47,6 @@ func _ready() -> void:
 	detection_area.body_exited.connect(_on_detection_area_exited)
 	SignalBus.on_player_ready.connect(func(p): player = p)
 	SignalBus.on_player_respawned.connect(_on_player_respawned)
-	print("🔍 Boss start position:", start_position.global_position)
 
 	health_bar.max_value = health_handler.max_health
 	health_bar.value = health_handler.current_health
@@ -98,9 +97,6 @@ func handle_idle() -> void:
 	velocity.x = 0
 	animated_sprite.play("idle")
 
-	if player and global_position.distance_to(player.global_position) < detection_range:
-		flip_handler.handle_flip(self)  # opcional: mirar al jugador
-
 func handle_chase() -> void:
 	var distance = global_position.distance_to(player.global_position)
 
@@ -140,10 +136,8 @@ func handle_return() -> void:
 func handle_heal() -> void:
 	velocity.x = 0
 	animated_sprite.play("idle")
-	print("🩹 Boss is healing... Current health:", health_handler.current_health)
 	await get_tree().create_timer(0.5).timeout
 	health_handler.handle_healing(heal_amount)
-	print("💪 Boss healed by", heal_amount, "→ New health:", health_handler.current_health)
 	await get_tree().create_timer(1.5).timeout
 	state = State.IDLE
 
@@ -195,14 +189,12 @@ func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != State.FLEE and not is_dying:
 		is_player_in_range = true
 		player = body
-		if not is_attacking:
-			state = State.CHASE
+		state = State.CHASE
 
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = false
 		if state in [State.CHASE, State.ATTACK]:
-			print("🚪 Player left detection area — boss going idle.")
 			state = State.RETURN
 
 func on_player_hit(area: Area2D) -> void:
