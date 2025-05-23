@@ -1,57 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dspv53ufjllhe"]
+[gd_scene load_steps=3 format=3 uid="uid://dspv53ufjllhe"]
 
 [ext_resource type="Script" uid="uid://bpfjmv5ldbbrj" path="res://scene/ui/script_ui/coin_counter.gd" id="1_i0gne"]
-[ext_resource type="Texture2D" uid="uid://8wtfi1rod7v7" path="res://Assets/character/coins-chests-etc-2-0-noborders.png" id="2_qeey1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pako5"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(400, 225, 15, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j244"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(416, 225, 15, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_crpcb"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(432, 225, 15, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6frk7"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(448, 225, 15, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cu6im"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(464, 225, 15, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_200lk"]
-atlas = ExtResource("2_qeey1")
-region = Rect2(480, 225, 15, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pako5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pako5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6j244")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_crpcb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6frk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cu6im")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_200lk")
-}],
-"loop": true,
-"name": &"oro",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://qgem2l1ffgqw" path="res://scene/heakthBar/health_bar.tscn" id="2_qeey1"]
 
 [node name="CoinCounter" type="Control"]
 layout_mode = 3
@@ -59,28 +9,9 @@ anchors_preset = 0
 size_flags_vertical = 0
 script = ExtResource("1_i0gne")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-offset_right = 44.0
-offset_bottom = 28.0
-theme_override_constants/margin_left = 27
-theme_override_constants/margin_top = 22
-theme_override_constants/margin_right = 9
-theme_override_constants/margin_bottom = 3
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer"]
-position = Vector2(14, 19)
-sprite_frames = SubResource("SpriteFrames_pako5")
-animation = &"oro"
-autoplay = "oro"
-frame_progress = 0.10548
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/margin_top = -20
-
-[node name="coinCounter" type="Label" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "0"
+[node name="HealthBar" parent="." instance=ExtResource("2_qeey1")]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 23.0

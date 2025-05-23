@@ -1,7 +1,8 @@
 class_name CoinCounter_UI
 extends Control
 
-@onready var coin_counter: Label = $MarginContainer/MarginContainer/coinCounter
+
+@onready var health_bar: ProgressBar = $HealthBar
 
 
 func _ready() -> void:
@@ -10,5 +11,9 @@ func _ready() -> void:
 	
 
 
-func set_coin_counter(value : int) -> void:
-	coin_counter.text = str(value)
+func set_coin_counter(value: int) -> void:
+	if health_bar:
+		health_bar.max_value = GlobalStat.DEFAULT_COINS
+		health_bar.value = value
+
+		
