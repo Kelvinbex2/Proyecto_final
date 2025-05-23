@@ -21,7 +21,7 @@ extends CharacterBody2D
 #region Config
 @export var detection_range := 200
 @export var move_speed := 150
-@export var flee_health_threshold := 1
+@export var flee_health_threshold := 5
 #endregion
 
 enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }
@@ -35,6 +35,7 @@ var is_player_in_range := false
 
 var knockback_time := 0.2
 var knockback_timer := 0.0
+var has_fled := false
 
 var blood = load("res://scene/effect/blood_effect.tscn")
 
@@ -58,24 +59,23 @@ func _physics_process(delta: float) -> void:
 
 	gravity_handler.apply_gravity(self, delta)
 
-	match state:
-		State.IDLE:
-			handle_idle()
-		State.CHASE:
-			handle_chase()
-		State.ATTACK:
-			# Coroutine already handles this
-			pass
-		State.FLEE:
-			handle_flee()
-		State.RETURN:
-			handle_return()
+	if not is_attacking:
+		match state:
+			State.IDLE:
+				handle_idle()
+			State.CHASE:
+				handle_chase()
+			State.FLEE:
+				handle_flee()
+			State.RETURN:
+				handle_return()
 
 	move_and_slide()
 	flip_handler.handle_flip(self)
 
-	if health_handler.current_health <= flee_health_threshold and state != State.FLEE:
+	if not has_fled and health_handler.current_health <= flee_health_threshold and state != State.FLEE:
 		state = State.FLEE
+		has_fled = true
 
 # ──────────────── STATE METHODS ──────────────── #
 
@@ -84,26 +84,33 @@ func handle_idle() -> void:
 	animated_sprite.play("idle")
 
 func handle_chase() -> void:
+	if global_position.distance_to(player.global_position) < 50:
+		state = State.ATTACK
+		attack_loop()
+		return
+
 	var direction = (player.global_position - global_position).normalized()
 	velocity.x = direction.x * move_speed
 	animated_sprite.play("run")
 
-	if global_position.distance_to(player.global_position) < 50 and not is_attacking:
-		state = State.ATTACK
-		attack_loop()
-
 func handle_flee() -> void:
+	print("📢 FLEE MODE - Boss is retreating...")
 	var direction = (start_position.global_position - global_position).normalized()
 	velocity.x = direction.x * move_speed
 	animated_sprite.play("run")
 
 	if global_position.distance_to(start_position.global_position) < 10:
+		print("🏁 Boss reached flee destination")
 		state = State.RETURN
 
 func handle_return() -> void:
-	velocity.x = 0
-	state = State.IDLE
-	animated_sprite.play("idle")
+	var direction = (start_position.global_position - global_position).normalized()
+	velocity.x = direction.x * move_speed
+	animated_sprite.play("run")
+
+	if global_position.distance_to(start_position.global_position) < 10:
+		velocity.x = 0
+		state = State.IDLE
 
 # ──────────────── COMBAT ──────────────── #
 
@@ -112,21 +119,20 @@ func attack_loop() -> void:
 		return
 
 	is_attacking = true
-	state = State.ATTACK
+	velocity.x = 0
+	animated_sprite.play("idle")
 
 	while is_player_in_range and not health_handler.is_dead and not is_dying:
 		hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
-		animated_sprite.play("hit")
+		var attack_animation = ["hit", "double_hit"].pick_random()
+		animated_sprite.play(attack_animation)
 		await animated_sprite.animation_finished
-
 		hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
+
 		if not is_player_in_range:
 			break
 
-		await get_tree().create_timer(0.6).timeout
-
-		animated_sprite.play("double_hit")
-		await animated_sprite.animation_finished
+		await get_tree().create_timer(0.5).timeout
 
 	is_attacking = false
 	if not health_handler.is_dead and not is_dying:
@@ -138,7 +144,8 @@ func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != State.FLEE and not is_dying:
 		is_player_in_range = true
 		player = body
-		state = State.CHASE
+		if not is_attacking:
+			state = State.CHASE
 
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
@@ -160,6 +167,7 @@ func on_player_hit(area: Area2D) -> void:
 func _on_player_respawned() -> void:
 	is_dying = false
 	state = State.IDLE
+	has_fled = false
 
 # ──────────────── UTILITIES ──────────────── #
 
