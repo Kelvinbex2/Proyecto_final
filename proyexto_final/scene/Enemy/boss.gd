@@ -23,10 +23,9 @@ extends CharacterBody2D
 @export var detection_range := 200
 @export var move_speed := 150
 @export var flee_health_threshold := 5
-@export var heal_amount := 1
 #endregion
 
-enum State { IDLE, CHASE, ATTACK, FLEE, RETURN, HEAL }
+enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }
 var state = State.IDLE
 
 var player: Player = null
@@ -78,8 +77,6 @@ func _physics_process(delta: float) -> void:
 				handle_flee()
 			State.RETURN:
 				handle_return()
-			State.HEAL:
-				handle_heal()
 
 	move_and_slide()
 	flip_handler.handle_flip(self)
@@ -132,14 +129,6 @@ func handle_return() -> void:
 	if global_position.distance_to(start_position.global_position) < 10:
 		velocity.x = 0
 		state = State.IDLE
-
-func handle_heal() -> void:
-	velocity.x = 0
-	animated_sprite.play("idle")
-	await get_tree().create_timer(0.5).timeout
-	health_handler.handle_healing(heal_amount)
-	await get_tree().create_timer(1.5).timeout
-	state = State.IDLE
 
 # ──────────────── COMBAT ──────────────── #
 
