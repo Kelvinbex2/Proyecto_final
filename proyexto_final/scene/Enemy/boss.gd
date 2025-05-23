@@ -31,11 +31,7 @@ var state = State.IDLE
 var player: Player = null
 var is_attacking := false
 var is_dying := false
-var is_knocked_back := false
 var is_player_in_range := false
-
-var knockback_time := 0.2
-var knockback_timer := 0.0
 var has_fled := false
 
 var blood = load("res://scene/effect/blood_effect.tscn")
@@ -58,11 +54,6 @@ func _physics_process(delta: float) -> void:
 		is_dying = true
 		return
 	if health_handler.is_dead or is_dying:
-		return
-
-	if is_knocked_back:
-		handle_knockback(delta)
-		move_and_slide()
 		return
 
 	gravity_handler.apply_gravity(self, delta)
@@ -190,10 +181,6 @@ func on_player_hit(area: Area2D) -> void:
 	if is_dying:
 		return
 
-	var direction = sign(global_position.x - area.global_position.x)
-	velocity.x = direction * 150
-	is_knocked_back = true
-	knockback_timer = knockback_time
 	drop_handler.add_coin(1)
 	start_blink()
 
@@ -203,11 +190,6 @@ func _on_player_respawned() -> void:
 	has_fled = false
 
 # ──────────────── UTILITIES ──────────────── #
-
-func handle_knockback(delta: float) -> void:
-	knockback_timer -= delta
-	if knockback_timer <= 0:
-		is_knocked_back = false
 
 func start_blink() -> void:
 	for i in range(5):
