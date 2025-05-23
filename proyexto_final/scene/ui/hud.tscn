@@ -23,6 +23,14 @@ anchor_right = 0.5
 anchor_bottom = 0.0
 grow_vertical = 1
 
+[node name="Contador" parent="." instance=ExtResource("3_w1l6y")]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 5.0
+offset_right = 138.0
+offset_bottom = 45.0
+size_flags_horizontal = 4
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 109.0
@@ -30,11 +38,7 @@ offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 56
+theme_override_constants/separation = 150
 
 [node name="CoinCounter" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_7n5te")]
 layout_mode = 2
-
-[node name="Contador" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_w1l6y")]
-layout_mode = 2
-size_flags_horizontal = 4

@@ -25,7 +25,7 @@ level_1 = ExtResource("1_am8c5")
 level_2 = ExtResource("5_b8g54")
 
 [node name="StateTimer" parent="Manager/GameState" index="0"]
-wait_time = 4096.0
+wait_time = 10.0
 
 [node name="Camera" type="Node" parent="." groups=["camera_container"]]
 
