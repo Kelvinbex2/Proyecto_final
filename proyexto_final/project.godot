@@ -26,6 +26,7 @@ SettingSignalBus="*res://autoLoads/SettingSignalBus.gd"
 DialogSystem="*res://scene/Diaglog/dialog_system.tscn"
 GameOver="*res://scene/GameOver/game_over.tscn"
 MusicManager="*res://autoLoads/music_manager.tscn"
+GameSetting="*res://autoLoads/game_setting.tscn"
 
 [display]
 
@@ -35,6 +36,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 Player=""
+Boss=""
 
 [input]
 
