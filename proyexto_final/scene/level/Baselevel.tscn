@@ -1589,8 +1589,8 @@ emission_rect_extents = Vector2(2000, 500)
 spread = 105.88
 gravity = Vector2(-200, 980)
 initial_velocity_max = 25.0
-scale_amount_min = 0.0
-scale_amount_max = 2.5
+scale_amount_min = 0.2
+scale_amount_max = 3.0
 color = Color(0.619608, 0.768627, 0.847059, 1)
 
 [node name="Items" type="Control" parent="."]
