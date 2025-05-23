@@ -52,6 +52,9 @@ func _ready() -> void:
 	health_bar.max_value = health_handler.max_health
 	health_bar.value = health_handler.current_health
 
+	animated_sprite.frame_changed.connect(_on_frame_changed)
+	disable_hitbox()
+
 func _physics_process(delta: float) -> void:
 	if player and player.health_handler.current_health <= 0:
 		is_dying = true
@@ -146,11 +149,9 @@ func attack_loop() -> void:
 	animated_sprite.play("idle")
 
 	while is_player_in_range and not health_handler.is_dead and not is_dying:
-		hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
 		var attack_animation = ["hit", "double_hit"].pick_random()
 		animated_sprite.play(attack_animation)
 		await animated_sprite.animation_finished
-		hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
 
 		if not is_player_in_range:
 			break
@@ -160,6 +161,25 @@ func attack_loop() -> void:
 	is_attacking = false
 	if not health_handler.is_dead and not is_dying:
 		state = State.CHASE
+
+# ──────────────── HITBOX CONTROL ──────────────── #
+
+func _on_frame_changed() -> void:
+	var current_anim = animated_sprite.animation
+	var frame = animated_sprite.frame
+
+	match current_anim:
+		"double_hit":
+			enable_hitbox() if frame == 1 else disable_hitbox()
+		"hit":
+			enable_hitbox() if frame == 3 else disable_hitbox()
+
+
+func enable_hitbox():
+	hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
+
+func disable_hitbox():
+	hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
 
 # ──────────────── SIGNAL HANDLERS ──────────────── #
 
