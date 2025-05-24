@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://6a6dg8fmdscf"]
+[gd_scene load_steps=2 format=3 uid="uid://dx3s130nyprgt"]
 
-[ext_resource type="Script" uid="uid://fapmyrj0le7e" path="res://autoLoads/game_setting.gd" id="1_73bc5"]
+[sub_resource type="GDScript" id="GDScript_c75kf"]
+script/source = "extends Node
+var is_multiplayer_enabled: bool = false
+var is_server: bool = true  
+"
 
 [node name="GameSetting" type="Node"]
-script = ExtResource("1_73bc5")
+script = SubResource("GDScript_c75kf")
