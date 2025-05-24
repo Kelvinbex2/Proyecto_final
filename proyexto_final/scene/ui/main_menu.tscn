@@ -84,6 +84,18 @@ theme_override_styles/normal = ExtResource("3_k3dtv")
 text = "Start Game
 "
 
+[node name="btnJoin" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.909804, 0.768627, 1)
+theme_override_fonts/font = SubResource("SystemFont_vww0c")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("3_k3dtv")
+theme_override_styles/pressed = ExtResource("3_k3dtv")
+theme_override_styles/normal = ExtResource("3_k3dtv")
+text = "Join Game
+"
+
 [node name="btnOpcion" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
