@@ -1,5 +1,9 @@
 class_name GameState
 extends Node
+
+const DEFAULT_SPAWN_POSITION := Vector2(232, 345)
+
+
 @onready var state_timer: Timer = $StateTimer
 @export var upgrade_menu: PackedScene = null
 @export var level_1: PackedScene = null
@@ -140,4 +144,5 @@ func add_player(peer_id: int):
 	var player = preload("res://scene/player/player.tscn").instantiate()
 	player.name = "Player_%s" % peer_id
 	player.set_multiplayer_authority(peer_id)
+	player.global_position = DEFAULT_SPAWN_POSITION  #  Todos aparecen aquí
 	NodeExtensions.get_entity_container().add_child(player)
