@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dggq2l7vqs10s"]
+[gd_scene load_steps=6 format=3 uid="uid://dggq2l7vqs10s"]
 
 [ext_resource type="Script" uid="uid://k7jnf4t6ku5h" path="res://scene/exposion/explosion_effect.gd" id="1_j5dui"]
+[ext_resource type="Texture2D" uid="uid://iqxbgk1h2rm" path="res://Assets/character/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="2_e6oe4"]
 
 [sub_resource type="Curve" id="Curve_e6oe4"]
 _data = [Vector2(0.00704225, 1), 0.0, 0.0, 0, 0, Vector2(0.989437, 0.0593343), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="ExplosionEffect" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbxhu"]
+atlas = ExtResource("2_e6oe4")
+region = Rect2(96, 32, 16, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o1k2"]
+size = Vector2(17, 63)
+
+[node name="ExplosionEffect" type="StaticBody2D"]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_j5dui")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 60
+amount = 67
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -22,3 +31,11 @@ initial_velocity_max = 100.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_e6oe4")
+color = Color(0.236098, 0.151934, 0.0482797, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mbxhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_7o1k2")

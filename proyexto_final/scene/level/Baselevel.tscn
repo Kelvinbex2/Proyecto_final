@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=49 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bg0jrb1sn4c3t" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/decorations/sign.png" id="9_iv3h3"]
 [ext_resource type="Texture2D" uid="uid://c5v7450g6byro" path="res://Assets/character/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_iv3h3"]
 [ext_resource type="PackedScene" uid="uid://cgnh1he3p86xf" path="res://scene/managers/collectable_spawn.tscn" id="15_iv3h3"]
+[ext_resource type="PackedScene" uid="uid://dggq2l7vqs10s" path="res://scene/exposion/explosion_effect.tscn" id="16_a757i"]
 [ext_resource type="PackedScene" uid="uid://we5224hq7e46" path="res://scene/managers/entity_spawn.tscn" id="16_vv3gj"]
 [ext_resource type="PackedScene" uid="uid://ctk2hyhwkmqsx" path="res://scene/player/player.tscn" id="17_52qnv"]
 [ext_resource type="PackedScene" uid="uid://blv3ldrsaicbn" path="res://scene/platform/platform.tscn" id="17_j1l4i"]
@@ -39,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
+[ext_resource type="PackedScene" uid="uid://cy84lbx1op3ju" path="res://scene/credit/credit_trigger.tscn" id="41_oumh2"]
 [ext_resource type="PackedScene" uid="uid://pbiww2xqys71" path="res://scene/Enemy/boss.tscn" id="42_a757i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
@@ -1212,6 +1214,9 @@ scale_amount_min = 0.2
 scale_amount_max = 3.0
 color = Color(0.619608, 0.768627, 0.847059, 1)
 
+[node name="ExplosionEffect" parent="effect" instance=ExtResource("16_a757i")]
+position = Vector2(-32, -27)
+
 [node name="Items" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1442,6 +1447,11 @@ collision_mask = 14
 
 [node name="StartPosi" type="Marker2D" parent="."]
 position = Vector2(1026, 462)
+
+[node name="CreditTrigger" parent="." instance=ExtResource("41_oumh2")]
+position = Vector2(372, 453)
+collision_layer = 0
+collision_mask = 2
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]
