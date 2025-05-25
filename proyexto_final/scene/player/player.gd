@@ -105,6 +105,7 @@ func play_death_animation() -> void:
 	animatedSprite2D.play("die")
 	await get_tree().create_timer(2.5).timeout
 	
+	
 	GameOver.show_game_over_screen()
 	#if checkpoint_position == Vector2.ZERO:
 		#reload_scene_level()
@@ -124,8 +125,9 @@ func _on_player_die() -> void:
 	
 	if health_handler.current_health <= 0:
 		is_dying = true
-		SignalBus.emit_on_player_die()
+		##SignalBus.emit_on_player_die()
 		play_death_animation()
+		#queue_free()
 
 func reload_scene() -> void:
 	
