@@ -318,7 +318,7 @@ radius = 30.5941
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03cv6"]
 size = Vector2(154, 20)
 
-[node name="Boss" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D" groups=["Boss"]]
 collision_layer = 4
 script = ExtResource("1_tgykv")
 
