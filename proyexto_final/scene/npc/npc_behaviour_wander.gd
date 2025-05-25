@@ -55,6 +55,7 @@ func start() -> void:
 		return
 	start()
 
-func _set_wander_range(val : int) -> void:
-	wander_range =val
-	collision_shape.ra = val * 32.0
+func _set_wander_range(val: int) -> void:
+	wander_range = val
+	if collision_shape and collision_shape.shape is CircleShape2D:
+		collision_shape.shape.radius = val * 32.0

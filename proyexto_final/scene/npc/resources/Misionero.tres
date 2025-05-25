@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="NpcResource" load_steps=14 format=3 uid="uid://3mocu1o82p5"]
+
+[ext_resource type="Script" uid="uid://bd6jrugj8h3ur" path="res://scene/npc/npc_resource.gd" id="1_wh0l2"]
+[ext_resource type="Texture2D" uid="uid://coa1eyoboh7u8" path="res://Assets/character/adventurer-Sheet.png" id="2_ynunh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32eak"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy4kd"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(50, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ibdw"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(100, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njd70"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(150, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp4cp"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(50, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp7em"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(100, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq5x6"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(150, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmwgr"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(200, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nbv3"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(250, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ql26"]
+atlas = ExtResource("2_ynunh")
+region = Rect2(300, 37, 50, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iflt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32eak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy4kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ibdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njd70")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp4cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp7em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq5x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmwgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nbv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ql26")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_wh0l2")
+npc_name = "Missionero"
+sprite_frames = SubResource("SpriteFrames_6iflt")
+dialogo_audio = 1.0
+metadata/_custom_type_script = "uid://bd6jrugj8h3ur"

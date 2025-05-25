@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=52 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://chmt3kmuuqv3" path="res://scene/npc/npc_behaviour_patrol.tscn" id="30_hegci"]
 [ext_resource type="Resource" uid="uid://ggp7ojfp02pd" path="res://scene/npc/resources/Campesino.tres" id="30_jvbgy"]
 [ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
+[ext_resource type="Resource" uid="uid://3mocu1o82p5" path="res://scene/npc/resources/Misionero.tres" id="31_4jm1m"]
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
@@ -1195,7 +1196,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(176, 352)
+position = Vector2(1525, 581)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1316,6 +1317,53 @@ metadata/_custom_type_script = "uid://cdxc31wxd765y"
 script = ExtResource("30_28ddt")
 text = "Que pena
 Suerte"
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="Misionario" parent="." instance=ExtResource("26_025cg")]
+position = Vector2(2176.19, 600.924)
+collision_layer = 2
+collision_mask = 1
+npc_resoure = ExtResource("31_4jm1m")
+
+[node name="NpcBehaviourWander" parent="Misionario" instance=ExtResource("27_4kuo4")]
+wander_range = 10
+idle_duration = 20.0
+
+[node name="DialogInterraction" parent="Misionario" instance=ExtResource("29_8arqq")]
+position = Vector2(-0.0917969, 12.059)
+
+[node name="DialogText" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "Hola,[b] campesino[/b] solo aquellos que renuncien a su voluntad podrán hallar la paz eterna."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText2" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "
+[wave]Te agradezco que me lo hayas recordado"
+npc_info = ExtResource("30_jvbgy")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText3" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "¿Estás seguro de seguir por este camino?"
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText4" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "No descansaré hasta verlos caer. Por la sangre de los míos, ellos pagarán con la suya."
+npc_info = ExtResource("30_jvbgy")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText5" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "Jajajaja... nos cruzaremos de nuevo en el camino, no lo dudes."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText6" type="Node" parent="Misionario/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "¿Qué quieres decir con eso?"
+npc_info = ExtResource("30_jvbgy")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="Npc2" parent="." instance=ExtResource("26_025cg")]
