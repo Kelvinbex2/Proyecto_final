@@ -1195,7 +1195,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(416, 409)
+position = Vector2(176, 352)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1254,6 +1254,16 @@ quantity = 2
 position = Vector2(197, 461)
 item_data = ExtResource("23_025cg")
 quantity = 9
+
+[node name="Treasure3" parent="Items" instance=ExtResource("25_4kavb")]
+position = Vector2(1270, 362)
+item_data = ExtResource("22_4kavb")
+quantity = 4
+
+[node name="Treasure4" parent="Items" instance=ExtResource("25_4kavb")]
+position = Vector2(1882, 607)
+item_data = ExtResource("23_025cg")
+quantity = 4
 
 [node name="Diamante" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(257, 373)
@@ -1424,13 +1434,17 @@ position = Vector2(158, -4)
 start_position = NodePath("../../StartPosi")
 
 [node name="Skeleton" parent="Enemy" instance=ExtResource("40_psfj5")]
-position = Vector2(576, 457)
+position = Vector2(236, 457)
 
 [node name="EvilGoblin" parent="Enemy" instance=ExtResource("41_psfj5")]
-position = Vector2(293, 461)
+position = Vector2(397, 636)
 
 [node name="Misionarry" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_krj55")]
-position = Vector2(336, 462)
+position = Vector2(1107, 127)
+start_position = NodePath("../../StartPosi")
+
+[node name="Misionarry2" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_krj55")]
+position = Vector2(586, 125)
 start_position = NodePath("../../StartPosi")
 
 [node name="Platform" type="Control" parent="."]
@@ -1464,6 +1478,12 @@ collision_mask = 14
 
 [node name="StartPosi" type="Marker2D" parent="."]
 position = Vector2(748, 115)
+
+[node name="npc" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]
