@@ -1,7 +1,8 @@
 class_name GameState
 extends Node
 
-const DEFAULT_SPAWN_POSITION := Vector2(232, 345)
+const DEFAULT_SPAWN_POSITION := Vector2(208, 347)
+
 
 
 @onready var state_timer: Timer = $StateTimer
