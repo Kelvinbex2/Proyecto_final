@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=50 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
+[ext_resource type="PackedScene" uid="uid://c3qdutvlc2tnn" path="res://scene/Enemy/Skeleton.tscn" id="40_psfj5"]
 [ext_resource type="PackedScene" uid="uid://cy84lbx1op3ju" path="res://scene/credit/credit_trigger.tscn" id="41_oumh2"]
 [ext_resource type="PackedScene" uid="uid://pbiww2xqys71" path="res://scene/Enemy/boss.tscn" id="42_a757i"]
 
@@ -1420,6 +1421,9 @@ position = Vector2(711, 463)
 [node name="Boss" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_a757i")]
 position = Vector2(158, -4)
 start_position = NodePath("../../StartPosi")
+
+[node name="Skeleton" parent="Enemy" instance=ExtResource("40_psfj5")]
+position = Vector2(565, 455)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
