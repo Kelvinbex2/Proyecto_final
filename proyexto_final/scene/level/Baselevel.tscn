@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=49 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -41,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
 [ext_resource type="PackedScene" uid="uid://c3qdutvlc2tnn" path="res://scene/Enemy/Skeleton.tscn" id="40_psfj5"]
-[ext_resource type="PackedScene" uid="uid://cy84lbx1op3ju" path="res://scene/credit/credit_trigger.tscn" id="41_oumh2"]
 [ext_resource type="PackedScene" uid="uid://pbiww2xqys71" path="res://scene/Enemy/boss.tscn" id="42_a757i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c01b"]
@@ -1251,8 +1250,8 @@ quantity = 2
 
 [node name="Treasure2" parent="Items" instance=ExtResource("25_4kavb")]
 position = Vector2(197, 461)
-item_data = ExtResource("22_4kavb")
-quantity = 4
+item_data = ExtResource("23_025cg")
+quantity = 9
 
 [node name="Diamante" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(257, 373)
@@ -1279,7 +1278,7 @@ position = Vector2(847, 128)
 position = Vector2(957, 129)
 
 [node name="Npc" parent="." instance=ExtResource("26_025cg")]
-position = Vector2(278, 452)
+position = Vector2(267, 354)
 collision_layer = 2
 collision_mask = 1
 npc_resoure = ExtResource("27_4fywq")
@@ -1423,7 +1422,7 @@ position = Vector2(158, -4)
 start_position = NodePath("../../StartPosi")
 
 [node name="Skeleton" parent="Enemy" instance=ExtResource("40_psfj5")]
-position = Vector2(576, 455)
+position = Vector2(576, 457)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
@@ -1445,17 +1444,17 @@ position = Vector2(1357, 312)
 position = Vector2(333, 109)
 
 [node name="CheckPoint" parent="." instance=ExtResource("40_oumh2")]
-position = Vector2(487, 454)
+position = Vector2(384, 456)
+collision_layer = 0
+collision_mask = 14
+
+[node name="CheckPoint2" parent="." instance=ExtResource("40_oumh2")]
+position = Vector2(1188, 454)
 collision_layer = 0
 collision_mask = 14
 
 [node name="StartPosi" type="Marker2D" parent="."]
 position = Vector2(748, 115)
-
-[node name="CreditTrigger" parent="." instance=ExtResource("41_oumh2")]
-position = Vector2(372, 453)
-collision_layer = 0
-collision_mask = 2
 
 [editable path="EntitySpawn"]
 [editable path="DeadZone/DeadZone4"]
