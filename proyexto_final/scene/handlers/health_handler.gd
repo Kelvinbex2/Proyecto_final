@@ -30,7 +30,7 @@ func damage(val: int) -> void:
 		"Enemy":
 			current_health -= val
 			
-	if current_health <= 0:
+	if current_health <= 0 and not is_dead:
 		current_health = 0
 		is_dead = true
 		death_handler.death()
