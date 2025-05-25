@@ -1446,7 +1446,7 @@ collision_layer = 0
 collision_mask = 14
 
 [node name="StartPosi" type="Marker2D" parent="."]
-position = Vector2(1026, 462)
+position = Vector2(748, 115)
 
 [node name="CreditTrigger" parent="." instance=ExtResource("41_oumh2")]
 position = Vector2(372, 453)
