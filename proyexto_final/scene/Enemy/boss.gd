@@ -13,7 +13,6 @@ extends CharacterBody2D
 #endregion
 
 #region Nodes
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var health_bar: ProgressBar = $BossUI/HealthBar
@@ -23,7 +22,7 @@ extends CharacterBody2D
 @export var detection_range := 200
 @export var move_speed := 150
 @export var flee_health_threshold := 5
-@export var start_position: Marker2D 
+@export var start_position: Marker2D
 #endregion
 
 enum State { IDLE, CHASE, ATTACK, FLEE, RETURN }
@@ -34,6 +33,7 @@ var is_attacking := false
 var is_dying := false
 var is_player_in_range := false
 var has_fled := false
+var is_recovering := false
 
 var blood = load("res://scene/effect/blood_effect.tscn")
 
@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 
 	gravity_handler.apply_gravity(self, delta)
 
-	# ✅ FLEE and RETURN always run, even while attacking
 	match state:
 		State.FLEE:
 			handle_flee()
@@ -96,8 +95,7 @@ func handle_chase() -> void:
 		attack_loop()
 		return
 	elif distance > detection_range:
-		print("📍 Player fled — boss returning to start position.")
-		state = State.RETURN
+		print("📍 Player out of range — but boss stays put unless fleeing.")
 		return
 
 	var direction = (player.global_position - global_position).normalized()
@@ -111,9 +109,10 @@ func handle_flee() -> void:
 	animated_sprite.play("run")
 
 	if global_position.distance_to(start_position.global_position) < 10:
-		print("🏁 Boss reached flee destination")
+		print("🏁 Boss reached flee destination — starting recovery")
 		velocity.x = 0
-		state = State.RETURN
+		await recover_health()
+		state = State.IDLE
 
 func handle_return() -> void:
 	var direction = (start_position.global_position - global_position).normalized()
@@ -123,6 +122,24 @@ func handle_return() -> void:
 	if global_position.distance_to(start_position.global_position) < 10:
 		velocity.x = 0
 		state = State.IDLE
+
+# ──────────────── RECOVERY ──────────────── #
+
+func recover_health() -> void:
+	if is_recovering:
+		return
+
+	is_recovering = true
+	state = State.IDLE
+	animated_sprite.play("idle")
+
+	while health_handler.current_health < health_handler.max_health:
+		health_handler.current_health += 1
+		health_bar.value = health_handler.current_health
+		await get_tree().create_timer(0.2).timeout
+
+	is_recovering = false
+	has_fled = false
 
 # ──────────────── COMBAT ──────────────── #
 
@@ -172,13 +189,13 @@ func _on_detection_area_entered(body: Node) -> void:
 	if body.is_in_group("Player") and not is_dying:
 		is_player_in_range = true
 		player = body
-		if state not in [State.FLEE, State.RETURN]:
+		if state == State.IDLE and not is_recovering:
 			state = State.CHASE
 
 func _on_detection_area_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		is_player_in_range = false
-		if state in [State.CHASE, State.ATTACK]:
+		if state in [State.CHASE, State.ATTACK] and not has_fled and not is_recovering:
 			state = State.RETURN
 
 func on_player_hit(area: Area2D) -> void:
