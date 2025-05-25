@@ -25,9 +25,9 @@ var current_state = ActiveState
 
 func _ready() -> void:
 	if multiplayer.is_server():
-		add_player(multiplayer.get_unique_id())
+		rpc("add_player", multiplayer.get_unique_id())
 
-	multiplayer.peer_connected.connect(_on_peer_connected)
+	
 	state_timer.timeout.connect(on_active_state_end)
 	SignalBus.emit_on_game_state_manager_ready(self)
 	SignalBus.on_portal_triggered.connect(_on_portal_triggered)
@@ -139,11 +139,12 @@ func restart_level() -> void:
 
 
 func _on_peer_connected(peer_id):
-	add_player(peer_id)
+	rpc("add_player", peer_id)
 
+@rpc("any_peer", "call_local")
 func add_player(peer_id: int):
 	var player = preload("res://scene/player/player.tscn").instantiate()
 	player.name = "Player_%s" % peer_id
 	player.set_multiplayer_authority(peer_id)
-	player.global_position = DEFAULT_SPAWN_POSITION  #  Todos aparecen aquí
+	player.global_position = DEFAULT_SPAWN_POSITION
 	NodeExtensions.get_entity_container().add_child(player)
