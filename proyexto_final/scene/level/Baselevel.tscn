@@ -1433,7 +1433,7 @@ collision_layer = 0
 collision_mask = 14
 
 [node name="CheckPoint4" parent="Platform" instance=ExtResource("40_oumh2")]
-position = Vector2(1308, 626)
+position = Vector2(1308, 629)
 collision_layer = 0
 collision_mask = 14
 
