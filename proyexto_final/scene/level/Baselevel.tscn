@@ -1318,6 +1318,29 @@ text = "Que pena
 Suerte"
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
+[node name="Npc3" parent="." instance=ExtResource("26_025cg")]
+position = Vector2(1717, 590)
+collision_layer = 2
+collision_mask = 1
+npc_resoure = ExtResource("29_x5ysf")
+
+[node name="NpcBehaviourWander" parent="Npc3" instance=ExtResource("27_4kuo4")]
+
+[node name="DialogInterraction" parent="Npc3" instance=ExtResource("29_8arqq")]
+position = Vector2(-1, 24)
+
+[node name="DialogText" type="Node" parent="Npc3/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "[wave]Atención![b]Campesino[/b]Los misionarios pueden ser peligrosos."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText2" type="Node" parent="Npc3/DialogInterraction"]
+script = ExtResource("30_28ddt")
+text = "
+[wave]Gracias Ericka"
+npc_info = ExtResource("30_jvbgy")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
 [node name="Npc2" parent="." instance=ExtResource("26_025cg")]
 position = Vector2(2507, 248)
 collision_layer = 10
