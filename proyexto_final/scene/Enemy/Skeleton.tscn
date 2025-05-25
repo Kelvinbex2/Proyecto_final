@@ -250,7 +250,7 @@ metadata/_custom_type_script = "uid://3u18amy04ntt"
 
 [node name="HealthHandler" type="Node2D" parent="handlers" node_paths=PackedStringArray("death_handler")]
 script = ExtResource("10_1jjmt")
-max_health = 9
+max_health = 15
 death_handler = NodePath("../DeathHandler")
 type = "Enemy"
 metadata/_custom_type_script = "uid://dnlomrpambk1i"

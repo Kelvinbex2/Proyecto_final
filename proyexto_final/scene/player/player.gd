@@ -105,8 +105,6 @@ func play_death_animation() -> void:
 	animatedSprite2D.play("die")
 	await get_tree().create_timer(2.5).timeout
 	
-	if animatedSprite2D:
-		animatedSprite2D.visible = false
 		
 	GameOver.show_game_over_screen()
 	#if checkpoint_position == Vector2.ZERO:
@@ -114,6 +112,7 @@ func play_death_animation() -> void:
 		#GlobalStat.reset_coins()
 	#else:
 		#respawn_at_checkpoint()
+	
 
 
 
