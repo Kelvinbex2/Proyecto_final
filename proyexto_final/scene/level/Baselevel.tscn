@@ -1194,7 +1194,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(208, 347)
+position = Vector2(416, 409)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1423,7 +1423,7 @@ position = Vector2(158, -4)
 start_position = NodePath("../../StartPosi")
 
 [node name="Skeleton" parent="Enemy" instance=ExtResource("40_psfj5")]
-position = Vector2(565, 455)
+position = Vector2(576, 455)
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3

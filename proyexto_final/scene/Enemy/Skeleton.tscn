@@ -1,9 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://c3qdutvlc2tnn"]
+[gd_scene load_steps=40 format=3 uid="uid://c3qdutvlc2tnn"]
 
 [ext_resource type="Script" uid="uid://b6lp1kueggyq0" path="res://scene/Enemy/skeleton.gd" id="1_vbxuc"]
-[ext_resource type="Texture2D" uid="uid://bvebdk2yxvwyt" path="res://Assets/character/Monsters_Creatures_Fantasy/Skeleton/Death.png" id="2_3oqke"]
-[ext_resource type="Texture2D" uid="uid://cvsslvbv4dgua" path="res://Assets/character/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="3_xfc65"]
-[ext_resource type="Texture2D" uid="uid://cpukwdg7wyqyy" path="res://Assets/character/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="4_5r7h3"]
+[ext_resource type="Texture2D" uid="uid://1rqflta238yq" path="res://Assets/character/Monsters_Creatures_Fantasy/Mushroom/Death.png" id="2_3oqke"]
+[ext_resource type="Texture2D" uid="uid://cfcwkhlicq0ps" path="res://Assets/character/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="3_xfc65"]
+[ext_resource type="Texture2D" uid="uid://ctfgei805ilr0" path="res://Assets/character/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="4_5r7h3"]
 [ext_resource type="Script" uid="uid://tsaabgoj48ck" path="res://scene/handlers/enemy/ai_handler.gd" id="4_mthyr"]
 [ext_resource type="PackedScene" uid="uid://drc15xactq2x7" path="res://scene/handlers/flip_handler.tscn" id="5_5r7h3"]
 [ext_resource type="Script" uid="uid://cpshoaoij2d7y" path="res://scene/handlers/gravity_handler.gd" id="6_oltka"]
@@ -79,6 +79,22 @@ region = Rect2(300, 0, 150, 150)
 atlas = ExtResource("4_5r7h3")
 region = Rect2(450, 0, 150, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mlku"]
+atlas = ExtResource("4_5r7h3")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c38s"]
+atlas = ExtResource("4_5r7h3")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg8ax"]
+atlas = ExtResource("4_5r7h3")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kswx"]
+atlas = ExtResource("4_5r7h3")
+region = Rect2(1050, 0, 150, 150)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctvg5"]
 animations = [{
 "frames": [{
@@ -125,7 +141,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -139,20 +155,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxcbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c38s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg8ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kswx")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3oqke"]
-radius = 19.4165
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ku6l"]
+size = Vector2(18, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ejjm"]
 radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctvg5"]
-radius = 36.0139
+radius = 25.0799
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ejjm"]
 size = Vector2(20.5392, 66.3802)
@@ -163,14 +191,12 @@ script = ExtResource("1_vbxuc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ctvg5")
-animation = &"hit"
+animation = &"die"
 autoplay = "walk"
-frame = 7
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 3)
-shape = SubResource("CircleShape2D_3oqke")
+position = Vector2(2, 9)
+shape = SubResource("RectangleShape2D_7ku6l")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="RightWCast" type="RayCast2D" parent="."]
@@ -234,7 +260,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HurtBox" index="0"]
-position = Vector2(10, 4)
+position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_2ejjm")
 
 [node name="HitBoxHandler" parent="handlers" instance=ExtResource("12_jyh53")]
@@ -244,7 +270,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="handlers/HitBoxHandler" index="0"]
-position = Vector2(12, 1)
+position = Vector2(-3, 1)
 shape = SubResource("CircleShape2D_ctvg5")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -253,13 +279,11 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
 position = Vector2(38, -14)
 rotation = 1.57759
 shape = SubResource("RectangleShape2D_2ejjm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(8, 0)
 stream = ExtResource("13_1ehcg")
 
 [editable path="handlers/HurtBox"]
