@@ -1320,14 +1320,11 @@ Suerte"
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="Misionario" parent="." instance=ExtResource("26_025cg")]
-position = Vector2(2176.19, 600.924)
+position = Vector2(2165.1, 601)
+scale = Vector2(1.31249, 1.88808)
 collision_layer = 2
 collision_mask = 1
 npc_resoure = ExtResource("31_4jm1m")
-
-[node name="NpcBehaviourWander" parent="Misionario" instance=ExtResource("27_4kuo4")]
-wander_range = 10
-idle_duration = 20.0
 
 [node name="DialogInterraction" parent="Misionario" instance=ExtResource("29_8arqq")]
 position = Vector2(-0.0917969, 12.059)
