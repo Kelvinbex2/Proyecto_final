@@ -5,11 +5,11 @@ extends StaticBody2D
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var explosion_audio: AudioStreamPlayer2D = $explosion_audio
 
+
 var boss: Node = null
 var exploded: bool = false
 
 func _ready():
-	
 	var bosses = get_tree().get_nodes_in_group("Boss")
 	if bosses.size() > 0:
 		boss = bosses[0]
@@ -19,7 +19,6 @@ func _ready():
 func _process(_delta):
 	if exploded or boss == null:
 		return
-
 
 	if boss.has_node("Handlers/HealthHandler"):
 		var health = boss.get_node("Handlers/HealthHandler")
@@ -31,10 +30,14 @@ func explode():
 	print("💥 El muro explota porque el jefe ha muerto.")
 
 	particles.emitting = true
-	if explosion_audio:
-		explosion_audio.play()
 	sprite.visible = false
 	collider.disabled = true
+
+	if explosion_audio:
+		explosion_audio.play()
+
+	
+	SignalBus.emit_signal("on_camera_shake", 0.5)  
 
 	await get_tree().create_timer(1.5).timeout
 	queue_free()

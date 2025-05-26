@@ -15,6 +15,7 @@ signal interact_pressed
 signal on_portal_triggered
 signal on_fruta_recogida(nueva_cantidad: int)
 signal on_player_respawned
+signal on_camera_shake(duration: float)
 
 var game_state_manager: GameState = null
 
