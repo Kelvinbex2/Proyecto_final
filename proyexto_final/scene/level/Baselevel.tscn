@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=52 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://chhmnx3fotkji" path="res://scene/item/rock.tres" id="22_4kavb"]
 [ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/potion.tres" id="23_025cg"]
 [ext_resource type="Resource" uid="uid://bmdcbls8osp87" path="res://scene/item/gem.tres" id="24_aur5l"]
+[ext_resource type="PackedScene" uid="uid://cnufp3hou1rlh" path="res://scene/Diaglog/interact/Chest/destructible_box.tscn" id="25_4jm1m"]
 [ext_resource type="PackedScene" uid="uid://3126mhw2elk0" path="res://scene/Diaglog/interact/Chest/treasure.tscn" id="25_4kavb"]
 [ext_resource type="Resource" uid="uid://b23stkdejn24e" path="res://scene/item/key.tres" id="25_eu465"]
 [ext_resource type="PackedScene" uid="uid://bdr8eot4jqfys" path="res://scene/npc/npc.tscn" id="26_025cg"]
@@ -1195,7 +1196,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(1901, 321)
+position = Vector2(1045, 361)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1288,6 +1289,11 @@ position = Vector2(847, 128)
 
 [node name="Diamante4" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(957, 129)
+
+[node name="DestructibleBox" parent="Items" instance=ExtResource("25_4jm1m")]
+position = Vector2(892, 365)
+collision_layer = 8
+collision_mask = 2
 
 [node name="DeadZone" type="Control" parent="."]
 layout_mode = 3
