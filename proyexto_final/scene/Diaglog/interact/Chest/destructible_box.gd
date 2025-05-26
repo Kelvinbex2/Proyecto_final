@@ -4,7 +4,10 @@ extends StaticBody2D
 @onready var area: Area2D = $Area2D
 @onready var destroy_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-@export var max_health: int = 3  # Cantidad de golpes necesarios
+@export var max_health: int = 3
+@export var num_diamantes: int = 3
+@export var diamante_scene: PackedScene = preload("res://scene/colectables/diamante.tscn")
+
 var current_health: int
 var is_destroying: bool = false
 
@@ -21,38 +24,33 @@ func _on_hit(area: Area2D) -> void:
 		if current_health <= 0:
 			call_deferred("destroy_box")
 
-
 func destroy_box():
 	is_destroying = true
 
-	# Reproducir animación si existe
 	if animated_sprite_2d.sprite_frames.has_animation("destroy"):
 		animated_sprite_2d.play("destroy")
 	else:
 		queue_free()
 		return
 
-	# Reproducir sonido si existe
 	if destroy_sound:
 		destroy_sound.play()
 
-	# Esperar animación
 	await animated_sprite_2d.animation_finished
 
-	# Instanciar ítem
-	var fruit_scene = preload("res://scene/colectables/diamante.tscn")
-	var fruit = fruit_scene.instantiate()
-	get_parent().add_child(fruit)
-	fruit.global_position = global_position
+	# Soltar diamantes como Area2D con Tween
+	for i in num_diamantes:
+		var diamond = diamante_scene.instantiate()
+		get_parent().add_child(diamond)
+		diamond.global_position = global_position
 
-	# Rebote usando Tween
-	var tween = create_tween()
-	var start_pos = fruit.position
-	var peak_pos = start_pos + Vector2(0, -30)
+		var offset = Vector2(randf_range(-16, 16), 0)
+		var jump_pos = diamond.position + offset + Vector2(0, -32)
+		var final_pos = diamond.position + offset + Vector2(0, 16)
 
-	tween.tween_property(fruit, "position", peak_pos, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(fruit, "position", start_pos, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
+		var tween = create_tween()
+		tween.tween_property(diamond, "position", jump_pos, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(diamond, "position", final_pos, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 
-	# Esperar rebote y luego destruir la caja
-	await tween.finished
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
