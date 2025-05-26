@@ -1292,8 +1292,7 @@ position = Vector2(957, 129)
 
 [node name="DestructibleBox" parent="Items" instance=ExtResource("25_4jm1m")]
 position = Vector2(892, 365)
-collision_layer = 8
-collision_mask = 2
+collision_mask = 0
 
 [node name="DeadZone" type="Control" parent="."]
 layout_mode = 3
