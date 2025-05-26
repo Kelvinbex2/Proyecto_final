@@ -1218,7 +1218,7 @@ scale_amount_max = 3.0
 color = Color(0.619608, 0.768627, 0.847059, 1)
 
 [node name="ExplosionEffect" parent="effect" instance=ExtResource("16_a757i")]
-position = Vector2(-32, -27)
+position = Vector2(-33, -24)
 
 [node name="Items" type="Control" parent="."]
 layout_mode = 3
@@ -1355,7 +1355,7 @@ position = Vector2(4.375, 1)
 position = Vector2(-57, 341)
 
 [node name="Portal" parent="Potal" instance=ExtResource("30_00ep3")]
-position = Vector2(-107, -32)
+position = Vector2(-110, -32)
 collision_layer = 0
 collision_mask = 2
 
