@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnufp3hou1rlh"]
+
+[ext_resource type="Texture2D" uid="uid://8wtfi1rod7v7" path="res://Assets/character/coins-chests-etc-2-0-noborders.png" id="1_goc1k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtkib"]
+atlas = ExtResource("1_goc1k")
+region = Rect2(463, 480, 18, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lxb3"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hbtd"]
+radius = 7.0
+
+[node name="DestructibleBox" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_qtkib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4lxb3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6hbtd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
