@@ -1171,13 +1171,10 @@ tile_set = SubResource("TileSet_cb4kv")
 [node name="Collectable_spawn" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("15_iv3h3")]
 timer_min = 10.0
 timer_max = 30.0
-spawn_point = [NodePath("Marker2D"), NodePath("Marker2D2")]
+spawn_point = [NodePath("Marker2D")]
 
 [node name="Marker2D" type="Marker2D" parent="Collectable_spawn"]
-position = Vector2(957, 512)
-
-[node name="Marker2D2" type="Marker2D" parent="Collectable_spawn"]
-position = Vector2(479, 77)
+position = Vector2(1080, 335)
 
 [node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point", "enemy_spawn_points") instance=ExtResource("16_vv3gj")]
 player_spawn_point = NodePath("PlayerSpawn")
@@ -1197,7 +1194,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(79, -16)
+position = Vector2(204, 331)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
