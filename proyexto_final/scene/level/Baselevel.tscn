@@ -1391,12 +1391,12 @@ position = Vector2(236, 457)
 position = Vector2(397, 636)
 
 [node name="Misionarry" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_krj55")]
-position = Vector2(1107, 127)
-start_position = NodePath("../../StartPosi")
+position = Vector2(1109, 123)
+start_position = NodePath("../../Misionary 2")
 
 [node name="Misionarry2" parent="Enemy" node_paths=PackedStringArray("start_position") instance=ExtResource("42_krj55")]
 position = Vector2(586, 125)
-start_position = NodePath("../../StartPosi")
+start_position = NodePath("../../Misionary 3")
 
 [node name="Platform" type="Control" parent="."]
 layout_mode = 3
@@ -1437,18 +1437,19 @@ position = Vector2(1308, 629)
 collision_layer = 0
 collision_mask = 14
 
-[node name="CheckPoint5" parent="Platform" instance=ExtResource("40_oumh2")]
-position = Vector2(1270, 119)
-collision_layer = 0
-collision_mask = 14
-
 [node name="CheckPoint6" parent="Platform" instance=ExtResource("40_oumh2")]
 position = Vector2(1897, 312)
 collision_layer = 0
 collision_mask = 14
 
 [node name="StartPosi" type="Marker2D" parent="."]
-position = Vector2(748, 115)
+position = Vector2(-65, 119)
+
+[node name="Misionary 2" type="Marker2D" parent="."]
+position = Vector2(1197, 127)
+
+[node name="Misionary 3" type="Marker2D" parent="."]
+position = Vector2(654, 131)
 
 [node name="npc" type="Control" parent="."]
 layout_mode = 3
