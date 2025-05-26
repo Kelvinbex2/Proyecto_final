@@ -1498,7 +1498,7 @@ position = Vector2(-1, 24)
 
 [node name="DialogText" type="Node" parent="npc/Ericka/DialogInterraction"]
 script = ExtResource("30_28ddt")
-text = "[wave]Atención![b]Campesino[/b]Los misionarios pueden ser peligrosos."
+text = "[wave]Atención! [b]Campesino[/b] Los misionarios pueden ser peligrosos."
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText2" type="Node" parent="npc/Ericka/DialogInterraction"]
