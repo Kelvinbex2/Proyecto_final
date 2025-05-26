@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dggq2l7vqs10s"]
+[gd_scene load_steps=8 format=3 uid="uid://dggq2l7vqs10s"]
 
 [ext_resource type="Script" uid="uid://k7jnf4t6ku5h" path="res://scene/exposion/explosion_effect.gd" id="1_j5dui"]
 [ext_resource type="Texture2D" uid="uid://iqxbgk1h2rm" path="res://Assets/character/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="2_e6oe4"]
+[ext_resource type="AudioStream" uid="uid://cs0gocp67f858" path="res://Assets/audio/Free Green Screen Explosion Effect + Sound Effect (Short Version).mp3" id="3_mbxhu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6oe4"]
 
@@ -42,3 +43,7 @@ texture = SubResource("AtlasTexture_mbxhu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_7o1k2")
+
+[node name="explosion_audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mbxhu")
+volume_db = 13.082

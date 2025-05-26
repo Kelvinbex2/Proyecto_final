@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var explosion_audio: AudioStreamPlayer2D = $explosion_audio
 
 var boss: Node = null
 var exploded: bool = false
@@ -30,6 +31,8 @@ func explode():
 	print("💥 El muro explota porque el jefe ha muerto.")
 
 	particles.emitting = true
+	if explosion_audio:
+		explosion_audio.play()
 	sprite.visible = false
 	collider.disabled = true
 
