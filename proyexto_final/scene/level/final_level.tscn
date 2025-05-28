@@ -2420,7 +2420,7 @@ one_shot = false
 position = Vector2(703, -61)
 
 [node name="Player" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(935, 531)
+position = Vector2(-57, -30)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(675, 544)
