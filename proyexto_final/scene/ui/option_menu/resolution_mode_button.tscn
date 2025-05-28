@@ -14,5 +14,5 @@ script = ExtResource("2_f5use")
 theme_override_constants/separation = 180
 
 [node name="Label" parent="HBoxContainer" index="0"]
-text = "Resolution"
+text = "Resolución"
 script = SubResource("GDScript_8m5au")

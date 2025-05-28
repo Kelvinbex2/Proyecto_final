@@ -57,14 +57,13 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_6p5xt")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_6p5xt")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_6p5xt")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
-[node name="Sounds" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="Sonidos" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sounds"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sonidos"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,31 +75,31 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sounds/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sonidos/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sounds/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sonidos/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Music_control" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
+[node name="Music_control" parent="TabContainer/Sonidos/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
 
-[node name="Music_control2" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
+[node name="Music_control2" parent="TabContainer/Sonidos/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="Music_control3" parent="TabContainer/Sounds/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
+[node name="Music_control3" parent="TabContainer/Sonidos/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_aft5m")]
 layout_mode = 2
 bus_name = "Sfx"
 
-[node name="Screen" type="TabBar" parent="TabContainer"]
+[node name="Pantalla" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Screen"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Pantalla"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,24 +111,25 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Screen/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Pantalla/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Screen/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Pantalla/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 103
 
-[node name="window_mode_button" parent="TabContainer/Screen/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_yowwx")]
+[node name="window_mode_button" parent="TabContainer/Pantalla/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_yowwx")]
 layout_mode = 2
 
-[node name="resolution_mode_button" parent="TabContainer/Screen/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_8320r")]
+[node name="resolution_mode_button" parent="TabContainer/Pantalla/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_8320r")]
 layout_mode = 2
 
-[node name="Controls" type="TabBar" parent="TabContainer"]
+[node name="Controles" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controles"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,30 +141,30 @@ theme_override_constants/margin_top = -24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controles/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controles/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Controles/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ueeni")
 
-[node name="hotKey_button" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
+[node name="hotKey_button" parent="TabContainer/Controles/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
 layout_mode = 2
 
-[node name="hotKey_button2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
+[node name="hotKey_button2" parent="TabContainer/Controles/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
 layout_mode = 2
 action_name = "move_right"
 
-[node name="hotKey_button5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
+[node name="hotKey_button5" parent="TabContainer/Controles/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0apct")]
 layout_mode = 2
 action_name = "jump_up"
 
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controles/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ueeni")

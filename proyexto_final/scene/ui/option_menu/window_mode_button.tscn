@@ -10,4 +10,4 @@ script = ExtResource("2_js3pq")
 theme_override_constants/separation = 180
 
 [node name="Label" parent="HBoxContainer" index="0"]
-text = "Mode"
+text = "Modo"

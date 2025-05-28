@@ -22,7 +22,7 @@ theme_override_constants/separation = 48
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Volume"
+text = "Volumen"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
