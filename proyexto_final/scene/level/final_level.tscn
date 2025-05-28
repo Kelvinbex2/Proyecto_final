@@ -2434,7 +2434,7 @@ one_shot = false
 position = Vector2(1101, 75)
 
 [node name="Player" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(-57, -30)
+position = Vector2(922, 562)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(675, 544)
@@ -2571,7 +2571,7 @@ position = Vector2(1270, 323)
 position = Vector2(971, 93)
 
 [node name="BossBase" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("24_q0by3")]
-position = Vector2(1018, 554)
+position = Vector2(1005, 560)
 start_position = NodePath("../BossStartPoint")
 
 [node name="misionaryStartPoint" type="Marker2D" parent="Enemies"]
