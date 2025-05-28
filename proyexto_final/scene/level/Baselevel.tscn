@@ -1169,7 +1169,7 @@ tile_map_data = PackedByteArray("AACZABIAAAAAAAEAAACZABMAAAAAAAIAAACZABQAAAAAAAM
 tile_set = SubResource("TileSet_cb4kv")
 
 [node name="Collectable_spawn" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("15_iv3h3")]
-timer_min = 10.0
+timer_min = 20.0
 timer_max = 30.0
 spawn_point = [NodePath("Marker2D")]
 
@@ -1182,7 +1182,7 @@ player_packed_scene = ExtResource("17_52qnv")
 enemy_timer_min = 2.0
 enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Patrol"), NodePath("EnemySpawnPoinContainer/Patrol2"), NodePath("EnemySpawnPoinContainer/Patrol3")]
 enemy_packed_scene = ExtResource("18_j1l4i")
-max_enemies_alive = 10
+max_enemies_alive = 5
 
 [node name="Patrol" type="Marker2D" parent="EntitySpawn/EnemySpawnPoinContainer" index="0"]
 position = Vector2(809, 345)

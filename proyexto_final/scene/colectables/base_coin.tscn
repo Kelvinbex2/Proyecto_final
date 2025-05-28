@@ -67,7 +67,6 @@ radius = 9.0
 collision_layer = 8
 collision_mask = 11
 physics_material_override = SubResource("PhysicsMaterial_635nk")
-lock_rotation = true
 angular_velocity = 0.000349066
 angular_damp = 0.8
 script = ExtResource("1_635nk")
