@@ -134,7 +134,7 @@ script = ExtResource("1_px1c3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ctvg5")
-animation = &"walk"
+animation = &"die"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

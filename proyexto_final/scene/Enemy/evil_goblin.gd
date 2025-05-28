@@ -32,6 +32,8 @@ func _ready() -> void:
 	detection_area.body_exited.connect(_on_detection_area_exited)
 	SignalBus.on_player_ready.connect(func(p): player = p)
 	SignalBus.on_player_respawned.connect(_on_player_respawned)
+	animated.frame_changed.connect(_on_frame_changed)
+
 
 
 	
@@ -114,11 +116,8 @@ func attack_loop() -> void:
 	is_attacking = true
 
 	while is_player_in_range and not health_handler.is_dead and not is_dying:
-		print("👊 Atacando jugador")
-		hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
 		animated.play("hit")
 		await animated.animation_finished
-		hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
 
 		if not is_player_in_range or health_handler.is_dead:
 			break
@@ -126,8 +125,10 @@ func attack_loop() -> void:
 		await get_tree().create_timer(1.0).timeout
 
 	is_attacking = false
+
 	if not health_handler.is_dead and not is_dying:
 		animated.play("walk")
+
 
 func play_death_animation() -> void:
 	print("💀 Reproduciendo animación 'die'")
@@ -146,3 +147,27 @@ func play_death_animation() -> void:
 func _on_player_respawned() -> void:
 	print("🔁 Jugador revivió, reactivando enemigo")
 	is_dying = false
+
+func enable_hitbox() -> void:
+	hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
+
+func disable_hitbox() -> void:
+	hit_box_handler.collision_shape_2d.set_deferred("disabled", true)
+
+func _on_frame_changed() -> void:
+	var current_anim := animated.animation
+	var frame := animated.frame
+
+	match current_anim:
+		"hit":
+			if frame == 3:
+				enable_hitbox()
+			else:
+				disable_hitbox()
+		"double_hit":
+			if frame == 1:
+				enable_hitbox()
+			else:
+				disable_hitbox()
+		_:
+			disable_hitbox()
