@@ -50,10 +50,13 @@ func _physics_process(delta: float) -> void:
 	if player and player.health_handler.current_health <= 0:
 		is_dying = true
 		return
-	if health_handler.is_dead or is_dying:
+
+	if health_handler.current_health <= 0 and not is_dying:
+		play_death_animation()
 		return
 
-	gravity_handler.apply_gravity(self, delta)
+	if health_handler.is_dead or is_dying:
+		return
 
 	match state:
 		State.IDLE:
@@ -67,9 +70,7 @@ func _physics_process(delta: float) -> void:
 	flip_handler.handle_flip(self)
 	health_bar.value = health_handler.current_health
 
-	# Reset boss if he’s at the start and very low health
-	if global_position.distance_to(start_position.global_position) < 10 and health_handler.current_health < health_handler.max_health / 2:
-		reset_boss()
+
 
 # ──────────────── STATE METHODS ──────────────── #
 
@@ -162,6 +163,7 @@ func _on_player_respawned() -> void:
 	global_position = start_position.global_position
 	health_handler.current_health = health_handler.max_health
 
+
 # ──────────────── UTILITIES ──────────────── #
 
 func start_blink() -> void:
@@ -177,10 +179,3 @@ func play_death_animation() -> void:
 	animated_sprite.play("die")
 	await animated_sprite.animation_finished
 	queue_free()
-
-func reset_boss() -> void:
-	print("🔄 Boss reset at start position.")
-	global_position = start_position.global_position
-	state = State.IDLE
-	health_handler.current_health = health_handler.max_health
-	health_bar.value = health_handler.max_health
