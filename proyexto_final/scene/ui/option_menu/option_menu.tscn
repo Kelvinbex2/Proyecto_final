@@ -62,7 +62,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = SubResource("SystemFont_acprh")
 theme_override_font_sizes/font_size = 32
-text = "options"
+text = "Opciones"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -81,7 +81,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("3_k3dtv")
 theme_override_styles/pressed = ExtResource("3_k3dtv")
 theme_override_styles/normal = ExtResource("3_k3dtv")
-text = "Start Game
+text = "Jugar
 "
 
 [node name="btnJoin" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
@@ -93,7 +93,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("3_k3dtv")
 theme_override_styles/pressed = ExtResource("3_k3dtv")
 theme_override_styles/normal = ExtResource("3_k3dtv")
-text = "Join Game
+text = "Unirse
 "
 
 [node name="btnOpcion" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
@@ -105,8 +105,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("3_k3dtv")
 theme_override_styles/pressed = ExtResource("3_k3dtv")
 theme_override_styles/normal = ExtResource("3_k3dtv")
-text = "Options
-"
+text = "Opciones"
 
 [node name="btnExit" type="Button" parent="MarginContainer/hboxButton/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -117,7 +116,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("3_k3dtv")
 theme_override_styles/pressed = ExtResource("3_k3dtv")
 theme_override_styles/normal = ExtResource("3_k3dtv")
-text = "Exit"
+text = "Salir"
 
 [node name="option_menu" parent="." instance=ExtResource("3_k75cp")]
 visible = false
