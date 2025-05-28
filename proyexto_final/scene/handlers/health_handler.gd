@@ -12,20 +12,29 @@ func _ready() -> void:
 	set_max_health()
 
 func set_max_health() -> void:
-	current_health = max_health
-	is_dead=false
+	is_dead = false
+
 	if type == "Player":
-		max_health = GlobalStat.get_current_coin()
+		max_health = GlobalStat.DEFAULT_COINS
+		current_health = GlobalStat.get_current_coin()
+	else:
 		current_health = max_health
 
+
+
 func damage(val: int) -> void:
+	print("💥 DAMAGE taken:", val)
 	if is_dead: 
 		return
 		
 	match type:
 		"Player":
-			SignalBus.emit_on_hit(1)
-			current_health -= val
+			
+			GlobalStat.remove_coin(val)
+			current_health = GlobalStat.get_current_coin()
+			var maybe_player = get_parent().get_parent()
+			if maybe_player and maybe_player.has_method("apply_hit_feedback"):
+				maybe_player.apply_hit_feedback()
 			
 		"Enemy":
 			current_health -= val
@@ -36,20 +45,20 @@ func damage(val: int) -> void:
 		death_handler.death()
 
 func handle_healing(value: int) -> void:
-	if is_dead:
-		return
-		
-	current_health = clamp(current_health + value, 0, max_health)
+	if is_dead: return
 
-	if type == "Player":
-		GlobalStat.currently_held_coins = current_health
-		SignalBus.emit_on_coin_counter_update(current_health)
+	GlobalStat.add_coins(value)
+	current_health = GlobalStat.get_current_coin()
+
 
 
 func reset_health() -> void:
-	current_health = max_health
 	is_dead = false
+
 	if type == "Player":
-		GlobalStat.currently_held_coins = max_health
-		#SignalBus.emit_on_coin_counter_update(current_health)
-		SignalBus.emit_on_coin_counter_update(GlobalStat.currently_held_coins)
+		GlobalStat.reset_coins()
+		current_health = GlobalStat.get_current_coin()
+	else:
+		current_health = max_health
+
+	SignalBus.emit_on_coin_counter_update(current_health)

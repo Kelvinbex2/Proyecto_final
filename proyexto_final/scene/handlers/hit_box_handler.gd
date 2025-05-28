@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func on_area_hit() -> void:
 	apply_hit()
-	health_handler.damage(1)
+	#health_handler.damage(1)
 
 func in_invuln_timer_timeout() -> void:
 	collision_shape_2d.disabled = false

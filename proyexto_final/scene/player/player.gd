@@ -50,8 +50,7 @@ func _ready() -> void:
 	SignalBus.on_player_die.connect(_on_player_die)
 	#SignalBus.emit_on_player_die()
 	SignalBus.on_game_state_manager_ready.connect(_on_game_state_manager_ready)
-	## on hit con parpadeo
-	SignalBus.on_hit.connect(_on_hit)
+	
 
 
 
@@ -218,7 +217,5 @@ func _flash_coroutine(sprite: AnimatedSprite2D, blinks: int, interval: float) ->
 		await get_tree().create_timer(interval).timeout
 
 
-func _on_hit(val: int) -> void:
-	if is_dying :
-		return
+func apply_hit_feedback() -> void:
 	flash_on_damage()
