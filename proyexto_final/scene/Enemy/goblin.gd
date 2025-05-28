@@ -110,10 +110,19 @@ func _on_detection_area_exited(body: Node) -> void:
 func attack_loop() -> void:
 	if is_attacking or health_handler.is_dead or is_dying:
 		return
-		
+
 	is_attacking = true
 
 	while is_player_in_range and not health_handler.is_dead and not is_dying:
+		if player:
+			var direction = sign(player.global_position.x - global_position.x)
+			velocity.x = direction * 60  # Goblin camina hacia el jugador
+			move_and_slide()  # ❗ Esto mueve al goblin realmente
+
+			# Opcional: detenerse si está muy cerca para atacar
+			if abs(player.global_position.x - global_position.x) < 20:
+				velocity.x = 0
+
 		print("👊 Atacando jugador")
 		hit_box_handler.collision_shape_2d.set_deferred("disabled", false)
 		animated.play("hit")
@@ -128,6 +137,8 @@ func attack_loop() -> void:
 	is_attacking = false
 	if not health_handler.is_dead and not is_dying:
 		animated.play("walk")
+
+
 
 func play_death_animation() -> void:
 	print("💀 Reproduciendo animación 'die'")
