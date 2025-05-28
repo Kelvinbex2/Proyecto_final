@@ -2507,18 +2507,24 @@ offset_bottom = 40.0
 
 [node name="Puerta" parent="puerta" instance=ExtResource("18_3r78t")]
 position = Vector2(-180, 531)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Destination" parent="puerta/Puerta" index="2"]
 position = Vector2(1000, -223)
 
 [node name="Puerta2" parent="puerta" instance=ExtResource("18_3r78t")]
 position = Vector2(817, 549)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Destination" parent="puerta/Puerta2" index="2"]
 position = Vector2(-349, -242)
 
 [node name="CreditTrigger" parent="puerta" instance=ExtResource("20_0hy5f")]
 position = Vector2(1267, 551)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Enemies" type="Control" parent="."]
 layout_mode = 3
