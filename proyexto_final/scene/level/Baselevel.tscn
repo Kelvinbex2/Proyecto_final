@@ -1194,7 +1194,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(-60, -21)
+position = Vector2(243, 345)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
