@@ -10,7 +10,7 @@ var boss: Node = null
 var exploded: bool = false
 
 func _ready():
-	var bosses = get_tree().get_nodes_in_group("Boss")
+	var bosses = get_tree().get_nodes_in_group("Base")
 	if bosses.size() > 0:
 		boss = bosses[0]
 	else:
