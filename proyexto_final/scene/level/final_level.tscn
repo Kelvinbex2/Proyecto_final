@@ -2517,7 +2517,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Destination" parent="puerta/Puerta" index="2"]
-position = Vector2(1000, -223)
+position = Vector2(272, -219)
 
 [node name="Puerta2" parent="puerta" instance=ExtResource("18_3r78t")]
 position = Vector2(817, 549)
@@ -2525,7 +2525,15 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Destination" parent="puerta/Puerta2" index="2"]
-position = Vector2(-349, -242)
+position = Vector2(46, -227)
+
+[node name="Puerta3" parent="puerta" instance=ExtResource("18_3r78t")]
+position = Vector2(778, 196)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Destination" parent="puerta/Puerta3" index="2"]
+position = Vector2(46, -227)
 
 [node name="CreditTrigger" parent="puerta" instance=ExtResource("20_0hy5f")]
 position = Vector2(1267, 551)
@@ -2612,7 +2620,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CheckPoint3" parent="check" instance=ExtResource("9_m4ymn")]
-position = Vector2(820, 311)
+position = Vector2(823, 311)
 collision_layer = 0
 collision_mask = 2
 
@@ -2624,4 +2632,5 @@ collision_mask = 2
 [editable path="EntitySpawn"]
 [editable path="puerta/Puerta"]
 [editable path="puerta/Puerta2"]
+[editable path="puerta/Puerta3"]
 [editable path="check/DeadZone"]
