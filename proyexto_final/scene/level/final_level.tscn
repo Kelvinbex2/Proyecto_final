@@ -2409,7 +2409,7 @@ tile_set = SubResource("TileSet_pg08h")
 player_spawn_point = NodePath("Player")
 player_packed_scene = ExtResource("7_m4ymn")
 enemy_timer_min = 2.0
-enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D"), null]
+enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D")]
 enemy_packed_scene = ExtResource("8_m4ymn")
 max_enemies_alive = 3
 
@@ -2420,7 +2420,7 @@ one_shot = false
 position = Vector2(703, -61)
 
 [node name="Player" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(45, -25)
+position = Vector2(935, 531)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(675, 544)
@@ -2526,14 +2526,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Misionarry" parent="Enemies" instance=ExtResource("20_clj4d")]
+[node name="Misionarry" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("20_clj4d")]
 position = Vector2(714, -15)
+start_position = NodePath("../misionaryStartPoint")
 
-[node name="Misionarry2" parent="Enemies" instance=ExtResource("20_clj4d")]
+[node name="Misionarry2" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("20_clj4d")]
 position = Vector2(410, 319)
+start_position = NodePath("../misionaryStartPoint2")
 
-[node name="Misionarry3" parent="Enemies" instance=ExtResource("20_clj4d")]
+[node name="Misionarry3" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("20_clj4d")]
 position = Vector2(805, 451)
+start_position = NodePath("../misionaryStartPoint3")
 
 [node name="Goblin" parent="Enemies" instance=ExtResource("21_0hy5f")]
 position = Vector2(647, 97)
@@ -2547,8 +2550,21 @@ position = Vector2(1270, 323)
 [node name="EvilGoblin" parent="Enemies" instance=ExtResource("22_q0by3")]
 position = Vector2(971, 93)
 
-[node name="BossBase" parent="Enemies" instance=ExtResource("24_q0by3")]
+[node name="BossBase" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("24_q0by3")]
 position = Vector2(1018, 554)
+start_position = NodePath("../BossStartPoint")
+
+[node name="misionaryStartPoint" type="Marker2D" parent="Enemies"]
+position = Vector2(594, -17)
+
+[node name="misionaryStartPoint2" type="Marker2D" parent="Enemies"]
+position = Vector2(348, 322)
+
+[node name="misionaryStartPoint3" type="Marker2D" parent="Enemies"]
+position = Vector2(730, 451)
+
+[node name="BossStartPoint" type="Marker2D" parent="Enemies"]
+position = Vector2(917, 554)
 
 [node name="effects" type="Control" parent="."]
 layout_mode = 3
