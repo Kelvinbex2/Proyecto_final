@@ -2691,31 +2691,19 @@ collision_mask = 1
 npc_resoure = ExtResource("9_ldfal")
 
 [node name="NpcBehaviourWander" parent="npc/Npc" instance=ExtResource("10_dxl8d")]
-wander_range = 3
+idle_duration = 20.0
 
 [node name="DialogInterraction" parent="npc/Npc" instance=ExtResource("11_flwvb")]
 position = Vector2(-1, 24)
 
 [node name="DialogText4" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "[fire]No pensé que saldrías con vida."
+text = "[wave]No pensé que saldrías con vida."
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText2" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "Y sin embargo, aquí estoy. Respirando."
-npc_info = ExtResource("13_lhn77")
-metadata/_custom_type_script = "uid://cdxc31wxd765y"
-
-[node name="DialogText5" type="Node" parent="npc/Npc/DialogInterraction"]
-script = ExtResource("12_bj5md")
-text = "Siempre lo es, hasta que te falla la puntería"
-npc_info = ExtResource("13_lhn77")
-metadata/_custom_type_script = "uid://cdxc31wxd765y"
-
-[node name="DialogText7" type="Node" parent="npc/Npc/DialogInterraction"]
-script = ExtResource("12_bj5md")
-text = "Inténtalo. Pero esta vez, no te voy a dar la espalda."
+text = "[wave]Y sin embargo, aquí estoy. Respirando."
 npc_info = ExtResource("13_lhn77")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
@@ -2724,9 +2712,21 @@ script = ExtResource("12_bj5md")
 text = "No fue personal... era parte del trato."
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
+[node name="DialogText5" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Siempre lo es, hasta que te falla la puntería"
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
 [node name="DialogText6" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
 text = "Puedo arreglar eso ahora mismo."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText7" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Inténtalo. Pero esta vez, no te voy a dar la espalda."
+npc_info = ExtResource("13_lhn77")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="items" type="Control" parent="."]
