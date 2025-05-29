@@ -2681,6 +2681,7 @@ position = Vector2(125, 9)
 libraries = {
 &"": SubResource("AnimationLibrary_ea3pq")
 }
+autoplay = "move_up"
 
 [editable path="EntitySpawn"]
 [editable path="puerta/Puerta"]
