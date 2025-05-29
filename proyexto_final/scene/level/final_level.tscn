@@ -2403,19 +2403,19 @@ size = Vector2(2117, 64)
 
 [sub_resource type="Animation" id="Animation_yqpjw"]
 resource_name = "move_up"
-length = 2.0
+length = 5.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../PlatformNew3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0.04, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(125, 9), Vector2(131, 134)]
+"values": [Vector2(1163, 117), Vector2(1264, 299)]
 }
 
 [sub_resource type="Animation" id="Animation_yvnr8"]
@@ -2423,14 +2423,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../PlatformNew3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(125, 9)]
+"values": [Vector2(1163, 117)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ea3pq"]
@@ -2678,6 +2678,24 @@ offset_bottom = 40.0
 position = Vector2(125, 9)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform/PlatformNew"]
+libraries = {
+&"": SubResource("AnimationLibrary_ea3pq")
+}
+autoplay = "move_up"
+
+[node name="PlatformNew2" parent="platform" instance=ExtResource("27_xci5s")]
+position = Vector2(441.75, 175.514)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform/PlatformNew2"]
+libraries = {
+&"": SubResource("AnimationLibrary_ea3pq")
+}
+autoplay = "move_up"
+
+[node name="PlatformNew3" parent="platform" instance=ExtResource("27_xci5s")]
+position = Vector2(1163, 117)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform/PlatformNew3"]
 libraries = {
 &"": SubResource("AnimationLibrary_ea3pq")
 }
