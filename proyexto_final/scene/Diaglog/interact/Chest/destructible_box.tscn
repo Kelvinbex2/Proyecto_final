@@ -1,37 +1,50 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnufp3hou1rlh"]
+[gd_scene load_steps=13 format=3 uid="uid://cnufp3hou1rlh"]
 
 [ext_resource type="Script" uid="uid://0qwb0svsbc77" path="res://scene/Diaglog/interact/Chest/destructible_box.gd" id="1_qtkib"]
-[ext_resource type="Texture2D" uid="uid://cdt8ctipgw1kp" path="res://Assets/collectable/treasure-chest.png" id="2_6hbtd"]
+[ext_resource type="Texture2D" uid="uid://dnndlamiqfn1c" path="res://Assets/Props.png" id="2_4lxb3"]
 [ext_resource type="AudioStream" uid="uid://bc8cytv8tliv1" path="res://Assets/audio/Items_item_pickup_item_pickup.wav" id="3_4lxb3"]
-[ext_resource type="Texture2D" uid="uid://1byi041q2iaj" path="res://Assets/character/Texture/TX FX Flame.png" id="3_kl8dh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n33f2"]
-atlas = ExtResource("3_kl8dh")
-region = Rect2(165, 99, 33, 33)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lxb3"]
+atlas = ExtResource("2_4lxb3")
+region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jr6c8"]
-atlas = ExtResource("3_kl8dh")
-region = Rect2(132, 99, 33, 33)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hbtd"]
+atlas = ExtResource("2_4lxb3")
+region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6wm4"]
-atlas = ExtResource("3_kl8dh")
-region = Rect2(99, 99, 33, 33)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl8dh"]
+atlas = ExtResource("2_4lxb3")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2gha8"]
-atlas = ExtResource("2_6hbtd")
-region = Rect2(0, 0, 64, 64)
+atlas = ExtResource("2_4lxb3")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n33f2"]
+atlas = ExtResource("2_4lxb3")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox5vw"]
+atlas = ExtResource("2_4lxb3")
+region = Rect2(276, 0, 46, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pm4ii"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4lxb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hbtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl8dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gha8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_n33f2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jr6c8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6wm4")
 }],
 "loop": false,
 "name": &"destroy",
@@ -39,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2gha8")
+"texture": SubResource("AtlasTexture_ox5vw")
 }],
 "loop": false,
 "name": &"idle",
@@ -47,31 +60,35 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lxb3"]
-radius = 19.9249
+radius = 13.6015
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hbtd"]
-radius = 19.6469
+radius = 14.5602
 
 [node name="DestructibleBox" type="StaticBody2D"]
-collision_layer = 5
-collision_mask = 0
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_qtkib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -3)
 sprite_frames = SubResource("SpriteFrames_pm4ii")
-animation = &"idle"
+animation = &"destroy"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_4lxb3")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -3)
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 5)
+position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_6hbtd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

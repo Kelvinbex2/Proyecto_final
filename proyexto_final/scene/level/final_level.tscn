@@ -2686,6 +2686,8 @@ offset_bottom = 40.0
 
 [node name="DestructibleBox" parent="items" instance=ExtResource("13_ffsxt")]
 position = Vector2(72, -18)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Potion" parent="items" instance=ExtResource("14_xci25")]
 position = Vector2(173, 124)
