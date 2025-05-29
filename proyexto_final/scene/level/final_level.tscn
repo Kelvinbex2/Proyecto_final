@@ -2648,7 +2648,8 @@ position = Vector2(4, -84)
 [node name="EntitySpawn" parent="." node_paths=PackedStringArray("player_spawn_point", "enemy_spawn_points") instance=ExtResource("6_vacne")]
 player_spawn_point = NodePath("Player")
 player_packed_scene = ExtResource("7_m4ymn")
-enemy_timer_min = 2.0
+enemy_timer_min = 30.0
+enemy_timer_max = 60.0
 enemy_spawn_points = [NodePath("EnemySpawnPoinContainer/Marker2D")]
 enemy_packed_scene = ExtResource("8_m4ymn")
 max_enemies_alive = 3
