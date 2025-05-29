@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://8wtfi1rod7v7" path="res://Assets/character/coins-chests-etc-2-0-noborders.png" id="2_635nk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_635nk"]
-friction = 0.2
 rough = true
 bounce = 0.4
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://iw1b0iq7i4uy"]
+[gd_scene load_steps=73 format=4 uid="uid://iw1b0iq7i4uy"]
 
 [ext_resource type="Texture2D" uid="uid://doqliou1cnxcu" path="res://Assets/character/Texture/TX Tileset Ground.png" id="1_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://c0kx8wj3w2sl6" path="res://Assets/character/Texture/TX Village Props.png" id="2_dgfb3"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bvu2cyaqlc0iy" path="res://scene/Enemy/EvilGoblin.tscn" id="22_q0by3"]
 [ext_resource type="PackedScene" uid="uid://bhxlvpu84yxnd" path="res://scene/exposion/Explosin_2.tscn" id="24_0hy5f"]
 [ext_resource type="PackedScene" uid="uid://b3rbfbm2g3hvy" path="res://scene/Enemy/boss_base.tscn" id="24_q0by3"]
+[ext_resource type="PackedScene" uid="uid://bgi3g85nrke1x" path="res://scene/platform/platform_new.tscn" id="27_xci5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg08h"]
 texture = ExtResource("1_dgfb3")
@@ -2400,6 +2401,44 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v38nc"]
 size = Vector2(2117, 64)
 
+[sub_resource type="Animation" id="Animation_yqpjw"]
+resource_name = "move_up"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(125, 9), Vector2(131, 134)]
+}
+
+[sub_resource type="Animation" id="Animation_yvnr8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(125, 9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ea3pq"]
+_data = {
+&"RESET": SubResource("Animation_yvnr8"),
+&"move_up": SubResource("Animation_yqpjw")
+}
+
 [node name="Final_level" type="Node2D" groups=["entity_container"]]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -2571,7 +2610,7 @@ position = Vector2(1270, 323)
 position = Vector2(971, 93)
 
 [node name="BossBase" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("24_q0by3")]
-position = Vector2(1005, 560)
+position = Vector2(1006, 559)
 start_position = NodePath("../BossStartPoint")
 
 [node name="misionaryStartPoint" type="Marker2D" parent="Enemies"]
@@ -2628,6 +2667,20 @@ collision_mask = 2
 position = Vector2(402, 439)
 collision_layer = 0
 collision_mask = 2
+
+[node name="platform" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlatformNew" parent="platform" instance=ExtResource("27_xci5s")]
+position = Vector2(125, 9)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform/PlatformNew"]
+libraries = {
+&"": SubResource("AnimationLibrary_ea3pq")
+}
 
 [editable path="EntitySpawn"]
 [editable path="puerta/Puerta"]

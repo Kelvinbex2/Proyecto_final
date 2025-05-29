@@ -267,10 +267,10 @@ script = ExtResource("1_i42gh")
 [node name="BossUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -23.0
-offset_top = -16.0
-offset_right = 17.0
-offset_bottom = 24.0
+offset_left = -18.3333
+offset_top = -33.3333
+offset_right = 21.6667
+offset_bottom = 6.66667
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="BossUI"]
@@ -291,7 +291,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.5, 8.5)
+position = Vector2(-1.66667, 8.33333)
 shape = SubResource("RectangleShape2D_tgykv")
 
 [node name="Handlers" type="Node2D" parent="."]
@@ -327,7 +327,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Handlers/HurtBox" index="0"]
-position = Vector2(-5, 9)
+position = Vector2(0, 8.33333)
 shape = SubResource("CircleShape2D_tgykv")
 
 [node name="Audio" parent="Handlers/HurtBox" index="1"]
@@ -340,7 +340,7 @@ collision_mask = 2
 health_handler = NodePath("../HealthHandler")
 
 [node name="CollisionShape2D" parent="Handlers/HitBoxHandler" index="0"]
-position = Vector2(11, -4.66667)
+position = Vector2(11, -8)
 shape = SubResource("CircleShape2D_03cv6")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
