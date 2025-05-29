@@ -2685,7 +2685,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DestructibleBox" parent="items" instance=ExtResource("13_ffsxt")]
-position = Vector2(72, -18)
+position = Vector2(71, -14)
+collision_layer = 1
+collision_mask = 1
+
+[node name="DestructibleBox2" parent="items" instance=ExtResource("13_ffsxt")]
+position = Vector2(48, 232)
+collision_layer = 1
+collision_mask = 1
+
+[node name="DestructibleBox3" parent="items" instance=ExtResource("13_ffsxt")]
+position = Vector2(1093, 196)
 collision_layer = 1
 collision_mask = 1
 
