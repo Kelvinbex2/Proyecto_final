@@ -265,7 +265,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgykv"]
-size = Vector2(13, 19)
+size = Vector2(13, 17.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgykv"]
 radius = 14.0357
@@ -309,8 +309,7 @@ frame = 2
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-5.5, 8.5)
+position = Vector2(2, 8.75)
 shape = SubResource("RectangleShape2D_tgykv")
 
 [node name="Handlers" type="Node2D" parent="."]
@@ -364,19 +363,19 @@ position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_03cv6")
 
 [node name="RightWCast" type="RayCast2D" parent="."]
-position = Vector2(4, 8)
+position = Vector2(13, 8)
 target_position = Vector2(0, 17)
 
 [node name="RightCast" type="RayCast2D" parent="."]
-position = Vector2(4, 8)
+position = Vector2(13, 8)
 target_position = Vector2(20, 0)
 
 [node name="leftWCast" type="RayCast2D" parent="."]
-position = Vector2(-19, 8)
+position = Vector2(-11, 8)
 target_position = Vector2(0, 17)
 
 [node name="leftCast" type="RayCast2D" parent="."]
-position = Vector2(-19, 8)
+position = Vector2(-11, 8)
 target_position = Vector2(-16, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
