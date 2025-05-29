@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://iw1b0iq7i4uy"]
+[gd_scene load_steps=86 format=4 uid="uid://iw1b0iq7i4uy"]
 
 [ext_resource type="Texture2D" uid="uid://doqliou1cnxcu" path="res://Assets/character/Texture/TX Tileset Ground.png" id="1_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://c0kx8wj3w2sl6" path="res://Assets/character/Texture/TX Village Props.png" id="2_dgfb3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="7_vacne"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="8_m4ymn"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="9_m4ymn"]
+[ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/apple.tres" id="11_q0by3"]
 [ext_resource type="PackedScene" uid="uid://cnufp3hou1rlh" path="res://scene/Diaglog/interact/Chest/destructible_box.tscn" id="13_ffsxt"]
 [ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="14_0hy5f"]
 [ext_resource type="PackedScene" uid="uid://cjnt8ok1r3b2i" path="res://scene/item/pickup/item_pickup.tscn" id="14_xci25"]
@@ -2689,6 +2690,22 @@ position = Vector2(72, -18)
 [node name="Potion" parent="items" instance=ExtResource("14_xci25")]
 position = Vector2(173, 124)
 item_data = ExtResource("15_b4ws7")
+
+[node name="Apple" parent="items" instance=ExtResource("14_xci25")]
+position = Vector2(349, 156)
+item_data = ExtResource("11_q0by3")
+
+[node name="Apple2" parent="items" instance=ExtResource("14_xci25")]
+position = Vector2(339, 329)
+item_data = ExtResource("11_q0by3")
+
+[node name="Apple4" parent="items" instance=ExtResource("14_xci25")]
+position = Vector2(1029, 330)
+item_data = ExtResource("11_q0by3")
+
+[node name="Apple3" parent="items" instance=ExtResource("14_xci25")]
+position = Vector2(270, 328)
+item_data = ExtResource("11_q0by3")
 
 [node name="Arrow" parent="items" instance=ExtResource("14_xci25")]
 position = Vector2(291, -7)
