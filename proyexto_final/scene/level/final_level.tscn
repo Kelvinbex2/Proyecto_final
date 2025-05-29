@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://iw1b0iq7i4uy"]
+[gd_scene load_steps=92 format=4 uid="uid://iw1b0iq7i4uy"]
 
 [ext_resource type="Texture2D" uid="uid://doqliou1cnxcu" path="res://Assets/character/Texture/TX Tileset Ground.png" id="1_dgfb3"]
 [ext_resource type="Texture2D" uid="uid://c0kx8wj3w2sl6" path="res://Assets/character/Texture/TX Village Props.png" id="2_dgfb3"]
@@ -8,9 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cgnh1he3p86xf" path="res://scene/managers/collectable_spawn.tscn" id="7_v38nc"]
 [ext_resource type="PackedScene" uid="uid://ceg2wulql461n" path="res://scene/handlers/dead_zone.tscn" id="7_vacne"]
 [ext_resource type="PackedScene" uid="uid://dchkc0pxfwk8t" path="res://scene/Enemy/controller/patroll.tscn" id="8_m4ymn"]
+[ext_resource type="Resource" uid="uid://bqhhebra0fbkl" path="res://scene/npc/resources/npc_res2.tres" id="9_ldfal"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="9_m4ymn"]
+[ext_resource type="PackedScene" uid="uid://ch2ojd3pmejf7" path="res://scene/npc/npc_behaviour_wander.tscn" id="10_dxl8d"]
+[ext_resource type="PackedScene" uid="uid://bdr8eot4jqfys" path="res://scene/npc/npc.tscn" id="10_ffsxt"]
+[ext_resource type="PackedScene" uid="uid://b5p0y80u5v0dn" path="res://scene/Diaglog/interact/dialog/dialog_interraction.tscn" id="11_flwvb"]
 [ext_resource type="Resource" uid="uid://c88rhhtxxeddp" path="res://scene/item/apple.tres" id="11_q0by3"]
+[ext_resource type="Script" uid="uid://cdxc31wxd765y" path="res://scene/Diaglog/interact/dialog/dialog_text.gd" id="12_bj5md"]
 [ext_resource type="PackedScene" uid="uid://cnufp3hou1rlh" path="res://scene/Diaglog/interact/Chest/destructible_box.tscn" id="13_ffsxt"]
+[ext_resource type="Resource" uid="uid://ggp7ojfp02pd" path="res://scene/npc/resources/Campesino.tres" id="13_lhn77"]
 [ext_resource type="PackedScene" uid="uid://do36ft7lenarb" path="res://scene/colectables/diamante.tscn" id="14_0hy5f"]
 [ext_resource type="PackedScene" uid="uid://cjnt8ok1r3b2i" path="res://scene/item/pickup/item_pickup.tscn" id="14_xci25"]
 [ext_resource type="Resource" uid="uid://cejaffxvvhnil" path="res://scene/item/potion.tres" id="15_b4ws7"]
@@ -2677,6 +2683,51 @@ offset_left = -113.0
 offset_top = 315.0
 offset_right = -73.0
 offset_bottom = 355.0
+
+[node name="Npc" parent="npc" instance=ExtResource("10_ffsxt")]
+position = Vector2(100, -341)
+collision_layer = 2
+collision_mask = 1
+npc_resoure = ExtResource("9_ldfal")
+
+[node name="NpcBehaviourWander" parent="npc/Npc" instance=ExtResource("10_dxl8d")]
+wander_range = 3
+
+[node name="DialogInterraction" parent="npc/Npc" instance=ExtResource("11_flwvb")]
+position = Vector2(-1, 24)
+
+[node name="DialogText4" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "[fire]No pensé que saldrías con vida."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText2" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Y sin embargo, aquí estoy. Respirando."
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText5" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Siempre lo es, hasta que te falla la puntería"
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText7" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Inténtalo. Pero esta vez, no te voy a dar la espalda."
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText3" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "No fue personal... era parte del trato."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText6" type="Node" parent="npc/Npc/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "Puedo arreglar eso ahora mismo."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="items" type="Control" parent="."]
 layout_mode = 3
