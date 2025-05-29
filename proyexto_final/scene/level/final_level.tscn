@@ -2668,7 +2668,7 @@ one_shot = false
 position = Vector2(1101, 75)
 
 [node name="Player" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(-36, -48)
+position = Vector2(1108, 503)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(675, 544)
@@ -2703,29 +2703,92 @@ metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText2" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "[wave]Y sin embargo, aquí estoy. Respirando."
+text = "
+[wave]Y sin embargo, aquí estoy. Respirando."
 npc_info = ExtResource("13_lhn77")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText3" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "No fue personal... era parte del trato."
+text = "[wave]No fue personal... era parte del trato."
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText5" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "Siempre lo es, hasta que te falla la puntería"
+text = "
+[wave]Siempre lo es, hasta que te falla la puntería"
 npc_info = ExtResource("13_lhn77")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText6" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "Puedo arreglar eso ahora mismo."
+text = "[wave]Puedo arreglar eso ahora mismo."
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
 [node name="DialogText7" type="Node" parent="npc/Npc/DialogInterraction"]
 script = ExtResource("12_bj5md")
-text = "Inténtalo. Pero esta vez, no te voy a dar la espalda."
+text = "
+[wave]Inténtalo. Pero esta vez, no te voy a dar la espalda."
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="Npc2" parent="npc" instance=ExtResource("10_ffsxt")]
+position = Vector2(1270, 233)
+collision_layer = 2
+collision_mask = 1
+npc_resoure = ExtResource("9_ldfal")
+
+[node name="NpcBehaviourWander" parent="npc/Npc2" instance=ExtResource("10_dxl8d")]
+idle_duration = 20.0
+
+[node name="DialogInterraction" parent="npc/Npc2" instance=ExtResource("11_flwvb")]
+position = Vector2(-1, 24)
+
+[node name="DialogText4" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "[shake] ¡Lo lograste, felicidades!"
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText2" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "
+[wave]Gracias"
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText3" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "[wave] ¿De verdad estás orgulloso de lo que hiciste?"
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText5" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "
+[wave]Orgulloso no… pero tampoco me arrepiento."
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText6" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "[wave]Sabes que el karma no perdona."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText7" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "
+[wave]El karma tarda… pero yo también sé esperar."
+npc_info = ExtResource("13_lhn77")
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText8" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "[wave]Entonces prepárate. Porque todo vuelve."
+metadata/_custom_type_script = "uid://cdxc31wxd765y"
+
+[node name="DialogText9" type="Node" parent="npc/Npc2/DialogInterraction"]
+script = ExtResource("12_bj5md")
+text = "
+[wave]Lo sé. Y cuando vuelva… estaré listo."
 npc_info = ExtResource("13_lhn77")
 metadata/_custom_type_script = "uid://cdxc31wxd765y"
 
