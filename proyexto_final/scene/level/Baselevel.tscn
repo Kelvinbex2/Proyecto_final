@@ -1193,7 +1193,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(-56, -33)
+position = Vector2(216, 353)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1440,7 +1440,7 @@ collision_layer = 0
 collision_mask = 14
 
 [node name="CheckPoint4" parent="Platform" instance=ExtResource("40_oumh2")]
-position = Vector2(1308, 629)
+position = Vector2(1275, 627)
 collision_layer = 0
 collision_mask = 14
 
