@@ -2685,7 +2685,7 @@ offset_right = -73.0
 offset_bottom = 355.0
 
 [node name="Npc" parent="npc" instance=ExtResource("10_ffsxt")]
-position = Vector2(100, -341)
+position = Vector2(102.729, -341)
 collision_layer = 2
 collision_mask = 1
 npc_resoure = ExtResource("9_ldfal")
@@ -2948,7 +2948,7 @@ position = Vector2(971, 93)
 position = Vector2(1205, 11)
 
 [node name="BossBase" parent="Enemies" node_paths=PackedStringArray("start_position") instance=ExtResource("24_q0by3")]
-position = Vector2(1006, 559)
+position = Vector2(982, 560)
 start_position = NodePath("../BossStartPoint")
 
 [node name="misionaryStartPoint" type="Marker2D" parent="Enemies"]
