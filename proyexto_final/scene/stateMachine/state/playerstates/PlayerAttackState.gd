@@ -12,6 +12,8 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func enter_state() -> void:
+	if player.is_dying:
+		return
 	set_physics_process(true)
 	
 	hit_box_handler.collision_shape_2d.disabled = false
@@ -25,6 +27,8 @@ func exit_state() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
+	if player.is_dying:
+		return
 	
 	player.movement_handler.handle_movement(player, player.input_handler.handle_movement_input(), delta)
 

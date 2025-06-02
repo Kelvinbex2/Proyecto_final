@@ -9,6 +9,8 @@ func _ready() -> void:
 	set_physics_process(false)
 	
 func enter_state() ->void:
+	if player.is_dying:
+		return
 	set_physics_process(true)
 	player.animatedSprite2D.play("idle")
 	
@@ -21,6 +23,8 @@ func exit_state() ->void:
 
 
 func _physics_process(delta: float) -> void:
+	if player.is_dying:
+		return
 	player.movement_handler.handle_decelartion(player, delta)
 
 	if player.input_handler.handle_movement_input() != Vector2.ZERO:

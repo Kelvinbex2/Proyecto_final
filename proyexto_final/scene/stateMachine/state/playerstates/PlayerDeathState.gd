@@ -5,6 +5,7 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func enter_state() -> void:
+	
 	set_physics_process(true)
 	player.velocity = Vector2.ZERO
 	player.animatedSprite2D.play("die")
