@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dngowbw1vetdp"]
+[gd_scene load_steps=61 format=4 uid="uid://dngowbw1vetdp"]
 
 [ext_resource type="Texture2D" uid="uid://cfp73roessarf" path="res://Assets/character/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_1c01b"]
 [ext_resource type="Script" uid="uid://d1lrusbbiy8md" path="res://scene/level/baselevel.gd" id="1_ac421"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://iellk33xgjhc" path="res://scene/Enemy/knight_base.tscn" id="31_1lfc4"]
 [ext_resource type="PackedScene" uid="uid://ccde3acw0otkx" path="res://scene/npc/patrol_location.tscn" id="31_v7w4t"]
 [ext_resource type="PackedScene" uid="uid://b5fwndbv5mgny" path="res://scene/Portal/puerta.tscn" id="34_v7w4t"]
+[ext_resource type="PackedScene" uid="uid://bgi3g85nrke1x" path="res://scene/platform/platform_new.tscn" id="36_4jm1m"]
 [ext_resource type="PackedScene" uid="uid://c11yooyfqvnh7" path="res://scene/Enemy/goblin.tscn" id="37_qrcug"]
 [ext_resource type="PackedScene" uid="uid://cnq6eklwqghx3" path="res://scene/check_point/check_point.tscn" id="40_oumh2"]
 [ext_resource type="PackedScene" uid="uid://c3qdutvlc2tnn" path="res://scene/Enemy/Skeleton.tscn" id="40_psfj5"]
@@ -1069,6 +1070,120 @@ size = Vector2(1556, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
 size = Vector2(552.938, 21)
 
+[sub_resource type="Animation" id="Animation_j3dkf"]
+resource_name = "up"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(487, 329), Vector2(487, 442)]
+}
+
+[sub_resource type="Animation" id="Animation_noudi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(487, 329)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gqey"]
+_data = {
+&"RESET": SubResource("Animation_noudi"),
+&"up": SubResource("Animation_j3dkf")
+}
+
+[sub_resource type="Animation" id="Animation_4jm1m"]
+resource_name = "up2"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1275, 482), Vector2(1275, 571)]
+}
+
+[sub_resource type="Animation" id="Animation_0gqey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1275, 482)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avdey"]
+_data = {
+&"RESET": SubResource("Animation_0gqey"),
+&"up2": SubResource("Animation_4jm1m")
+}
+
+[sub_resource type="Animation" id="Animation_avdey"]
+resource_name = "up3"
+length = 7.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(203, 651), Vector2(203, 564)]
+}
+
+[sub_resource type="Animation" id="Animation_5rmy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(203, 651)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ap3qs"]
+_data = {
+&"RESET": SubResource("Animation_5rmy5"),
+&"up3": SubResource("Animation_avdey")
+}
+
 [node name="BaseLevel" type="Node2D" groups=["entity_container"]]
 script = ExtResource("1_ac421")
 
@@ -1193,7 +1308,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(-59, -4)
+position = Vector2(183, 328)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1448,6 +1563,33 @@ collision_mask = 14
 position = Vector2(1897, 312)
 collision_layer = 0
 collision_mask = 14
+
+[node name="PlatformNew" parent="Platform" instance=ExtResource("36_4jm1m")]
+position = Vector2(487, 329)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/PlatformNew"]
+libraries = {
+&"": SubResource("AnimationLibrary_0gqey")
+}
+autoplay = "up"
+
+[node name="PlatformNew2" parent="Platform" instance=ExtResource("36_4jm1m")]
+position = Vector2(1275, 482)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/PlatformNew2"]
+libraries = {
+&"": SubResource("AnimationLibrary_avdey")
+}
+autoplay = "up2"
+
+[node name="PlatformNew3" parent="Platform" instance=ExtResource("36_4jm1m")]
+position = Vector2(203, 651)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/PlatformNew3"]
+libraries = {
+&"": SubResource("AnimationLibrary_ap3qs")
+}
+autoplay = "up3"
 
 [node name="npc" type="Control" parent="."]
 layout_mode = 3
