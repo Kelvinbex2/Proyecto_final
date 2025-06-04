@@ -2,8 +2,10 @@ extends Node
 
 
 const DEFAULT_COINS = 10
+const MAX_FRUTAS = 99
 var currently_held_coins = DEFAULT_COINS
 var currently_selected : BaseUpgrade = null
+var frutas: int = 0
 
 
 
@@ -38,3 +40,13 @@ func reset_coins() -> void:
 func on_upgrade_selected(upgrade : BaseUpgrade) -> void:
 	currently_selected = upgrade
 	
+func add_fruta(val: int = 1) -> void:
+	frutas = min(frutas + val, MAX_FRUTAS)
+	SignalBus.emit_on_fruta_recogida(frutas)
+
+func reset_frutas() -> void:
+	frutas = 0
+	SignalBus.emit_on_fruta_recogida(frutas)
+
+func get_frutas() -> int:
+	return frutas

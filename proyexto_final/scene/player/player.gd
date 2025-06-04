@@ -167,15 +167,11 @@ func unfreeze() -> void:
 	
 
 func add_frutas():
-	frutas += 1
-	SignalBus.emit_on_fruta_recogida(frutas)
-	
+	GlobalStat.add_fruta()
 
+func reset_stats():
+	GlobalStat.reset_frutas()
 
-
-func reset_stats() -> void:
-	frutas = 0
-	SignalBus.emit_on_fruta_recogida(frutas)
 
 
 func set_checkpoint(pos: Vector2) -> void:
