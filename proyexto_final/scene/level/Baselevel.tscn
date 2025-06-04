@@ -1070,6 +1070,21 @@ size = Vector2(1556, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv3gj"]
 size = Vector2(552.938, 21)
 
+[sub_resource type="Animation" id="Animation_noudi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(487, 329)]
+}
+
 [sub_resource type="Animation" id="Animation_j3dkf"]
 resource_name = "up"
 length = 5.0
@@ -1087,7 +1102,13 @@ tracks/0/keys = {
 "values": [Vector2(487, 329), Vector2(487, 442)]
 }
 
-[sub_resource type="Animation" id="Animation_noudi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gqey"]
+_data = {
+&"RESET": SubResource("Animation_noudi"),
+&"up": SubResource("Animation_j3dkf")
+}
+
+[sub_resource type="Animation" id="Animation_0gqey"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1099,13 +1120,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(487, 329)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gqey"]
-_data = {
-&"RESET": SubResource("Animation_noudi"),
-&"up": SubResource("Animation_j3dkf")
+"values": [Vector2(1275, 482)]
 }
 
 [sub_resource type="Animation" id="Animation_4jm1m"]
@@ -1125,7 +1140,13 @@ tracks/0/keys = {
 "values": [Vector2(1275, 482), Vector2(1275, 571)]
 }
 
-[sub_resource type="Animation" id="Animation_0gqey"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avdey"]
+_data = {
+&"RESET": SubResource("Animation_0gqey"),
+&"up2": SubResource("Animation_4jm1m")
+}
+
+[sub_resource type="Animation" id="Animation_5rmy5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1137,13 +1158,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1275, 482)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_avdey"]
-_data = {
-&"RESET": SubResource("Animation_0gqey"),
-&"up2": SubResource("Animation_4jm1m")
+"values": [Vector2(203, 651)]
 }
 
 [sub_resource type="Animation" id="Animation_avdey"]
@@ -1161,21 +1176,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(203, 651), Vector2(203, 564)]
-}
-
-[sub_resource type="Animation" id="Animation_5rmy5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(203, 651)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ap3qs"]
@@ -1308,7 +1308,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(183, 328)
+position = Vector2(208, 334)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3

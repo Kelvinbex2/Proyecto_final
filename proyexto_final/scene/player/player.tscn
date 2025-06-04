@@ -436,7 +436,7 @@ acceleration = 14.0
 decceleration = 8.0
 
 [node name="JumpHandler" parent="HandlerContainer" instance=ExtResource("5_ajqqa")]
-jump_speed = 350
+jump_speed = 280
 
 [node name="FlipHandler" parent="HandlerContainer" instance=ExtResource("6_rkmeh")]
 
