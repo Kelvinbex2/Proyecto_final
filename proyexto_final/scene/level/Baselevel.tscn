@@ -1308,7 +1308,7 @@ position = Vector2(814, 536)
 position = Vector2(1198, 603)
 
 [node name="PlayerSpawn" type="Marker2D" parent="EntitySpawn"]
-position = Vector2(212, -7)
+position = Vector2(192, 326)
 
 [node name="effect" type="Control" parent="."]
 layout_mode = 3
@@ -1385,7 +1385,7 @@ position = Vector2(257, 373)
 position = Vector2(252, 475)
 
 [node name="Diamante5" parent="Items" instance=ExtResource("19_qqpwm")]
-position = Vector2(-58, -1)
+position = Vector2(634, 374)
 
 [node name="Diamante6" parent="Items" instance=ExtResource("19_qqpwm")]
 position = Vector2(937, 376)
