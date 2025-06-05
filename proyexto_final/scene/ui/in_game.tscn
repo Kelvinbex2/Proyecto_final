@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlkxfa8k8i1tn"]
+[gd_scene load_steps=19 format=3 uid="uid://dlkxfa8k8i1tn"]
 
 [ext_resource type="Script" uid="uid://b3h83d5eppb26" path="res://scene/ui/pop_menu.gd" id="1_01a0d"]
 [ext_resource type="Texture2D" uid="uid://dtqbcxbe8nwa8" path="res://Assets/Background ui/Sprite sheet for Basic Pack.png" id="1_glwsn"]
-[ext_resource type="FontFile" uid="uid://cewwokw533abg" path="res://Assets/Background ui/pixelFont-7-8x14-sproutLands.ttf" id="3_ckq20"]
+[ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="3_7s3nj"]
+[ext_resource type="FontFile" uid="uid://dc3u845qkgu6y" path="res://Assets/font/Abaddon Light.ttf" id="3_ckq20"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01a0d"]
 texture = ExtResource("1_glwsn")
@@ -28,6 +29,10 @@ region_rect = Rect2(709, 164, 22, 24)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wexnm"]
 texture = ExtResource("1_glwsn")
 region_rect = Rect2(419, 116, 10, 9)
+
+[sub_resource type="SystemFont" id="SystemFont_7q6cb"]
+font_names = PackedStringArray("Constantia")
+hinting = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxdms"]
 texture = ExtResource("1_glwsn")
@@ -78,7 +83,6 @@ open_menu_screen = NodePath("baseMenuOpenBtn")
 help_menu_screen = NodePath("Helpmenu")
 
 [node name="baseMenuscreenContainer" type="VBoxContainer" parent="popMenu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -174,7 +178,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
 layout_mode = 2
 
 [node name="Helpmenu" type="MarginContainer" parent="popMenu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -194,14 +197,17 @@ patch_margin_bottom = 4
 [node name="title" type="HBoxContainer" parent="popMenu/Helpmenu"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 47
 
 [node name="Control" type="Control" parent="popMenu/Helpmenu/title"]
 layout_mode = 2
 
 [node name="HelpDisplay" type="Label" parent="popMenu/Helpmenu/title"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ckq20")
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = SubResource("SystemFont_7q6cb")
 theme_override_font_sizes/font_size = 30
 text = "Ayuda"
 
@@ -241,11 +247,15 @@ theme_override_constants/separation = -10
 [node name="textDisplay" type="RichTextLabel" parent="popMenu/Helpmenu/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_colors/table_border = Color(0.862745, 0.72549, 0.541176, 1)
+theme_override_colors/font_selected_color = Color(0.564706, 0.384314, 0.364706, 1)
 theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/normal_font = ExtResource("3_ckq20")
+theme_override_fonts/bold_font = ExtResource("3_7s3nj")
 bbcode_enabled = true
-text = "[wave]flecha izquierda para mover el jugador hacia la izquierda"
+text = "[wave]Flecha izquierda para mover el jugador hacia la izquierda"
 fit_content = true
 scroll_active = false
 
@@ -263,9 +273,12 @@ theme_override_constants/separation = -20
 [node name="textDisplay" type="RichTextLabel" parent="popMenu/Helpmenu/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_colors/font_selected_color = Color(0.564706, 0.384314, 0.364706, 1)
 theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/normal_font = ExtResource("3_ckq20")
+theme_override_fonts/bold_font = ExtResource("3_7s3nj")
 bbcode_enabled = true
 text = "[shake]flecha derecha para mover el jugador hacia la derecha"
 fit_content = true
@@ -287,9 +300,12 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
+theme_override_colors/font_selected_color = Color(0.564706, 0.384314, 0.364706, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 27
+theme_override_fonts/normal_font = ExtResource("3_ckq20")
+theme_override_fonts/bold_font = ExtResource("3_7s3nj")
 bbcode_enabled = true
 text = "[wave]Flecha arriba para saltar"
 fit_content = true
@@ -309,9 +325,11 @@ theme_override_constants/separation = -82
 [node name="textDisplay" type="RichTextLabel" parent="popMenu/Helpmenu/MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
+theme_override_colors/font_selected_color = Color(0.564706, 0.384314, 0.364706, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/normal_font = ExtResource("3_ckq20")
+theme_override_fonts/bold_font = ExtResource("3_7s3nj")
 bbcode_enabled = true
 text = "[shake]Espacio para Atacar"
 fit_content = true
@@ -333,9 +351,12 @@ custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
+theme_override_colors/font_selected_color = Color(0.564706, 0.384314, 0.364706, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 27
+theme_override_fonts/normal_font = ExtResource("3_ckq20")
+theme_override_fonts/bold_font = ExtResource("3_7s3nj")
 bbcode_enabled = true
 text = "[wave] Esc Menú y recursos [/wave]"
 fit_content = true
