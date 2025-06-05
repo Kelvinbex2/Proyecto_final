@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlkxfa8k8i1tn"]
+[gd_scene load_steps=10 format=3 uid="uid://dlkxfa8k8i1tn"]
 
 [ext_resource type="Script" uid="uid://b3h83d5eppb26" path="res://scene/ui/pop_menu.gd" id="1_01a0d"]
 [ext_resource type="Texture2D" uid="uid://dtqbcxbe8nwa8" path="res://Assets/Background ui/Sprite sheet for Basic Pack.png" id="1_glwsn"]
+[ext_resource type="FontFile" uid="uid://cfsqtq5sryvvk" path="res://Assets/font/Abaddon Bold.ttf" id="3_7s3nj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01a0d"]
 texture = ExtResource("1_glwsn")
@@ -70,6 +71,8 @@ custom_minimum_size = Vector2(5, 4)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_01a0d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01a0d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_01a0d")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer"]
@@ -124,6 +127,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ssccy")
 layout_mode = 2
 
 [node name="baseMenuOpenBtn" type="VBoxContainer" parent="popMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -134,9 +138,51 @@ custom_minimum_size = Vector2(5, 4)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_wexnm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wexnm")
 theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
 
 [node name="seperator" type="Control" parent="popMenu/baseMenuOpenBtn"]
+layout_mode = 2
+
+[node name="Helpmenu" type="MarginContainer" parent="popMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popMenu/Helpmenu"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(742, 39, 18, 18)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="title" type="HBoxContainer" parent="popMenu/Helpmenu"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 67
+
+[node name="Control" type="Control" parent="popMenu/Helpmenu/title"]
+layout_mode = 2
+
+[node name="HelpDisplay" type="Label" parent="popMenu/Helpmenu/title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.473384, 0.364299, 0.211529, 1)
+theme_override_colors/font_outline_color = Color(0.862745, 0.72549, 0.541176, 1)
+theme_override_constants/line_spacing = 15
+theme_override_constants/paragraph_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_7s3nj")
+theme_override_font_sizes/font_size = 30
+text = "Insrucciones"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popMenu/Helpmenu"]
 layout_mode = 2
 
 [connection signal="pressed" from="popMenu/baseMenuscreenContainer/base/VBoxContainer/toggleButton" to="popMenu" method="_on_toggle_button_pressed"]
