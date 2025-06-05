@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlkxfa8k8i1tn"]
+
+[ext_resource type="Texture2D" uid="uid://dtqbcxbe8nwa8" path="res://Assets/Background ui/Sprite sheet for Basic Pack.png" id="1_glwsn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01a0d"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(419, 100, 10, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7s3nj"]
+texture = ExtResource("1_glwsn")
+texture_margin_top = 13.0
+region_rect = Rect2(741, 198, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckq20"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(709, 196, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7q6cb"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(741, 166, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ssccy"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(709, 164, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wexnm"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(419, 116, 10, 9)
+
+[node name="inGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="popMenu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="baseMenuscreenContainer" type="VBoxContainer" parent="popMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="base" type="MarginContainer" parent="popMenu/baseMenuscreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popMenu/baseMenuscreenContainer/base"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="toggleButton" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer"]
+custom_minimum_size = Vector2(5, 4)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_01a0d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(742, 39, 18, 18)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="btnContainer" type="VBoxContainer" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer"]
+layout_mode = 2
+
+[node name="helpbtn" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_7s3nj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7s3nj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ckq20")
+
+[node name="helpbtn2" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_7q6cb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7q6cb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ssccy")
+
+[node name="seperator" type="Control" parent="popMenu/baseMenuscreenContainer"]
+layout_mode = 2
+
+[node name="baseMenuOpenBtn" type="VBoxContainer" parent="popMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 36
+
+[node name="toggleButton" type="Button" parent="popMenu/baseMenuOpenBtn"]
+custom_minimum_size = Vector2(5, 4)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
+
+[node name="seperator" type="Control" parent="popMenu/baseMenuOpenBtn"]
+layout_mode = 2
