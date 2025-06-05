@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlkxfa8k8i1tn"]
+[gd_scene load_steps=9 format=3 uid="uid://dlkxfa8k8i1tn"]
 
+[ext_resource type="Script" uid="uid://b3h83d5eppb26" path="res://scene/ui/pop_menu.gd" id="1_01a0d"]
 [ext_resource type="Texture2D" uid="uid://dtqbcxbe8nwa8" path="res://Assets/Background ui/Sprite sheet for Basic Pack.png" id="1_glwsn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01a0d"]
@@ -35,15 +36,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="popMenu" type="MarginContainer" parent="."]
+[node name="popMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_01a0d")
+menu_screen = NodePath("baseMenuscreenContainer")
+open_menu_screen = NodePath("baseMenuOpenBtn")
 
 [node name="baseMenuscreenContainer" type="VBoxContainer" parent="popMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -129,3 +134,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
 
 [node name="seperator" type="Control" parent="popMenu/baseMenuOpenBtn"]
 layout_mode = 2
+
+[connection signal="pressed" from="popMenu/baseMenuscreenContainer/base/VBoxContainer/toggleButton" to="popMenu" method="_on_toggle_button_pressed"]
+[connection signal="pressed" from="popMenu/baseMenuOpenBtn/toggleButton" to="popMenu" method="_on_toggle_button_pressed"]
