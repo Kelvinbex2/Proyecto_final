@@ -83,6 +83,7 @@ open_menu_screen = NodePath("baseMenuOpenBtn")
 help_menu_screen = NodePath("Helpmenu")
 
 [node name="baseMenuscreenContainer" type="VBoxContainer" parent="popMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -178,6 +179,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
 layout_mode = 2
 
 [node name="Helpmenu" type="MarginContainer" parent="popMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
