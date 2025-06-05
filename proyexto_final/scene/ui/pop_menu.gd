@@ -19,4 +19,5 @@ func _on_toggle_button_pressed() -> void:
 
 func _on_toggle_helo_menubtn_pressed() -> void:
 	toggle_visibility(help_menu_screen)
+	toggle_visibility(menu_screen)
 	
