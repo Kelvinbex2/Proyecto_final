@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlkxfa8k8i1tn"]
+[gd_scene load_steps=17 format=3 uid="uid://dlkxfa8k8i1tn"]
 
 [ext_resource type="Script" uid="uid://b3h83d5eppb26" path="res://scene/ui/pop_menu.gd" id="1_01a0d"]
 [ext_resource type="Texture2D" uid="uid://dtqbcxbe8nwa8" path="res://Assets/Background ui/Sprite sheet for Basic Pack.png" id="1_glwsn"]
@@ -29,6 +29,14 @@ region_rect = Rect2(709, 164, 22, 24)
 texture = ExtResource("1_glwsn")
 region_rect = Rect2(419, 116, 10, 9)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxdms"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(868, 133, 24, 23)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lx5t"]
+texture = ExtResource("1_glwsn")
+region_rect = Rect2(836, 132, 24, 25)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7q6cb"]
 atlas = ExtResource("1_glwsn")
 region = Rect2(419, 49, 8, 15)
@@ -57,7 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="popMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen")]
+[node name="popMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "help_menu_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +75,7 @@ grow_vertical = 2
 script = ExtResource("1_01a0d")
 menu_screen = NodePath("baseMenuscreenContainer")
 open_menu_screen = NodePath("baseMenuOpenBtn")
+help_menu_screen = NodePath("Helpmenu")
 
 [node name="baseMenuscreenContainer" type="VBoxContainer" parent="popMenu"]
 visible = false
@@ -125,7 +134,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="helpbtn" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
+[node name="toggleHeloMenubtn" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -134,7 +143,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7s3nj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7s3nj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ckq20")
 
-[node name="helpbtn2" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
+[node name="btnabt" type="Button" parent="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -147,7 +156,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ssccy")
 layout_mode = 2
 
 [node name="baseMenuOpenBtn" type="VBoxContainer" parent="popMenu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -166,6 +174,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_wexnm")
 layout_mode = 2
 
 [node name="Helpmenu" type="MarginContainer" parent="popMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -206,11 +215,14 @@ layout_mode = 2
 theme_override_constants/margin_top = -9
 theme_override_constants/margin_right = -10
 
-[node name="Button" type="Button" parent="popMenu/Helpmenu/exitbtn/MarginContainer"]
+[node name="toggleHeloMenubtn" type="Button" parent="popMenu/Helpmenu/exitbtn/MarginContainer"]
 custom_minimum_size = Vector2(29, 29)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_bxdms")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bxdms")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7lx5t")
 
 [node name="MarginContainer" type="MarginContainer" parent="popMenu/Helpmenu"]
 layout_mode = 2
@@ -337,4 +349,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [connection signal="pressed" from="popMenu/baseMenuscreenContainer/base/VBoxContainer/toggleButton" to="popMenu" method="_on_toggle_button_pressed"]
+[connection signal="pressed" from="popMenu/baseMenuscreenContainer/base/VBoxContainer/NinePatchRect/MarginContainer/btnContainer/HBoxContainer/toggleHeloMenubtn" to="popMenu" method="_on_toggle_helo_menubtn_pressed"]
 [connection signal="pressed" from="popMenu/baseMenuOpenBtn/toggleButton" to="popMenu" method="_on_toggle_button_pressed"]
+[connection signal="pressed" from="popMenu/Helpmenu/exitbtn/MarginContainer/toggleHeloMenubtn" to="popMenu" method="_on_toggle_helo_menubtn_pressed"]
